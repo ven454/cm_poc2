@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<saw:report xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sawx="com.siebel.analytics.web/expression/v1.1" xmlVersion="201201160">      
+   <saw:criteria xsi:type="saw:simpleCriteria" subjectArea="&quot;B2P&quot;" withinHierarchy="true">            
+      <saw:columns>                  
+         <saw:column xsi:type="saw:regularColumn" columnID="c4a1e47f502751f07" aggRule="none">                        
+            <saw:columnFormula>                              
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Vendor Invoice Detail&quot;.&quot;Dist Amount&quot;</sawx:expr></saw:columnFormula>                        
+            <saw:displayFormat>                              
+               <saw:formatSpec suppress="repeat" wrapText="true" hAlign="right">                                    
+                  <saw:dataFormat minDigits="0" maxDigits="0" commas="true" negativeType="minus" xsi:type="saw:number"/></saw:formatSpec></saw:displayFormat>                        
+            <saw:tableHeading>                              
+               <saw:caption fmt="text">                                    
+                  <saw:text>Vendor Invoice Detail</saw:text></saw:caption></saw:tableHeading>                        
+            <saw:columnHeading>                              
+               <saw:displayFormat>                                    
+                  <saw:formatSpec/></saw:displayFormat>                              
+               <saw:caption fmt="text">                                    
+                  <saw:text>Amount</saw:text></saw:caption></saw:columnHeading></saw:column>                  
+         <saw:column xsi:type="saw:regularColumn" columnID="cf10a1621fe24aec3">                        
+            <saw:columnFormula>                              
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Vendor Invoice Detail&quot;.&quot;Invoice Num&quot;</sawx:expr></saw:columnFormula></saw:column>                  
+         <saw:column xsi:type="saw:regularColumn" columnID="c922a1221b0d627ce">                        
+            <saw:columnFormula>                              
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Periods&quot;.&quot;Fiscal year&quot;</sawx:expr></saw:columnFormula>                        
+            <saw:displayFormat>                              
+               <saw:formatSpec suppress="suppress" wrapText="true" hAlign="center" interaction="none"/></saw:displayFormat>                        
+            <saw:tableHeading>                              
+               <saw:caption fmt="text">                                    
+                  <saw:text>Dim - Periods</saw:text></saw:caption></saw:tableHeading>                        
+            <saw:columnHeading>                              
+               <saw:displayFormat>                                    
+                  <saw:formatSpec interaction="none"/></saw:displayFormat>                              
+               <saw:caption fmt="text">                                    
+                  <saw:text>FY 2020 Market Share</saw:text></saw:caption></saw:columnHeading></saw:column>                  
+         <saw:column xsi:type="saw:regularColumn" columnID="cbfe9798d2182b8e3">                        
+            <saw:columnFormula>                              
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Vendor&quot;.&quot;Vendor Name&quot;</sawx:expr></saw:columnFormula>                        
+            <saw:displayFormat>                              
+               <saw:formatSpec suppress="suppress" wrapText="true" interaction="none"/></saw:displayFormat>                        
+            <saw:columnHeading>                              
+               <saw:displayFormat>                                    
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>                  
+         <saw:column xsi:type="saw:regularColumn" columnID="ce56104dd7216a455">                        
+            <saw:columnFormula>                              
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Vendor Invoice Detail&quot;.&quot;Tub&quot;</sawx:expr></saw:columnFormula>                        
+            <saw:displayFormat>                              
+               <saw:formatSpec suppress="suppress" wrapText="true" interaction="none"/></saw:displayFormat>                        
+            <saw:columnHeading>                              
+               <saw:displayFormat>                                    
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>                  
+         <saw:column xsi:type="saw:regularColumn" columnID="c34f9cf895693d98e">                        
+            <saw:columnFormula>                              
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Vendor Invoice Detail&quot;.&quot;Tub Name&quot;</sawx:expr></saw:columnFormula>                        
+            <saw:displayFormat>                              
+               <saw:formatSpec suppress="suppress" wrapText="true" interaction="none"/></saw:displayFormat>                        
+            <saw:tableHeading><saw:caption fmt="text"><saw:text>Vendor Invoice Detail</saw:text></saw:caption></saw:tableHeading><saw:columnHeading>                              
+               <saw:displayFormat>                                    
+                  <saw:formatSpec interaction="none"/></saw:displayFormat><saw:caption fmt="text"><saw:text>Name</saw:text></saw:caption></saw:columnHeading></saw:column></saw:columns>            
+      <saw:filter>                  
+         <sawx:expr xsi:type="sawx:logical" op="and">                        
+            <sawx:expr op="in" xsi:type="sawx:list">                              
+               <sawx:expr xsi:type="sawx:columnExpression" formulaUse="code" displayUse="display">                                    
+                  <saw:columnFormula formulaUse="display">                                          
+                     <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Vendor&quot;.&quot;Vendor Num Name&quot;</sawx:expr></saw:columnFormula></sawx:expr>                              
+               <sawx:expr xsi:type="sawx:eval" default="%">varVendorNumber</sawx:expr></sawx:expr>                        
+            <sawx:expr op="in" xsi:type="sawx:list">                              
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Periods&quot;.&quot;Fiscal year&quot;</sawx:expr>                              
+               <sawx:expr xsi:type="sawx:eval" default="0">varFiscalYear</sawx:expr></sawx:expr>                        
+            <sawx:expr op="in" xsi:type="sawx:list">                              
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Periods&quot;.&quot;Quarter no&quot;</sawx:expr>                              
+               <sawx:expr xsi:type="sawx:eval" default="%">varQuarterNo</sawx:expr></sawx:expr></sawx:expr></saw:filter>            
+      <saw:columnOrder>                  
+         <saw:columnOrderRef columnID="c4a1e47f502751f07" direction="descending"/></saw:columnOrder></saw:criteria>      
+   <saw:interactionOptions drill="true" movecolumns="true" sortcolumns="true" addremovevalues="false" groupoperations="false" calcitemoperations="false" showhidesubtotal="false" showhiderunningsum="false" inclexclcolumns="true"/>      
+   <saw:views textDelivery="compoundView!1" valueHierarchyIndent="false" parentsBefore="true" includeNewColumns="true" nullSuppress="true" currentView="0">            
+      <saw:view xsi:type="saw:compoundView" name="compoundView!1">                  
+         <saw:cvTable>                        
+            <saw:cvRow>                              
+               <saw:cvCell viewName="titleView!1"/></saw:cvRow>                        
+            <saw:cvRow>                              
+               <saw:cvCell viewName="pivotTableView!1"/></saw:cvRow></saw:cvTable></saw:view>            
+      <saw:view xsi:type="saw:titleView" name="titleView!1" includeName="true" startedDisplay="dateTime"/>            
+      <saw:view xsi:type="saw:pivotTableView" name="pivotTableView!1" scrollingEnabled="false">                  
+         <saw:edges>                        
+            <saw:edge axis="page" showColumnHeader="true"/>                        
+            <saw:edge axis="section" insertPageBreak="false" showBlankRows="false" headings="none">                              
+               <saw:displayFormat>                                    
+                  <saw:formatSpec wrapText="true"/></saw:displayFormat></saw:edge>                        
+            <saw:edge axis="row" showColumnHeader="true">                              
+               <saw:displayGrandTotals>                                    
+                  <saw:displayGrandTotal id="gt_row" grandTotalPosition="after"/></saw:displayGrandTotals>                              
+               <saw:columnOrder>                                    
+                  <saw:columnOrderRef columnID="ce56104dd7216a455" direction="descending">                                          
+                     <saw:QDR>                                                
+                        <saw:staticMemberGroup specialDimension="grandTotal">                                                      
+                           <saw:members xsi:type="saw:stringMembers">                                                            
+                              <saw:value>gt_column</saw:value></saw:members></saw:staticMemberGroup>                                               
+                        <saw:staticMemberGroup specialDimension="measure">                                                      
+                           <saw:members xsi:type="saw:stringMembers">                                                            
+                              <saw:value>c4a1e47f502751f07</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>                                    
+                  <saw:columnOrderRef columnID="c34f9cf895693d98e" direction="descending">                                          
+                     <saw:QDR>                                                
+                        <saw:staticMemberGroup specialDimension="grandTotal">                                                      
+                           <saw:members xsi:type="saw:stringMembers">                                                            
+                              <saw:value>gt_column</saw:value></saw:members></saw:staticMemberGroup>                                                
+                        <saw:staticMemberGroup specialDimension="measure">                                                      
+                           <saw:members xsi:type="saw:stringMembers">                                                            
+                              <saw:value>c4a1e47f502751f07</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>                                    
+                  <saw:columnOrderRef columnID="cf10a1621fe24aec3" direction="descending">                                          
+                     <saw:QDR>                                                
+                        <saw:staticMemberGroup specialDimension="grandTotal">                                                      
+                           <saw:members xsi:type="saw:stringMembers">                                                            
+                              <saw:value>gt_column</saw:value></saw:members></saw:staticMemberGroup>                                                
+                        <saw:staticMemberGroup specialDimension="measure">                                                      
+                           <saw:members xsi:type="saw:stringMembers">                                                            
+                              <saw:value>c4a1e47f502751f07</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>                  
+                  </saw:columnOrder>                              
+               <saw:edgeLayers>                                    
+                  <saw:edgeLayer type="column" columnID="ce56104dd7216a455">                                          
+                     <saw:levels>                                                
+                        <saw:level>                                                      
+                           <saw:displaySubTotal id="st_ce56104dd7216a455" subTotalPosition="none"/></saw:level></saw:levels></saw:edgeLayer>                                    
+                  <saw:edgeLayer type="column" columnID="c34f9cf895693d98e"/>                  
+                  </saw:edgeLayers></saw:edge>                        
+            <saw:edge axis="column" showColumnHeader="rollover">                              
+               <saw:displayGrandTotals>                                    
+                  <saw:displayGrandTotal id="gt_column" grandTotalPosition="after">                                          
+                     <saw:memberFormat>                                                
+                        <saw:displayFormat>                                                      
+                           <saw:formatSpec wrapText="true" vAlign="bottom"/></saw:displayFormat>                                                
+                        <saw:caption>                                                      
+                           <saw:text>Grand Total</saw:text></saw:caption></saw:memberFormat></saw:displayGrandTotal></saw:displayGrandTotals>                              
+               <saw:columnOrder>                                    
+                  <saw:columnOrderRef columnID="c922a1221b0d627ce" direction="descending">                                          
+                     <saw:QDR>                                                
+                        <saw:staticMemberGroup specialDimension="grandTotal">                                                      
+                           <saw:members xsi:type="saw:stringMembers">                                                            
+                              <saw:value>gt_row</saw:value></saw:members></saw:staticMemberGroup>                                                
+                        <saw:staticMemberGroup specialDimension="measure">                                                      
+                           <saw:members xsi:type="saw:specialValueMembers">                                                            
+                              <saw:value>c4a1e47f502751f07</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>                                    
+                  <saw:columnOrderRef columnID="cbfe9798d2182b8e3" direction="descending">                                          
+                     <saw:QDR>                                                
+                        <saw:staticMemberGroup specialDimension="grandTotal">                                                      
+                           <saw:members xsi:type="saw:stringMembers">                                                            
+                              <saw:value>gt_row</saw:value></saw:members></saw:staticMemberGroup>                                                
+                        <saw:staticMemberGroup specialDimension="measure">                                                      
+                           <saw:members xsi:type="saw:specialValueMembers">                                                            
+                              <saw:value>c4a1e47f502751f07</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef></saw:columnOrder>                              
+               <saw:edgeLayers>                                    
+                  <saw:edgeLayer type="column" columnID="c922a1221b0d627ce"/>                                    
+                  <saw:edgeLayer type="column" columnID="cbfe9798d2182b8e3"/>                                    
+                  <saw:edgeLayer type="measure"/></saw:edgeLayers></saw:edge></saw:edges>                  
+         <saw:measuresList>                        
+            <saw:measure columnID="c4a1e47f502751f07" aggRule="sum">                              
+               <saw:memberFormat>                                    
+                  <saw:displayFormat>                                          
+                     <saw:formatSpec hAlign="right" wrapText="true"/></saw:displayFormat></saw:memberFormat>                              
+               <saw:dataBodyFormat>                                    
+                  <saw:displayFormat>                                          
+                     <saw:formatSpec/></saw:displayFormat></saw:dataBodyFormat></saw:measure></saw:measuresList>                  
+         <saw:sectionContent>                        
+            <saw:displayFormat>                              
+               <saw:formatSpec/></saw:displayFormat></saw:sectionContent></saw:view>            
+      <saw:view xsi:type="saw:noresultsview" name="noresultsview!1">                  
+         <saw:headline>                        
+            <saw:caption fmt="html">                              
+               <saw:text>No Results</saw:text></saw:caption></saw:headline>                  
+         <saw:detail>                        
+            <saw:caption fmt="html">                              
+               <saw:text>Please choose Prompt Values then click the APPLY button</saw:text></saw:caption></saw:detail></saw:view></saw:views></saw:report>

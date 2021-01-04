@@ -1,0 +1,550 @@
+<?xml version = '1.0' encoding = 'utf-8'?>
+<dataModel version="2.0" xmlns="http://xmlns.oracle.com/oxp/xmlp" xmlns:xdm="http://xmlns.oracle.com/oxp/xmlp" xmlns:xsd="http://wwww.w3.org/2001/XMLSchema" defaultDataSourceRef="gmas">
+   <description>
+      <![CDATA[undefined]]>
+   </description>
+   <dataProperties>
+      <property name="include_parameters" value="true"/>
+      <property name="include_null_Element" value="false"/>
+      <property name="include_rowsettag" value="false"/>
+      <property name="xml_tag_case" value="upper"/>
+   </dataProperties>
+   <dataSets>
+      <dataSet name="LOC" type="complex">
+         <sql>
+            <![CDATA[WITH
+    report_date AS 
+    (
+        -- with statement for all dates. This allows the report to be run using different date range parameters
+        SELECT /*+ MATERIALIZE */
+            d,
+			ob_end_before,
+			ob_end_after,
+            DECODE(date_range,'PRIOR GL',1,'PRIOR GLQ',1,0) AS gl,
+            DECODE
+            (   date_range,
+                'PRIOR MONTH',ADD_MONTHS(d,-1),
+                'PRIOR WEEK',d-7,
+                'PRIOR GL',TRUNC(ADD_MONTHS(d,-1),'MM'),
+                'PRIOR GLQ',TRUNC(ADD_MONTHS(d,-3),'MM'),
+                'CUSTOM',custom_start
+            ) AS period_start,
+            DECODE
+            (   date_range,
+                'PRIOR MONTH',d-1,
+                'PRIOR WEEK',d-1,
+                'PRIOR GL',LAST_DAY(ADD_MONTHS(d,-1)),
+                'PRIOR GLQ',LAST_DAY(ADD_MONTHS(d,-1)),
+                'CUSTOM',custom_end
+            ) AS period_end,
+            ADD_MONTHS(d,-1) AS n
+        FROM
+        (
+            -- all date parameters are in this subselect
+            SELECT
+                DECODE((:base_date),'',TRUNC(SYSDATE),TO_DATE((:base_date),'MM/DD/YYYY')) AS d,
+                (:date_range) AS date_range,
+                TO_DATE((:custom_start),'MM/DD/YYYY') AS custom_start,
+                TO_DATE((:custom_end),'MM/DD/YYYY') AS custom_end,
+				DECODE((:ob_end_before),'',NULL,TO_DATE((:ob_end_before),'MM/DD/YYYY')) AS ob_end_before,
+				DECODE((:ob_end_after),'',NULL,TO_DATE((:ob_end_after),'MM/DD/YYYY')) AS ob_end_after
+            FROM
+                dual
+        )
+    ),
+    gl_per AS 
+    (
+        -- Get the prior GL period based on the report dates
+        SELECT /*+ MATERIALIZE */
+            MAX(per.period_key) AS period_key,
+            MIN(per.period_key) AS min_period_key
+        FROM
+            gmasprod.mv_rf_gl_periods per,
+            report_date
+        WHERE
+            per.gl_period_start_dt <= report_date.period_end
+            AND per.gl_period_end_dt >= report_date.period_start
+            AND per.FY_CLOSING_NO = 1
+    ),
+    core AS 
+    (
+        SELECT /*+ MATERIALIZE */
+            DECODE(loc.loc_name,'DHHS','DHHS','OTHER') AS loc_group,
+            gl_per.period_key,
+            report_date.gl,
+            TO_CHAR(SYSDATE,'fmMM/fmDD/YY') AS CURRENT_DATE,
+            TO_CHAR(report_date.d,'fmMM/fmDD/YY') AS BASE_DATE,
+            TO_CHAR(report_date.period_start,'fmMM/fmDD/YY') AS period_start,
+            TO_CHAR(report_date.period_end,'fmMM/fmDD/YY') AS period_end,
+            report_date.period_end AS p_end,
+            report_date.period_start AS p_start,
+			report_date.ob_end_before,
+			report_date.ob_end_after,
+            s.segment_id,
+            (
+                SELECT -- this sub select is a simplified version of the GMAS database view segment_dates
+                    MAX(ad.obligated_end_date)
+                FROM
+                    gmasprod.budget_periods bps,
+                    gmasprod.awarded_dates ad,
+                    gmasprod.segment_revisions segrev 
+                WHERE
+                    segrev.segment_id = s.segment_id
+                    AND segrev.segment_revision_id = bps.segment_revision_id 
+                    AND bps.budget_period_id = ad.budget_period_id 
+                    AND segrev.segment_revision_number = 
+                    (
+                        SELECT  MAX(a.segment_revision_number) 
+                        FROM gmasprod.segment_revisions a 
+                        WHERE a.segment_id = segrev.segment_id 
+                        AND a.segment_revision_status_id = 8101
+                    )
+            ) AS OB_END_DATE_,
+            s.project_id || '-' || s.segment_number AS PROJECT_ID,
+            DECODE(s.arra_funding_flag,1,'Yes','No') AS ARRA,
+            DECODE(rf_rt.description,'Training grant','Yes','No') AS TG,
+            rf_p_org.tub AS PROJECT_TUB,
+            s.loc_number,
+            a.account_id,
+            rf_at.description AS ACCOUNT_TYPE,
+            rf_as.description AS ACCOUNT_STATUS,
+            (
+                SELECT
+                    MAX(ag.account_group_code)
+                FROM
+                    accounts a,
+                    account_groups ag
+                WHERE
+                    a.account_group_id = ag.account_group_id
+                    AND ag.segment_id = s.segment_id
+                    AND a.account_status_id = 10053
+                    AND a.account_type_id = 10101
+            ) AS maxgroup,
+            (
+                SELECT
+                    MIN(sub.activity || '.' || sub.subactivity)
+                FROM
+                    accounts a
+                    JOIN account_groups ag ON ag.account_group_id = a.account_group_id
+                    JOIN rf_subactivities sub ON a.subactivity_id = sub.subactivity_id
+                WHERE
+                    ag.segment_id = s.segment_id
+                    AND a.account_status_id = 10053
+            ) AS minaccount,
+            ag.account_group_code AS account_group,
+            rf_org.tub,
+            a.org,
+            a.fund,
+            a.activity,
+            ai.subactivity,
+            a.root,
+            loc.loc_name,
+loc.letter_of_credit_id,
+            DECODE(a.AT_RISK_ACCOUNT_FLAG,1,'Yes','No') AS AT_RISK,
+            a.start_date AS ACCOUNT_START,
+            a.end_date AS ACCOUNT_END,
+            a.final_figure_amount,
+            (
+                SELECT
+                    SUM(amount_allocated)
+                FROM
+                    gmasprod.account_allocation_revisions sub1_aar
+                    ,gmasprod.segment_revisions sub1_sr
+                WHERE
+                    sub1_aar.account_id = a.account_id
+                    AND sub1_aar.segment_revision_id = sub1_sr.segment_revision_id
+                    AND TRUNC(sub1_sr.DATE_COMMITED) <= report_date.period_end
+            ) AS ALLOCATION,
+			(
+			  	SELECT
+					  SUM(NVL(bea.obligated_direct_amount,0))
+					  + SUM(NVL(bea.obligated_indirect_amount,0))
+					  + SUM(NVL(bea.carryforward_direct_amount,0))
+					  + SUM(NVL(bea.carryforward_indirect_amount,0))
+				FROM
+					segment_revisions sr
+					JOIN awarded_budgets ab ON sr.segment_revision_id = ab.segment_revision_id
+					JOIN budget_entry_amounts bea ON ab.awarded_budget_id = bea.awarded_budget_id
+				WHERE
+					 sr.segment_id = s.segment_id
+					 AND bea.segment_line_item_id IS NULL
+					 AND bea.segment_category_id IS NULL
+					 AND sr.date_commited IS NOT NULL
+			) AS auth,				
+            -- sum/case statements to get transaction amounts. These statements all use the report dates from the report_date with
+            -- statement above.
+            SUM(
+                CASE
+                    WHEN   
+                        trx.trx_type='Expense'
+                        AND report_date.gl = 0
+                        AND TRUNC(trx.je_posted_date) <= report_date.period_end
+                    THEN
+                        trx.actual_amount
+                    WHEN   
+                        trx.trx_type='Expense'
+                        AND report_date.gl = 1
+                        AND per.period_key <= gl_per.period_key
+                    THEN
+                        trx.actual_amount
+                    ELSE
+                        0 
+                END
+            ) AS CUME_EXP,
+            SUM(
+                CASE
+                    WHEN  
+                        (trx.OBJECT = '4310' OR trx.OBJECT = '4311' OR trx.OBJECT BETWEEN '9300' AND '9309')
+                        AND report_date.gl = 0
+                        AND TRUNC(trx.je_posted_date) <= report_date.period_end 
+                    THEN
+                        trx.actual_amount
+                    WHEN  
+                        (trx.OBJECT = '4310' OR trx.OBJECT = '4311' OR trx.OBJECT BETWEEN '9300' AND '9309') 
+                        AND report_date.gl = 1
+                        AND per.period_key <= gl_per.period_key
+                    THEN
+                        trx.actual_amount
+                    ELSE
+                        0
+                END
+            ) AS CUME_INC,
+            SUM(
+                CASE
+                    WHEN  
+                        trx.trx_type = 'Expense'
+                        AND report_date.gl = 0
+                        AND TRUNC(trx.je_posted_date) >= report_date.period_start 
+                        AND TRUNC(trx.je_posted_date) <= report_date.period_end
+                    THEN
+                        trx.actual_amount
+                    WHEN  
+                        trx.trx_type = 'Expense'
+                        AND report_date.gl = 1
+                        AND per.period_key <= gl_per.period_key
+                        AND per.period_key >= gl_per.min_period_key
+                    THEN
+                        trx.actual_amount
+                    ELSE
+                        0
+                END
+            ) AS CURRENT_EXP,
+            SUM(
+                CASE
+                    WHEN   
+                        (
+                            trx.OBJECT BETWEEN '4000' AND '5999'
+                            OR trx.OBJECT BETWEEN '9000' AND '9299' 
+                            OR trx.OBJECT BETWEEN '9310' AND '9999'
+                        ) 
+                        AND trx.OBJECT NOT IN ('4310','4311','9322') 
+                        AND report_date.gl = 0
+                        AND TRUNC(trx.je_posted_date) <= report_date.period_end 
+                    THEN
+                        trx.actual_amount
+                    WHEN   
+                        (
+                            trx.OBJECT BETWEEN '4000' AND '5999' 
+                            OR trx.OBJECT BETWEEN '9000' AND '9299'
+                            OR trx.OBJECT BETWEEN '9310' AND '9999'
+                        ) 
+                        AND trx.OBJECT NOT IN ('4310','4311','9322') 
+                        AND report_date.gl = 1
+                        AND per.period_key <= gl_per.period_key
+                    THEN 
+                        trx.actual_amount
+                    ELSE
+                        0
+                END
+            ) AS CUME_OTHER_INCOME,
+            SUM(
+                CASE
+                    WHEN  
+                        trx.OBJECT = '9322'
+                        AND report_date.gl = 0
+                        AND TRUNC(trx.je_posted_date) <= report_date.period_end 
+                    THEN
+                        trx.actual_amount
+                    WHEN  
+                        trx.OBJECT = '9322'
+                        AND report_date.gl = 1
+                        AND per.period_key <= gl_per.period_key
+                    THEN
+                        trx.actual_amount
+                    ELSE
+                        0
+                END
+            ) AS CUME_9322
+        FROM
+            gmasprod.segments s
+            ,gmasprod.project_sponsors ps
+            ,gmasprod.projects p
+            ,gmasprod.rf_research_types rf_rt
+            ,gmasprod.rf_sponsor_roles rf_sr
+            ,gmasprod.organizations o
+            ,gmasprod.letter_of_credits loc
+            ,gmasprod.rf_payment_methods rf_pm
+            ,gmasprod.rf_segment_statuses rf_ss
+            ,gmasprod.faculty_involvements fi
+            ,gmasprod.rf_orgs rf_p_org
+            ,gmasprod.accounts a
+            ,gmasprod.account_groups ag
+            ,gmasprod.rf_orgs rf_org
+            ,gmasprod.mv_account_info ai
+            ,gmasprod.rf_account_statuses rf_as
+            ,gmasprod.rf_account_types rf_at
+            ,gmasprod.mv_account_object_trxs trx
+            ,gmasprod.mv_rf_gl_periods per
+            ,report_date
+            ,gl_per
+        WHERE 1=1
+            AND s.project_id = ps.project_id
+            AND ps.SPONSOR_ROLE_ID = rf_sr.sponsor_role_id
+            AND rf_sr.SPONSOR_ROLE_CD = 'S'
+            AND s.project_id = p.project_id
+            AND p.research_type_id = rf_rt.research_type_id
+            AND ps.organization_id = o.organization_id
+            AND o.LETTER_OF_CREDIT_ID = loc.LETTER_OF_CREDIT_ID
+            AND s.payment_method_id = rf_pm.payment_method_id
+            AND s.segment_status_id = rf_ss.segment_status_id
+            AND s.segment_id = fi.segment_id
+            AND fi.end_date IS NULL
+            AND fi.primary_tub_org_flag = 1
+            AND fi.org = rf_p_org.org
+            AND s.segment_id = ai.segment_id
+            AND ai.account_id = a.account_id
+            AND a.account_group_id = ag.account_group_id
+            AND a.org = rf_org.org
+            AND a.account_status_id = rf_as.account_status_id
+            AND a.account_type_id = rf_at.account_type_id
+            AND a.account_id = trx.account_id(+)
+            AND trx.actual_amount(+) <> 0
+            AND trx.period_name = per.gl_period_name(+)
+            AND per.fy_closing_no(+) = 1
+            AND rf_pm.payment_method_cd = 'L' -- limit to segments with LOC payment method
+            AND (rf_ss.description = 'Active' OR TRUNC(s.SEGMENT_CLOSED_DATE) >= report_date.period_start) -- Active segments only
+            AND s.loc_number LIKE (:docref)
+        GROUP BY
+            gl_per.period_key,
+            report_date.gl,
+            report_date.d,
+            report_date.period_start,
+            report_date.period_end,
+			report_date.ob_end_before,
+			report_date.ob_end_after,
+            s.segment_id,
+            s.project_id || '-' || s.segment_number,
+            s.arra_funding_flag,
+            rf_rt.description,
+            rf_p_org.tub,
+            s.loc_number,
+            a.account_id,
+            rf_at.description,
+            rf_as.description,
+            ag.account_group_code,
+            rf_org.tub,
+            a.org,
+            a.fund,
+            a.activity,
+            ai.subactivity,
+            a.root,
+            loc.loc_name,
+loc.letter_of_credit_id,
+            a.AT_RISK_ACCOUNT_FLAG,
+            a.start_date,
+            a.end_date,
+            a.final_figure_amount
+        ORDER BY s.segment_id,a.fund,a.activity,ai.subactivity
+    )
+SELECT
+    core.*,
+    TO_CHAR(ob_end_date_,'fmMM/fmDD/YY') AS ob_end_date,
+    DECODE(at_risk, 'Yes', cume_exp, 0) AS AT_RISK_EXP,
+    cume_exp + cume_9322 - DECODE(at_risk, 'Yes', cume_exp, 0) AS cume_exp_9322_minus_atrisk,
+    (
+        CASE
+            WHEN
+                tg = 'Yes'
+                AND final_figure_amount IS NOT NULL
+                AND cume_exp > final_figure_amount
+            THEN final_figure_amount
+            ELSE cume_exp
+        END
+    ) AS tg_adj,
+    (
+        CASE
+            WHEN maxgroup IS NOT NULL AND account_type = 'Main' AND account_group = maxgroup
+            THEN 1
+            WHEN maxgroup IS NULL AND minaccount = activity || '.' || subactivity
+            THEN 1
+            ELSE 0
+        END
+    ) AS allocation_account
+FROM core
+WHERE core.loc_group = (:loc)
+AND ob_end_date_ < NVL(ob_end_before, (SELECT MAX(ob_end_date_) FROM core) + 1)
+AND ob_end_date_ > NVL(ob_end_after, (SELECT MIN(ob_end_date_) FROM core) - 1)
+and tg like (:tg)]]>
+         </sql>
+      </dataSet>
+   </dataSets>
+   <output rootName="DATA" uniqueRowName="false">
+      <nodeList name="data-structure">
+         <dataStructure tagName="DATA">
+            <group name="REPORT" label="REPORT" source="LOC">
+               <element name="CURRENT_DATE" value="CURRENT_DATE" label="CURRENT_DATE" dataType="xsd:string" breakOrder="ascending" fieldOrder="4"/>
+               <element name="PERIOD_START" value="PERIOD_START" label="PERIOD_START" dataType="xsd:string" breakOrder="ascending" fieldOrder="6"/>
+               <element name="PERIOD_KEY" value="PERIOD_KEY" label="PERIOD_KEY" dataType="xsd:integer" breakOrder="ascending" fieldOrder="2"/>
+               <element name="PERIOD_END" value="PERIOD_END" label="PERIOD_END" dataType="xsd:string" breakOrder="ascending" fieldOrder="7"/>
+               <element name="BASE_DATE" value="BASE_DATE" label="BASE_DATE" dataType="xsd:string" breakOrder="ascending" fieldOrder="5"/>
+               <element name="P_END" value="P_END" label="P_END" dataType="xsd:date" breakOrder="ascending" fieldOrder="8"/>
+               <element name="P_START" value="P_START" label="P_START" dataType="xsd:date" breakOrder="ascending" fieldOrder="9"/>
+               <element name="LETTER_OF_CREDIT_ID" value="LETTER_OF_CREDIT_ID" label="LETTER_OF_CREDIT_ID" dataType="xsd:integer" breakOrder="" fieldOrder="32"/>
+               <group name="LOC_G" label="LOC" source="LOC">
+                  <element name="LOC_GROUP" value="LOC_GROUP" label="LOC_GROUP" dataType="xsd:string" breakOrder="ascending" fieldOrder="1"/>
+                  <element name="LOC_NAME" value="LOC_NAME" label="LOC_NAME" dataType="xsd:string" breakOrder="ascending" fieldOrder="31"/>
+                  <group name="SEGMENT" label="SEGMENT" source="LOC">
+                     <element name="SEGMENT_ID" value="SEGMENT_ID" label="SEGMENT_ID" dataType="xsd:integer" breakOrder="ascending" fieldOrder="12"/>
+                     <element name="OB_END_DATE" value="OB_END_DATE" label="OB_END_DATE" dataType="xsd:string" breakOrder="ascending" fieldOrder="44"/>
+                     <element name="PROJECT_ID" value="PROJECT_ID" label="PROJECT_ID" dataType="xsd:string" breakOrder="ascending" fieldOrder="14"/>
+                     <element name="ARRA" value="ARRA" label="ARRA" dataType="xsd:string" breakOrder="ascending" fieldOrder="15"/>
+                     <element name="PROJECT_TUB" value="PROJECT_TUB" label="PROJECT_TUB" dataType="xsd:string" breakOrder="ascending" fieldOrder="17"/>
+                     <element name="LOC_NUMBER" value="LOC_NUMBER" label="LOC_NUMBER" dataType="xsd:string" breakOrder="ascending" fieldOrder="18"/>
+                     <element name="TG" value="TG" label="TG" dataType="xsd:string" breakOrder="" fieldOrder="16"/>
+                     <element name="OB_END_DATE_" value="OB_END_DATE_" label="OB_END_DATE_" dataType="xsd:date" breakOrder="" fieldOrder="13"/>
+                     <element name="AUTH" value="AUTH" label="AUTH" dataType="xsd:integer" breakOrder="" fieldOrder="38"/>
+                     <group name="ACCT" label="ACCT" source="LOC">
+                        <element name="ORG" value="ORG" label="ORG" dataType="xsd:string" breakOrder="None" fieldOrder="26"/>
+                        <element name="ACCOUNT_ID" value="ACCOUNT_ID" label="ACCOUNT_ID" dataType="xsd:integer" breakOrder="None" fieldOrder="19"/>
+                        <element name="TUB" value="TUB" label="TUB" dataType="xsd:string" breakOrder="None" fieldOrder="25"/>
+                        <element name="ACCOUNT_TYPE" value="ACCOUNT_TYPE" label="ACCOUNT_TYPE" dataType="xsd:string" breakOrder="None" fieldOrder="20"/>
+                        <element name="ACCOUNT_STATUS" value="ACCOUNT_STATUS" label="ACCOUNT_STATUS" dataType="xsd:string" breakOrder="None" fieldOrder="21"/>
+                        <element name="ACCOUNT_GROUP" value="ACCOUNT_GROUP" label="ACCOUNT_GROUP" dataType="xsd:string" breakOrder="None" fieldOrder="24"/>
+                        <element name="FUND" value="FUND" label="FUND" dataType="xsd:string" breakOrder="None" fieldOrder="27"/>
+                        <element name="ACTIVITY" value="ACTIVITY" label="ACTIVITY" dataType="xsd:string" breakOrder="None" fieldOrder="28"/>
+                        <element name="SUBACTIVITY" value="SUBACTIVITY" label="SUBACTIVITY" dataType="xsd:string" breakOrder="None" fieldOrder="29"/>
+                        <element name="ROOT" value="ROOT" label="ROOT" dataType="xsd:string" breakOrder="None" fieldOrder="30"/>
+                        <element name="AT_RISK" value="AT_RISK" label="AT_RISK" dataType="xsd:string" breakOrder="None" fieldOrder="33"/>
+                        <element name="ACCOUNT_END" value="ACCOUNT_END" label="ACCOUNT_END" dataType="xsd:date" breakOrder="None" fieldOrder="35"/>
+                        <element name="ACCOUNT_START" value="ACCOUNT_START" label="ACCOUNT_START" dataType="xsd:date" breakOrder="None" fieldOrder="34"/>
+                        <element name="FINAL_FIGURE_AMOUNT" value="FINAL_FIGURE_AMOUNT" label="FINAL_FIGURE_AMOUNT" dataType="xsd:double" breakOrder="None" fieldOrder="36"/>
+                        <element name="ALLOCATION" value="ALLOCATION" label="ALLOCATION" dataType="xsd:integer" breakOrder="None" fieldOrder="37"/>
+                        <element name="CUME_EXP" value="CUME_EXP" label="CUME_EXP" dataType="xsd:integer" breakOrder="None" fieldOrder="39"/>
+                        <element name="CUME_INC" value="CUME_INC" label="CUME_INC" dataType="xsd:integer" breakOrder="None" fieldOrder="40"/>
+                        <element name="CURRENT_EXP" value="CURRENT_EXP" label="CURRENT_EXP" dataType="xsd:integer" breakOrder="None" fieldOrder="41"/>
+                        <element name="CUME_OTHER_INCOME" value="CUME_OTHER_INCOME" label="CUME_OTHER_INCOME" dataType="xsd:integer" breakOrder="None" fieldOrder="42"/>
+                        <element name="GL" value="GL" label="GL" dataType="xsd:integer" breakOrder="None" fieldOrder="3"/>
+                        <element name="CUME_9322" value="CUME_9322" label="CUME_9322" dataType="xsd:integer" breakOrder="None" fieldOrder="43"/>
+                        <element name="AT_RISK_EXP" value="AT_RISK_EXP" label="AT_RISK_EXP" dataType="xsd:integer" breakOrder="None" fieldOrder="45"/>
+                        <element name="TG_ADJ" value="TG_ADJ" label="TG_ADJ" dataType="xsd:integer" breakOrder="" fieldOrder="47"/>
+                        <element name="MAXGROUP" value="MAXGROUP" label="MAXGROUP" dataType="xsd:string" breakOrder="" fieldOrder="22"/>
+                        <element name="MINACCOUNT" value="MINACCOUNT" label="MINACCOUNT" dataType="xsd:string" breakOrder="" fieldOrder="23"/>
+                        <element name="CUME_EXP_9322_MINUS_ATRISK" value="CUME_EXP_9322_MINUS_ATRISK" label="CUME_EXP_9322_MINUS_ATRISK" dataType="xsd:integer" breakOrder="" fieldOrder="46"/>
+                        <element name="ALLOCATION_ACCOUNT" value="ALLOCATION_ACCOUNT" label="ALLOCATION_ACCOUNT" dataType="xsd:integer" breakOrder="" fieldOrder="48"/>
+                        <element name="OB_END_BEFORE" value="OB_END_BEFORE" label="OB_END_BEFORE" dataType="xsd:string" breakOrder="" fieldOrder="10"/>
+                        <element name="OB_END_AFTER" value="OB_END_AFTER" label="OB_END_AFTER" dataType="xsd:string" breakOrder="" fieldOrder="11"/>
+                     </group>
+                  </group>
+               </group>
+            </group>
+         </dataStructure>
+      </nodeList>
+   </output>
+   <eventTriggers/>
+   <lexicals/>
+   <valueSets>
+      <valueSet id="TG">
+         <nvPairs>
+            <nvPair label="Yes" value="Yes"/>
+            <nvPair label="No" value="No"/>
+            <nvPair label="All" value="%"/>
+         </nvPairs>
+      </valueSet>
+      <valueSet id="bool">
+         <nvPairs>
+            <nvPair label="true" value="true"/>
+            <nvPair label="false" value="false"/>
+         </nvPairs>
+      </valueSet>
+      <valueSet id="Date Range">
+         <nvPairs>
+            <nvPair label="Prior 30 days" value="PRIOR MONTH"/>
+            <nvPair label="Prior Week" value="PRIOR WEEK"/>
+            <nvPair label="Prior GL Period" value="PRIOR GL"/>
+            <nvPair label="Custom" value="CUSTOM"/>
+            <nvPair label="Prior GL Quarter" value="PRIOR GLQ"/>
+         </nvPairs>
+      </valueSet>
+      <valueSet id="LOC">
+         <nvPairs>
+            <nvPair label="DHHS" value="DHHS"/>
+            <nvPair label="NSF" value="NSF"/>
+            <nvPair label="OTHER" value="OTHER"/>
+         </nvPairs>
+      </valueSet>
+   </valueSets>
+   <parameters>
+      <parameter name="email_to" dataType="xsd:string" rowPlacement="1">
+         <input label="Email To:"/>
+      </parameter>
+      <parameter name="tg" defaultValue="All" dataType="xsd:string" rowPlacement="1">
+         <select label="Training Grants" valueSet="TG" multiple="false" all="false" allValue="null"/>
+      </parameter>
+      <parameter name="use_sponsor_auth" defaultValue="true" dataType="xsd:boolean" rowPlacement="1">
+         <select label="Use Sponsor Auth?" valueSet="bool" multiple="false" all="true" allValue="null"/>
+      </parameter>
+      <parameter name="date_range" dataType="xsd:string" rowPlacement="1">
+         <select label="Date Range" valueSet="Date Range" multiple="false" all="false" allValue="null"/>
+      </parameter>
+      <parameter name="docref" defaultValue="%" dataType="xsd:string" rowPlacement="1">
+         <input label="Doc Ref"/>
+      </parameter>
+      <parameter name="loc" dataType="xsd:string" rowPlacement="1">
+         <select label="LOC" valueSet="LOC" multiple="false" all="false" allValue="null"/>
+      </parameter>
+      <parameter name="ob_end_before" dataType="xsd:string" rowPlacement="2">
+         <input label="Ends before (mm/dd/yyyy)"/>
+      </parameter>
+      <parameter name="ob_end_after" dataType="xsd:string" rowPlacement="2">
+         <input label="Ends after (mm/dd/yyyy)"/>
+      </parameter>
+      <parameter name="custom_end" dataType="xsd:string" rowPlacement="1">
+         <input label="Custom End Date (mm/dd/yyyy)"/>
+      </parameter>
+      <parameter name="custom_start" dataType="xsd:string" rowPlacement="1">
+         <input label="Custom Start Date (mm/dd/yyyy)"/>
+      </parameter>
+      <parameter name="base_date" dataType="xsd:string" rowPlacement="2">
+         <input label="Base Date Override (mm/dd/yyyy)"/>
+      </parameter>
+   </parameters>
+   <bursting>
+      <burst name="Bursting 1" enabled="true">
+         <property name="BURSTING_NODE" value="/DATA/REPORT/LETTER_OF_CREDIT_ID"/>
+         <property name="DELIVERY_KEY" value="/DATA/REPORT/LETTER_OF_CREDIT_ID"/>
+         <dataSet>
+            <sql>
+               <![CDATA[select
+  loc.letter_of_credit_id as KEY,
+  'Draw Report' as TEMPLATE,
+  'en-US' as LOCALE,
+  'EXCEL' as OUTPUT_FORMAT,
+  'EMAIL' as DEL_CHANNEL,
+  to_char(sysdate, 'YYYY-MM-DD') || ' ' || loc.loc_name || ' Draw Report' as OUTPUT_NAME,
+  :email_to as PARAMETER1,
+  'andrew_malone@harvard.edu' as PARAMETER3,
+  to_char(sysdate, 'YYYY-MM-DD') || ' ' || loc.loc_name || ' Draw Report' as PARAMETER4
+from
+  gmasprod.letter_of_credits loc]]>
+            </sql>
+         </dataSet>
+      </burst>
+   </bursting>
+   <display>
+      <layouts>
+         <layout name="LOC" left="244px" top="28px"/>
+         <layout name="DATA" left="5px" top="28px"/>
+      </layouts>
+      <groupLinks/>
+   </display>
+</dataModel>

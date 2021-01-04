@@ -1,0 +1,58 @@
+<dataModel xmlns="http://xmlns.oracle.com/oxp/xmlp" xmlns:xdm="http://xmlns.oracle.com/oxp/xmlp" xmlns:xsd="http://wwww.w3.org/2001/XMLSchema" version="2.0">
+   <description>
+      <![CDATA[Data model associated with /shared/Grants Management (GM)/_portal/Subagreements (GM)/Subagreements]]>
+   </description>
+   <dataProperties>
+      <property name="scalable_mode" value="off"/>
+      <property name="include_parameters" value="true"/>
+      <property name="include_rowsettag" value="false"/>
+      <property name="xml_tag_case" value="as_are"/>
+   </dataProperties>
+   <parameters/>
+   <dataSets>
+      <dataSet name="Subagreements" type="complex">
+         <answer sawTimeOut="0">
+            <reportPath>/shared/Grants Management (GM)/Subagreements/Subagreements</reportPath>
+         </answer>
+      </dataSet>
+   </dataSets>
+   <output uniqueRowName="flase">
+      <nodeList name="data-structure">
+         <dataStructure tagName="DATA_DS">
+            <group name="G_1" label="G_1" source="Subagreements">
+               <element name="cc99fdbd138b7bf3a" label="MAX(RCOUNT(1))" value="cc99fdbd138b7bf3a" dataType="xsd:string" breakOrder="none" fieldOrder="1"/>
+               <element name="c97061cd8ada07bc5" label="Resp Tub" value="c97061cd8ada07bc5" dataType="xsd:string" breakOrder="none" fieldOrder="2"/>
+               <element name="c99c3db67f7313b49" label="Resp Tub Desc" value="c99c3db67f7313b49" dataType="xsd:string" breakOrder="none" fieldOrder="3"/>
+               <element name="c76ee75275aa446cd" label="Resp Org" value="c76ee75275aa446cd" dataType="xsd:string" breakOrder="none" fieldOrder="4"/>
+               <element name="c60ae523ee9a0b444" label="Resp Org Desc" value="c60ae523ee9a0b444" dataType="xsd:string" breakOrder="none" fieldOrder="5"/>
+               <element name="cb6bde4a76ce5f420" label="Project ID-Seg No" value="cb6bde4a76ce5f420" dataType="xsd:string" breakOrder="none" fieldOrder="6"/>
+               <element name="c36c4c12ef9ba68f4" label="Principal Investigator" value="c36c4c12ef9ba68f4" dataType="xsd:string" breakOrder="none" fieldOrder="7"/>
+               <element name="c457b1018bea1e97e" label="Sponsor" value="c457b1018bea1e97e" dataType="xsd:string" breakOrder="none" fieldOrder="8"/>
+               <element name="c09c2759d0f395a74" label="Proj Anticip Start Date" value="c09c2759d0f395a74" dataType="xsd:string" breakOrder="none" fieldOrder="9"/>
+               <element name="cec6b35b1931a0119" label="Proj Anticip End Date" value="cec6b35b1931a0119" dataType="xsd:string" breakOrder="none" fieldOrder="10"/>
+               <element name="c3ae7e50fc7464bc9" label="Fund" value="c3ae7e50fc7464bc9" dataType="xsd:string" breakOrder="none" fieldOrder="11"/>
+               <element name="ca5d97748f7c8cc84" label="Subagreement Id" value="ca5d97748f7c8cc84" dataType="xsd:string" breakOrder="none" fieldOrder="12"/>
+               <element name="ccf913579576ec968" label="Subagreement Status" value="ccf913579576ec968" dataType="xsd:string" breakOrder="none" fieldOrder="13"/>
+               <element name="c39f1f1e9ef328ff8" label="Amendment No" value="c39f1f1e9ef328ff8" dataType="xsd:string" breakOrder="none" fieldOrder="14"/>
+               <element name="c945d153d77a3e763" label="Amendment Status" value="c945d153d77a3e763" dataType="xsd:string" breakOrder="none" fieldOrder="15"/>
+               <element name="cdaedac3c6a3a802f" label="# Days Out" value="cdaedac3c6a3a802f" dataType="xsd:string" breakOrder="none" fieldOrder="16"/>
+               <element name="c7b3e9d722a746064" label="Subrecipient" value="c7b3e9d722a746064" dataType="xsd:string" breakOrder="none" fieldOrder="17"/>
+               <element name="ca46cadd2158a0b10" label="Subagt Issued Start Date" value="ca46cadd2158a0b10" dataType="xsd:string" breakOrder="none" fieldOrder="18"/>
+               <element name="c25d9ea6812633a29" label="Subagt Issued End Date" value="c25d9ea6812633a29" dataType="xsd:string" breakOrder="none" fieldOrder="19"/>
+               <element name="c9520ac7bcfe4b455" label="Subagt Issued Amt" value="c9520ac7bcfe4b455" dataType="xsd:string" breakOrder="none" fieldOrder="20"/>
+               <element name="cfd34a32172bbe3a4" label="Subagt Expenses (8190-8192)" value="cfd34a32172bbe3a4" dataType="xsd:string" breakOrder="none" fieldOrder="21"/>
+               <element name="c2290fec7c6ebffc0" label="Issued Less Subagt Exp (8190-8192)" value="c2290fec7c6ebffc0" dataType="xsd:string" breakOrder="none" fieldOrder="22"/>
+               <element name="c4dc2b5c56e609112" label="%  Unspent" value="c4dc2b5c56e609112" dataType="xsd:string" breakOrder="none" fieldOrder="23"/>
+               <element name="c8b285ef028bcbe44" label="Tot F&amp;A Expenses (8400-8409)" value="c8b285ef028bcbe44" dataType="xsd:string" breakOrder="none" fieldOrder="24"/>
+               <element name="c3abd2e22a02d82b2" label="Subagt Tot Expenses (6000-8999)" value="c3abd2e22a02d82b2" dataType="xsd:string" breakOrder="none" fieldOrder="25"/>
+               <element name="caccc06c6671d81eb" label="Miscoded Expenses" value="caccc06c6671d81eb" dataType="xsd:string" breakOrder="none" fieldOrder="26"/>
+               <element name="c4e00c8b315b8815d" label="Subagt Anticip End Date" value="c4e00c8b315b8815d" dataType="xsd:string" breakOrder="none" fieldOrder="27"/>
+               <element name="c440bb57a1a552d7a" label="Subagt Anticip Amount" value="c440bb57a1a552d7a" dataType="xsd:string" breakOrder="none" fieldOrder="28"/>
+               <element name="ca2adc2350c1dc75c" label="GMAS CFA" value="ca2adc2350c1dc75c" dataType="xsd:string" breakOrder="none" fieldOrder="29"/>
+            </group>
+         </dataStructure>
+      </nodeList>
+   </output>
+   <eventTriggers/>
+   <valueSets/>
+</dataModel>

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sawd:dashboard xmlns:sawd="com.siebel.analytics.web/dashboard/v1.1" style="" fitContent="true" xmlVersion="200810300" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><sawd:dashboardPageRef path="CINA Unv" type="catalog" hidden="false"/><sawd:dashboardPageRef path="CINA Tub/Org and 7 Segment Filters" type="catalog" hidden="false"/><sawd:dashboardPageRef path="CINA by Fund Type" type="catalog" hidden="false"/></sawd:dashboard>

@@ -1,0 +1,2443 @@
+<?xml version = '1.0' encoding = 'utf-8'?>
+<dataModel xmlns="http://xmlns.oracle.com/oxp/xmlp" version="2.0" xmlns:xdm="http://xmlns.oracle.com/oxp/xmlp" xmlns:xsd="http://wwww.w3.org/2001/XMLSchema" defaultDataSourceRef="dwobi2dv">
+   <defaultPackage xmlns="http://xmlns.oracle.com/oxp/xmlp">DW_OBI_REPORT_UTILS</defaultPackage>
+   <dataProperties xmlns="http://xmlns.oracle.com/oxp/xmlp">
+      <property xmlns="http://xmlns.oracle.com/oxp/xmlp" name="include_parameters" value="true"/>
+      <property xmlns="http://xmlns.oracle.com/oxp/xmlp" name="include_null_Element" value="false"/>
+      <property xmlns="http://xmlns.oracle.com/oxp/xmlp" name="include_rowsettag" value="false"/>
+      <property xmlns="http://xmlns.oracle.com/oxp/xmlp" name="xml_tag_case" value="upper"/>
+      <property xmlns="http://xmlns.oracle.com/oxp/xmlp" name="generate_output_format" value="xml"/>
+      <property xmlns="http://xmlns.oracle.com/oxp/xmlp" name="db_fetch_size" value="1000"/>
+      <property xmlns="http://xmlns.oracle.com/oxp/xmlp" name="optimize_query_executions" value="false"/>
+      <property xmlns="http://xmlns.oracle.com/oxp/xmlp" name="enable_xml_chunks" value="true"/>
+      <property xmlns="http://xmlns.oracle.com/oxp/xmlp" name="sql_monitor_report_generated" value="false"/>
+   </dataProperties>
+   <dataSets xmlns="http://xmlns.oracle.com/oxp/xmlp">
+      <dataSet xmlns="http://xmlns.oracle.com/oxp/xmlp" name="PER" type="complex">
+         <sql xmlns="http://xmlns.oracle.com/oxp/xmlp" dataSourceRef="dwcen">
+            <![CDATA[WITH SAWITH0
+     AS (  SELECT SUM (T573799.NON_OP_TRANS_ACTUAL_PJTD) AS c1,
+                  SUM (T573799.INC_ACTUAL_PJTD)          AS c2,
+                  SUM (T573799.EXP_ACTUAL_PJTD)          AS c3,
+                  SUM (BUDGETS.SPONSORED_BUD_NET_PJTD_END) AS c4,
+                  T568046.OBJECT                         AS c5,
+                  T568046.DESCRIPTION                    AS c6,
+                  T568060.ACTIVITY                       AS c7,
+                  T568040.ACCOUNT_STATUS_DESC            AS c8,
+                  T568040.ACCOUNT_TYPE_DESC              AS c9,
+                  T568040.ACCT_ACCOUNT_GROUP_DESC        AS c10,
+                  T568040.ACCT_END_DATE                  AS c11,
+                  T568040.ACCT_START_DATE                AS c12,
+                  T568029.SEG_ANTICIPATED_END_DATE       AS c13,
+                  T568029.SEG_ANTICIPATED_START_DATE     AS c14,
+                  CONCAT (CONCAT (T568029.PI_LAST_NAME, ', '),
+                          T568029.PI_FIRST_NAME)
+                      AS c15,
+                  T568029.RESPONSIBLE_ORG_CD             AS c16,
+                  T568029.RESPONSIBLE_ORG_DESC           AS c17,
+                  CONCAT (CONCAT (T568029.RESPONSIBLE_ORG_CD, ' '),
+                          T568029.RESPONSIBLE_ORG_DESC)
+                      AS c18,
+                  T568029.RESPONSIBLE_TUB_CD             AS c19,
+                  CONCAT (CONCAT (T568029.RESPONSIBLE_TUB_CD, ' '),
+                          T568029.RESPONSIBLE_TUB_DESC)
+                      AS c20,
+                  T568029.SEG_SPONSOR_AWARD_NO           AS c21,
+                  T568029.SEG_SPONSOR_NAME               AS c22,
+                  T568061.FUND                           AS c23,
+                  CONCAT (CONCAT (T568046.OBJECT, ' '),
+                          SUBSTR (T568046.NAME, 1, 30))
+                      AS c24,
+                  T568069.ORG                            AS c25,
+                  T568054.DESCRIPTION                    AS c26,
+                  T568054.SUBACTIVITY                    AS c27,
+                  T568064.TUB                            AS c28,
+                    T568029.TOT_OBLIGATED_DIRECT_AMT
+                  + T568029.TOT_OBLIGATED_INDIRECT_AMT
+                  + T568029.TOT_CARR_FWD_DIRECT_AMT
+                  + T568029.TOT_CARR_FWD_INDIRECT_AMT
+                      AS c29,
+                    T568029.TOT_CARR_FWD_INDIRECT_AMT
+                  + T568029.TOT_CARR_FWD_DIRECT_AMT
+                      AS c30,
+                  CASE T568046.TERA_OBJECT
+                      WHEN 'T400' THEN 'Income'
+                      WHEN 'T600' THEN 'Expense'
+                      WHEN 'T898' THEN 'Expense'
+                      WHEN 'T901' THEN 'Non-Oper'
+                      WHEN 'T951' THEN 'Non-Oper'
+                      WHEN 'T981' THEN 'Non-Oper'
+                      ELSE 'OTHER'
+                  END
+                      AS c31,
+                  SUBSTR (T568054.DESCRIPTION,
+                          INSTR (T568054.DESCRIPTION, ',') + 1,
+                          100)
+                      AS c32,
+                  CASE
+                      WHEN     T568046.FACILITY_ADMIN_COST_FLAG = 'N'
+                           AND T568046.DIR_INDIR_COST_FLAG = 'Y'
+                      THEN
+                          CASE
+                              WHEN T568046.TDC_OVERHEAD_FLAG = 'N'
+                              THEN
+                                  '*'
+                              ELSE
+                                  CASE
+                                      WHEN     T568040.ACCT_IDC_BASIS_CD =
+                                                   'MTDC'
+                                           AND T568046.MTDC_OVERHEAD_FLAG = 'N'
+                                      THEN
+                                          '*'
+                                      ELSE
+                                          CASE
+                                              WHEN     T568040.ACCT_IDC_BASIS_CD =
+                                                           'HHSM'
+                                                   AND T568046.HHSM_OVERHEAD_FLAG =
+                                                           'N'
+                                              THEN
+                                                  '*'
+                                          END
+                                  END
+                          END
+                      ELSE
+                          ''
+                  END
+                      AS c33,
+                  T568046.FACILITY_ADMIN_COST_FLAG       AS c34,
+                  T568046.NON_OPERATING_TRANSFER_FLAG    AS c35,
+                  CONCAT (
+                      CONCAT (
+                          CONCAT (
+                              CONCAT (
+                                  CONCAT (
+                                      CONCAT (
+                                          CONCAT (CONCAT (T568061.FUND, '-'),
+                                                  T568054.ACTIVITY),
+                                          '-'),
+                                      T568054.SUBACTIVITY),
+                                  '-'),
+                              T568064.TUB),
+                          '-'),
+                      T568069.ORG)
+                      AS c36,
+                  T568046.SUPER_OBJECT                   AS c37,
+                  T568046.SUPER_OBJECT_NAME              AS c38,
+                  T568040.ALLOCATED_AMT                  AS c39,
+                  T568040.ACCT_IDC_BASIS_CD              AS c40,
+                  T608824.AIR_Rate                       AS c41,
+                  T568029.NICKNAME                       AS c42,
+                  T568054.ACTIVITY                       AS c43,
+                  T568046.TDC_OVERHEAD_FLAG              AS c44,
+                  T568046.HHSM_OVERHEAD_FLAG             AS c45,
+                  T568046.MTDC_OVERHEAD_FLAG             AS c46,
+                  T568046.DIR_INDIR_COST_FLAG            AS c47
+             FROM DWGL.DGL_COA_ROOTS_D             T568021 /* B1_DGL_COA_ROOTS_D (Grants) */
+                                                          ,
+                  DWGL.DGL_COA_ORGS_D              T568069 /* B1_DGL_COA_ORGS_D (Grants) */
+                                                          ,
+                  DWGL.DGL_COA_OBJECTS_D           T568046 /* B1_DGL_COA_OBJECTS_D (Grants) */
+                                                          ,
+                  DWGL.DGL_COA_FUNDS_D             T568061 /* B1_DGL_COA_FUNDS_D (Grants) */
+                                                          ,
+                  DWGL.DGL_PERIODS_D               T568091 /* B1_DGL_PERIODS_D (Grants) */
+                                                          ,
+                  DWGL.DGL_PERIODS_D               DGP,                                        
+                  DWGL.DGL_COA_TUBS_D              T568064 /* B1_DGL_COA_TUBS_D (Grants) */
+                                                          ,
+                  DWGL.DGL_COA_SUBACTIVITIES_D     T568054 /* B1_DGL_COA_SUBACTIVITIES_D (Grants) */
+                                                          ,
+                  DWGL.DGL_COA_ACTIVITIES_D        T568060 /* B1_DGL_COA_ACTIVITIES_D (Grants) */
+                                                          ,
+                  ODSGM.OGM_ACCOUNTS               T568040 /* B2_OGM_ACCOUNTS (Grants - PER inner) */
+                  LEFT OUTER JOIN
+                   (Select dw_account_key, dw_segment_key, air_rate, air_effective_date 
+		  from 
+		  (
+		  select dw_account_key, dw_segment_key, air_rate, air_effective_date, 
+		  Max(air_Effective_Date) over (PARTITION by rates.dw_account_key) as maxDate 
+		  from odsgm.ogm_account_idc_rates rates 
+		  where 
+		  rates.air_effective_date <= sysdate AND 
+		  rates.dw_active_flag = 'Y' AND 
+		  rates.AIR_DELETION_DATE is NULL
+		  ) 
+		  where air_effective_date = maxDate) T608824 On T568040.DW_ACCOUNT_KEY = T608824.DW_ACCOUNT_KEY,   
+                  ODSGM.OGM_SEC_USER_RPT_SEGMENTS  T573798 /* B2_OGM_SEC_USER_RPT_SEGMENTS (PER Security Join) */
+                                                          ,
+                  HUDW.DGM_CURR_PER_GL_BALS_F_ALL_V T573799 /* D1_DGM_CURR_PER_GL_BALS_F_ALL_V (Grants - PER open view) */
+                                                           ,
+                   HUDW.DGM_CURR_PER_GL_BALS_F_ALL_V BUDGETS,                                        
+                  ODSGM.OGM_SEGMENTS               T568029 /* B2_OGM_SEGMENTS (Grants - PER inner) */
+            WHERE (    T568029.DW_SEGMENT_KEY = T568040.DW_SEGMENT_KEY
+                   AND T568040.DW_GL_FUND_KEY = T573799.DW_FUND_KEY
+                   AND T568040.DW_ACCOUNT_KEY = T573799.DW_ACCOUNT_KEY
+                   AND T568040.DW_SEGMENT_KEY = T573798.DW_SEGMENT_KEY
+                   AND T568046.ENABLED_FLAG = 'Y'
+                   AND T568046.OBJECT_KEY = T573799.DW_OBJECT_KEY
+                   AND T568054.END_DATE_ACTIVE =
+                           TO_DATE ('9999-12-31 00:00:00',
+                                    'YYYY-MM-DD HH24:MI:SS')
+                   AND T568054.SUBACTIVITY_KEY = T573799.DW_SUBACTIVITY_KEY
+                   AND T568060.ACTIVITY_KEY = T573799.DW_ACTIVITY_KEY
+                   AND T568060.ACTIVITY_TYPE_CODE = 'S'
+                   AND T568060.END_DATE_ACTIVE =
+                           TO_DATE ('9999-12-31 00:00:00',
+                                    'YYYY-MM-DD HH24:MI:SS')
+                   AND T568061.END_DATE_ACTIVE =
+                           TO_DATE ('9999-12-31 00:00:00',
+                                    'YYYY-MM-DD HH24:MI:SS')
+                   AND &lp_AcctSponFund
+                   AND &lp_AcctTub
+                   AND &lp_AcctOrg
+                   AND &lp_AcctSponActivity
+                   AND &lp_AcctSponSubAct
+                   AND &lp_PrincipalInvestigator
+                   AND &lp_AcctStatusDesc
+                   AND &lp_SegStatusDesc
+                   AND &lp_AcctRoot
+                   AND &lp_AcctGroup
+                   AND T568021.ROOT_KEY = T573799.DW_ROOT_KEY
+                   AND T568021.END_DATE_ACTIVE =
+                           TO_DATE ('9999-12-31 00:00:00',
+                                    'YYYY-MM-DD HH24:MI:SS')
+                   /*  AND T568061.FUND = '132626'  TEST */
+                   AND T568061.FUND_KEY = T573799.DW_FUND_KEY
+                   AND T568064.END_DATE_ACTIVE =
+                           TO_DATE ('9999-12-31 00:00:00',
+                                    'YYYY-MM-DD HH24:MI:SS')
+                   AND T568064.TUB_KEY = T573799.DW_TUB_KEY
+                   AND T568069.END_DATE_ACTIVE =
+                           TO_DATE ('9999-12-31 00:00:00',
+                                    'YYYY-MM-DD HH24:MI:SS')
+                   AND T568069.ORG_KEY = T573799.DW_ORG_KEY
+                   AND T568091.ADJUSTMENT_PERIOD_FLAG = 'N'
+                   AND T568091.PERIOD_KEY = T573799.DW_PERIOD_KEY
+                   AND T568091.PERIOD_KEY = :PeriodToKey
+                   AND T573798.USER_UNIV_ID = :xdo_user_name
+                   AND T573799.DW_PERIOD_KEY = :PeriodToKey
+                   AND T568091.CURRENT_PERIOD_OFFSET < 1
+                   AND 0 < T568091.PERIOD_KEY
+                   AND T568046.OBJECT >= '4000'
+                   and DGP.LATEST_OPEN_PERIOD_FLAG='Y'
+                   AND T568040.DW_GL_FUND_KEY = BUDGETS.DW_FUND_KEY
+AND T568040.DW_ACCOUNT_KEY = BUDGETS.DW_ACCOUNT_KEY
+AND T568046.OBJECT_KEY = BUDGETS.DW_OBJECT_KEY
+AND T568054.SUBACTIVITY_KEY = BUDGETS.DW_SUBACTIVITY_KEY
+AND T568060.ACTIVITY_KEY = BUDGETS.DW_ACTIVITY_KEY
+ AND T568021.ROOT_KEY = BUDGETS.DW_ROOT_KEY
+ AND T568061.FUND_KEY = BUDGETS.DW_FUND_KEY
+ AND T568064.TUB_KEY = BUDGETS.DW_TUB_KEY
+ AND T568069.ORG_KEY = BUDGETS.DW_ORG_KEY
+  AND DGP.PERIOD_KEY = BUDGETS.DW_PERIOD_KEY )
+         GROUP BY   T568029.TOT_OBLIGATED_DIRECT_AMT
+                  + T568029.TOT_OBLIGATED_INDIRECT_AMT
+                  + T568029.TOT_CARR_FWD_DIRECT_AMT
+                  + T568029.TOT_CARR_FWD_INDIRECT_AMT,
+                    T568029.TOT_CARR_FWD_INDIRECT_AMT
+                  + T568029.TOT_CARR_FWD_DIRECT_AMT,
+                  T568029.SEG_ANTICIPATED_END_DATE,
+                  T568029.SEG_ANTICIPATED_START_DATE,
+                  T568029.RESPONSIBLE_ORG_CD,
+                  T568029.SEG_SPONSOR_AWARD_NO,
+                  T568029.RESPONSIBLE_ORG_DESC,
+                  T568029.SEG_SPONSOR_NAME,
+                  T568029.RESPONSIBLE_TUB_CD,
+                  T568029.NICKNAME,
+                  T608824.AIR_RATE,
+                  T568040.ACCOUNT_STATUS_DESC,
+                  T568040.ACCOUNT_TYPE_DESC,
+                  T568040.ACCT_ACCOUNT_GROUP_DESC,
+                  T568040.ACCT_END_DATE,
+                  T568040.ACCT_IDC_BASIS_CD,
+                  T568040.ACCT_START_DATE,
+                  T568040.ALLOCATED_AMT,
+                  T568046.DESCRIPTION,
+                  T568046.OBJECT,
+                  T568046.SUPER_OBJECT,
+                  T568046.SUPER_OBJECT_NAME,
+                  T568046.FACILITY_ADMIN_COST_FLAG,
+                  T568046.HHSM_OVERHEAD_FLAG,
+                  T568046.TDC_OVERHEAD_FLAG,
+                  T568046.MTDC_OVERHEAD_FLAG,
+                  T568046.NON_OPERATING_TRANSFER_FLAG,
+                  T568046.DIR_INDIR_COST_FLAG,
+                  T568054.ACTIVITY,
+                  T568054.DESCRIPTION,
+                  T568054.SUBACTIVITY,
+                  T568060.ACTIVITY,
+                  T568061.FUND,
+                  T568064.TUB,
+                  T568069.ORG,
+                  CASE T568046.TERA_OBJECT
+                      WHEN 'T400' THEN 'Income'
+                      WHEN 'T600' THEN 'Expense'
+                      WHEN 'T898' THEN 'Expense'
+                      WHEN 'T901' THEN 'Non-Oper'
+                      WHEN 'T951' THEN 'Non-Oper'
+                      WHEN 'T981' THEN 'Non-Oper'
+                      ELSE 'OTHER'
+                  END,
+                  CONCAT (CONCAT (T568029.RESPONSIBLE_TUB_CD, ' '),
+                          T568029.RESPONSIBLE_TUB_DESC),
+                  CONCAT (CONCAT (T568029.PI_LAST_NAME, ', '),
+                          T568029.PI_FIRST_NAME),
+                  CONCAT (CONCAT (T568046.OBJECT, ' '),
+                          SUBSTR (T568046.NAME, 1, 30))),
+     SAWITH1
+     AS (  SELECT SUM (T573797.EXP_ACTUAL_PJTD)          AS c1,
+                  SUM (T573797.EXP_ACTUAL_FYTD)          AS c2,
+                  SUM (BUDGETS.SPONSORED_BUD_NET_PJTD_END) AS c3,
+                  COUNT (DISTINCT T568046.OBJECT)        AS c4,
+                  T568046.OBJECT                         AS c5,
+                  T568046.DESCRIPTION                    AS c6,
+                  T568060.ACTIVITY                       AS c7,
+                  T568040.ACCOUNT_STATUS_DESC            AS c8,
+                  T568040.ACCOUNT_TYPE_DESC              AS c9,
+                  T568040.ACCT_ACCOUNT_GROUP_DESC        AS c10,
+                  T568040.ACCT_END_DATE                  AS c11,
+                  T568040.ACCT_START_DATE                AS c12,
+                  T568029.SEG_ANTICIPATED_END_DATE       AS c13,
+                  T568029.SEG_ANTICIPATED_START_DATE     AS c14,
+                  CONCAT (CONCAT (T568029.PI_LAST_NAME, ', '),
+                          T568029.PI_FIRST_NAME)
+                      AS c15,
+                  T568029.RESPONSIBLE_ORG_CD             AS c16,
+                  T568029.RESPONSIBLE_ORG_DESC           AS c17,
+                  CONCAT (CONCAT (T568029.RESPONSIBLE_ORG_CD, ' '),
+                          T568029.RESPONSIBLE_ORG_DESC)
+                      AS c18,
+                  T568029.RESPONSIBLE_TUB_CD             AS c19,
+                  CONCAT (CONCAT (T568029.RESPONSIBLE_TUB_CD, ' '),
+                          T568029.RESPONSIBLE_TUB_DESC)
+                      AS c20,
+                  T568029.SEG_SPONSOR_AWARD_NO           AS c21,
+                  T568029.SEG_SPONSOR_NAME               AS c22,
+                  T568061.FUND                           AS c23,
+                  CONCAT (CONCAT (T568046.OBJECT, ' '),
+                          SUBSTR (T568046.NAME, 1, 30))
+                      AS c24,
+                  T568069.ORG                            AS c25,
+                  T568054.DESCRIPTION                    AS c26,
+                  T568054.SUBACTIVITY                    AS c27,
+                  T568064.TUB                            AS c28,
+                    T568029.TOT_OBLIGATED_DIRECT_AMT
+                  + T568029.TOT_OBLIGATED_INDIRECT_AMT
+                  + T568029.TOT_CARR_FWD_DIRECT_AMT
+                  + T568029.TOT_CARR_FWD_INDIRECT_AMT
+                      AS c29,
+                    T568029.TOT_CARR_FWD_INDIRECT_AMT
+                  + T568029.TOT_CARR_FWD_DIRECT_AMT
+                      AS c30,
+                  CASE T568046.TERA_OBJECT
+                      WHEN 'T400' THEN 'Income'
+                      WHEN 'T600' THEN 'Expense'
+                      WHEN 'T898' THEN 'Expense'
+                      WHEN 'T901' THEN 'Non-Oper'
+                      WHEN 'T951' THEN 'Non-Oper'
+                      WHEN 'T981' THEN 'Non-Oper'
+                      ELSE 'OTHER'
+                  END
+                      AS c31,
+                  SUBSTR (T568054.DESCRIPTION,
+                          INSTR (T568054.DESCRIPTION, ',') + 1,
+                          100)
+                      AS c32,
+                  CASE
+                      WHEN     T568046.FACILITY_ADMIN_COST_FLAG = 'N'
+                           AND T568046.DIR_INDIR_COST_FLAG = 'Y'
+                      THEN
+                          CASE
+                              WHEN T568046.TDC_OVERHEAD_FLAG = 'N'
+                              THEN
+                                  '*'
+                              ELSE
+                                  CASE
+                                      WHEN     T568040.ACCT_IDC_BASIS_CD =
+                                                   'MTDC'
+                                           AND T568046.MTDC_OVERHEAD_FLAG = 'N'
+                                      THEN
+                                          '*'
+                                      ELSE
+                                          CASE
+                                              WHEN     T568040.ACCT_IDC_BASIS_CD =
+                                                           'HHSM'
+                                                   AND T568046.HHSM_OVERHEAD_FLAG =
+                                                           'N'
+                                              THEN
+                                                  '*'
+                                          END
+                                  END
+                          END
+                      ELSE
+                          ''
+                  END
+                      AS c33,
+                  T568046.FACILITY_ADMIN_COST_FLAG       AS c34,
+                  T568046.NON_OPERATING_TRANSFER_FLAG    AS c35,
+                  CONCAT (
+                      CONCAT (
+                          CONCAT (
+                              CONCAT (
+                                  CONCAT (
+                                      CONCAT (
+                                          CONCAT (CONCAT (T568061.FUND, '-'),
+                                                  T568054.ACTIVITY),
+                                          '-'),
+                                      T568054.SUBACTIVITY),
+                                  '-'),
+                              T568064.TUB),
+                          '-'),
+                      T568069.ORG)
+                      AS c36,
+                  T568046.SUPER_OBJECT                   AS c37,
+                  T568046.SUPER_OBJECT_NAME              AS c38,
+                  T568040.ALLOCATED_AMT                  AS c39,
+                  T568040.ACCT_IDC_BASIS_CD              AS c40,
+                  T608824.AIR_RATE                      AS c41,
+                  T568029.NICKNAME                       AS c42,
+                  T568054.ACTIVITY                       AS c43,
+                  T568046.TDC_OVERHEAD_FLAG              AS c44,
+                  T568046.HHSM_OVERHEAD_FLAG             AS c45,
+                  T568046.MTDC_OVERHEAD_FLAG             AS c46,
+                  T568046.DIR_INDIR_COST_FLAG            AS c47
+             FROM DWGL.DGL_COA_ROOTS_D            T568021 /* B1_DGL_COA_ROOTS_D (Grants) */
+                                                         ,
+                  DWGL.DGL_COA_ORGS_D             T568069 /* B1_DGL_COA_ORGS_D (Grants) */
+                                                         ,
+                  DWGL.DGL_COA_OBJECTS_D          T568046 /* B1_DGL_COA_OBJECTS_D (Grants) */
+                                                         ,
+                  DWGL.DGL_COA_FUNDS_D            T568061 /* B1_DGL_COA_FUNDS_D (Grants) */
+                                                         ,
+                  DWGL.DGL_PERIODS_D              T568091 /* B1_DGL_PERIODS_D (Grants) */
+                                                         ,
+                                                         DWGL.DGL_PERIODS_D               DGP,    
+                  DWGL.DGL_COA_TUBS_D             T568064 /* B1_DGL_COA_TUBS_D (Grants) */
+                                                         ,
+                  DWGL.DGL_COA_SUBACTIVITIES_D    T568054 /* B1_DGL_COA_SUBACTIVITIES_D (Grants) */
+                                                         ,
+                  DWGL.DGL_COA_ACTIVITIES_D       T568060 /* B1_DGL_COA_ACTIVITIES_D (Grants) */
+                                                         ,
+                  ODSGM.OGM_ACCOUNTS              T568040 /* B2_OGM_ACCOUNTS (Grants - PER inner) */
+                  LEFT OUTER JOIN
+                  (Select dw_account_key, dw_segment_key, air_rate, air_effective_date 
+from 
+(
+select dw_account_key, dw_segment_key, air_rate, air_effective_date, 
+Max(air_Effective_Date) over (PARTITION by rates.dw_account_key) as maxDate 
+from odsgm.ogm_account_idc_rates rates 
+where 
+rates.air_effective_date <= sysdate AND 
+rates.dw_active_flag = 'Y' AND 
+rates.AIR_DELETION_DATE is NULL
+) 
+where air_effective_date = maxDate) T608824 On T568040.DW_ACCOUNT_KEY = T608824.DW_ACCOUNT_KEY,
+                  HUDW.DGM_CURR_PER_GL_BALS_F_ALL_V  T573797 /* C1_DGM_CURR_PERIOD_GL_BALS_F_V (Grants - PER) */
+                                                          ,
+                                                           HUDW.DGM_CURR_PER_GL_BALS_F_ALL_V BUDGETS,       
+                  ODSGM.OGM_SEC_USER_RPT_SEGMENTS T573798 /* B2_OGM_SEC_USER_RPT_SEGMENTS (PER Security Join) */
+                                                         ,
+                  ODSGM.OGM_SEGMENTS              T568029 /* B2_OGM_SEGMENTS (Grants - PER inner) */
+            WHERE (    T568029.DW_SEGMENT_KEY = T568040.DW_SEGMENT_KEY
+                   AND T568040.DW_GL_FUND_KEY = T573797.DW_FUND_KEY
+                   AND T568040.DW_ACCOUNT_KEY = T573797.DW_ACCOUNT_KEY
+                   AND T568040.DW_SEGMENT_KEY = T573798.DW_SEGMENT_KEY
+                   AND T568046.ENABLED_FLAG = 'Y'
+                   /*   AND T568046.OBJECT = '4310'   Test */
+                   AND T568046.OBJECT_KEY = T573797.DW_OBJECT_KEY
+                   AND T568054.END_DATE_ACTIVE =
+                           TO_DATE ('9999-12-31 00:00:00',
+                                    'YYYY-MM-DD HH24:MI:SS')
+                   AND T568054.SUBACTIVITY_KEY = T573797.DW_SUBACTIVITY_KEY
+                   AND T568060.ACTIVITY_KEY = T573797.DW_ACTIVITY_KEY
+                   AND T568060.ACTIVITY_TYPE_CODE = 'S'
+                   AND T568060.END_DATE_ACTIVE =
+                           TO_DATE ('9999-12-31 00:00:00',
+                                    'YYYY-MM-DD HH24:MI:SS')
+                   AND T568061.END_DATE_ACTIVE =
+                           TO_DATE ('9999-12-31 00:00:00',
+                                    'YYYY-MM-DD HH24:MI:SS')
+                   AND &lp_AcctSponFund
+                   AND &lp_AcctTub
+                   AND &lp_AcctOrg
+                   AND &lp_AcctSponActivity
+                   AND &lp_AcctSponSubAct
+                   AND &lp_PrincipalInvestigator
+                   AND &lp_AcctStatusDesc
+                   AND &lp_SegStatusDesc
+                   AND &lp_AcctRoot
+                   AND &lp_AcctGroup
+                   AND T568021.ROOT_KEY = T573797.DW_ROOT_KEY
+                   AND T568021.END_DATE_ACTIVE =
+                           TO_DATE ('9999-12-31 00:00:00',
+                                    'YYYY-MM-DD HH24:MI:SS')
+                   /*     AND T568061.FUND = '132626'  TEST */
+                   AND T568061.FUND_KEY = T573797.DW_FUND_KEY
+                   AND T568064.END_DATE_ACTIVE =
+                           TO_DATE ('9999-12-31 00:00:00',
+                                    'YYYY-MM-DD HH24:MI:SS')
+                   AND T568064.TUB_KEY = T573797.DW_TUB_KEY
+                   AND T568069.END_DATE_ACTIVE =
+                           TO_DATE ('9999-12-31 00:00:00',
+                                    'YYYY-MM-DD HH24:MI:SS')
+                   AND T568069.ORG_KEY = T573797.DW_ORG_KEY
+                   AND T568091.ADJUSTMENT_PERIOD_FLAG = 'N'
+                   AND T568091.PERIOD_KEY = T573797.DW_PERIOD_KEY
+                   AND T568091.PERIOD_KEY = :PeriodToKey
+                   AND T573797.DW_PERIOD_KEY = :PeriodToKey
+                   AND T573798.USER_UNIV_ID = :xdo_user_name
+                   AND T568091.CURRENT_PERIOD_OFFSET < 1
+                   AND 0 < T568091.PERIOD_KEY
+                   AND T568046.OBJECT >= '4000'
+                   and DGP.LATEST_OPEN_PERIOD_FLAG='Y'
+                   AND T568040.DW_GL_FUND_KEY = BUDGETS.DW_FUND_KEY
+AND T568040.DW_ACCOUNT_KEY = BUDGETS.DW_ACCOUNT_KEY
+AND T568046.OBJECT_KEY = BUDGETS.DW_OBJECT_KEY
+AND T568054.SUBACTIVITY_KEY = BUDGETS.DW_SUBACTIVITY_KEY
+AND T568060.ACTIVITY_KEY = BUDGETS.DW_ACTIVITY_KEY
+ AND T568021.ROOT_KEY = BUDGETS.DW_ROOT_KEY
+ AND T568061.FUND_KEY = BUDGETS.DW_FUND_KEY
+ AND T568064.TUB_KEY = BUDGETS.DW_TUB_KEY
+ AND T568069.ORG_KEY = BUDGETS.DW_ORG_KEY
+  AND DGP.PERIOD_KEY = BUDGETS.DW_PERIOD_KEY )
+         GROUP BY   T568029.TOT_OBLIGATED_DIRECT_AMT
+                  + T568029.TOT_OBLIGATED_INDIRECT_AMT
+                  + T568029.TOT_CARR_FWD_DIRECT_AMT
+                  + T568029.TOT_CARR_FWD_INDIRECT_AMT,
+                    T568029.TOT_CARR_FWD_INDIRECT_AMT
+                  + T568029.TOT_CARR_FWD_DIRECT_AMT,
+                  T568029.SEG_ANTICIPATED_END_DATE,
+                  T568029.SEG_ANTICIPATED_START_DATE,
+                  T568029.RESPONSIBLE_ORG_CD,
+                  T568029.SEG_SPONSOR_AWARD_NO,
+                  T568029.RESPONSIBLE_ORG_DESC,
+                  T568029.SEG_SPONSOR_NAME,
+                  T568029.RESPONSIBLE_TUB_CD,
+                  T568029.NICKNAME,
+                  T608824.AIR_RATE,
+                  T568040.ACCOUNT_STATUS_DESC,
+                  T568040.ACCOUNT_TYPE_DESC,
+                  T568040.ACCT_ACCOUNT_GROUP_DESC,
+                  T568040.ACCT_END_DATE,
+                  T568040.ACCT_IDC_BASIS_CD,
+                  T568040.ACCT_START_DATE,
+                  T568040.ALLOCATED_AMT,
+                  T568046.DESCRIPTION,
+                  T568046.OBJECT,
+                  T568046.SUPER_OBJECT,
+                  T568046.SUPER_OBJECT_NAME,
+                  T568046.FACILITY_ADMIN_COST_FLAG,
+                  T568046.HHSM_OVERHEAD_FLAG,
+                  T568046.TDC_OVERHEAD_FLAG,
+                  T568046.MTDC_OVERHEAD_FLAG,
+                  T568046.NON_OPERATING_TRANSFER_FLAG,
+                  T568046.DIR_INDIR_COST_FLAG,
+                  T568054.ACTIVITY,
+                  T568054.DESCRIPTION,
+                  T568054.SUBACTIVITY,
+                  T568060.ACTIVITY,
+                  T568061.FUND,
+                  T568064.TUB,
+                  T568069.ORG,
+                  CASE T568046.TERA_OBJECT
+                      WHEN 'T400' THEN 'Income'
+                      WHEN 'T600' THEN 'Expense'
+                      WHEN 'T898' THEN 'Expense'
+                      WHEN 'T901' THEN 'Non-Oper'
+                      WHEN 'T951' THEN 'Non-Oper'
+                      WHEN 'T981' THEN 'Non-Oper'
+                      ELSE 'OTHER'
+                  END,
+                  CASE
+                      WHEN     T568046.FACILITY_ADMIN_COST_FLAG = 'N'
+                           AND T568046.DIR_INDIR_COST_FLAG = 'Y'
+                      THEN
+                          CASE
+                              WHEN T568046.TDC_OVERHEAD_FLAG = 'N'
+                              THEN
+                                  '*'
+                              ELSE
+                                  CASE
+                                      WHEN     T568040.ACCT_IDC_BASIS_CD =
+                                                   'MTDC'
+                                           AND T568046.MTDC_OVERHEAD_FLAG =
+                                                   'N'
+                                      THEN
+                                          '*'
+                                      ELSE
+                                          CASE
+                                              WHEN     T568040.ACCT_IDC_BASIS_CD =
+                                                           'HHSM'
+                                                   AND T568046.HHSM_OVERHEAD_FLAG =
+                                                           'N'
+                                              THEN
+                                                  '*'
+                                          END
+                                  END
+                          END
+                      ELSE
+                          ''
+                  END,
+                  CONCAT (CONCAT (T568029.RESPONSIBLE_ORG_CD, ' '),
+                          T568029.RESPONSIBLE_ORG_DESC),
+                  CONCAT (CONCAT (T568029.RESPONSIBLE_TUB_CD, ' '),
+                          T568029.RESPONSIBLE_TUB_DESC),
+                  CONCAT (CONCAT (T568029.PI_LAST_NAME, ', '),
+                          T568029.PI_FIRST_NAME),
+                  CONCAT (CONCAT (T568046.OBJECT, ' '),
+                          SUBSTR (T568046.NAME, 1, 30)),
+                  CONCAT (
+                      CONCAT (
+                          CONCAT (
+                              CONCAT (
+                                  CONCAT (
+                                      CONCAT (
+                                          CONCAT (CONCAT (T568061.FUND, '-'),
+                                                  T568054.ACTIVITY),
+                                          '-'),
+                                      T568054.SUBACTIVITY),
+                                  '-'),
+                              T568064.TUB),
+                          '-'),
+                      T568069.ORG),
+                  SUBSTR (T568054.DESCRIPTION,
+                          INSTR (T568054.DESCRIPTION, ',') + 1,
+                          100)),
+     SAWITH2
+     AS (SELECT D1.c5  AS c5,
+                D1.c6  AS c6,
+                D1.c7  AS c7,
+                D1.c8  AS c8,
+                D1.c9  AS c9,
+                D1.c10 AS c10,
+                D1.c11 AS c11,
+                D1.c12 AS c12,
+                D1.c13 AS c13,
+                D1.c14 AS c14,
+                D1.c15 AS c15,
+                D1.c16 AS c16,
+                D1.c17 AS c17,
+                D1.c18 AS c18,
+                D1.c19 AS c19,
+                D1.c20 AS c20,
+                D1.c21 AS c21,
+                D1.c22 AS c22,
+                D1.c23 AS c23,
+                D1.c24 AS c24,
+                D1.c25 AS c25,
+                D1.c26 AS c26,
+                D1.c27 AS c27,
+                D1.c28 AS c28,
+                D1.c29 AS c29,
+                D1.c30 AS c30,
+                D1.c31 AS c31,
+                D1.c32 AS c32,
+                D1.c33 AS c33,
+                D1.c34 AS c34,
+                D1.c35 AS c35,
+                D1.c36 AS c36,
+                D1.c37 AS c37,
+                D1.c38 AS c38,
+                D1.c39 AS c39,
+                D1.c40 AS c40,
+                D1.c41 AS c41,
+                D1.c42 AS c42,
+                D1.c43 AS c43,
+                D1.c44 AS c44,
+                D1.c45 AS c45,
+                D1.c46 AS c46,
+                D1.c47 AS c47,
+                D1.c1  AS c48,
+                D1.c2  AS c49,
+                D1.c3  AS c50,
+                D1.c4  AS c51,
+                ROW_NUMBER ()
+                    OVER (PARTITION BY D1.c29,
+                                       D1.c30,
+                                       D1.c13,
+                                       D1.c14,
+                                       D1.c16,
+                                       D1.c21,
+                                       D1.c17,
+                                       D1.c22,
+                                       D1.c19,
+                                       D1.c42,
+                                       D1.c41,
+                                       D1.c8,
+                                       D1.c9,
+                                       D1.c10,
+                                       D1.c11,
+                                       D1.c40,
+                                       D1.c12,
+                                       D1.c39,
+                                       D1.c6,
+                                       D1.c5,
+                                       D1.c37,
+                                       D1.c38,
+                                       D1.c34,
+                                       D1.c35,
+                                       D1.c26,
+                                       D1.c27,
+                                       D1.c7,
+                                       D1.c23,
+                                       D1.c28,
+                                       D1.c25,
+                                       D1.c31,
+                                       D1.c33,
+                                       D1.c18,
+                                       D1.c20,
+                                       D1.c15,
+                                       D1.c24,
+                                       D1.c36,
+                                       D1.c32
+                          ORDER BY
+                              D1.c29 DESC,
+                              D1.c30 DESC,
+                              D1.c13 DESC,
+                              D1.c14 DESC,
+                              D1.c16 DESC,
+                              D1.c21 DESC,
+                              D1.c17 DESC,
+                              D1.c22 DESC,
+                              D1.c19 DESC,
+                              D1.c42 DESC,
+                              D1.c41 DESC,
+                              D1.c8 DESC,
+                              D1.c9 DESC,
+                              D1.c10 DESC,
+                              D1.c11 DESC,
+                              D1.c40 DESC,
+                              D1.c12 DESC,
+                              D1.c39 DESC,
+                              D1.c6 DESC,
+                              D1.c5 DESC,
+                              D1.c37 DESC,
+                              D1.c38 DESC,
+                              D1.c34 DESC,
+                              D1.c35 DESC,
+                              D1.c26 DESC,
+                              D1.c27 DESC,
+                              D1.c7 DESC,
+                              D1.c23 DESC,
+                              D1.c28 DESC,
+                              D1.c25 DESC,
+                              D1.c31 DESC,
+                              D1.c33 DESC,
+                              D1.c18 DESC,
+                              D1.c20 DESC,
+                              D1.c15 DESC,
+                              D1.c24 DESC,
+                              D1.c36 DESC,
+                              D1.c32 DESC)
+                    AS c52
+           FROM SAWITH1 D1),
+     SAWITH3
+     AS (SELECT SUM (D1.c48)
+                    OVER (PARTITION BY D1.c29,
+                                       D1.c30,
+                                       D1.c13,
+                                       D1.c14,
+                                       D1.c16,
+                                       D1.c21,
+                                       D1.c17,
+                                       D1.c22,
+                                       D1.c19,
+                                       D1.c42,
+                                       D1.c41,
+                                       D1.c8,
+                                       D1.c9,
+                                       D1.c10,
+                                       D1.c11,
+                                       D1.c40,
+                                       D1.c12,
+                                       D1.c39,
+                                       D1.c6,
+                                       D1.c5,
+                                       D1.c37,
+                                       D1.c38,
+                                       D1.c34,
+                                       D1.c35,
+                                       D1.c26,
+                                       D1.c27,
+                                       D1.c7,
+                                       D1.c23,
+                                       D1.c28,
+                                       D1.c25,
+                                       D1.c31,
+                                       D1.c33,
+                                       D1.c20,
+                                       D1.c15,
+                                       D1.c24,
+                                       D1.c36)
+                    AS c1,
+                SUM (D1.c49)
+                    OVER (PARTITION BY D1.c29,
+                                       D1.c30,
+                                       D1.c13,
+                                       D1.c14,
+                                       D1.c16,
+                                       D1.c21,
+                                       D1.c17,
+                                       D1.c22,
+                                       D1.c19,
+                                       D1.c42,
+                                       D1.c41,
+                                       D1.c8,
+                                       D1.c9,
+                                       D1.c10,
+                                       D1.c11,
+                                       D1.c40,
+                                       D1.c12,
+                                       D1.c39,
+                                       D1.c6,
+                                       D1.c5,
+                                       D1.c37,
+                                       D1.c38,
+                                       D1.c34,
+                                       D1.c35,
+                                       D1.c26,
+                                       D1.c27,
+                                       D1.c7,
+                                       D1.c23,
+                                       D1.c28,
+                                       D1.c25,
+                                       D1.c31,
+                                       D1.c33,
+                                       D1.c20,
+                                       D1.c15,
+                                       D1.c24,
+                                       D1.c36)
+                    AS c2,
+                SUM (D1.c50)
+                    OVER (PARTITION BY D1.c29,
+                                       D1.c30,
+                                       D1.c13,
+                                       D1.c14,
+                                       D1.c16,
+                                       D1.c21,
+                                       D1.c17,
+                                       D1.c22,
+                                       D1.c19,
+                                       D1.c42,
+                                       D1.c41,
+                                       D1.c8,
+                                       D1.c9,
+                                       D1.c10,
+                                       D1.c11,
+                                       D1.c40,
+                                       D1.c12,
+                                       D1.c39,
+                                       D1.c6,
+                                       D1.c5,
+                                       D1.c37,
+                                       D1.c38,
+                                       D1.c34,
+                                       D1.c35,
+                                       D1.c26,
+                                       D1.c27,
+                                       D1.c7,
+                                       D1.c23,
+                                       D1.c28,
+                                       D1.c25,
+                                       D1.c31,
+                                       D1.c33,
+                                       D1.c20,
+                                       D1.c15,
+                                       D1.c24,
+                                       D1.c36)
+                    AS c3,
+                SUM (CASE D1.c52 WHEN 1 THEN D1.c51 ELSE NULL END)
+                    OVER (PARTITION BY D1.c29,
+                                       D1.c30,
+                                       D1.c13,
+                                       D1.c14,
+                                       D1.c16,
+                                       D1.c21,
+                                       D1.c17,
+                                       D1.c22,
+                                       D1.c19,
+                                       D1.c42,
+                                       D1.c41,
+                                       D1.c8,
+                                       D1.c9,
+                                       D1.c10,
+                                       D1.c11,
+                                       D1.c40,
+                                       D1.c12,
+                                       D1.c39,
+                                       D1.c6,
+                                       D1.c5,
+                                       D1.c37,
+                                       D1.c38,
+                                       D1.c34,
+                                       D1.c35,
+                                       D1.c26,
+                                       D1.c27,
+                                       D1.c7,
+                                       D1.c23,
+                                       D1.c28,
+                                       D1.c25,
+                                       D1.c31,
+                                       D1.c33,
+                                       D1.c18,
+                                       D1.c20,
+                                       D1.c15,
+                                       D1.c24,
+                                       D1.c36,
+                                       D1.c32)
+                    AS c4,
+                D1.c5  AS c5,
+                D1.c6  AS c6,
+                D1.c7  AS c7,
+                D1.c8  AS c8,
+                D1.c9  AS c9,
+                D1.c10 AS c10,
+                D1.c11 AS c11,
+                D1.c12 AS c12,
+                D1.c13 AS c13,
+                D1.c14 AS c14,
+                D1.c15 AS c15,
+                D1.c16 AS c16,
+                D1.c17 AS c17,
+                D1.c18 AS c18,
+                D1.c19 AS c19,
+                D1.c20 AS c20,
+                D1.c21 AS c21,
+                D1.c22 AS c22,
+                D1.c23 AS c23,
+                D1.c24 AS c24,
+                D1.c25 AS c25,
+                D1.c26 AS c26,
+                D1.c27 AS c27,
+                D1.c28 AS c28,
+                D1.c29 AS c29,
+                D1.c30 AS c30,
+                D1.c31 AS c31,
+                D1.c32 AS c32,
+                D1.c33 AS c33,
+                D1.c34 AS c34,
+                D1.c35 AS c35,
+                D1.c36 AS c36,
+                D1.c37 AS c37,
+                D1.c38 AS c38,
+                D1.c39 AS c39,
+                D1.c40 AS c40,
+                D1.c41 AS c41,
+                D1.c42 AS c42,
+                D1.c43 AS c43,
+                D1.c44 AS c44,
+                D1.c45 AS c45,
+                D1.c46 AS c46,
+                D1.c47 AS c47
+           FROM SAWITH2 D1),
+     SAWITH4
+     AS (SELECT D1.c1  AS c1,
+                D1.c2  AS c2,
+                D1.c3  AS c3,
+                D1.c4  AS c4,
+                D1.c5  AS c5,
+                D1.c6  AS c6,
+                D1.c7  AS c7,
+                D1.c8  AS c8,
+                D1.c9  AS c9,
+                D1.c10 AS c10,
+                D1.c11 AS c11,
+                D1.c12 AS c12,
+                D1.c13 AS c13,
+                D1.c14 AS c14,
+                D1.c15 AS c15,
+                D1.c16 AS c16,
+                D1.c17 AS c17,
+                D1.c18 AS c18,
+                D1.c19 AS c19,
+                D1.c20 AS c20,
+                D1.c21 AS c21,
+                D1.c22 AS c22,
+                D1.c23 AS c23,
+                D1.c24 AS c24,
+                D1.c25 AS c25,
+                D1.c26 AS c26,
+                D1.c27 AS c27,
+                D1.c28 AS c28,
+                D1.c29 AS c29,
+                D1.c30 AS c30,
+                D1.c31 AS c31,
+                D1.c32 AS c32,
+                D1.c33 AS c33,
+                D1.c34 AS c34,
+                D1.c35 AS c35,
+                D1.c36 AS c36,
+                D1.c37 AS c37,
+                D1.c38 AS c38,
+                D1.c39 AS c39,
+                D1.c40 AS c40,
+                D1.c41 AS c41,
+                D1.c42 AS c42,
+                D1.c43 AS c43,
+                D1.c44 AS c44,
+                D1.c45 AS c45,
+                D1.c46 AS c46,
+                D1.c47 AS c47,
+                D1.c48 AS c48,
+                D1.c49 AS c49,
+                D1.c50 AS c50
+           FROM (SELECT CASE
+                            WHEN D1.c5 IS NOT NULL THEN D1.c5
+                            WHEN D2.c5 IS NOT NULL THEN D2.c5
+                        END
+                            AS c1,
+                        CASE
+                            WHEN D1.c6 IS NOT NULL THEN D1.c6
+                            WHEN D2.c6 IS NOT NULL THEN D2.c6
+                        END
+                            AS c2,
+                        CASE
+                            WHEN D1.c7 IS NOT NULL THEN D1.c7
+                            WHEN D2.c7 IS NOT NULL THEN D2.c7
+                        END
+                            AS c3,
+                        CASE
+                            WHEN D1.c8 IS NOT NULL THEN D1.c8
+                            WHEN D2.c8 IS NOT NULL THEN D2.c8
+                        END
+                            AS c4,
+                        CASE
+                            WHEN D1.c9 IS NOT NULL THEN D1.c9
+                            WHEN D2.c9 IS NOT NULL THEN D2.c9
+                        END
+                            AS c5,
+                        CASE
+                            WHEN D1.c10 IS NOT NULL THEN D1.c10
+                            WHEN D2.c10 IS NOT NULL THEN D2.c10
+                        END
+                            AS c6,
+                        CASE
+                            WHEN D1.c11 IS NOT NULL THEN D1.c11
+                            WHEN D2.c11 IS NOT NULL THEN D2.c11
+                        END
+                            AS c7,
+                        CASE
+                            WHEN D1.c12 IS NOT NULL THEN D1.c12
+                            WHEN D2.c12 IS NOT NULL THEN D2.c12
+                        END
+                            AS c8,
+                        CASE
+                            WHEN D1.c13 IS NOT NULL THEN D1.c13
+                            WHEN D2.c13 IS NOT NULL THEN D2.c13
+                        END
+                            AS c9,
+                        CASE
+                            WHEN D1.c14 IS NOT NULL THEN D1.c14
+                            WHEN D2.c14 IS NOT NULL THEN D2.c14
+                        END
+                            AS c10,
+                        CASE
+                            WHEN D1.c15 IS NOT NULL THEN D1.c15
+                            WHEN D2.c15 IS NOT NULL THEN D2.c15
+                        END
+                            AS c11,
+                        CASE
+                            WHEN D1.c16 IS NOT NULL THEN D1.c16
+                            WHEN D2.c16 IS NOT NULL THEN D2.c16
+                        END
+                            AS c12,
+                        CASE
+                            WHEN D1.c17 IS NOT NULL THEN D1.c17
+                            WHEN D2.c17 IS NOT NULL THEN D2.c17
+                        END
+                            AS c13,
+                        CASE
+                            WHEN D1.c18 IS NOT NULL THEN D1.c18
+                            WHEN D2.c18 IS NOT NULL THEN D2.c18
+                        END
+                            AS c14,
+                        CASE
+                            WHEN D1.c19 IS NOT NULL THEN D1.c19
+                            WHEN D2.c19 IS NOT NULL THEN D2.c19
+                        END
+                            AS c15,
+                        CASE
+                            WHEN D1.c20 IS NOT NULL THEN D1.c20
+                            WHEN D2.c20 IS NOT NULL THEN D2.c20
+                        END
+                            AS c16,
+                        CASE
+                            WHEN D1.c21 IS NOT NULL THEN D1.c21
+                            WHEN D2.c21 IS NOT NULL THEN D2.c21
+                        END
+                            AS c17,
+                        CASE
+                            WHEN D1.c22 IS NOT NULL THEN D1.c22
+                            WHEN D2.c22 IS NOT NULL THEN D2.c22
+                        END
+                            AS c18,
+                        CASE
+                            WHEN D1.c23 IS NOT NULL THEN D1.c23
+                            WHEN D2.c23 IS NOT NULL THEN D2.c23
+                        END
+                            AS c19,
+                        CASE
+                            WHEN D1.c5 IS NOT NULL THEN D1.c5
+                            WHEN D2.c5 IS NOT NULL THEN D2.c5
+                        END
+                            AS c20,
+                        CASE
+                            WHEN D1.c24 IS NOT NULL THEN D1.c24
+                            WHEN D2.c24 IS NOT NULL THEN D2.c24
+                        END
+                            AS c21,
+                        CASE
+                            WHEN D1.c25 IS NOT NULL THEN D1.c25
+                            WHEN D2.c25 IS NOT NULL THEN D2.c25
+                        END
+                            AS c22,
+                        CASE
+                            WHEN D1.c26 IS NOT NULL THEN D1.c26
+                            WHEN D2.c26 IS NOT NULL THEN D2.c26
+                        END
+                            AS c23,
+                        CASE
+                            WHEN D1.c27 IS NOT NULL THEN D1.c27
+                            WHEN D2.c27 IS NOT NULL THEN D2.c27
+                        END
+                            AS c24,
+                        CASE
+                            WHEN D1.c28 IS NOT NULL THEN D1.c28
+                            WHEN D2.c28 IS NOT NULL THEN D2.c28
+                        END
+                            AS c25,
+                        D1.c4                                          AS c26,
+                        D1.c3                                          AS c27,
+                        D1.c2                                          AS c28,
+                        CASE
+                            WHEN D1.c29 IS NOT NULL THEN D1.c29
+                            WHEN D2.c29 IS NOT NULL THEN D2.c29
+                        END
+                            AS c29,
+                        CASE
+                            WHEN D1.c30 IS NOT NULL THEN D1.c30
+                            WHEN D2.c30 IS NOT NULL THEN D2.c30
+                        END
+                            AS c30,
+                        CASE
+                            WHEN D1.c29 IS NOT NULL THEN D1.c29
+                            WHEN D2.c29 IS NOT NULL THEN D2.c29
+                        END
+                            AS c31,
+                        NVL (D2.c3, 0) - NVL (D2.c1, 0)                AS c32,
+                        CASE
+                            WHEN D1.c31 IS NOT NULL THEN D1.c31
+                            WHEN D2.c31 IS NOT NULL THEN D2.c31
+                        END
+                            AS c33,
+                        CASE
+                            WHEN D1.c32 IS NOT NULL THEN D1.c32
+                            WHEN D2.c32 IS NOT NULL THEN D2.c32
+                        END
+                            AS c34,
+                        NVL (D2.c1 / NULLIF (D2.c3, 0) * 100 / 100, 0) AS c35,
+                        CASE
+                            WHEN D1.c33 IS NOT NULL THEN D1.c33
+                            WHEN D2.c33 IS NOT NULL THEN D2.c33
+                        END
+                            AS c36,
+                        CASE
+                            WHEN D1.c34 IS NOT NULL THEN D1.c34
+                            WHEN D2.c34 IS NOT NULL THEN D2.c34
+                        END
+                            AS c37,
+                        CASE
+                            WHEN D1.c35 IS NOT NULL THEN D1.c35
+                            WHEN D2.c35 IS NOT NULL THEN D2.c35
+                        END
+                            AS c38,
+                        D1.c1                                          AS c39,
+                        CASE
+                            WHEN D1.c36 IS NOT NULL THEN D1.c36
+                            WHEN D2.c36 IS NOT NULL THEN D2.c36
+                        END
+                            AS c40,
+                        CASE
+                            WHEN D1.c37 IS NOT NULL THEN D1.c37
+                            WHEN D2.c37 IS NOT NULL THEN D2.c37
+                        END
+                            AS c41,
+                        CASE
+                            WHEN D1.c38 IS NOT NULL THEN D1.c38
+                            WHEN D2.c38 IS NOT NULL THEN D2.c38
+                        END
+                            AS c42,
+                        CASE
+                            WHEN CASE
+                                     WHEN D1.c31 IS NOT NULL THEN D1.c31
+                                     WHEN D2.c31 IS NOT NULL THEN D2.c31
+                                 END = 'Non-Oper'
+                            THEN
+                                D2.c4
+                            ELSE
+                                0
+                        END
+                            AS c43,
+                        CASE
+                            WHEN CASE
+                                     WHEN D1.c31 IS NOT NULL THEN D1.c31
+                                     WHEN D2.c31 IS NOT NULL THEN D2.c31
+                                 END = 'Income'
+                            THEN
+                                D2.c4
+                            ELSE
+                                0
+                        END
+                            AS c44,
+                        CASE
+                            WHEN D1.c39 IS NOT NULL THEN D1.c39
+                            WHEN D2.c39 IS NOT NULL THEN D2.c39
+                        END
+                            AS c45,
+                        D2.c2                                          AS c46,
+                        D2.c1                                          AS c47,
+                        CASE
+                            WHEN D1.c40 IS NOT NULL THEN D1.c40
+                            WHEN D2.c40 IS NOT NULL THEN D2.c40
+                        END
+                            AS c48,
+                        CASE
+                            WHEN D1.c41 IS NOT NULL THEN D1.c41
+                            WHEN D2.c41 IS NOT NULL THEN D2.c41
+                        END
+                            AS c49,
+                        CASE
+                            WHEN D1.c42 IS NOT NULL THEN D1.c42
+                            WHEN D2.c42 IS NOT NULL THEN D2.c42
+                        END
+                            AS c50,
+                        ROW_NUMBER ()
+                        OVER (
+                            PARTITION BY CASE
+                                             WHEN D1.c5 IS NOT NULL
+                                             THEN
+                                                 D1.c5
+                                             WHEN D2.c5 IS NOT NULL
+                                             THEN
+                                                 D2.c5
+                                         END,
+                                         CASE
+                                             WHEN D1.c6 IS NOT NULL
+                                             THEN
+                                                 D1.c6
+                                             WHEN D2.c6 IS NOT NULL
+                                             THEN
+                                                 D2.c6
+                                         END,
+                                         CASE
+                                             WHEN D1.c7 IS NOT NULL
+                                             THEN
+                                                 D1.c7
+                                             WHEN D2.c7 IS NOT NULL
+                                             THEN
+                                                 D2.c7
+                                         END,
+                                         CASE
+                                             WHEN D1.c8 IS NOT NULL
+                                             THEN
+                                                 D1.c8
+                                             WHEN D2.c8 IS NOT NULL
+                                             THEN
+                                                 D2.c8
+                                         END,
+                                         CASE
+                                             WHEN D1.c9 IS NOT NULL
+                                             THEN
+                                                 D1.c9
+                                             WHEN D2.c9 IS NOT NULL
+                                             THEN
+                                                 D2.c9
+                                         END,
+                                         CASE
+                                             WHEN D1.c10 IS NOT NULL
+                                             THEN
+                                                 D1.c10
+                                             WHEN D2.c10 IS NOT NULL
+                                             THEN
+                                                 D2.c10
+                                         END,
+                                         CASE
+                                             WHEN D1.c11 IS NOT NULL
+                                             THEN
+                                                 D1.c11
+                                             WHEN D2.c11 IS NOT NULL
+                                             THEN
+                                                 D2.c11
+                                         END,
+                                         CASE
+                                             WHEN D1.c12 IS NOT NULL
+                                             THEN
+                                                 D1.c12
+                                             WHEN D2.c12 IS NOT NULL
+                                             THEN
+                                                 D2.c12
+                                         END,
+                                         CASE
+                                             WHEN D1.c13 IS NOT NULL
+                                             THEN
+                                                 D1.c13
+                                             WHEN D2.c13 IS NOT NULL
+                                             THEN
+                                                 D2.c13
+                                         END,
+                                         CASE
+                                             WHEN D1.c14 IS NOT NULL
+                                             THEN
+                                                 D1.c14
+                                             WHEN D2.c14 IS NOT NULL
+                                             THEN
+                                                 D2.c14
+                                         END,
+                                         CASE
+                                             WHEN D1.c15 IS NOT NULL
+                                             THEN
+                                                 D1.c15
+                                             WHEN D2.c15 IS NOT NULL
+                                             THEN
+                                                 D2.c15
+                                         END,
+                                         CASE
+                                             WHEN D1.c16 IS NOT NULL
+                                             THEN
+                                                 D1.c16
+                                             WHEN D2.c16 IS NOT NULL
+                                             THEN
+                                                 D2.c16
+                                         END,
+                                         CASE
+                                             WHEN D1.c17 IS NOT NULL
+                                             THEN
+                                                 D1.c17
+                                             WHEN D2.c17 IS NOT NULL
+                                             THEN
+                                                 D2.c17
+                                         END,
+                                         CASE
+                                             WHEN D1.c18 IS NOT NULL
+                                             THEN
+                                                 D1.c18
+                                             WHEN D2.c18 IS NOT NULL
+                                             THEN
+                                                 D2.c18
+                                         END,
+                                         CASE
+                                             WHEN D1.c19 IS NOT NULL
+                                             THEN
+                                                 D1.c19
+                                             WHEN D2.c19 IS NOT NULL
+                                             THEN
+                                                 D2.c19
+                                         END,
+                                         CASE
+                                             WHEN D1.c20 IS NOT NULL
+                                             THEN
+                                                 D1.c20
+                                             WHEN D2.c20 IS NOT NULL
+                                             THEN
+                                                 D2.c20
+                                         END,
+                                         CASE
+                                             WHEN D1.c21 IS NOT NULL
+                                             THEN
+                                                 D1.c21
+                                             WHEN D2.c21 IS NOT NULL
+                                             THEN
+                                                 D2.c21
+                                         END,
+                                         CASE
+                                             WHEN D1.c22 IS NOT NULL
+                                             THEN
+                                                 D1.c22
+                                             WHEN D2.c22 IS NOT NULL
+                                             THEN
+                                                 D2.c22
+                                         END,
+                                         CASE
+                                             WHEN D1.c23 IS NOT NULL
+                                             THEN
+                                                 D1.c23
+                                             WHEN D2.c23 IS NOT NULL
+                                             THEN
+                                                 D2.c23
+                                         END,
+                                         CASE
+                                             WHEN D1.c24 IS NOT NULL
+                                             THEN
+                                                 D1.c24
+                                             WHEN D2.c24 IS NOT NULL
+                                             THEN
+                                                 D2.c24
+                                         END,
+                                         CASE
+                                             WHEN D1.c25 IS NOT NULL
+                                             THEN
+                                                 D1.c25
+                                             WHEN D2.c25 IS NOT NULL
+                                             THEN
+                                                 D2.c25
+                                         END,
+                                         CASE
+                                             WHEN D1.c26 IS NOT NULL
+                                             THEN
+                                                 D1.c26
+                                             WHEN D2.c26 IS NOT NULL
+                                             THEN
+                                                 D2.c26
+                                         END,
+                                         CASE
+                                             WHEN D1.c27 IS NOT NULL
+                                             THEN
+                                                 D1.c27
+                                             WHEN D2.c27 IS NOT NULL
+                                             THEN
+                                                 D2.c27
+                                         END,
+                                         CASE
+                                             WHEN D1.c28 IS NOT NULL
+                                             THEN
+                                                 D1.c28
+                                             WHEN D2.c28 IS NOT NULL
+                                             THEN
+                                                 D2.c28
+                                         END,
+                                         CASE
+                                             WHEN D1.c29 IS NOT NULL
+                                             THEN
+                                                 D1.c29
+                                             WHEN D2.c29 IS NOT NULL
+                                             THEN
+                                                 D2.c29
+                                         END,
+                                         CASE
+                                             WHEN D1.c30 IS NOT NULL
+                                             THEN
+                                                 D1.c30
+                                             WHEN D2.c30 IS NOT NULL
+                                             THEN
+                                                 D2.c30
+                                         END,
+                                         CASE
+                                             WHEN D1.c31 IS NOT NULL
+                                             THEN
+                                                 D1.c31
+                                             WHEN D2.c31 IS NOT NULL
+                                             THEN
+                                                 D2.c31
+                                         END,
+                                         CASE
+                                             WHEN D1.c32 IS NOT NULL
+                                             THEN
+                                                 D1.c32
+                                             WHEN D2.c32 IS NOT NULL
+                                             THEN
+                                                 D2.c32
+                                         END,
+                                         CASE
+                                             WHEN D1.c33 IS NOT NULL
+                                             THEN
+                                                 D1.c33
+                                             WHEN D2.c33 IS NOT NULL
+                                             THEN
+                                                 D2.c33
+                                         END,
+                                         CASE
+                                             WHEN D1.c34 IS NOT NULL
+                                             THEN
+                                                 D1.c34
+                                             WHEN D2.c34 IS NOT NULL
+                                             THEN
+                                                 D2.c34
+                                         END,
+                                         CASE
+                                             WHEN D1.c35 IS NOT NULL
+                                             THEN
+                                                 D1.c35
+                                             WHEN D2.c35 IS NOT NULL
+                                             THEN
+                                                 D2.c35
+                                         END,
+                                         CASE
+                                             WHEN D1.c36 IS NOT NULL
+                                             THEN
+                                                 D1.c36
+                                             WHEN D2.c36 IS NOT NULL
+                                             THEN
+                                                 D2.c36
+                                         END,
+                                         CASE
+                                             WHEN D1.c37 IS NOT NULL
+                                             THEN
+                                                 D1.c37
+                                             WHEN D2.c37 IS NOT NULL
+                                             THEN
+                                                 D2.c37
+                                         END,
+                                         CASE
+                                             WHEN D1.c38 IS NOT NULL
+                                             THEN
+                                                 D1.c38
+                                             WHEN D2.c38 IS NOT NULL
+                                             THEN
+                                                 D2.c38
+                                         END,
+                                         CASE
+                                             WHEN D1.c39 IS NOT NULL
+                                             THEN
+                                                 D1.c39
+                                             WHEN D2.c39 IS NOT NULL
+                                             THEN
+                                                 D2.c39
+                                         END,
+                                         CASE
+                                             WHEN D1.c40 IS NOT NULL
+                                             THEN
+                                                 D1.c40
+                                             WHEN D2.c40 IS NOT NULL
+                                             THEN
+                                                 D2.c40
+                                         END,
+                                         CASE
+                                             WHEN D1.c41 IS NOT NULL
+                                             THEN
+                                                 D1.c41
+                                             WHEN D2.c41 IS NOT NULL
+                                             THEN
+                                                 D2.c41
+                                         END,
+                                         CASE
+                                             WHEN D1.c42 IS NOT NULL
+                                             THEN
+                                                 D1.c42
+                                             WHEN D2.c42 IS NOT NULL
+                                             THEN
+                                                 D2.c42
+                                         END
+                            ORDER BY
+                                CASE
+                                    WHEN D1.c5 IS NOT NULL THEN D1.c5
+                                    WHEN D2.c5 IS NOT NULL THEN D2.c5
+                                END ASC,
+                                CASE
+                                    WHEN D1.c6 IS NOT NULL THEN D1.c6
+                                    WHEN D2.c6 IS NOT NULL THEN D2.c6
+                                END ASC,
+                                CASE
+                                    WHEN D1.c7 IS NOT NULL THEN D1.c7
+                                    WHEN D2.c7 IS NOT NULL THEN D2.c7
+                                END ASC,
+                                CASE
+                                    WHEN D1.c8 IS NOT NULL THEN D1.c8
+                                    WHEN D2.c8 IS NOT NULL THEN D2.c8
+                                END ASC,
+                                CASE
+                                    WHEN D1.c9 IS NOT NULL THEN D1.c9
+                                    WHEN D2.c9 IS NOT NULL THEN D2.c9
+                                END ASC,
+                                CASE
+                                    WHEN D1.c10 IS NOT NULL THEN D1.c10
+                                    WHEN D2.c10 IS NOT NULL THEN D2.c10
+                                END ASC,
+                                CASE
+                                    WHEN D1.c11 IS NOT NULL THEN D1.c11
+                                    WHEN D2.c11 IS NOT NULL THEN D2.c11
+                                END ASC,
+                                CASE
+                                    WHEN D1.c12 IS NOT NULL THEN D1.c12
+                                    WHEN D2.c12 IS NOT NULL THEN D2.c12
+                                END ASC,
+                                CASE
+                                    WHEN D1.c13 IS NOT NULL THEN D1.c13
+                                    WHEN D2.c13 IS NOT NULL THEN D2.c13
+                                END ASC,
+                                CASE
+                                    WHEN D1.c14 IS NOT NULL THEN D1.c14
+                                    WHEN D2.c14 IS NOT NULL THEN D2.c14
+                                END ASC,
+                                CASE
+                                    WHEN D1.c15 IS NOT NULL THEN D1.c15
+                                    WHEN D2.c15 IS NOT NULL THEN D2.c15
+                                END ASC,
+                                CASE
+                                    WHEN D1.c16 IS NOT NULL THEN D1.c16
+                                    WHEN D2.c16 IS NOT NULL THEN D2.c16
+                                END ASC,
+                                CASE
+                                    WHEN D1.c17 IS NOT NULL THEN D1.c17
+                                    WHEN D2.c17 IS NOT NULL THEN D2.c17
+                                END ASC,
+                                CASE
+                                    WHEN D1.c18 IS NOT NULL THEN D1.c18
+                                    WHEN D2.c18 IS NOT NULL THEN D2.c18
+                                END ASC,
+                                CASE
+                                    WHEN D1.c19 IS NOT NULL THEN D1.c19
+                                    WHEN D2.c19 IS NOT NULL THEN D2.c19
+                                END ASC,
+                                CASE
+                                    WHEN D1.c20 IS NOT NULL THEN D1.c20
+                                    WHEN D2.c20 IS NOT NULL THEN D2.c20
+                                END ASC,
+                                CASE
+                                    WHEN D1.c21 IS NOT NULL THEN D1.c21
+                                    WHEN D2.c21 IS NOT NULL THEN D2.c21
+                                END ASC,
+                                CASE
+                                    WHEN D1.c22 IS NOT NULL THEN D1.c22
+                                    WHEN D2.c22 IS NOT NULL THEN D2.c22
+                                END ASC,
+                                CASE
+                                    WHEN D1.c23 IS NOT NULL THEN D1.c23
+                                    WHEN D2.c23 IS NOT NULL THEN D2.c23
+                                END ASC,
+                                CASE
+                                    WHEN D1.c24 IS NOT NULL THEN D1.c24
+                                    WHEN D2.c24 IS NOT NULL THEN D2.c24
+                                END ASC,
+                                CASE
+                                    WHEN D1.c25 IS NOT NULL THEN D1.c25
+                                    WHEN D2.c25 IS NOT NULL THEN D2.c25
+                                END ASC,
+                                CASE
+                                    WHEN D1.c26 IS NOT NULL THEN D1.c26
+                                    WHEN D2.c26 IS NOT NULL THEN D2.c26
+                                END ASC,
+                                CASE
+                                    WHEN D1.c27 IS NOT NULL THEN D1.c27
+                                    WHEN D2.c27 IS NOT NULL THEN D2.c27
+                                END ASC,
+                                CASE
+                                    WHEN D1.c28 IS NOT NULL THEN D1.c28
+                                    WHEN D2.c28 IS NOT NULL THEN D2.c28
+                                END ASC,
+                                CASE
+                                    WHEN D1.c29 IS NOT NULL THEN D1.c29
+                                    WHEN D2.c29 IS NOT NULL THEN D2.c29
+                                END ASC,
+                                CASE
+                                    WHEN D1.c30 IS NOT NULL THEN D1.c30
+                                    WHEN D2.c30 IS NOT NULL THEN D2.c30
+                                END ASC,
+                                CASE
+                                    WHEN D1.c31 IS NOT NULL THEN D1.c31
+                                    WHEN D2.c31 IS NOT NULL THEN D2.c31
+                                END ASC,
+                                CASE
+                                    WHEN D1.c32 IS NOT NULL THEN D1.c32
+                                    WHEN D2.c32 IS NOT NULL THEN D2.c32
+                                END ASC,
+                                CASE
+                                    WHEN D1.c33 IS NOT NULL THEN D1.c33
+                                    WHEN D2.c33 IS NOT NULL THEN D2.c33
+                                END ASC,
+                                CASE
+                                    WHEN D1.c34 IS NOT NULL THEN D1.c34
+                                    WHEN D2.c34 IS NOT NULL THEN D2.c34
+                                END ASC,
+                                CASE
+                                    WHEN D1.c35 IS NOT NULL THEN D1.c35
+                                    WHEN D2.c35 IS NOT NULL THEN D2.c35
+                                END ASC,
+                                CASE
+                                    WHEN D1.c36 IS NOT NULL THEN D1.c36
+                                    WHEN D2.c36 IS NOT NULL THEN D2.c36
+                                END ASC,
+                                CASE
+                                    WHEN D1.c37 IS NOT NULL THEN D1.c37
+                                    WHEN D2.c37 IS NOT NULL THEN D2.c37
+                                END ASC,
+                                CASE
+                                    WHEN D1.c38 IS NOT NULL THEN D1.c38
+                                    WHEN D2.c38 IS NOT NULL THEN D2.c38
+                                END ASC,
+                                CASE
+                                    WHEN D1.c39 IS NOT NULL THEN D1.c39
+                                    WHEN D2.c39 IS NOT NULL THEN D2.c39
+                                END ASC,
+                                CASE
+                                    WHEN D1.c40 IS NOT NULL THEN D1.c40
+                                    WHEN D2.c40 IS NOT NULL THEN D2.c40
+                                END ASC,
+                                CASE
+                                    WHEN D1.c41 IS NOT NULL THEN D1.c41
+                                    WHEN D2.c41 IS NOT NULL THEN D2.c41
+                                END ASC,
+                                CASE
+                                    WHEN D1.c42 IS NOT NULL THEN D1.c42
+                                    WHEN D2.c42 IS NOT NULL THEN D2.c42
+                                END ASC)
+                            AS c51
+                   FROM SAWITH0  D1
+                        FULL OUTER JOIN SAWITH3 D2
+                            ON     D1.c25 = D2.c25
+                               AND D1.c24 = D2.c24
+                               AND D1.c38 = D2.c38
+                               AND D1.c6 = D2.c6
+                               AND D1.c5 = D2.c5
+                               AND D1.c37 = D2.c37
+                               AND SYS_OP_MAP_NONNULL (D1.c34) =
+                                       SYS_OP_MAP_NONNULL (D2.c34)
+                               AND SYS_OP_MAP_NONNULL (D1.c44) =
+                                       SYS_OP_MAP_NONNULL (D2.c44)
+                               AND SYS_OP_MAP_NONNULL (D1.c45) =
+                                       SYS_OP_MAP_NONNULL (D2.c45)
+                               AND D1.c31 = D2.c31
+                               AND SYS_OP_MAP_NONNULL (D1.c35) =
+                                       SYS_OP_MAP_NONNULL (D2.c35)
+                               AND SYS_OP_MAP_NONNULL (D1.c46) =
+                                       SYS_OP_MAP_NONNULL (D2.c46)
+                               AND SYS_OP_MAP_NONNULL (D1.c47) =
+                                       SYS_OP_MAP_NONNULL (D2.c47)
+                               AND D1.c23 = D2.c23
+                               AND D1.c16 = D2.c16
+                               AND D1.c9 = D2.c9
+                               AND D1.c15 = D2.c15
+                               AND D1.c41 = D2.c41
+                               AND D1.c17 = D2.c17
+                               AND D1.c19 = D2.c19
+                               AND SYS_OP_MAP_NONNULL (D1.c10) =
+                                       SYS_OP_MAP_NONNULL (D2.c10)
+                               AND D1.c39 = D2.c39
+                               AND SYS_OP_MAP_NONNULL (D1.c12) =
+                                       SYS_OP_MAP_NONNULL (D2.c12)
+                               AND D1.c8 = D2.c8
+                               AND SYS_OP_MAP_NONNULL (D1.c13) =
+                                       SYS_OP_MAP_NONNULL (D2.c13)
+                               AND D1.c22 = D2.c22
+                               AND SYS_OP_MAP_NONNULL (D1.c14) =
+                                       SYS_OP_MAP_NONNULL (D2.c14)
+                               AND SYS_OP_MAP_NONNULL (D1.c11) =
+                                       SYS_OP_MAP_NONNULL (D2.c11)
+                               AND SYS_OP_MAP_NONNULL (D1.c21) =
+                                       SYS_OP_MAP_NONNULL (D2.c21)
+                               AND SYS_OP_MAP_NONNULL (D1.c29) =
+                                       SYS_OP_MAP_NONNULL (D2.c29)
+                               AND SYS_OP_MAP_NONNULL (D1.c29) =
+                                       SYS_OP_MAP_NONNULL (D2.c29)
+                               AND SYS_OP_MAP_NONNULL (D1.c30) =
+                                       SYS_OP_MAP_NONNULL (D2.c30)
+                               AND SYS_OP_MAP_NONNULL (D1.c40) =
+                                       SYS_OP_MAP_NONNULL (D2.c40)
+                               AND D1.c20 = D2.c20
+                               AND SYS_OP_MAP_NONNULL (D1.c42) =
+                                       SYS_OP_MAP_NONNULL (D2.c42)
+                               AND D1.c28 = D2.c28
+                               AND D1.c26 = D2.c26
+                               AND D1.c27 = D2.c27
+                               AND D1.c7 = D2.c7
+                               AND D1.c43 = D2.c43) D1
+          WHERE (D1.c51 = 1))
+  SELECT D1.c1 AS "Object",
+         D1.c2 AS "Object Description",
+         D1.c3 AS "Activity",
+         D1.c4 AS "Account Status Desc",
+         D1.c5 AS "Account Type Desc",
+         D1.c6 AS "Acct Account Group Desc",
+         D1.c7 AS "Acct End Date",
+         D1.c8 AS "Acct Start Date",
+         D1.c9 AS "Anticip End Date",
+         D1.c10 AS "Anticip Start Date",
+         D1.c11 AS "Principal Investigator",
+         D1.c12 AS "Resp Org Cd",
+         D1.c13 AS "Resp Org Desc",
+         D1.c14 AS "Resp Org",
+         D1.c15 AS "Resp Tub Cd",
+         D1.c16 AS "Resp Tub",
+         D1.c17 AS "Spon Award",
+         D1.c18 AS "Sponsor",
+         D1.c19 AS "Fund",
+         D1.c21 AS "Object Num Name",
+         D1.c22 AS "Org",
+         D1.c23 AS "Subactivity Description",
+         D1.c24 AS "Subactivity",
+         D1.c25 AS "Tub",
+         D1.c26 AS "Budgets",
+         D1.c27 AS "PJTD_Expense",
+         D1.c28 AS "PJTD_Income",
+         D1.c29 AS "Total_Authorized",
+         D1.c30 AS "Total_Carry_Fwd",
+         D1.c31 AS "Total_Obligated",
+         D1.c32 AS "Remaining_GL_Budget",
+         D1.c33 AS "Object_Grp",
+         D1.c34 AS "Account",
+         D1.c35 AS "Per_GLBud_Expd",
+         D1.c36 AS "Asterisk",
+         D1.c37 AS "F_A_Flag",
+         D1.c38 AS "NON_OP_Flag",
+         D1.c39 AS "PJTD_NonOper",
+         D1.c40 AS "Chart_of_Accounts",
+         D1.c41 AS "Super_Obj",
+         D1.c42 AS "Super_Obj_Name",
+         D1.c43 AS "Count_NonOper",
+         D1.c44 AS "Count_Income",
+         D1.c45 AS "SubAct_Amt",
+         D1.c46 AS "FY_Expense",
+         D1.c47 AS "PJTD_Exp",
+         D1.c48 AS "Indirect_Cost_Basis_Cd",
+         D1.c49 AS "Indirect_Cost_Basis_Rate",
+         D1.c50 AS "Project_NickName"
+    FROM SAWITH4 D1
+ORDER BY c19, -- fund
+         c3,  -- Activity 
+         c24,  -- Sub activity
+         c25, -- Tub
+         c22,  -- Org
+         c1   -- Object Code]]>
+         </sql>
+      </dataSet>
+      <dataSet xmlns="http://xmlns.oracle.com/oxp/xmlp" name="XDO" type="complex">
+         <sql xmlns="http://xmlns.oracle.com/oxp/xmlp" dataSourceRef="Oracle BI EE">
+            <![CDATA[select	 "OBI Users"."User Id" as "User Id",
+	 "OBI Users"."User Desc" as "User Desc" 
+ from	"OBI Security"."OBI Users" "OBI Users"
+where "OBI Users"."User Id" = :xdo_user_name]]>
+         </sql>
+      </dataSet>
+      <dataSet xmlns="http://xmlns.oracle.com/oxp/xmlp" name="G_PeriodTrx_PJTD_Exp_End" type="complex">
+         <sql xmlns="http://xmlns.oracle.com/oxp/xmlp" dataSourceRef="dwcen">
+            <![CDATA[SELECT          T568689.TUB                       AS "TUB",
+                  T568693.ORG                       AS "ORG",
+                  T568686.FUND                      AS "FUND",
+                  T568669.OBJECT                    AS "OBJECT",
+                  T568685.ACTIVITY                  AS "ACTIVITY",
+                  T568677.SUBACTIVITY               AS "SUBACTIVITY" ,
+SUM (T589413.ACTUAL_NET_PJTD_END) AS "PJTD_Exp_End"
+             FROM DWGL.DGL_COA_TUBS_D              T568689 /* B1_DGL_COA_TUBS_D (Grants) */
+                                                          ,
+                  DWGL.DGL_COA_SUBACTIVITIES_D     T568677 /* B1_DGL_COA_SUBACTIVITIES_D (Grants) */
+                                                          ,
+                  DWGL.DGL_COA_ORGS_D              T568693 /* B1_DGL_COA_ORGS_D (Grants) */
+                                                          ,
+                  DWGL.DGL_COA_OBJECTS_D           T568669 /* B1_DGL_COA_OBJECTS_D (Grants) */
+                                                          ,
+                  DWGL.DGL_COA_FUNDS_D             T568686 /* B1_DGL_COA_FUNDS_D (Grants) */
+                                                          ,
+                  DWGL.DGL_COA_ACTIVITIES_D        T568685 /* B1_DGL_COA_ACTIVITIES_D (Grants) */
+                                                          ,
+                  DWGL.DGL_PERIODS_D               T568714 /* B1_DGL_PERIODS_D (Grants) */
+                                                          ,
+                  ODSGM.OGM_ACCOUNTS               T568662 /* B2_OGM_ACCOUNTS (Grants - PER inner) */
+                                                          ,
+            --      ODSGM.OGM_SEC_USER_RPT_SEGMENTS  T589369 , /* B2_OGM_SEC_USER_RPT_SEGMENTS (PER Security Join) */                                                          
+                  HUDW.DGM_CURR_PER_GL_BALS_F_ALL_V T589413 /* D1_DGM_CURR_PER_GL_BALS_F_ALL_V (Grants - PER open view) */
+            WHERE (    T568662.DW_GL_FUND_KEY = T589413.DW_FUND_KEY
+                   AND T568662.DW_ACCOUNT_KEY = T589413.DW_ACCOUNT_KEY
+          --         AND T568662.DW_SEGMENT_KEY = T589369.DW_SEGMENT_KEY
+                   AND T568669.ENABLED_FLAG = 'Y'
+      /*             AND T568669.OBJECT = '7654'
+                   AND T568677.SUBACTIVITY = '0010'
+                   AND T568685.ACTIVITY = '257832'
+                   AND T568686.FUND = '258361'
+                   AND T568689.TUB = '275'
+                   AND T568693.ORG = '23440'    */        
+                   AND T568669.OBJECT_KEY = T589413.DW_OBJECT_KEY
+                   AND T568677.END_DATE_ACTIVE =
+                           TO_DATE ('9999-12-31 00:00:00',
+                                    'YYYY-MM-DD HH24:MI:SS')
+                   AND T568677.SUBACTIVITY_KEY = T589413.DW_SUBACTIVITY_KEY
+                   AND T568685.ACTIVITY_KEY = T589413.DW_ACTIVITY_KEY
+                   AND T568685.ACTIVITY_TYPE_CODE = 'S'
+                   AND T568685.END_DATE_ACTIVE =
+                           TO_DATE ('9999-12-31 00:00:00',
+                                    'YYYY-MM-DD HH24:MI:SS')
+                   AND T568686.END_DATE_ACTIVE =
+                           TO_DATE ('9999-12-31 00:00:00',
+                                    'YYYY-MM-DD HH24:MI:SS')
+                   AND T568686.FUND_KEY = T589413.DW_FUND_KEY
+                   AND T568689.END_DATE_ACTIVE =
+                           TO_DATE ('9999-12-31 00:00:00',
+                                    'YYYY-MM-DD HH24:MI:SS')                 
+                   AND T568689.TUB_KEY = T589413.DW_TUB_KEY
+                   AND T568693.END_DATE_ACTIVE =
+                           TO_DATE ('9999-12-31 00:00:00',
+                                    'YYYY-MM-DD HH24:MI:SS')                   
+                   AND T568693.ORG_KEY = T589413.DW_ORG_KEY
+                   AND T568714.PERIOD_KEY = T589413.DW_PERIOD_KEY
+                   AND T568714.PERIOD_KEY = :PeriodToKey
+          --         AND T589369.USER_UNIV_ID = '31240778'
+                   AND T589413.DW_PERIOD_KEY = :PeriodToKey
+                   AND T568714.CURRENT_PERIOD_OFFSET < 1
+                   AND 0 < T568714.PERIOD_KEY
+                   AND T568669.OBJECT >= '4000')
+         GROUP BY T568669.OBJECT,
+                  T568677.SUBACTIVITY,
+                  T568685.ACTIVITY,
+                  T568686.FUND,
+                  T568689.TUB,
+                  T568693.ORG]]>
+         </sql>
+      </dataSet>
+      <dataSet xmlns="http://xmlns.oracle.com/oxp/xmlp" name="From Period" type="complex">
+         <sql xmlns="http://xmlns.oracle.com/oxp/xmlp" dataSourceRef="Oracle BI EE">
+            <![CDATA[SELECT
+"Grants Management"."Dim - Periods"."Accounting Start Date" AS "From_Period_Start_Dt",
+"Grants Management"."Dim - Periods"."Accounting End Date" AS "From_Period_End_Dt"
+FROM "Grants Management"
+WHERE
+"Dim - Periods"."Period Key" = :PeriodFromKey]]>
+         </sql>
+      </dataSet>
+      <dataSet xmlns="http://xmlns.oracle.com/oxp/xmlp" name="ToPeriod" type="complex">
+         <sql xmlns="http://xmlns.oracle.com/oxp/xmlp" dataSourceRef="Oracle BI EE">
+            <![CDATA[SELECT
+"Grants Management"."Dim - Periods"."Accounting Start Date" AS "To_Period_Start_Dt",
+"Grants Management"."Dim - Periods"."Accounting End Date" AS "To_Period_End_Dt"
+FROM "Grants Management"
+WHERE
+"Dim - Periods"."Period Key" = :PeriodToKey]]>
+         </sql>
+      </dataSet>
+      <dataSet xmlns="http://xmlns.oracle.com/oxp/xmlp" name="G_PeriodTrx_PJTD_Exp_Begin" type="complex">
+         <sql xmlns="http://xmlns.oracle.com/oxp/xmlp" dataSourceRef="dwcen">
+            <![CDATA[SELECT            T568689.TUB                       AS "TUB",
+                  T568693.ORG                       AS "ORG",
+                  T568686.FUND                      AS "FUND",
+                  T568669.OBJECT                    AS "OBJECT",
+                  T568685.ACTIVITY                  AS "ACTIVITY",
+                  T568677.SUBACTIVITY               AS "SUBACTIVITY" ,
+SUM (T589413.ACTUAL_NET_PJTD_BEGIN) AS "PJTD_Exp_Begin"
+FROM DWGL.DGL_COA_TUBS_D              T568689 /* B1_DGL_COA_TUBS_D (Grants) */
+                                                          ,
+                  DWGL.DGL_COA_SUBACTIVITIES_D     T568677 /* B1_DGL_COA_SUBACTIVITIES_D (Grants) */
+                                                          ,
+                  DWGL.DGL_COA_ORGS_D              T568693 /* B1_DGL_COA_ORGS_D (Grants) */
+                                                          ,
+                  DWGL.DGL_COA_OBJECTS_D           T568669 /* B1_DGL_COA_OBJECTS_D (Grants) */
+                                                          ,
+                  DWGL.DGL_COA_FUNDS_D             T568686 /* B1_DGL_COA_FUNDS_D (Grants) */
+                                                          ,
+                  DWGL.DGL_COA_ACTIVITIES_D        T568685 /* B1_DGL_COA_ACTIVITIES_D (Grants) */
+                                                          ,
+                  DWGL.DGL_PERIODS_D               T568714 /* B1_DGL_PERIODS_D (Grants) */
+                                                          ,
+                  ODSGM.OGM_ACCOUNTS               T568662 /* B2_OGM_ACCOUNTS (Grants - PER inner) */
+                                                          ,
+            --      ODSGM.OGM_SEC_USER_RPT_SEGMENTS  T589369 , /* B2_OGM_SEC_USER_RPT_SEGMENTS (PER Security Join) */                                                          
+                  HUDW.DGM_CURR_PER_GL_BALS_F_ALL_V T589413 /* D1_DGM_CURR_PER_GL_BALS_F_ALL_V (Grants - PER open view) */
+            WHERE (    T568662.DW_GL_FUND_KEY = T589413.DW_FUND_KEY
+                   AND T568662.DW_ACCOUNT_KEY = T589413.DW_ACCOUNT_KEY
+          --         AND T568662.DW_SEGMENT_KEY = T589369.DW_SEGMENT_KEY
+                   AND T568669.ENABLED_FLAG = 'Y'
+      /*             AND T568669.OBJECT = '7654'
+                   AND T568677.SUBACTIVITY = '0010'
+                   AND T568685.ACTIVITY = '257832'
+                   AND T568686.FUND = '258361'
+                   AND T568689.TUB = '275'
+                   AND T568693.ORG = '23440'    */        
+                   AND T568669.OBJECT_KEY = T589413.DW_OBJECT_KEY
+                   AND T568677.END_DATE_ACTIVE =
+                           TO_DATE ('9999-12-31 00:00:00',
+                                    'YYYY-MM-DD HH24:MI:SS')
+                   AND T568677.SUBACTIVITY_KEY = T589413.DW_SUBACTIVITY_KEY
+                   AND T568685.ACTIVITY_KEY = T589413.DW_ACTIVITY_KEY
+                   AND T568685.ACTIVITY_TYPE_CODE = 'S'
+                   AND T568685.END_DATE_ACTIVE =
+                           TO_DATE ('9999-12-31 00:00:00',
+                                    'YYYY-MM-DD HH24:MI:SS')
+                   AND T568686.END_DATE_ACTIVE =
+                           TO_DATE ('9999-12-31 00:00:00',
+                                    'YYYY-MM-DD HH24:MI:SS')
+                   AND T568686.FUND_KEY = T589413.DW_FUND_KEY
+                   AND T568689.END_DATE_ACTIVE =
+                           TO_DATE ('9999-12-31 00:00:00',
+                                    'YYYY-MM-DD HH24:MI:SS')                 
+                   AND T568689.TUB_KEY = T589413.DW_TUB_KEY
+                   AND T568693.END_DATE_ACTIVE =
+                           TO_DATE ('9999-12-31 00:00:00',
+                                    'YYYY-MM-DD HH24:MI:SS')                   
+                   AND T568693.ORG_KEY = T589413.DW_ORG_KEY
+                   AND T568714.PERIOD_KEY = T589413.DW_PERIOD_KEY
+                   AND T568714.PERIOD_KEY = :PeriodFromKey
+          --         AND T589369.USER_UNIV_ID = '31240778'
+                   AND T589413.DW_PERIOD_KEY = :PeriodFromKey
+                   AND T568714.CURRENT_PERIOD_OFFSET < 1
+                   AND 0 < T568714.PERIOD_KEY
+                   AND T568669.OBJECT >= '4000')
+         GROUP BY T568669.OBJECT,
+                  T568677.SUBACTIVITY,
+                  T568685.ACTIVITY,
+                  T568686.FUND,
+                  T568689.TUB,
+                  T568693.ORG]]>
+         </sql>
+      </dataSet>
+      <dataSet xmlns="http://xmlns.oracle.com/oxp/xmlp" name="Root_Concat" type="complex">
+         <sql xmlns="http://xmlns.oracle.com/oxp/xmlp" dataSourceRef="dwcen">
+            <![CDATA[SELECT DISTINCT 
+          T568689.TUB                       AS "TUB",
+                  T568693.ORG                       AS "ORG",
+                  T568686.FUND                      AS "FUND",
+                  T568685.ACTIVITY                  AS "ACTIVITY",
+                  T568677.SUBACTIVITY               AS "SUBACTIVITY" ,
+         T568641.ROOT                AS "Root",
+         SUM (T589413.EXP_ACTUAL_PJTD) AS  "DO NOT USE"
+    FROM DWGL.DGL_COA_TUBS_D              T568689 /* B1_DGL_COA_TUBS_D (Grants) */
+                                                 ,
+         DWGL.DGL_COA_SUBACTIVITIES_D     T568677 /* B1_DGL_COA_SUBACTIVITIES_D (Grants) */
+                                                 ,
+         DWGL.DGL_COA_ROOTS_D             T568641 /* B1_DGL_COA_ROOTS_D (Grants) */
+                                                 ,
+         DWGL.DGL_COA_ORGS_D              T568693 /* B1_DGL_COA_ORGS_D (Grants) */
+                                                 ,
+         DWGL.DGL_COA_FUNDS_D             T568686 /* B1_DGL_COA_FUNDS_D (Grants) */
+                                                 ,
+         DWGL.DGL_COA_ACTIVITIES_D        T568685 /* B1_DGL_COA_ACTIVITIES_D (Grants) */
+                                                 ,
+         DWGL.DGL_PERIODS_D               T568714 /* B1_DGL_PERIODS_D (Grants) */
+                                                 ,
+         ODSGM.OGM_ACCOUNTS               T568662 /* B2_OGM_ACCOUNTS (Grants - PER inner) */
+                                                 ,
+     /*   ODSGM.OGM_SEC_USER_RPT_SEGMENTS  T589369 , */ /* B2_OGM_SEC_USER_RPT_SEGMENTS (PER Security Join) */  
+            HUDW.DGM_CURR_PER_GL_BALS_F_ALL_V T589413 /* D1_DGM_CURR_PER_GL_BALS_F_ALL_V (Grants - PER open view) */
+   WHERE (    T568641.END_DATE_ACTIVE =
+                  TO_DATE ('9999-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS')
+          AND T568641.ROOT_KEY = T589413.DW_ROOT_KEY
+          AND T568662.DW_GL_FUND_KEY = T589413.DW_FUND_KEY
+          AND T568662.DW_ACCOUNT_KEY = T589413.DW_ACCOUNT_KEY
+      /*    AND T568662.DW_SEGMENT_KEY = T589369.DW_SEGMENT_KEY */
+          AND T568677.END_DATE_ACTIVE =
+                  TO_DATE ('9999-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS')
+          AND T568677.SUBACTIVITY_KEY = T589413.DW_SUBACTIVITY_KEY
+          AND T568685.ACTIVITY_KEY = T589413.DW_ACTIVITY_KEY
+          AND T568685.END_DATE_ACTIVE =
+                  TO_DATE ('9999-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS')
+          AND T568686.END_DATE_ACTIVE =
+                  TO_DATE ('9999-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS')
+           AND T568686.FUND_KEY = T589413.DW_FUND_KEY
+          AND T568689.END_DATE_ACTIVE =
+                  TO_DATE ('9999-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS')
+           AND T568689.TUB_KEY = T589413.DW_TUB_KEY
+          AND T568693.END_DATE_ACTIVE =
+                  TO_DATE ('9999-12-31 00:00:00', 'YYYY-MM-DD HH24:MI:SS')
+          AND T568693.ORG_KEY = T589413.DW_ORG_KEY
+          AND T568714.PERIOD_KEY = T589413.DW_PERIOD_KEY
+      --    AND T589369.USER_UNIV_ID = '31240778'
+          AND T568714.CURRENT_PERIOD_OFFSET < 1
+          AND 0 < T568714.PERIOD_KEY
+          AND T568714.PERIOD_KEY BETWEEN :PeriodFromKey AND :PeriodToKey
+          AND T589413.DW_PERIOD_KEY BETWEEN :PeriodFromKey AND :PeriodToKey )
+GROUP BY T568641.ROOT,
+         T568677.SUBACTIVITY,
+         T568685.ACTIVITY,
+         T568686.FUND,
+         T568689.TUB,
+         T568693.ORG]]>
+         </sql>
+      </dataSet>
+      <link xmlns="http://xmlns.oracle.com/oxp/xmlp" name="dl-3006" parentGroup="G_3" parentColumn="Fund" childQuery="G_PeriodTrx_PJTD_Exp_End" childColumn="T568686.FUND" childColumnAlias="FUND"/>
+      <link xmlns="http://xmlns.oracle.com/oxp/xmlp" name="dl-6881" parentGroup="G_3" parentColumn="Activity" childQuery="G_PeriodTrx_PJTD_Exp_End" childColumn="T568685.ACTIVITY" childColumnAlias="ACTIVITY"/>
+      <link xmlns="http://xmlns.oracle.com/oxp/xmlp" name="dl-4602" parentGroup="G_3" parentColumn="Subactivity" childQuery="G_PeriodTrx_PJTD_Exp_End" childColumn="T568677.SUBACTIVITY" childColumnAlias="SUBACTIVITY"/>
+      <link xmlns="http://xmlns.oracle.com/oxp/xmlp" name="dl-6639" parentGroup="G_3" parentColumn="Tub" childQuery="G_PeriodTrx_PJTD_Exp_End" childColumn="T568689.TUB" childColumnAlias="TUB"/>
+      <link xmlns="http://xmlns.oracle.com/oxp/xmlp" name="dl-9564" parentGroup="G_3" parentColumn="Org" childQuery="G_PeriodTrx_PJTD_Exp_End" childColumn="T568693.ORG" childColumnAlias="ORG"/>
+      <link xmlns="http://xmlns.oracle.com/oxp/xmlp" name="dl-3186" parentGroup="G_1" parentColumn="Object" childQuery="G_PeriodTrx_PJTD_Exp_End" childColumn="T568669.OBJECT" childColumnAlias="OBJECT"/>
+      <link xmlns="http://xmlns.oracle.com/oxp/xmlp" name="dl-4240" parentGroup="G_PeriodTrx_PJTD_Exp_End" parentColumn="TUB" childQuery="G_PeriodTrx_PJTD_Exp_Begin" childColumn="T568689.TUB" childColumnAlias="TUB"/>
+      <link xmlns="http://xmlns.oracle.com/oxp/xmlp" name="dl-3891" parentGroup="G_PeriodTrx_PJTD_Exp_End" parentColumn="ORG" childQuery="G_PeriodTrx_PJTD_Exp_Begin" childColumn="T568693.ORG" childColumnAlias="ORG"/>
+      <link xmlns="http://xmlns.oracle.com/oxp/xmlp" name="dl-8254" parentGroup="G_PeriodTrx_PJTD_Exp_End" parentColumn="FUND" childQuery="G_PeriodTrx_PJTD_Exp_Begin" childColumn="T568686.FUND" childColumnAlias="FUND"/>
+      <link xmlns="http://xmlns.oracle.com/oxp/xmlp" name="dl-9060" parentGroup="G_PeriodTrx_PJTD_Exp_End" parentColumn="OBJECT" childQuery="G_PeriodTrx_PJTD_Exp_Begin" childColumn="T568669.OBJECT" childColumnAlias="OBJECT"/>
+      <link xmlns="http://xmlns.oracle.com/oxp/xmlp" name="dl-903" parentGroup="G_PeriodTrx_PJTD_Exp_End" parentColumn="ACTIVITY" childQuery="G_PeriodTrx_PJTD_Exp_Begin" childColumn="T568685.ACTIVITY" childColumnAlias="ACTIVITY"/>
+      <link xmlns="http://xmlns.oracle.com/oxp/xmlp" name="dl-3824" parentGroup="G_PeriodTrx_PJTD_Exp_End" parentColumn="SUBACTIVITY" childQuery="G_PeriodTrx_PJTD_Exp_Begin" childColumn="T568677.SUBACTIVITY" childColumnAlias="SUBACTIVITY"/>
+      <link xmlns="http://xmlns.oracle.com/oxp/xmlp" name="dl-5352" parentGroup="G_3" parentColumn="Tub" childQuery="Root_Concat" childColumn="T568689.TUB" childColumnAlias="TUB"/>
+      <link xmlns="http://xmlns.oracle.com/oxp/xmlp" name="dl-9355" parentGroup="G_3" parentColumn="Org" childQuery="Root_Concat" childColumn="T568693.ORG" childColumnAlias="ORG"/>
+      <link xmlns="http://xmlns.oracle.com/oxp/xmlp" name="dl-1735" parentGroup="G_3" parentColumn="Fund" childQuery="Root_Concat" childColumn="T568686.FUND" childColumnAlias="FUND"/>
+      <link xmlns="http://xmlns.oracle.com/oxp/xmlp" name="dl-6920" parentGroup="G_3" parentColumn="Activity" childQuery="Root_Concat" childColumn="T568685.ACTIVITY" childColumnAlias="ACTIVITY"/>
+      <link xmlns="http://xmlns.oracle.com/oxp/xmlp" name="dl-9627" parentGroup="G_3" parentColumn="Subactivity" childQuery="Root_Concat" childColumn="T568677.SUBACTIVITY" childColumnAlias="SUBACTIVITY"/>
+   </dataSets>
+   <output xmlns="http://xmlns.oracle.com/oxp/xmlp" rootName="DATA_DS" uniqueRowName="false">
+      <nodeList xmlns="http://xmlns.oracle.com/oxp/xmlp" name="data-structure">
+         <dataStructure xmlns="http://xmlns.oracle.com/oxp/xmlp" tagName="DATA_DS">
+            <group xmlns="http://xmlns.oracle.com/oxp/xmlp" name="Run_By_User" label="Run By User" source="XDO">
+               <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="User_Id" value="User Id" label="User_Id" dataType="xsd:string" breakOrder="" fieldOrder="1"/>
+               <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="User_Desc" value="User Desc" label="User_Desc" dataType="xsd:string" breakOrder="" fieldOrder="2"/>
+            </group>
+            <group xmlns="http://xmlns.oracle.com/oxp/xmlp" name="From_Period" label="From_Period" source="From Period">
+               <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="From_Period_Start_Dt" value="From_Period_Start_Dt" label="From_Period_Start_Dt" dataType="xsd:date" breakOrder="" fieldOrder="1" formatMask=""/>
+               <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="From_Period_End_Dt" value="From_Period_End_Dt" label="From_Period_End_Dt" dataType="xsd:date" breakOrder="" fieldOrder="2" formatMask=""/>
+            </group>
+            <group xmlns="http://xmlns.oracle.com/oxp/xmlp" name="To_Period" label="To_Period" source="ToPeriod">
+               <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="To_Period_Start_Dt" value="To_Period_Start_Dt" label="To_Period_Start_Dt" dataType="xsd:date" breakOrder="" fieldOrder="1" formatMask=""/>
+               <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="To_Period_End_Dt" value="To_Period_End_Dt" label="To_Period_End_Dt" dataType="xsd:date" breakOrder="" fieldOrder="2" formatMask=""/>
+            </group>
+            <group xmlns="http://xmlns.oracle.com/oxp/xmlp" name="G_3" label="G_3" source="PER">
+               <element name="Fund" value="Fund" label="Fund" dataType="xsd:string" breakOrder="None" fieldOrder="19"/>
+               <element name="Activity" value="Activity" label="Activity" dataType="xsd:string" breakOrder="" fieldOrder="3"/>
+               <element name="Subactivity" value="Subactivity" label="Subactivity" dataType="xsd:string" breakOrder="" fieldOrder="23"/>
+               <element name="Tub" value="Tub" label="Tub" dataType="xsd:string" breakOrder="" fieldOrder="24"/>
+               <element name="Org" value="Org" label="Org" dataType="xsd:string" breakOrder="" fieldOrder="21"/>
+               <element name="Indirect_Cost_Basis_Cd" value="Indirect_Cost_Basis_Cd" label="Indirect_Cost_Basis_Cd" dataType="xsd:string" breakOrder="" fieldOrder="47"/>
+               <element name="Indirect_Cost_Basis_Rate" value="Indirect_Cost_Basis_Rate" label="Indirect_Cost_Basis_Rate" dataType="xsd:double" breakOrder="" fieldOrder="48"/>
+               <element name="FY_Expense" value="G_1.FY_Expense" label="FY_Expense" dataType="xsd:double" breakOrder="None" fieldOrder="1" ifNull="0" function="SUM" round="2"/>
+               <element name="PJTD_EXP" value="G_1.PJTD_Exp" label="PJTD_EXP" dataType="xsd:double" breakOrder="None" fieldOrder="1" ifNull="0" function="SUM" round="2"/>
+               <element name="CS_Direct_Costs_Subj_Ovr_Bud" value="G_1.Direct_Costs_Sub_Ovr_Bud" label="CS_Direct_Costs_Subj_Ovr_Bud" dataType="xsd:double" breakOrder="None" fieldOrder="1" ifNull="0" function="SUM" round="2"/>
+               <element name="CS_Direct_Costs_Subj_Ovr_SubAct_ToDate" value="G_1.Direct_Costs_Subj_Ovr_SubAct_ToDate" label="CS_Direct_Costs_Subj_Ovr_SubAct_ToDate" dataType="xsd:double" breakOrder="None" fieldOrder="1" ifNull="0" function="SUM" round="2"/>
+               <element name="CS_Direct_Costs_NotSubj_Ovr_Bud" value="G_1.Direct_Costs_NotSubj_OvrHead_Bud" label="CS_Direct_Costs_NotSubj_Ovr_Bud" dataType="xsd:double" breakOrder="None" fieldOrder="1" ifNull="0" function="SUM" round="2"/>
+               <element name="CS_Direct_Costs_NotSubj_Ovr_SubAct_ToDate" value="G_1.Direct_Costs_NotSubj_Ovr_SubAct_ToDate" label="CS_Direct_Costs_NotSubj_Ovr_SubAct_ToDate" dataType="xsd:double" breakOrder="None" fieldOrder="1" ifNull="0" function="SUM" round="2"/>
+               <element name="CS_Direct_Costs_Subj_Ovr_PerTrx" value="G_1.Direct_Costs_Subj_Ovr_PerTrx" label="CS_Direct_Costs_Subj_Ovr_PerTrx" dataType="xsd:double" breakOrder="None" fieldOrder="1" ifNull="0" function="SUM" round="2"/>
+               <element name="CS_Direct_Costs_Subj_NotOvr_PerTrx" value="G_1.Direct_Costs_Subj_NotOvr_PerTrx" label="CS_Direct_Costs_Subj_NotOvr_PerTrx" dataType="xsd:double" breakOrder="None" fieldOrder="1" ifNull="0" function="SUM" round="2"/>
+               <element name="CS_FACost_PeriodTrx" value="G_1.FACost_PeriodTrx" label="CS_FACost_PeriodTrx" dataType="xsd:double" breakOrder="None" fieldOrder="1" ifNull="0" function="SUM" round="2"/>
+               <element name="CS_FACost_Bud" value="G_1.FACost_Bud" label="CS_FACost_Bud" dataType="xsd:double" breakOrder="None" fieldOrder="1" ifNull="0" function="SUM" round="2"/>
+               <element name="CS_FACost_SubAct" value="G_1.FACost_SubAct" label="CS_FACost_SubAct" dataType="xsd:double" breakOrder="None" fieldOrder="1" ifNull="0" function="SUM" round="2"/>
+               <element name="CS_Direct_Costs_Subj_Ovr_RemBud" value="${G_3.CS_Direct_Costs_Subj_Ovr_Bud -  G_3.CS_Direct_Costs_Subj_Ovr_SubAct_ToDate}" label="CS_Direct_Costs_Subj_Ovr_RemBud" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+               <element name="CS_Direct_Costs_NotSubj_Ovr_RemBud" value="${G_3.CS_Direct_Costs_NotSubj_Ovr_Bud -  G_3.CS_Direct_Costs_NotSubj_Ovr_SubAct_ToDate}" label="CS_Direct_Costs_NotSubj_Ovr_RemBud" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+               <element name="CS_Total_Direct_Costs_RemBud" value="${G_3.CS_Direct_Costs_Subj_Ovr_RemBud +  G_3.CS_Direct_Costs_NotSubj_Ovr_RemBud}" label="CS_Total_Direct_Costs_RemBud" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+               <element name="CS_Total_Direct_Costs_SubAct_ToDate" value="${G_3.CS_Direct_Costs_Subj_Ovr_SubAct_ToDate +  G_3.CS_Direct_Costs_NotSubj_Ovr_SubAct_ToDate}" label="CS_Total_Direct_Costs_SubAct_ToDate" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+               <element name="CS_Total_Direct_Costs_Bud" value="${G_3.CS_Direct_Costs_Subj_Ovr_Bud+ G_3.CS_Direct_Costs_NotSubj_Ovr_Bud}" label="CS_Total_Direct_Costs_Bud" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+               <element name="CS_Total_Direct_Costs_PerTrx" value="${G_3.CS_Direct_Costs_Subj_Ovr_PerTrx+ G_3.CS_Direct_Costs_Subj_NotOvr_PerTrx}" label="CS_Total_Direct_Costs_PerTrx" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+               <element name="CS_FACost_RemBud" value="${G_3.CS_FACost_Bud-G_3.CS_FACost_SubAct}" label="CS_FACost_RemBud" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+               <element name="CS_Direct_Costs_Subj_Ovr_PerExp" value="${NVL((G_3.CS_Direct_Costs_Subj_Ovr_SubAct_ToDate/ G_3.CS_Direct_Costs_Subj_Ovr_Bud),0)}" label="CS_Direct_Costs_Subj_Ovr_PerExp" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+               <element name="CS_FACost_PerExp" value="${G_3.CS_FACost_SubAct/G_3.CS_FACost_Bud}" label="CS_FACost_PerExp" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+               <element name="CS_Direct_Costs_NotSubj_Ovr_PerExp" value="${NVL((G_3.CS_Direct_Costs_NotSubj_Ovr_SubAct_ToDate / G_3.CS_Direct_Costs_NotSubj_Ovr_Bud),0)}" label="CS_Direct_Costs_NotSubj_Ovr_PerExp" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+               <element name="CS_Total_Expenses_PerTrx" value="${G_3.CS_Total_Direct_Costs_PerTrx+G_3.CS_FACost_PeriodTrx}" label="CS_Total_Expenses_PerTrx" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+               <element name="CS_Total_Expenses_Bud" value="${G_3.CS_Total_Direct_Costs_Bud+G_3.CS_FACost_Bud}" label="CS_Total_Expenses_Bud" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+               <element name="CS_Total_Expenses_SubAct" value="${G_3.CS_Total_Direct_Costs_SubAct_ToDate + G_3.CS_FACost_SubAct}" label="CS_Total_Expenses_SubAct" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+               <element name="CS_Total_Expenses_RemBud" value="${G_3.CS_Total_Direct_Costs_RemBud + G_3.CS_FACost_RemBud}" label="CS_Total_Expenses_RemBud" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+               <element name="CS_Total_Direct_Costs_PerExp" value="${NVL((G_3.CS_Total_Direct_Costs_SubAct_ToDate/ G_3.CS_Total_Direct_Costs_Bud),0)}" label="CS_Total_Direct_Costs_PerExp" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+               <element name="CS_Total_Expenses_PerExp" value="${NVL((G_3.CS_Total_Expenses_SubAct/ G_3.CS_Total_Expenses_Bud),0)}" label="CS_Total_Expenses_PerExp" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+               <element name="CS_Balance_PerTrx" value="${G_3.CS_Total_Expenses_PerTrx + G_3.CS_Total_Income_PerTrx +  G_3.CS_Non_Oper_PerTrx}" label="CS_Balance_PerTrx" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+               <element name="CS_Balance_SubAct" value="${G_3.CS_Total_Expenses_SubAct+G_3.CS_Total_Income_SubActToDate + G_3.CS_Non_Oper_SubAct}" label="CS_Balance_SubAct" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+               <element name="CS_Total_Income_PerTrx" value="G_1.Total_Income_PerTrx" label="CS_Total_Income_PerTrx" dataType="xsd:double" breakOrder="None" fieldOrder="1" ifNull="0" function="SUM" round="2"/>
+               <element name="CS_Total_Income_SubActToDate" value="G_1.Total_Income_SubActToDate" label="CS_Total_Income_SubActToDate" dataType="xsd:double" breakOrder="None" fieldOrder="1" ifNull="0" function="SUM" round="2"/>
+               <element name="CS_Non_Oper_PerTrx" value="G_1.Non_Oper_PerTrx" label="CS_Non_Oper_PerTrx" dataType="xsd:double" breakOrder="None" fieldOrder="1" ifNull="0" function="SUM" round="2"/>
+               <element name="CS_Non_Oper_SubAct" value="G_1.Non_Oper_SubAct" label="CS_Non_Oper_SubAct" dataType="xsd:double" breakOrder="None" fieldOrder="1" ifNull="0" function="SUM" round="2"/>
+               <group name="G_1" label="G_1" source="PER">
+                  <element name="Account_Status_Desc" value="Account Status Desc" label="Account Status Desc" dataType="xsd:string" breakOrder="" fieldOrder="4"/>
+                  <element name="Account_Type_Desc" value="Account Type Desc" label="Account_Type_Desc" dataType="xsd:string" breakOrder="" fieldOrder="5"/>
+                  <element name="Object" value="Object" label="Object" dataType="xsd:string" breakOrder="" fieldOrder="1"/>
+                  <element name="Sponsor" value="Sponsor" label="Sponsor" dataType="xsd:string" breakOrder="" fieldOrder="18"/>
+                  <element name="Acct_Account_Group_Desc" value="Acct Account Group Desc" label="Acct_Account_Group_Desc" dataType="xsd:string" breakOrder="" fieldOrder="6"/>
+                  <element name="Resp_Tub_Cd" value="Resp Tub Cd" label="Resp_Tub_Cd" dataType="xsd:string" breakOrder="" fieldOrder="15"/>
+                  <element name="Acct_End_Date" value="Acct End Date" label="Acct_End_Date" dataType="xsd:date" breakOrder="" fieldOrder="7" formatMask=""/>
+                  <element name="Budgets" value="Budgets" label="Budgets" dataType="xsd:double" breakOrder="" fieldOrder="25"/>
+                  <element name="PJTD_Expense" value="PJTD_Expense" label="PJTD_Expense" dataType="xsd:double" breakOrder="" fieldOrder="26"/>
+                  <element name="Acct_Start_Date" value="Acct Start Date" label="Acct_Start_Date" dataType="xsd:date" breakOrder="" fieldOrder="8" formatMask=""/>
+                  <element name="Anticip_End_Date" value="Anticip End Date" label="Anticip_End_Date" dataType="xsd:date" breakOrder="" fieldOrder="9" formatMask=""/>
+                  <element name="Anticip_Start_Date" value="Anticip Start Date" label="Anticip_Start_Date" dataType="xsd:date" breakOrder="" fieldOrder="10" formatMask=""/>
+                  <element name="Principal_Investigator" value="Principal Investigator" label="Principal_Investigator" dataType="xsd:string" breakOrder="" fieldOrder="11"/>
+                  <element name="Resp_Org_Cd" value="Resp Org Cd" label="Resp_Org_Cd" dataType="xsd:string" breakOrder="" fieldOrder="12"/>
+                  <element name="Spon_Award" value="Spon Award" label="Spon_Award" dataType="xsd:string" breakOrder="" fieldOrder="17"/>
+                  <element name="FY_Expense" value="FY_Expense" label="FY_Expense" dataType="xsd:double" breakOrder="" fieldOrder="45"/>
+                  <element name="Object_Num_Name" value="Object Num Name" label="Object_Num_Name" dataType="xsd:string" breakOrder="" fieldOrder="20"/>
+                  <element name="PJTD_Exp" value="PJTD_Exp" label="PJTD_Exp" dataType="xsd:double" breakOrder="" fieldOrder="46"/>
+                  <element name="Subactivity_Description" value="Subactivity Description" label="Subactivity_Description" dataType="xsd:string" breakOrder="" fieldOrder="22"/>
+                  <element name="Total_Authorized" value="Total_Authorized" label="Total_Authorized" dataType="xsd:double" breakOrder="" fieldOrder="28"/>
+                  <element name="Total_Carry_Fwd" value="Total_Carry_Fwd" label="Total_Carry_Fwd" dataType="xsd:double" breakOrder="" fieldOrder="29"/>
+                  <element name="Total_Obligated" value="Total_Obligated" label="Total_Obligated" dataType="xsd:double" breakOrder="" fieldOrder="30"/>
+                  <element name="Remaining_GL_Budget" value="Remaining_GL_Budget" label="Remaining_GL_Budget" dataType="xsd:double" breakOrder="" fieldOrder="31"/>
+                  <element name="Object_Grp" value="Object_Grp" label="Object_Grp" dataType="xsd:string" breakOrder="" fieldOrder="32"/>
+                  <element name="Account" value="Account" label="Account" dataType="xsd:string" breakOrder="" fieldOrder="33"/>
+                  <element name="Per_GLBud_Expd" value="Per_GLBud_Expd" label="Per_GLBud_Expd" dataType="xsd:double" breakOrder="" fieldOrder="34"/>
+                  <element name="Asterisk" value="Asterisk" label="*" dataType="xsd:string" breakOrder="" fieldOrder="35"/>
+                  <element name="PJTD_Income" value="PJTD_Income" label="PJTD_Income" dataType="xsd:double" breakOrder="" fieldOrder="27"/>
+                  <element name="F_A_Flag" value="F_A_Flag" label="F_A_Flag" dataType="xsd:string" breakOrder="" fieldOrder="36"/>
+                  <element name="NON_OP_Flag" value="NON_OP_Flag" label="NON_OP_Flag" dataType="xsd:string" breakOrder="" fieldOrder="37"/>
+                  <element name="Direct_Costs_Sub_Ovr_Bud" value="${If ((G_1.Super_Obj=='S838' ||  G_1.Super_Obj=='S839' ||  G_1.Super_Obj=='S840' ||  G_1.Super_Obj=='S841' ||  G_1.Super_Obj=='S842' ||  G_1.Super_Obj=='S843'), 0,  DECODE(G_1.Object_Grp, 'Expense',   (DECODE(G_1.Asterisk, '*', 0, G_1.Budgets)), 0))}" label="Direct_Costs_Sub_Ovr_Bud" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+                  <element name="Direct_Costs_Subj_Ovr_SubAct_ToDate" value="${If ((G_1.Super_Obj=='S838' ||  G_1.Super_Obj=='S839' ||  G_1.Super_Obj=='S840' ||  G_1.Super_Obj=='S841' ||  G_1.Super_Obj=='S842' ||  G_1.Super_Obj=='S843'), 0,  DECODE(G_1.Object_Grp, 'Expense',   (DECODE(G_1.Asterisk, '*', 0,G_1.PJTD_Expense)),0) )}" label="Direct_Costs_Subj_Ovr_SubAct_ToDate" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+                  <element name="Direct_Costs_NotSubj_OvrHead_Bud" value="${DECODE(G_1.Object_Grp, 'Expense',  (DECODE(G_1.Asterisk, '*', G_1.Budgets,0)),0)}" label="Direct_Costs_NotSubj_OvrHead_Bud" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+                  <element name="Direct_Costs_NotSubj_Ovr_SubAct_ToDate" value="${DECODE(G_1.Object_Grp, 'Expense',  (DECODE(G_1.Asterisk, '*', G_1.PJTD_Expense,0)),0)}" label="Direct_Costs_NotSubj_Ovr_SubAct_ToDate" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+                  <element name="Direct_Costs_Subj_Ovr_PerTrx" value="${If ((G_1.Super_Obj=='S838' ||  G_1.Super_Obj=='S839' ||  G_1.Super_Obj=='S840' ||  G_1.Super_Obj=='S841' ||  G_1.Super_Obj=='S842' ||  G_1.Super_Obj=='S843'), 0,  DECODE(G_1.Object_Grp, 'Expense',   (DECODE(G_1.Asterisk, '*', 0,G_1.CS_PeriodTrx)),0) )}" label="Direct_Costs_Subj_Ovr_PerTrx" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+                  <element name="Direct_Costs_Subj_NotOvr_PerTrx" value="${DECODE(G_1.Object_Grp, 'Expense',  (DECODE(G_1.Asterisk, '*', G_1.CS_PeriodTrx,0)),0)}" label="Direct_Costs_Subj_NotOvr_PerTrx" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+                  <element name="FACost_PeriodTrx" value="${DECODE(G_1.F_A_Flag, 'Y',G_1.CS_PeriodTrx,0)}" label="FACost_PeriodTrx" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+                  <element name="FACost_Bud" value="${DECODE(G_1.F_A_Flag, 'Y',G_1.Budgets,0)}" label="FACost_Bud" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+                  <element name="FACost_SubAct" value="${DECODE(G_1.F_A_Flag, 'Y',G_1.PJTD_Expense,0)}" label="FACost_SubAct" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+                  <element name="Non_Oper_PerTrx" value="${DECODE(G_1.NON_OP_Flag, 'Y',G_1.CS_PeriodTrx,0)}" label="Non_Oper_PerTrx" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+                  <element name="Total_Income_PerTrx" value="${DECODE(G_1.Object_Grp,'Income',G_1.CS_PeriodTrx,0)}" label="Total_Income_PerTrx" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+                  <element name="Total_Income_SubActToDate" value="${DECODE(G_1.Object_Grp,'Income',G_1.PJTD_Income,0)}" label="Total_Income_SubActToDate" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+                  <element name="Non_Oper_SubAct" value="${DECODE(G_1.NON_OP_Flag, 'Y',G_1.PJTD_NonOper,0)}" label="Non_Oper_SubAct" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+                  <element name="CS_PJTD_Exp_Begin" value="G_PeriodTrx_PJTD_Exp_Begin.PJTD_Exp_Begin" label="CS_PJTD_Exp_Begin" dataType="xsd:double" breakOrder="None" fieldOrder="1" ifNull="0" function="SUM" round="2"/>
+                  <element name="CS_PJTD_Exp_End" value="G_PeriodTrx_PJTD_Exp_End.PJTD_Exp_End" label="CS_PJTD_Exp_End" dataType="xsd:double" breakOrder="None" fieldOrder="1" ifNull="0" function="SUM" round="2"/>
+                  <element name="CS_PeriodTrx" value="G_PeriodTrx_PJTD_Exp_End.Period_Trx" label="CS_PeriodTrx" dataType="xsd:double" breakOrder="None" fieldOrder="1" ifNull="0" function="SUM" round="2"/>
+                  <element name="PJTD_NonOper" value="PJTD_NonOper" label="PJTD_NonOper" dataType="xsd:double" breakOrder="" fieldOrder="38"/>
+                  <element name="Chart_of_Accounts" value="Chart_of_Accounts" label="Chart_of_Accounts" dataType="xsd:string" breakOrder="" fieldOrder="39"/>
+                  <element name="Super_Obj" value="Super_Obj" label="Super_Obj" dataType="xsd:string" breakOrder="" fieldOrder="40"/>
+                  <element name="Count_NonOper" value="Count_NonOper" label="Count_NonOper" dataType="xsd:double" breakOrder="" fieldOrder="42"/>
+                  <element name="Count_Income" value="Count_Income" label="Count_Income" dataType="xsd:double" breakOrder="" fieldOrder="43"/>
+                  <element name="Super_Obj_Name" value="Super_Obj_Name" label="Super_Obj_Name" dataType="xsd:string" breakOrder="" fieldOrder="41"/>
+                  <element name="SubAct_Amt" value="SubAct_Amt" label="SubAct_Amt" dataType="xsd:double" breakOrder="" fieldOrder="44"/>
+                  <element name="Resp_Org_Desc" value="Resp Org Desc" label="Resp_Org_Desc" dataType="xsd:string" breakOrder="" fieldOrder="13"/>
+                  <element name="Resp_Org" value="Resp Org" label="Resp_Org" dataType="xsd:string" breakOrder="" fieldOrder="14"/>
+                  <element name="Resp_Tub" value="Resp Tub" label="Resp_Tub" dataType="xsd:string" breakOrder="" fieldOrder="16"/>
+                  <element name="Object_Description" value="Object Description" label="Object_Description" dataType="xsd:string" breakOrder="" fieldOrder="2"/>
+                  <element name="Project_NickName" value="Project_NickName" label="Project_NickName" dataType="xsd:string" breakOrder="None" fieldOrder="49"/>
+                  <group name="G_PeriodTrx_PJTD_Exp_End" label="G_PeriodTrx_PJTD_Exp_End" source="G_PeriodTrx_PJTD_Exp_End">
+                     <element name="PJTD_Exp_End" value="PJTD_Exp_End" label="PJTD_Exp_End" dataType="xsd:double" breakOrder="" fieldOrder="7"/>
+                     <element name="CS_PJTD_EXP_Begin" value="G_PeriodTrx_PJTD_Exp_Begin.PJTD_Exp_Begin" label="CS_PJTD_EXP_Begin" dataType="xsd:double" breakOrder="None" fieldOrder="1" function="SUM" round="2"/>
+                     <element name="Period_Trx" value="${G_PeriodTrx_PJTD_Exp_End.PJTD_Exp_End -  G_PeriodTrx_PJTD_Exp_End.CS_PJTD_EXP_Begin}" label="Period_Trx" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+                     <element name="TUB" value="TUB" label="TUB" dataType="xsd:string" breakOrder="" fieldOrder="1"/>
+                     <element name="ORG" value="ORG" label="ORG" dataType="xsd:string" breakOrder="" fieldOrder="2"/>
+                     <element name="FUND" value="FUND" label="FUND" dataType="xsd:string" breakOrder="" fieldOrder="3"/>
+                     <element name="OBJECT" value="OBJECT" label="OBJECT" dataType="xsd:string" breakOrder="" fieldOrder="4"/>
+                     <element name="ACTIVITY" value="ACTIVITY" label="ACTIVITY" dataType="xsd:string" breakOrder="" fieldOrder="5"/>
+                     <element name="SUBACTIVITY" value="SUBACTIVITY" label="SUBACTIVITY" dataType="xsd:string" breakOrder="" fieldOrder="6"/>
+                     <group name="G_PeriodTrx_PJTD_Exp_Begin" label="G_PeriodTrx_PJTD_Exp_Begin" source="G_PeriodTrx_PJTD_Exp_Begin">
+                        <element name="PJTD_Exp_Begin" value="PJTD_Exp_Begin" label="PJTD_Exp_Begin" dataType="xsd:double" breakOrder="" fieldOrder="7"/>
+                        <element name="CS_PJTD_Exp_End" value="G_PeriodTrx_PJTD_Exp_End.PJTD_Exp_End" label="CS_PJTD_Exp_End" dataType="xsd:double" breakOrder="None" fieldOrder="1" function="SUM" round="3"/>
+                        <element name="TUB" value="TUB" label="TUB" dataType="xsd:string" breakOrder="" fieldOrder="1"/>
+                        <element name="ORG" value="ORG" label="ORG" dataType="xsd:string" breakOrder="" fieldOrder="2"/>
+                        <element name="FUND" value="FUND" label="FUND" dataType="xsd:string" breakOrder="" fieldOrder="3"/>
+                        <element name="OBJECT" value="OBJECT" label="OBJECT" dataType="xsd:string" breakOrder="" fieldOrder="4"/>
+                        <element name="ACTIVITY" value="ACTIVITY" label="ACTIVITY" dataType="xsd:string" breakOrder="" fieldOrder="5"/>
+                        <element name="SUBACTIVITY" value="SUBACTIVITY" label="SUBACTIVITY" dataType="xsd:string" breakOrder="" fieldOrder="6"/>
+                     </group>
+                  </group>
+               </group>
+               <group name="Root_Concat" label="Root_Concat" source="Root_Concat">
+                  <element name="Root" value="Root" label="Root" dataType="xsd:string" breakOrder="" fieldOrder="6"/>
+                  <element name="DO_NOT_USE" value="DO NOT USE" label="DO_NOT_USE" dataType="xsd:double" breakOrder="" fieldOrder="7"/>
+                  <element name="TUB" value="TUB" label="TUB" dataType="xsd:string" breakOrder="" fieldOrder="1"/>
+                  <element name="ORG" value="ORG" label="ORG" dataType="xsd:string" breakOrder="" fieldOrder="2"/>
+                  <element name="FUND" value="FUND" label="FUND" dataType="xsd:string" breakOrder="" fieldOrder="3"/>
+                  <element name="ACTIVITY" value="ACTIVITY" label="ACTIVITY" dataType="xsd:string" breakOrder="" fieldOrder="4"/>
+                  <element name="SUBACTIVITY" value="SUBACTIVITY" label="SUBACTIVITY" dataType="xsd:string" breakOrder="" fieldOrder="5"/>
+               </group>
+            </group>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_Dir_Costs_Subj_Ovr_REM_Bud" value="${Global.RP_Direct_Costs_Subj_Ovr_Bud -  Global.RP_Direct_Costs_Subj_Ovr_SubAct_ToDate}" label="RP_Dir_Costs_Subj_Ovr_REM_Bud" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_Dir_Costs_NotSubj_Ovr_REMBud" value="${Global.RP_Direct_Costs_NotSubj_Ovr_Bud -  Global.RP_Direct_Costs_NotSubj_Ovr_SubAct_ToDate}" label="RP_Dir_Costs_NotSubj_Ovr_REMBud" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_FACost_REMBud" value="${Global.RP_FACost_Bud-Global.RP_FACost_SubAct}" label="RP_FACost_REMBud" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_Dir_Costs_Subj_Ovr_PER_EXPENDED" value="${Global.RP_Direct_Costs_Subj_Ovr_SubAct_ToDate / Global.RP_Direct_Costs_Subj_Ovr_Bud}" label="RP_Dir_Costs_Subj_Ovr_PER_EXPENDED" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_Dir_Costs_notSubj_Ovr_PER_EXPENDED" value="${Global.RP_Direct_Costs_NotSubj_Ovr_SubAct_ToDate /  Global.RP_Direct_Costs_NotSubj_Ovr_Bud}" label="RP_Dir_Costs_notSubj_Ovr_PER_EXPENDED" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_FACost_PER_EXPENDED" value="${Global.RP_FACost_SubAct/Global.RP_FACost_Bud}" label="RP_FACost_PER_EXPENDED" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_T_Dir_Costs_REMBud" value="${Global.RP_Dir_Costs_Subj_Ovr_REM_Bud +  Global.RP_Dir_Costs_NotSubj_Ovr_REMBud}" label="RP_T_Dir_Costs_REMBud" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_T_Dir_Costs_Bud" value="${Global.RP_Direct_Costs_Subj_Ovr_Bud + Global.RP_Direct_Costs_NotSubj_Ovr_Bud}" label="RP_T_Dir_Costs_Bud" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_T_Dir_Costs_PerTrx" value="${Global.RP_Direct_Costs_Subj_Ovr_PerTrx +  Global.RP_Direct_Costs_Subj_NotOvr_PerTrx}" label="RP_T_Dir_Costs_PerTrx" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_T_Dir_Costs_SubAct_ToDate" value="${Global.RP_Direct_Costs_Subj_Ovr_SubAct_ToDate +  Global.RP_Direct_Costs_NotSubj_Ovr_SubAct_ToDate}" label="RP_T_Dir_Costs_SubAct_ToDate" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_T_Dir_Costs_PER_EXPENDED" value="${Global.RP_T_Dir_Costs_SubAct_ToDate / Global.RP_T_Dir_Costs_Bud}" label="RP_T_Dir_Costs_PER_EXPENDED" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_T_Expense_PerTrx" value="${Global.RP_T_Dir_Costs_PerTrx + Global.RP_FACost_PeriodTrx}" label="RP_T_Expense_PerTrx" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_T_EXPENSE_Bud" value="${Global.RP_T_Dir_Costs_Bud + Global.RP_FACost_Bud}" label="RP_T_EXPENSE_Bud" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_T_Expense_SubAct_ToDate" value="${Global.RP_T_Dir_Costs_SubAct_ToDate + Global.RP_FACost_SubAct}" label="RP_T_Expense_SubAct_ToDate" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_T_EXPENSE_REM_Bud" value="${Global.RP_T_EXPENSE_Bud - Global.RP_T_Expense_SubAct_ToDate}" label="RP_T_EXPENSE_REM_Bud" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_T_Expense_PER_EXPENDED" value="${Global.RP_T_Expense_SubAct_ToDate / Global.RP_T_EXPENSE_Bud}" label="RP_T_Expense_PER_EXPENDED" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_GrandTotal_PerTrx" value="${Global.RP_T_Expense_PerTrx + Global.RP_T_Income_PerTrx + Global.RP_T_Non_Oper_PerTrx}" label="RP_GrandTotal_PerTrx" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_GrandTotal_SubAct" value="${Global.RP_T_Expense_SubAct_ToDate +  Global.RP_T_Income_SubActToDate + Global.RP_T_Non_Oper_SubAct}" label="RP_GrandTotal_SubAct" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_Direct_Costs_Subj_Ovr_Bud" value="G_1.Direct_Costs_Sub_Ovr_Bud" label="RP_Direct_Costs_Subj_Ovr_Bud" dataType="xsd:double" breakOrder="None" fieldOrder="1" function="SUM" round="2"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_Direct_Costs_Subj_Ovr_SubAct_ToDate" value="G_1.Direct_Costs_Subj_Ovr_SubAct_ToDate" label="RP_Direct_Costs_Subj_Ovr_SubAct_ToDate" dataType="xsd:double" breakOrder="None" fieldOrder="1" function="SUM" round="2"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_Direct_Costs_NotSubj_Ovr_Bud" value="G_1.Direct_Costs_NotSubj_OvrHead_Bud" label="RP_Direct_Costs_NotSubj_Ovr_Bud" dataType="xsd:double" breakOrder="None" fieldOrder="1" function="SUM" round="2"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_Direct_Costs_NotSubj_Ovr_SubAct_ToDate" value="G_1.Direct_Costs_NotSubj_Ovr_SubAct_ToDate" label="RP_Direct_Costs_NotSubj_Ovr_SubAct_ToDate" dataType="xsd:double" breakOrder="None" fieldOrder="1" function="SUM" round="2"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_Direct_Costs_Subj_Ovr_PerTrx" value="G_1.Direct_Costs_Subj_Ovr_PerTrx" label="RP_Direct_Costs_Subj_Ovr_PerTrx" dataType="xsd:double" breakOrder="None" fieldOrder="1" function="SUM" round="2"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_Direct_Costs_Subj_NotOvr_PerTrx" value="G_1.Direct_Costs_Subj_NotOvr_PerTrx" label="RP_Direct_Costs_Subj_NotOvr_PerTrx" dataType="xsd:double" breakOrder="None" fieldOrder="1" function="SUM" round="2"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_FACost_PeriodTrx" value="G_1.FACost_PeriodTrx" label="RP_FACost_PeriodTrx" dataType="xsd:double" breakOrder="None" fieldOrder="1" function="SUM" round="2"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_FACost_Bud" value="G_1.FACost_Bud" label="RP_FACost_Bud" dataType="xsd:double" breakOrder="None" fieldOrder="1" function="SUM" round="2"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_FACost_SubAct" value="G_1.FACost_SubAct" label="RP_FACost_SubAct" dataType="xsd:double" breakOrder="None" fieldOrder="1" function="SUM" round="2"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_T_Non_Oper_PerTrx" value="G_1.Non_Oper_PerTrx" label="RP_T_Non_Oper_PerTrx" dataType="xsd:double" breakOrder="None" fieldOrder="1" function="SUM" round="2"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_T_Income_PerTrx" value="G_1.Total_Income_PerTrx" label="RP_T_Income_PerTrx" dataType="xsd:double" breakOrder="None" fieldOrder="1" function="SUM" round="2"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_T_Income_SubActToDate" value="G_1.Total_Income_SubActToDate" label="RP_T_Income_SubActToDate" dataType="xsd:double" breakOrder="None" fieldOrder="1" function="SUM" round="2"/>
+            <element xmlns="http://xmlns.oracle.com/oxp/xmlp" name="RP_T_Non_Oper_SubAct" value="G_1.Non_Oper_SubAct" label="RP_T_Non_Oper_SubAct" dataType="xsd:double" breakOrder="None" fieldOrder="1" function="SUM" round="2"/>
+         </dataStructure>
+      </nodeList>
+   </output>
+   <eventTriggers xmlns="http://xmlns.oracle.com/oxp/xmlp">
+      <eventTrigger name="beforeReportTrigger" type="before-data" language="PLSQL">
+         <source>DW_OBI_REPORT_UTILS.beforeReportTrigger</source>
+      </eventTrigger>
+   </eventTriggers>
+   <lexicals xmlns="http://xmlns.oracle.com/oxp/xmlp"/>
+   <parameters xmlns="http://xmlns.oracle.com/oxp/xmlp">
+      <parameter name="lp_SegStatusDesc" dataType="xsd:string" rowPlacement="3">
+         <input/>
+      </parameter>
+      <parameter name="lp_AcctStatusDesc" dataType="xsd:string" rowPlacement="3">
+         <input/>
+      </parameter>
+      <parameter name="lp_AcctGroup" dataType="xsd:string" rowPlacement="3">
+         <input/>
+      </parameter>
+      <parameter name="lp_PrincipalInvestigator" dataType="xsd:string" rowPlacement="3">
+         <input/>
+      </parameter>
+      <parameter name="lp_AcctRoot" dataType="xsd:string" rowPlacement="3">
+         <input/>
+      </parameter>
+      <parameter name="lp_AcctSponSubAct" dataType="xsd:string" rowPlacement="3">
+         <input/>
+      </parameter>
+      <parameter name="lp_AcctSponActivity" dataType="xsd:string" rowPlacement="3">
+         <input/>
+      </parameter>
+      <parameter name="lp_AcctSponFund" defaultValue=" " dataType="xsd:string" rowPlacement="3">
+         <input/>
+      </parameter>
+      <parameter name="lp_AcctOrg" dataType="xsd:string" rowPlacement="3">
+         <input/>
+      </parameter>
+      <parameter name="lp_AcctTub" dataType="xsd:string" rowPlacement="6">
+         <input/>
+      </parameter>
+      <parameter name="lp_PeriodToKey" dataType="xsd:string" rowPlacement="5">
+         <input/>
+      </parameter>
+      <parameter name="lp_PeriodFromKey" dataType="xsd:string" rowPlacement="5">
+         <input/>
+      </parameter>
+      <parameter name="PeriodFromKey" dataType="xsd:integer" rowPlacement="1">
+         <select label="PeriodFrom" valueSet="Period_From_LOV" multiple="false" all="false" allValue="null"/>
+      </parameter>
+      <parameter name="PeriodToKey" dataType="xsd:integer" rowPlacement="1">
+         <select label="PeriodTo" valueSet="Period_To_LOV" multiple="false" all="false" allValue="null"/>
+      </parameter>
+      <parameter name="AcctTub" dataType="xsd:string" rowPlacement="1">
+         <select label="AcctTub" valueSet="AcctTub" noOfRecords="999" multiple="true" all="true" allValue="null"/>
+      </parameter>
+      <parameter name="AcctOrg" dataType="xsd:string" rowPlacement="1">
+         <select label="AcctOrg" valueSet="AcctOrg" noOfRecords="999" multiple="true" all="true" allValue="null"/>
+      </parameter>
+      <parameter name="AcctSponFund" dataType="xsd:string" rowPlacement="1">
+         <select label="Acct Spon Fund" valueSet="Acct Spon Fund" noOfRecords="999" multiple="true" all="true" allValue="null" refreshParameters="false"/>
+      </parameter>
+      <parameter name="AcctSponActivity" dataType="xsd:string" rowPlacement="2">
+         <select label="AcctSponActivity" valueSet="AcctSponActivity" noOfRecords="999" multiple="true" all="true" allValue="null"/>
+      </parameter>
+      <parameter name="AcctSponSubAct" dataType="xsd:string" rowPlacement="2">
+         <select label="AcctSponSubAct" valueSet="AcctSponSubAct" noOfRecords="999" multiple="true" all="true" allValue="null"/>
+      </parameter>
+      <parameter name="AcctRoot" dataType="xsd:string" rowPlacement="2">
+         <select label="AcctRoot" valueSet="AcctRoot" noOfRecords="999" multiple="true" all="true" allValue="null"/>
+      </parameter>
+      <parameter name="PrincipalInvestigator" dataType="xsd:string" rowPlacement="2">
+         <select label="PrincipalInvestigator" valueSet="PrincipalInvestigator" noOfRecords="999" multiple="true" all="true" allValue="null"/>
+      </parameter>
+      <parameter name="AcctGroup" dataType="xsd:string" rowPlacement="2">
+         <select label="AcctGroup" valueSet="AcctGroup" noOfRecords="999" multiple="true" all="true" allValue="null"/>
+      </parameter>
+      <parameter name="AcctStatusDesc" dataType="xsd:string" rowPlacement="3">
+         <select label="AcctStatusDesc" valueSet="AcctStatusDesc" noOfRecords="999" multiple="true" all="true" allValue="null"/>
+      </parameter>
+      <parameter name="SegStatusDesc" dataType="xsd:string" rowPlacement="3">
+         <select label="SegStatusDesc" valueSet="SegStatusDesc" noOfRecords="999" multiple="true" all="true" allValue="null"/>
+      </parameter>
+   </parameters>
+   <valueSets xmlns="http://xmlns.oracle.com/oxp/xmlp">
+      <valueSet id="AcctGroup" inuse="true">
+         <sql dataSourceRef="Oracle BI EE">
+            <![CDATA[select	 "Dim - Financials"."Acct Account Group Cd" as "Acct Account Group Cd" 
+ from	"Grants Management"."Dim - Financials" "Dim - Financials"
+order by 1 ASC]]>
+         </sql>
+      </valueSet>
+      <valueSet id="AcctStatusDesc" inuse="true">
+         <sql dataSourceRef="Oracle BI EE">
+            <![CDATA[SELECT
+  "Grants Management"."Dim - Accounts"."Acct Status Desc" ,
+ "Grants Management"."Dim - Accounts"."Acct Status Cd" 
+FROM "Grants Management"
+order by 1 ASC]]>
+         </sql>
+      </valueSet>
+      <valueSet id="SegStatusDesc" inuse="true">
+         <sql dataSourceRef="Oracle BI EE">
+            <![CDATA[select	 "Dim - Segments"."Segment Status Desc" ,
+"Dim - Segments"."Segment Status Cd" 
+
+ from	"Grants Management"
+order by 1 ASC]]>
+         </sql>
+      </valueSet>
+      <valueSet id="PrincipalInvestigator" inuse="true">
+         <sql dataSourceRef="Oracle BI EE">
+            <![CDATA[select	 "Dim - Financials"."Principal Investigator" as "Principal Investigator" , 
+CAST( "Dim - Financials"."Pi Univ ID" AS INT ) as "Pi Univ ID"
+ from	"Grants Management"."Dim - Financials" "Dim - Financials"
+order by 1 ASC]]>
+         </sql>
+      </valueSet>
+      <valueSet id="AcctRoot" inuse="true">
+         <sql dataSourceRef="Oracle BI EE">
+            <![CDATA[select	 "Dim - Financials"."Root" as "Root" 
+ from	"Grants Management"."Dim - Financials" "Dim - Financials"
+order by 1 ASC]]>
+         </sql>
+      </valueSet>
+      <valueSet id="AcctSponSubAct" inuse="true">
+         <sql dataSourceRef="Oracle BI EE">
+            <![CDATA[select	 "Dim - Sub Activities"."Subactivity" as "Subactivity" 
+ from	"Grants Management"."Dim - Sub Activities" "Dim - Sub Activities"
+order by 1 DESC]]>
+         </sql>
+      </valueSet>
+      <valueSet id="AcctSponActivity" inuse="true">
+         <sql dataSourceRef="Oracle BI EE">
+            <![CDATA[select	 "Dim - Activities"."Activity" as "Activity" 
+ from	"Grants Management"."Dim - Activities" "Dim - Activities"
+where  "Dim - Activities"."Activity"  >= '200000'
+and "Dim - Activities"."Activity"  <= '499999' 
+order by 1 asc]]>
+         </sql>
+      </valueSet>
+      <valueSet id="AcctOrg" inuse="true">
+         <sql dataSourceRef="Oracle BI EE">
+            <![CDATA[select	 "Grants Management"."Dim - Orgs"."Org" as "Org" 
+ from	"Grants Management"."Dim - Orgs" "Dim - Orgs"
+order by 1 ASC]]>
+         </sql>
+      </valueSet>
+      <valueSet id="AcctTub" inuse="true">
+         <sql dataSourceRef="Oracle BI EE">
+            <![CDATA[select	 "Grants Management"."Dim - Tubs"."Tub"  as "Tub" 
+ from	 "Grants Management"."Dim - Tubs" "Dim - Tubs"
+order by 1 ASC]]>
+         </sql>
+      </valueSet>
+      <valueSet id="Acct Spon Fund" cache="true" inuse="true">
+         <sql dataSourceRef="dwcen">
+            <![CDATA[select	Fund as "Acct Fund" 
+ from 	DWGL.DGL_COA_FUNDS_D
+where  Fund  >= '100000' and  Fund <= '299999'
+order by 1 ASC NULLS LAST]]>
+         </sql>
+      </valueSet>
+      <valueSet id="Period_To_LOV" inuse="true">
+         <sql dataSourceRef="Oracle BI EE">
+            <![CDATA[select	
+"Dim - Periods"."Period Name"  as "Period Name",
+ cast("Dim - Periods"."Period Key"  AS INT) as "Period Key" 
+ from	"Grants Management"."Dim - Periods" "Dim - Periods"
+WHERE "Dim - Periods"."Adjustment Period Flag" = 'N' 
+order by   "Dim - Periods"."Calendar year"  desc , "Dim - Periods"."Calendar month"  desc]]>
+         </sql>
+      </valueSet>
+      <valueSet id="Period_From_LOV" inuse="true">
+         <sql dataSourceRef="Oracle BI EE">
+            <![CDATA[select	
+"Dim - Periods"."Period Name"  as "Period Name",
+ cast("Dim - Periods"."Period Key"  AS INT) as "Period Key" 
+ from	"Grants Management"."Dim - Periods" "Dim - Periods"
+WHERE "Dim - Periods"."Adjustment Period Flag" = 'N' 
+order by   "Dim - Periods"."Calendar year"  desc , "Dim - Periods"."Calendar month"  desc]]>
+         </sql>
+      </valueSet>
+   </valueSets>
+   <bursting xmlns="http://xmlns.oracle.com/oxp/xmlp"/>
+   <validations xmlns="http://xmlns.oracle.com/oxp/xmlp">
+      <validation>N</validation>
+   </validations>
+   <display xmlns="http://xmlns.oracle.com/oxp/xmlp">
+      <layouts>
+         <layout name="PER" left="478.6px" top="1408px">
+            <lexical id="&amp;lp_PrincipalInvestigator" value=" 1 = 1 " isFlex="false"/>
+            <lexical id="&amp;lp_AcctSponActivity" value=" 1 = 1 " isFlex="false"/>
+            <lexical id="&amp;lp_AcctStatusDesc" value=" 1 = 1 " isFlex="false"/>
+            <lexical id="&amp;lp_AcctSponSubAct" value=" 1 = 1 " isFlex="false"/>
+            <lexical id="&amp;lp_SegStatusDesc" value=" 1 = 1 " isFlex="false"/>
+            <lexical id="&amp;lp_AcctSponFund" value=" 1 = 1 " isFlex="false"/>
+            <lexical id="&amp;lp_AcctGroup" value=" 1 = 1 " isFlex="false"/>
+            <lexical id="&amp;lp_AcctRoot" value=" 1 = 1 " isFlex="false"/>
+            <lexical id="&amp;lp_AcctOrg" value=" 1 = 1 " isFlex="false"/>
+            <lexical id="&amp;lp_AcctTub" value=" 1 = 1 " isFlex="false"/>
+         </layout>
+         <layout name="XDO" left="1318px" top="1408px"/>
+         <layout name="G_PeriodTrx_PJTD_Exp_End" left="921px" top="1408px"/>
+         <layout name="From Period" left="1159px" top="1408px"/>
+         <layout name="ToPeriod" left="1339.2px" top="1408px"/>
+         <layout name="G_PeriodTrx_PJTD_Exp_Begin" left="1191px" top="1408px"/>
+         <layout name="Root_Concat" left="1015px" top="1408px"/>
+         <layout name="DATA_DS" left="0px" top="35px"/>
+      </layouts>
+      <groupLinks>
+         <groupLink name="dl-4025" parentGroup="G_3" childGroup="G_PeriodTrx_PJTD_Exp_End"/>
+         <groupLink name="dl-1008" parentGroup="G_1" childGroup="G_PeriodTrx_PJTD_Exp_End"/>
+         <groupLink name="dl-1375" parentGroup="G_PeriodTrx_PJTD_Exp_End" childGroup="G_PeriodTrx_PJTD_Exp_Begin"/>
+         <groupLink name="dl-1533" parentGroup="G_3" childGroup="Root_Concat"/>
+      </groupLinks>
+   </display>
+</dataModel>

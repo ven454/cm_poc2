@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<saw:report xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sawx="com.siebel.analytics.web/expression/v1.1" xmlVersion="201201160">
+   <saw:criteria xsi:type="saw:simpleCriteria" subjectArea="&quot;Harvard Library&quot;">
+      <saw:columns>
+         <saw:column xsi:type="saw:regularColumn" columnID="c2559816cd81197d2">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Tray ID&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c07558c3c42c3ff74"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Active Flag&quot;</sawx:expr></saw:columnFormula></saw:column><saw:column xsi:type="saw:regularColumn" columnID="c5d4c6a0c2e54812d">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">COUNT(CASE WHEN &quot;HD Items&quot;.&quot;On Shelf&quot; = &#39;Y&#39; THEN &quot;HD Items&quot;.&quot;Barcode&quot; ELSE NULL END)</sawx:expr></saw:columnFormula>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>HD Items</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Count of ON Shelf</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c728ec65e85d65eaf">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">COUNT(CASE WHEN &quot;HD Items&quot;.&quot;On Shelf&quot; = &#39;N&#39; THEN &quot;HD Items&quot;.&quot;Barcode&quot; ELSE NULL END)</sawx:expr></saw:columnFormula>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>HD Items</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Count of OFF Shelf</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cbae61df88c42d94b">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Number of Items&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c6637e9c4da388a9f">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">count(case when &quot;HD Items&quot;.&quot;Number of Retrievals&quot; = 0 then &quot;HD Items&quot;.&quot;Barcode&quot; else null end)</sawx:expr></saw:columnFormula>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>HD Items</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>0 Retrievals</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c829d1e2a9ea47fcf">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">count(case when &quot;HD Items&quot;.&quot;Number of Retrievals&quot;&lt;&gt; 0 then &quot;HD Items&quot;.&quot;Barcode&quot; else null end)</sawx:expr></saw:columnFormula>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>HD Items</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>1+ Retreivals</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c5fee30515af90b0f">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Sum of Retrievals&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c09b501125db1f4d7">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Owner Name&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cb32903301618a14a">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Location Aisle&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c10be890c8f239c8a">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Location Face&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c96c932a5129ddb97">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Location Ladder&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c6539929a542c2d17">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Owner Code&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c95187cb064aadc5a">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Tray Location ID&quot;</sawx:expr></saw:columnFormula></saw:column></saw:columns>
+      <saw:filter>
+         <sawx:expr xsi:type="sawx:logical" op="and"><sawx:expr xsi:type="sawx:list" op="in">
+            <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Tray ID&quot;</sawx:expr>
+            <sawx:expr xsi:type="xsd:string">TC071267</sawx:expr>
+            <sawx:expr xsi:type="xsd:string">T0000108</sawx:expr>
+            <sawx:expr xsi:type="xsd:string">T0000188</sawx:expr>
+            <sawx:expr xsi:type="xsd:string">T0001171</sawx:expr>
+            <sawx:expr xsi:type="xsd:string">T0001647</sawx:expr>
+            <sawx:expr xsi:type="xsd:string">T0001324</sawx:expr>
+            <sawx:expr xsi:type="xsd:string">T0002783</sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:comparison" op="equal"><sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Active Flag&quot;</sawx:expr><sawx:expr xsi:type="xsd:string">Y</sawx:expr></sawx:expr></sawx:expr></saw:filter>
+      <saw:columnOrder>
+         <saw:columnOrderRef columnID="c2559816cd81197d2" direction="ascending"/></saw:columnOrder></saw:criteria>
+   <saw:views currentView="0">
+      <saw:view xsi:type="saw:compoundView" name="compoundView!1">
+         <saw:cvTable>
+            <saw:cvRow>
+               <saw:cvCell viewName="titleView!1"/></saw:cvRow>
+            <saw:cvRow>
+               <saw:cvCell viewName="tableView!1"/></saw:cvRow></saw:cvTable></saw:view>
+      <saw:view xsi:type="saw:titleView" name="titleView!1"/>
+      <saw:view xsi:type="saw:tableView" name="tableView!1" scrollingEnabled="false" repeat="false">
+         <saw:edges>
+            <saw:edge axis="page" showColumnHeader="true"/>
+            <saw:edge axis="section"/>
+            <saw:edge axis="row" showColumnHeader="true">
+               <saw:displayGrandTotals>
+                  <saw:displayGrandTotal id="gt_row" grandTotalPosition="after"/></saw:displayGrandTotals>
+               <saw:edgeLayers>
+                  <saw:edgeLayer type="column" columnID="c2559816cd81197d2">
+                     <saw:levels>
+                        <saw:level>
+                           <saw:displaySubTotal id="st_c2559816cd81197d2" subTotalPosition="none"/></saw:level></saw:levels></saw:edgeLayer>
+                  <saw:edgeLayer type="column" columnID="c5d4c6a0c2e54812d"/>
+                  <saw:edgeLayer type="column" columnID="c728ec65e85d65eaf"/>
+                  <saw:edgeLayer type="column" columnID="cbae61df88c42d94b"/>
+                  <saw:edgeLayer type="column" columnID="c6637e9c4da388a9f"/>
+                  <saw:edgeLayer type="column" columnID="c829d1e2a9ea47fcf"/>
+                  <saw:edgeLayer type="column" columnID="c5fee30515af90b0f"/>
+                  <saw:edgeLayer type="column" columnID="c07558c3c42c3ff74"/><saw:edgeLayer type="column" columnID="c6539929a542c2d17"/>
+                  <saw:edgeLayer type="column" columnID="c09b501125db1f4d7"/>
+                  <saw:edgeLayer type="column" columnID="c95187cb064aadc5a"/>
+                  <saw:edgeLayer type="column" columnID="cb32903301618a14a"/>
+                  <saw:edgeLayer type="column" columnID="c10be890c8f239c8a"/>
+                  <saw:edgeLayer type="column" columnID="c96c932a5129ddb97"/></saw:edgeLayers></saw:edge>
+            <saw:edge axis="column" showColumnHeader="rollover"/></saw:edges></saw:view></saw:views></saw:report>

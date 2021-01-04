@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<saw:report xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlVersion="201201160" xmlns:sawx="com.siebel.analytics.web/expression/v1.1">
+   <saw:criteria xsi:type="saw:simpleCriteria" subjectArea="&quot;CAPS PIT&quot;" withinHierarchy="true">
+      <saw:columns>
+         
+         
+         <saw:column xsi:type="saw:regularColumn" columnID="cb109210255e6ec4c">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Periods&quot;.&quot;Period Name&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="suppress" wrapText="true" interaction="none" visibility="hidden"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c560264e6e5e02562">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;Cip Activity&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="ce724ffe5d65a2c1f">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;Sponsor Tub&quot;</sawx:expr></saw:columnFormula><saw:displayFormat><saw:formatSpec visibility="hidden" suppress="suppress" wrapText="true"/></saw:displayFormat><saw:columnHeading><saw:displayFormat><saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column><saw:column xsi:type="saw:regularColumn" columnID="c28c0403196ba28f8">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;Project Name&quot;</sawx:expr></saw:columnFormula><saw:displayFormat><saw:formatSpec suppress="suppress" wrapText="true"/></saw:displayFormat><saw:columnHeading><saw:displayFormat><saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+         
+         <saw:column xsi:type="saw:regularColumn" columnID="c4b0ccd9f1a2cb817">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Budget Summaries&quot;.&quot;Budget Amt&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" visibility="hidden"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column><saw:column xsi:type="saw:regularColumn" columnID="c6ab9c18a2da2e392">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Budget Summaries&quot;.&quot;Latest Forecast Amt&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true"/></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Fact - Budget Summaries</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec/></saw:displayFormat>
+               <saw:caption fmt="text">
+                  <saw:text>Capital Forecast Amt</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cc564ca0a1a23e80d">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">CAST(&quot;Fact - Budget Summaries&quot;.&quot;Forecast Last Updated Date&quot; AS DATE)</sawx:expr></saw:columnFormula>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Fact - Budget Summaries</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Forecast Last Update Date</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c9d2bbb19234dcae6">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Budget Summaries&quot;.&quot;Authorized Budget Amt&quot;</sawx:expr></saw:columnFormula><saw:tableHeading><saw:caption fmt="text"><saw:text>Fact - Budget Summaries</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption fmt="text"><saw:text>Authorized Capital Budget Amt</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cf1b90305be3b25a9">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Budget Summaries&quot;.&quot;Authorized Budget Source&quot;</sawx:expr></saw:columnFormula></saw:column>
+         
+         <saw:column xsi:type="saw:regularColumn" columnID="c4fe84a8e86674cd9">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Budget Summaries&quot;.&quot;Pp Sum Dev Funds Amt&quot;</sawx:expr></saw:columnFormula>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Fact - Budget Summaries</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>PP Dev Funds Amt</saw:text></saw:caption></saw:columnHeading></saw:column>
+         
+         <saw:column xsi:type="saw:regularColumn" columnID="cfb076f5bbb835750">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Budget Summaries&quot;.&quot;Latest Corp Apprv Budget Amt&quot;</sawx:expr></saw:columnFormula>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Fact - Budget Summaries</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Latest Corporation Approved Budget Amt</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c8e8dea4fa555405c">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">CAST(&quot;Fact - Budget Summaries&quot;.&quot;Latest Corp Apprv Date&quot; AS DATE)</sawx:expr></saw:columnFormula>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Fact - Budget Summaries</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Latest Corp Approval Date</saw:text></saw:caption></saw:columnHeading></saw:column>
+         
+         
+         <saw:column xsi:type="saw:regularColumn" columnID="c3db4e6f1209fa96e">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Budget Summaries&quot;.&quot;Bgt At Earliest Ca Submit Amt&quot;</sawx:expr></saw:columnFormula>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Fact - Budget Summaries</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Total Estimated CA Capital Amt</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="ce9212d278a331ca1">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Budget Summaries&quot;.&quot;Variance Forecast Budget Amt&quot; * -1</sawx:expr></saw:columnFormula><saw:tableHeading><saw:caption fmt="text"><saw:text>Fact - Budget Summaries</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption fmt="text"><saw:text>Variance Forecast/ Budget Amt</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cd24e8e14b70c2012">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Budget Summaries&quot;.&quot;Forecast To Auth Budget Pct&quot;</sawx:expr></saw:columnFormula>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Fact - Budget Summaries</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Variance Forecast/ Budget %</saw:text></saw:caption></saw:columnHeading></saw:column><saw:column columnID="c60ae090bdbe9e0f0" xsi:type="saw:regularColumn"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Periods&quot;.&quot;Period Key&quot;</sawx:expr></saw:columnFormula></saw:column></saw:columns>
+      <saw:filter>
+         <sawx:expr xsi:type="sawx:logical" op="and">
+            <sawx:expr op="equal" xsi:type="sawx:comparison">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Periods&quot;.&quot;Period Key&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:variable" op="server">NQ_SESSION.userPeriodKeyCAPS</sawx:expr></sawx:expr>
+            
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;Sponsor Tub&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varTub</sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;Cip Activity&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="ZZZZZZ">varActivity</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:columnExpression" formulaUse="code" displayUse="display">
+                  <saw:columnFormula formulaUse="display">
+                     <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;Status Category Desc&quot;</sawx:expr></saw:columnFormula></sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="Open">varStatusCategory</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;PM Full Name&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varProjectManager</sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:list" op="in"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;Project Name&quot;</sawx:expr><sawx:expr xsi:type="sawx:eval" default="%">varPrjName</sawx:expr></sawx:expr></sawx:expr></saw:filter></saw:criteria>
+   <saw:interactionOptions drill="true" movecolumns="true" sortcolumns="true" addremovevalues="false" groupoperations="false" calcitemoperations="false" showhidesubtotal="false" showhiderunningsum="false" inclexclcolumns="true" hidecolumns="false"/>
+   <saw:views textDelivery="compoundView!1" parentsBefore="true" includeNewColumns="true" nullSuppress="true" currentView="0">
+      <saw:view xsi:type="saw:compoundView" name="compoundView!1">
+         <saw:cvTable>
+            <saw:cvRow>
+               <saw:cvCell viewName="titleView!1">
+                  <saw:displayFormat>
+                     <saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow>
+            <saw:cvRow>
+               <saw:cvCell viewName="tableView!1">
+                  <saw:displayFormat>
+                     <saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow></saw:cvTable></saw:view>
+      <saw:view xsi:type="saw:titleView" name="titleView!1" includeName="true" startedDisplay="dateTime"/>
+      <saw:view xsi:type="saw:tableView" name="tableView!1" rowsPerPage="5000">
+         <saw:edges><saw:edge axis="page" showColumnHeader="true"/><saw:edge axis="section" insertPageBreak="false" showBlankRows="false" showColumnHeader="true">
+               <saw:displayFormat>
+                  <saw:formatSpec wrapText="true"/></saw:displayFormat>
+               </saw:edge><saw:edge axis="row" showColumnHeader="true">
+               <saw:edgeLayers><saw:edgeLayer type="column" columnID="c560264e6e5e02562" insertPageBreak="false" newRow="true"/><saw:edgeLayer type="column" columnID="c28c0403196ba28f8" newRow="true"/><saw:edgeLayer type="column" columnID="ce724ffe5d65a2c1f" newRow="true"/><saw:edgeLayer type="column" columnID="c6ab9c18a2da2e392" newRow="true"/><saw:edgeLayer type="column" columnID="cc564ca0a1a23e80d" newRow="true"/><saw:edgeLayer type="column" columnID="c9d2bbb19234dcae6" newRow="true"/><saw:edgeLayer type="column" columnID="cf1b90305be3b25a9" newRow="true"/><saw:edgeLayer type="column" columnID="cfb076f5bbb835750" newRow="true"/><saw:edgeLayer type="column" columnID="c8e8dea4fa555405c" newRow="true"/><saw:edgeLayer type="column" columnID="c3db4e6f1209fa96e" newRow="true"/><saw:edgeLayer type="column" columnID="ce9212d278a331ca1" newRow="true"/><saw:edgeLayer type="column" columnID="cd24e8e14b70c2012" newRow="true"/></saw:edgeLayers></saw:edge><saw:edge axis="column" showColumnHeader="rollover"/></saw:edges></saw:view>
+      <saw:view xsi:type="saw:filtersView" name="filtersView!1"/>
+      <saw:view xsi:type="saw:narrativeView" name="narrativeView!1">
+         <saw:viewCaption>
+            <saw:caption>
+               <saw:text>Narrative: User Selected Dates or Period</saw:text></saw:caption></saw:viewCaption>
+         <saw:narrative rowCount="1">
+            <saw:caption fmt="html">
+               <saw:text>&lt;FONT SIZE=&quot;3&quot; FACE=&quot;Verdana&quot;&gt;User Selected Report Period [b]@{cb109210255e6ec4c}[/b] </saw:text></saw:caption></saw:narrative></saw:view>
+      <saw:view xsi:type="saw:narrativeView" name="narrativeView!2">
+         <saw:viewCaption>
+            <saw:caption>
+               <saw:text>Narrative: Record Count</saw:text></saw:caption></saw:viewCaption>
+         <saw:narrative rowCount="1">
+            <saw:caption fmt="html">
+               <saw:text>Rows of Data Returned [b]@{c336e1e7a484ff4af}[/b]</saw:text></saw:caption></saw:narrative></saw:view>
+      <saw:view xsi:type="saw:noresultsview" name="noresultsview!1">
+         <saw:headline>
+            <saw:caption>
+               <saw:text>No Results</saw:text></saw:caption></saw:headline>
+         <saw:detail>
+            <saw:caption>
+               <saw:text>Please choose Prompt Values then click the APPLY button.</saw:text></saw:caption></saw:detail></saw:view>
+      <saw:view xsi:type="saw:narrativeView" name="narrativeView!3">
+         <saw:viewCaption>
+            <saw:caption>
+               <saw:text>Narrative: Descriptor</saw:text></saw:caption></saw:viewCaption>
+         <saw:narrative>
+            <saw:caption fmt="html">
+               <saw:text>As Of:     @{cb109210255e6ec4c}     [b][br/][br/]
+Project[/b][br/]
+CIP Activity:     @{c560264e6e5e02562}[br/]
+Caps No:     @{ce37389443505667a}[br/]
+Project Name:     @{c940027c37a35e1a0}[br/]
+Project Manager: @{c1448187452403f29}[br/][br/]
+
+[b]Description[/b][br/]
+Expense Activity - Sub: @{c0b74152aaf80b2a5}[br/]
+Stage Desc: @{cfad04607c7b48daf}[br/]
+Status Category Desc: @{c452d2546333a0ecc}[br/]
+Contractor Name: @{c7371d4832caaf777}[br/]
+Architect Name: @{c50c2b41eebde2daa}[br/]
+Primary Building Name: @{cf152b3cd2a8f58f1}[br/]
+Sponsor Tub: @{ce724ffe5d65a2c1f} @{c5d4397c0aee2d2ed}[br/][br/]
+
+[b]Budgets[/b][br/]
+Forecast: - Sub: @{c6ab9c18a2da2e392}[br/]
+Forecast Last Updated Date: @{cc564ca0a1a23e80d}[br/]
+Authorized Budget Amt: @{c9d2bbb19234dcae6}[br/]
+Latest Contingency Forecast Amt: @{cf1b90305be3b25a9}[br/]
+Largest Dev Funds Approved: @{ca52ee327d142a092}[br/]
+Largest Dev Funds Approved Date: @{c4fe84a8e86674cd9}[br/]
+Largest Dev Funds Approved Date: @{c37d226445ff63450}[br/]
+Latest Corporation approved Budget: @{cfb076f5bbb835750}[br/]
+earliest Corp Apprv Budget Amt: @{c8e8dea4fa555405c}[br/]
+Corp Approved Allowable Variance %: @{cf9fdf33411e26a70}[br/]
+Earliest CA Submit Amt: @{cd56dc9bf08e72b55}[br/]
+Variance Forecast Budget Amt: @{c3db4e6f1209fa96e}[br/]
+Forecast To Auth Budget %: @{ce9212d278a331ca1}[br/]
+Move this percent: @{cd24e8e14b70c2012}[br/]</saw:text></saw:caption></saw:narrative></saw:view></saw:views></saw:report>

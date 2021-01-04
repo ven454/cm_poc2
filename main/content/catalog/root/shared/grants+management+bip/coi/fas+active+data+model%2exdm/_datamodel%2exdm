@@ -1,0 +1,170 @@
+<?xml version = '1.0' encoding = 'utf-8'?>
+<dataModel version="2.0" xmlns="http://xmlns.oracle.com/oxp/xmlp" xmlns:xdm="http://xmlns.oracle.com/oxp/xmlp" xmlns:xsd="http://wwww.w3.org/2001/XMLSchema" defaultDataSourceRef="dwcen">
+   <description>
+      <![CDATA[undefined]]>
+   </description>
+   <dataProperties>
+      <property name="include_parameters" value="true"/>
+      <property name="include_null_Element" value="false"/>
+      <property name="include_rowsettag" value="false"/>
+      <property name="xml_tag_case" value="upper"/>
+   </dataProperties>
+   <dataSets>
+      <dataSet name="FAS_Active" type="complex">
+         <sql dataSourceRef="gmas">
+            <![CDATA[SELECT DISTINCT CONCAT( AL2.PROJECT_ID, CONCAT ( '-', AL2.SEGMENT_NUMBER )) As ProjectId,
+AL4.FIRST_NAME||' '||AL4.LAST_NAME As Team_Member,
+DECODE (AL11."FCOI_STATUS",  '', '',  'No Disclosure', 'No',  'Yes') AS Disclosure,
+fas.tub,
+AL6.DESCRIPTION As GMAS_Approval_Status,
+AL11.FCOI_STATUS,
+AL11.FCOI_STATUS_DATE,
+AL8.DESCRIPTION As Segment_Status,
+AL15.Sponsor,
+AL21.Prime_Sponsor,
+AL23.Oblig_End_Date,
+AL7.DATE_RECEIVED,
+emails.EMAIL_ADDRESS
+FROM 
+GMASPROD.SEGMENTS AL2,
+GMASPROD.FACULTY_RESEARCH_PERSONS AL3,
+GMASPROD.PERSONS AL4,
+GMASPROD.RF_APPROVAL_STATUSES AL6,
+GMASPROD.APPROVAL_REQUIREMENTS AL7,
+GMASPROD.RF_SEGMENT_STATUSES AL8,
+GMASPROD.RF_APPROVAL_TYPES AL10,
+GMASPROD.COI AL11,
+GMASPROD.PERSON_EMAILS emails,
+(SELECT AL13.PROJECT_ID, AL14.DESCRIPTION, AL15.FULL_NAME As Sponsor
+               FROM GMASPROD.PROJECT_SPONSORS AL13, GMASPROD.RF_SPONSOR_ROLES AL14, GMASPROD.ORGANIZATIONS AL15
+               WHERE (AL13.SPONSOR_ROLE_ID=AL14.SPONSOR_ROLE_ID AND AL13.ORGANIZATION_ID=AL15.ORGANIZATION_ID) 
+               AND (AL14.DESCRIPTION='Sponsor')) AL15,
+(SELECT AL18.PROJECT_ID, AL19.DESCRIPTION, AL20.FULL_NAME As Prime_Sponsor
+               FROM GMASPROD.PROJECT_SPONSORS AL18, GMASPROD.RF_SPONSOR_ROLES AL19, GMASPROD.ORGANIZATIONS AL20
+               WHERE (AL18.SPONSOR_ROLE_ID=AL19.SPONSOR_ROLE_ID AND AL18.ORGANIZATION_ID=AL20.ORGANIZATION_ID) 
+               AND (AL19.DESCRIPTION='Prime Sponsor')) AL21,
+(SELECT SEGMENT_ID, MAX (OBLIGATED_END_DATE) AS Oblig_End_Date
+              FROM GMASPROD.VW_CURRENT_AWARDED_DATES
+          GROUP BY SEGMENT_ID) AL23,
+(SELECT fi.segment_id as seg_id, o.tub
+               FROM GMASPROD.FACULTY_INVOLVEMENTS fi, gmasprod.rf_orgs o
+               WHERE (fi.END_DATE IS NULL
+                    AND fi.org = o.org
+                    AND o.tub IN ('370', '385', '420'))) fas
+WHERE
+ AL4.HUID = AL11.HUID(+)
+AND fas.seg_id = AL2.segment_id
+AND AL4.PERSON_ID=AL3.PERSON_ID
+AND AL8.SEGMENT_STATUS_ID=AL2.SEGMENT_STATUS_ID
+AND AL7.APPROVAL_STATUS_ID=AL6.APPROVAL_STATUS_ID
+AND AL10.APPROVAL_TYPE_ID=AL7.APPROVAL_TYPE_ID
+AND AL3.FACULTY_RESEARCH_PERSON_ID=AL7.FACULTY_RESEARCH_PERSON_ID
+AND AL2.SEGMENT_ID = AL23.SEGMENT_ID(+)
+AND AL2.PROJECT_ID = AL15.PROJECT_ID(+)
+AND AL2.PROJECT_ID = AL21.PROJECT_ID(+)
+AND AL4.PERSON_ID = emails.PERSON_ID(+)
+AND AL2.SEGMENT_ID=AL7.SEGMENT_ID
+AND AL7.REQUEST_ID IS NULL
+AND al23.oblig_end_date >= ADD_MONTHS(TRUNC(SYSDATE), -6)
+AND (AL8.DESCRIPTION IN ('Active')
+AND AL3.PHS_INVESTIGATOR_FLAG = 1
+AND AL10.DESCRIPTION='Conflict of Interest'
+AND emails.PREFFERED_EMAIL_FLAG(+)=1)
+UNION ALL
+SELECT DISTINCT CONCAT( AL2.PROJECT_ID, CONCAT ( '-', AL2.SEGMENT_NUMBER )) As ProjectId,
+AL4.FIRST_NAME||' '||AL4.LAST_NAME As Team_Member,
+DECODE (AL11."FCOI_STATUS",  '', '',  'No Disclosure', 'No',  'Yes') AS Disclosure,
+fas.tub,
+AL6.DESCRIPTION As GMAS_Approval_Status,
+AL11.FCOI_STATUS,
+AL11.FCOI_STATUS_DATE,
+AL8.DESCRIPTION As Segment_Status,
+AL15.Sponsor,
+AL21.Prime_Sponsor,
+AL23.Oblig_End_Date,
+AL7.DATE_RECEIVED,
+emails.EMAIL_ADDRESS
+FROM GMASPROD.REQUESTS AL1,
+GMASPROD.SEGMENTS AL2,
+GMASPROD.FACULTY_RESEARCH_PERSONS AL3,
+GMASPROD.PERSONS AL4,
+GMASPROD.RF_APPROVAL_STATUSES AL6,
+GMASPROD.APPROVAL_REQUIREMENTS AL7,
+GMASPROD.RF_SEGMENT_STATUSES AL8,
+GMASPROD.RF_APPROVAL_TYPES AL10,
+GMASPROD.COI AL11,
+GMASPROD.PERSON_EMAILS emails,
+(SELECT AL13.PROJECT_ID, AL14.DESCRIPTION, AL15.FULL_NAME As Sponsor
+               FROM GMASPROD.PROJECT_SPONSORS AL13, GMASPROD.RF_SPONSOR_ROLES AL14, GMASPROD.ORGANIZATIONS AL15
+               WHERE (AL13.SPONSOR_ROLE_ID=AL14.SPONSOR_ROLE_ID AND AL13.ORGANIZATION_ID=AL15.ORGANIZATION_ID) 
+               AND (AL14.DESCRIPTION='Sponsor')) AL15,
+(SELECT AL18.PROJECT_ID, AL19.DESCRIPTION, AL20.FULL_NAME As Prime_Sponsor
+               FROM GMASPROD.PROJECT_SPONSORS AL18, GMASPROD.RF_SPONSOR_ROLES AL19, GMASPROD.ORGANIZATIONS AL20
+               WHERE (AL18.SPONSOR_ROLE_ID=AL19.SPONSOR_ROLE_ID AND AL18.ORGANIZATION_ID=AL20.ORGANIZATION_ID) 
+               AND (AL19.DESCRIPTION='Prime Sponsor')) AL21,
+(SELECT SEGMENT_ID, MAX (OBLIGATED_END_DATE) AS Oblig_End_Date
+              FROM GMASPROD.VW_CURRENT_AWARDED_DATES
+          GROUP BY SEGMENT_ID) AL23,
+(SELECT fi.segment_id as seg_id, o.tub
+               FROM GMASPROD.FACULTY_INVOLVEMENTS fi, gmasprod.rf_orgs o
+               WHERE (fi.END_DATE IS NULL
+                    AND fi.org = o.org
+                    AND o.tub IN ('370', '385', '420'))) fas
+WHERE
+AL4.HUID = AL11.HUID(+)
+AND fas.seg_id = AL2.segment_id
+AND AL7.REQUEST_ID = AL1.REQUEST_ID
+AND AL4.PERSON_ID=AL3.PERSON_ID
+AND AL8.SEGMENT_STATUS_ID=AL2.SEGMENT_STATUS_ID
+AND AL7.APPROVAL_STATUS_ID=AL6.APPROVAL_STATUS_ID
+AND AL10.APPROVAL_TYPE_ID=AL7.APPROVAL_TYPE_ID
+AND AL3.FACULTY_RESEARCH_PERSON_ID=AL7.FACULTY_RESEARCH_PERSON_ID
+AND AL2.SEGMENT_ID = AL23.SEGMENT_ID(+)
+AND AL2.PROJECT_ID = AL15.PROJECT_ID(+)
+AND AL2.PROJECT_ID = AL21.PROJECT_ID(+)
+AND AL4.PERSON_ID = emails.PERSON_ID(+)
+AND AL2.SEGMENT_ID=AL7.SEGMENT_ID
+AND al23.oblig_end_date >= ADD_MONTHS(TRUNC(SYSDATE), -6)
+AND ((AL8.DESCRIPTION IN ('Active')
+AND AL3.PHS_INVESTIGATOR_FLAG = 1
+AND AL1.REQUEST_TYPE_ID NOT IN ('5019', '5020')
+AND AL10.DESCRIPTION='Conflict of Interest' 
+AND emails.PREFFERED_EMAIL_FLAG(+)=1))
+ORDER BY Sponsor, Prime_Sponsor, Team_Member, ProjectId]]>
+         </sql>
+      </dataSet>
+   </dataSets>
+   <output rootName="DATA_DS" uniqueRowName="false">
+      <nodeList name="data-structure">
+         <dataStructure tagName="DATA_DS">
+            <group name="FAS_Active" label="FAS_Active" source="FAS_Active">
+               <element name="PROJECTID" value="PROJECTID" label="PROJECTID" dataType="xsd:string" breakOrder="" fieldOrder="1"/>
+               <element name="TEAM_MEMBER" value="TEAM_MEMBER" label="TEAM_MEMBER" dataType="xsd:string" breakOrder="" fieldOrder="2"/>
+               <element name="DISCLOSURE" value="DISCLOSURE" label="DISCLOSURE" dataType="xsd:string" breakOrder="" fieldOrder="3"/>
+               <element name="TUB" value="TUB" label="TUB" dataType="xsd:string" breakOrder="" fieldOrder="4"/>
+               <element name="GMAS_APPROVAL_STATUS" value="GMAS_APPROVAL_STATUS" label="GMAS_APPROVAL_STATUS" dataType="xsd:string" breakOrder="" fieldOrder="5"/>
+               <element name="FCOI_STATUS" value="FCOI_STATUS" label="FCOI_STATUS" dataType="xsd:string" breakOrder="" fieldOrder="6"/>
+               <element name="FCOI_STATUS_DATE" value="FCOI_STATUS_DATE" label="FCOI_STATUS_DATE" dataType="xsd:date" breakOrder="" fieldOrder="7"/>
+               <element name="SEGMENT_STATUS" value="SEGMENT_STATUS" label="SEGMENT_STATUS" dataType="xsd:string" breakOrder="" fieldOrder="8"/>
+               <element name="SPONSOR" value="SPONSOR" label="SPONSOR" dataType="xsd:string" breakOrder="" fieldOrder="9"/>
+               <element name="PRIME_SPONSOR" value="PRIME_SPONSOR" label="PRIME_SPONSOR" dataType="xsd:string" breakOrder="" fieldOrder="10"/>
+               <element name="OBLIG_END_DATE" value="OBLIG_END_DATE" label="OBLIG_END_DATE" dataType="xsd:date" breakOrder="" fieldOrder="11"/>
+               <element name="DATE_RECEIVED" value="DATE_RECEIVED" label="DATE_RECEIVED" dataType="xsd:date" breakOrder="" fieldOrder="12"/>
+               <element name="EMAIL_ADDRESS" value="EMAIL_ADDRESS" label="EMAIL_ADDRESS" dataType="xsd:string" breakOrder="" fieldOrder="13"/>
+            </group>
+         </dataStructure>
+      </nodeList>
+   </output>
+   <eventTriggers/>
+   <lexicals/>
+   <valueSets/>
+   <parameters/>
+   <bursting/>
+   <display>
+      <layouts>
+         <layout name="FAS_Active" left="246px" top="78px"/>
+         <layout name="DATA_DS" left="5px" top="28px"/>
+      </layouts>
+      <groupLinks/>
+   </display>
+</dataModel>

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<saw:report xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sawx="com.siebel.analytics.web/expression/v1.1" xmlVersion="201201160">
+   <saw:criteria xsi:type="saw:simpleCriteria" subjectArea="&quot;CAPS PIT&quot;">
+               <saw:columns>
+                  <saw:column xsi:type="saw:regularColumn" columnID="cabcb537801e8dde1">
+                     <saw:columnFormula>
+                        <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Periods&quot;.&quot;Period Name&quot;</sawx:expr></saw:columnFormula></saw:column>
+                  <saw:column xsi:type="saw:regularColumn" columnID="c6cc572197efe86a0">
+                     <saw:columnFormula>
+                        <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;Stage Cd&quot;</sawx:expr></saw:columnFormula></saw:column>
+                  <saw:column xsi:type="saw:regularColumn" columnID="c217e9cb4428c0350">
+                     <saw:columnFormula>
+                        <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;Cip Activity&quot;</sawx:expr></saw:columnFormula></saw:column>
+                  <saw:column xsi:type="saw:regularColumn" columnID="c9d263c6965985bc5">
+                     <saw:columnFormula>
+                        <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;Caps No&quot;</sawx:expr></saw:columnFormula></saw:column>
+                  <saw:column xsi:type="saw:regularColumn" columnID="cdaf5e12143af3608">
+                     <saw:columnFormula>
+                        <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;Project Name&quot;</sawx:expr></saw:columnFormula></saw:column>
+                  <saw:column xsi:type="saw:regularColumn" columnID="cd2c1f6537b5a320d">
+                     <saw:columnFormula>
+                        <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;PM Full Name&quot;</sawx:expr></saw:columnFormula></saw:column>
+                  <saw:column xsi:type="saw:regularColumn" columnID="cff1d51aa39c7aac5">
+                     <saw:columnFormula>
+                        <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;Status Category Desc&quot;</sawx:expr></saw:columnFormula></saw:column>
+                  <saw:column xsi:type="saw:regularColumn" columnID="c9b415192eeb4006a">
+                     <saw:columnFormula>
+                        <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;Sponsor Tub&quot;</sawx:expr></saw:columnFormula></saw:column>
+                  <saw:column xsi:type="saw:regularColumn" columnID="cabf1c0808e676d41">
+                     <saw:columnFormula>
+                        <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Tubs&quot;.&quot;Tub&quot;</sawx:expr></saw:columnFormula></saw:column>
+                  <saw:column xsi:type="saw:regularColumn" columnID="ca07ecf05df2309c9">
+                     <saw:columnFormula>
+                        <sawx:expr xsi:type="sawx:sqlExpression">&#39;&#39;</sawx:expr></saw:columnFormula>
+                     
+                     <saw:tableHeading><saw:caption fmt="text"><saw:text>Dim - Objects</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption fmt="text"><saw:text>Object Code</saw:text></saw:caption></saw:columnHeading></saw:column>
+                  <saw:column xsi:type="saw:regularColumn" columnID="c00b12e00ca6a171a">
+                     <saw:columnFormula>
+                        <sawx:expr xsi:type="sawx:sqlExpression">sum(0)</sawx:expr></saw:columnFormula>
+                     <saw:tableHeading>
+                        </saw:tableHeading>
+                     <saw:columnHeading>
+                        <saw:caption fmt="text">
+                           <saw:text>sum(0)</saw:text></saw:caption></saw:columnHeading></saw:column>
+                  <saw:column xsi:type="saw:regularColumn" columnID="c17d721dfb56e2c5d">
+                     <saw:columnFormula>
+                        <sawx:expr xsi:type="sawx:sqlExpression">sum(0)</sawx:expr></saw:columnFormula>
+                     <saw:tableHeading>
+                        </saw:tableHeading>
+                     <saw:columnHeading>
+                        <saw:caption fmt="text">
+                           <saw:text>sum(0)</saw:text></saw:caption></saw:columnHeading></saw:column>
+                  <saw:column xsi:type="saw:regularColumn" columnID="cb2672ba2d69ab542">
+                     <saw:columnFormula>
+                        <sawx:expr xsi:type="sawx:sqlExpression">IFNULL((IFNULL(&quot;Fact - Budget Summaries (Project Key)&quot;.&quot;Pp Sum Dev Funds Amt&quot;,0)+&quot;Fact - Budget Summaries (Project Key)&quot;.&quot;PP Sum Devren Funds Amt&quot;), &quot;Fact - Budget Summaries (Project Key)&quot;.&quot;Pp Sum Dev Funds Amt&quot;)</sawx:expr></saw:columnFormula>
+                     <saw:tableHeading>
+                        <saw:caption fmt="text">
+                           <saw:text>Fact - Budget Summaries (Project Key)</saw:text></saw:caption></saw:tableHeading>
+                     <saw:columnHeading>
+                        <saw:caption fmt="text">
+                           <saw:text>PP Sum Dev Funds Amt</saw:text></saw:caption></saw:columnHeading></saw:column>
+                  <saw:column xsi:type="saw:regularColumn" columnID="ccb5a4a7f45d1adac">
+                     <saw:columnFormula>
+                        <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Budget Summaries (Project Key)&quot;.&quot;Pp Est High Capital Bgt Amt&quot;</sawx:expr></saw:columnFormula></saw:column>
+                  <saw:column xsi:type="saw:regularColumn" columnID="c4d2e087de499a00a">
+                     <saw:columnFormula>
+                        <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Budget Summaries (Project Key)&quot;.&quot;Earliest Ca Cap Budget Amt&quot;</sawx:expr></saw:columnFormula></saw:column>
+                  <saw:column xsi:type="saw:regularColumn" columnID="ca20b12167b870185">
+                     <saw:columnFormula>
+                        <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Budget Summaries (Project Key)&quot;.&quot;Latest Ca Cap Budget Amt&quot;</sawx:expr></saw:columnFormula></saw:column>
+                  <saw:column xsi:type="saw:regularColumn" columnID="ccb1afc10547db64a">
+                     <saw:columnFormula>
+                        <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Budget Summaries (Project Key)&quot;.&quot;Pp Cprc Dev Funds Amt&quot;</sawx:expr></saw:columnFormula></saw:column>
+                  <saw:column xsi:type="saw:regularColumn" columnID="c0f75f68790e4412d">
+                     <saw:columnFormula>
+                        <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Budget Summaries (Project Key)&quot;.&quot;Earliest Corp Apprv Budget Amt&quot;</sawx:expr></saw:columnFormula></saw:column>
+                  <saw:column xsi:type="saw:regularColumn" columnID="cff8d09ddf2902cca">
+                     <saw:columnFormula>
+                        <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Budget Summaries (Project Key)&quot;.&quot;Latest Corp Apprv Budget Amt&quot;</sawx:expr></saw:columnFormula></saw:column>
+                  <saw:column xsi:type="saw:regularColumn" columnID="c6211cafaaa02ce16">
+                     <saw:columnFormula>
+                        <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Budget Summaries (Project Key)&quot;.&quot;Latest Forecast Amt&quot;</sawx:expr></saw:columnFormula></saw:column>
+                  <saw:column xsi:type="saw:regularColumn" columnID="c0ca06d8cb269c2b7">
+                     <saw:columnFormula>
+                        <sawx:expr xsi:type="sawx:sqlExpression">AGO(&quot;Fact - Budget Summaries (Project Key)&quot;.&quot;Latest Forecast Amt&quot;, &quot;Dim - Periods&quot;.&quot;Dim - Periods&quot;.&quot;Fiscal Month&quot;, @{monthIncremental})</sawx:expr></saw:columnFormula>
+                     
+                     <saw:tableHeading><saw:caption fmt="text"><saw:text>Fact - Budget Summaries (Project Key)</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption fmt="text"><saw:text>Latest Forecast Amt CP</saw:text></saw:caption></saw:columnHeading></saw:column>
+                  <saw:column xsi:type="saw:regularColumn" columnID="c686f6b20c232861e">
+                     <saw:columnFormula>
+                        <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Budget Summaries (Project Key)&quot;.&quot;Total Budget Amt&quot;</sawx:expr></saw:columnFormula></saw:column><saw:column xsi:type="saw:regularColumn" columnID="c60966cf99c968ee2"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;CA Full Partial Cd&quot;</sawx:expr></saw:columnFormula></saw:column><saw:column xsi:type="saw:regularColumn" columnID="c4102571b5049b66e"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;CA Earliest Full Partial Cd&quot;</sawx:expr></saw:columnFormula></saw:column></saw:columns>
+               <saw:filter>
+                  <sawx:expr xsi:type="sawx:logical" op="and">
+                     
+                     
+                     
+                     
+                     <sawx:expr op="equal" xsi:type="sawx:comparison"><sawx:expr xsi:type="sawx:columnExpression" formulaUse="code" displayUse="display"><saw:columnFormula formulaUse="display"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Periods&quot;.&quot;Period Name&quot;</sawx:expr></saw:columnFormula></sawx:expr><sawx:expr xsi:type="xsd:decimal">246</sawx:expr></sawx:expr><sawx:expr op="equal" xsi:type="sawx:comparison"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;Sponsor Tub&quot;</sawx:expr><sawx:expr xsi:type="xsd:string">275</sawx:expr></sawx:expr></sawx:expr></saw:filter></saw:criteria>
+   <saw:interactionOptions drill="true" movecolumns="true" sortcolumns="true" addremovevalues="false" groupoperations="false" calcitemoperations="true" showhidesubtotal="true" showhiderunningsum="true" inclexclcolumns="true" hidecolumns="false"/>
+   <saw:views textDelivery="compoundView!1" parentsBefore="true" includeNewColumns="true" currentView="0">
+      <saw:view xsi:type="saw:compoundView" name="compoundView!1">
+         <saw:cvTable>
+            <saw:cvRow>
+               <saw:cvCell viewName="titleView!1">
+                  <saw:displayFormat>
+                     <saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow>
+            <saw:cvRow>
+               <saw:cvCell viewName="tableView!1">
+                  <saw:displayFormat>
+                     <saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow>
+            <saw:cvRow>
+               <saw:cvCell viewName="narrativeView!2"/></saw:cvRow></saw:cvTable>
+         <saw:pageProps orientation="portrait" printRows="visible" disableMargins="false">
+            <saw:pageHeader show="false"/>
+            <saw:pageFooter show="false"/></saw:pageProps></saw:view>
+      <saw:view xsi:type="saw:titleView" name="titleView!1" includeName="true" startedDisplay="dateTime"/>
+      <saw:view xsi:type="saw:tableView" name="tableView!1" rowsPerPage="100" autoPreview="false">
+         <saw:viewCaption>
+            <saw:caption>
+               <saw:text>Table: Summary</saw:text></saw:caption></saw:viewCaption>
+         <saw:edges><saw:edge axis="page" showColumnHeader="true"/><saw:edge axis="section" insertPageBreak="false" showBlankRows="false" showColumnHeader="true">
+               <saw:displayFormat>
+                  <saw:formatSpec wrapText="true"/></saw:displayFormat>
+               <saw:edgeLayers><saw:edgeLayer type="column" columnID="cabcb537801e8dde1" insertPageBreak="false" uiTableName="Dim - Periods"/></saw:edgeLayers></saw:edge><saw:edge axis="row" showColumnHeader="true">
+               <saw:displayGrandTotals>
+                  <saw:displayGrandTotal id="gt_row" grandTotalPosition="after"><saw:dataBodyFormat><saw:displayFormat><saw:formatSpec/></saw:displayFormat></saw:dataBodyFormat></saw:displayGrandTotal></saw:displayGrandTotals>
+               <saw:edgeLayers><saw:edgeLayer type="column" columnID="c217e9cb4428c0350" uiTableName="Dim - Projects">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontStyle="bold" hAlign="center" wrapText="true"/></saw:displayFormat></saw:headerFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="cdaf5e12143af3608" uiTableName="Dim - Projects">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontStyle="bold" hAlign="center" wrapText="true"/></saw:displayFormat></saw:headerFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="c9d263c6965985bc5" uiTableName="Dim - Projects">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontStyle="bold" hAlign="center" wrapText="true"/></saw:displayFormat></saw:headerFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="cabf1c0808e676d41" uiTableName="Dim - Tubs"/><saw:edgeLayer type="column" columnID="cd2c1f6537b5a320d" uiTableName="Dim - Projects">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontStyle="bold" hAlign="center" wrapText="true"/></saw:displayFormat></saw:headerFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="cff1d51aa39c7aac5" uiTableName="Dim - Projects">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontStyle="bold" hAlign="center" wrapText="true"/></saw:displayFormat></saw:headerFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="c6cc572197efe86a0" uiTableName="Dim - Projects">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontStyle="bold" hAlign="center" wrapText="true"/></saw:displayFormat></saw:headerFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="c9b415192eeb4006a" uiTableName="Dim - Projects">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontStyle="bold" hAlign="center" wrapText="true"/></saw:displayFormat></saw:headerFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="cb2672ba2d69ab542" uiTableName="Fact - Budget Summaries">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontStyle="bold" hAlign="center" wrapText="true"/></saw:displayFormat></saw:headerFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="ccb5a4a7f45d1adac" uiTableName="Fact - Budget Summaries">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontStyle="bold" hAlign="center" wrapText="true"/></saw:displayFormat></saw:headerFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="c4102571b5049b66e" visibility="hidden" uiTableName="Dim - Projects"/><saw:edgeLayer type="column" columnID="c4d2e087de499a00a" uiTableName="Fact - Budget Summaries">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontStyle="bold" hAlign="center" wrapText="true"/></saw:displayFormat></saw:headerFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="ca20b12167b870185" uiTableName="Fact - Budget Summaries">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontStyle="bold" hAlign="center" wrapText="true"/></saw:displayFormat></saw:headerFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="c60966cf99c968ee2" visibility="hidden" uiTableName=""><saw:headerFormat><saw:displayFormat><saw:formatSpec fontStyle="bold" wrapText="true"/></saw:displayFormat></saw:headerFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="ccb1afc10547db64a" uiTableName="Fact - Budget Summaries">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontStyle="bold" hAlign="center" wrapText="true"/></saw:displayFormat></saw:headerFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="c0f75f68790e4412d" uiTableName="Fact - Budget Summaries">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontStyle="bold" hAlign="center" wrapText="true"/></saw:displayFormat></saw:headerFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="cff8d09ddf2902cca" uiTableName="Fact - Budget Summaries">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontStyle="bold" hAlign="center" wrapText="true"/></saw:displayFormat></saw:headerFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="c6211cafaaa02ce16" uiTableName="Fact - Budget Summaries">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontStyle="bold" hAlign="center" wrapText="true"/></saw:displayFormat></saw:headerFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="c0ca06d8cb269c2b7" uiTableName="Fact - Budget Summaries">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontStyle="bold" hAlign="center" wrapText="true"/></saw:displayFormat></saw:headerFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="c00b12e00ca6a171a" aggRule="sum" uiTableName="Fact - Project Caps-NonCaps Period Balances">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontStyle="bold" hAlign="center" wrapText="true"/></saw:displayFormat></saw:headerFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="c17d721dfb56e2c5d" aggRule="sum" uiTableName="Fact - Project Caps-NonCaps Period Balances">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontStyle="bold" hAlign="center" wrapText="true"/></saw:displayFormat></saw:headerFormat></saw:edgeLayer></saw:edgeLayers></saw:edge><saw:edge axis="column" showColumnHeader="rollover"/></saw:edges></saw:view>
+      <saw:view xsi:type="saw:filtersView" name="filtersView!1"/>
+      <saw:view xsi:type="saw:narrativeView" name="narrativeView!1">
+         <saw:viewCaption>
+            <saw:caption>
+               <saw:text>Narrative: User Selected Period</saw:text></saw:caption></saw:viewCaption>
+         <saw:narrative rowCount="1">
+            <saw:caption fmt="html">
+               <saw:text>User Selected Report Period [b]@{cabcb537801e8dde1}[/b]</saw:text></saw:caption></saw:narrative></saw:view>
+      <saw:view xsi:type="saw:narrativeView" name="narrativeView!2">
+         <saw:viewCaption>
+            <saw:caption>
+               <saw:text>Narrative: Record Count</saw:text></saw:caption></saw:viewCaption>
+         <saw:narrative rowCount="1">
+            <saw:caption fmt="html">
+               <saw:text>Rows of Data Returned [b]@{c1a4596afd26df43e} [/b]</saw:text></saw:caption></saw:narrative></saw:view>
+      <saw:view xsi:type="saw:noresultsview" name="noresultsview!1">
+         <saw:headline>
+            <saw:caption>
+               <saw:text>No Results</saw:text></saw:caption></saw:headline>
+         <saw:detail>
+            <saw:caption>
+               <saw:text>Please choose Prompt Values then click the APPLY button.</saw:text></saw:caption></saw:detail></saw:view>
+      
+      <saw:view xsi:type="saw:htmlview" name="htmlview!1">
+         <saw:staticText>
+            <saw:caption fmt="html">
+               <saw:text>[b]NOTE:[/b] This includes object codes 1250 through1619</saw:text></saw:caption></saw:staticText></saw:view></saw:views></saw:report>

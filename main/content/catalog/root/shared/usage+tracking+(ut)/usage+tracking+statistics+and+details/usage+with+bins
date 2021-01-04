@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<saw:report xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sawx="com.siebel.analytics.web/expression/v1.1" xmlVersion="201201160" cacheControl="bypassCache">   
+   <saw:criteria xsi:type="saw:simpleCriteria" subjectArea="&quot;Usage Tracking&quot;" withinHierarchy="true">      
+      <saw:columns>         
+         <saw:column xsi:type="saw:regularColumn" columnID="c77aef830f0d4d9ec">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Topic&quot;.&quot;Query Type&quot;</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat>               
+               <saw:formatSpec suppress="suppress" wrapText="true" interaction="none"/></saw:displayFormat>            
+            <saw:columnHeading>               
+               <saw:displayFormat>                  
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="cf79c5e9312b781bd">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Topic&quot;.&quot;Cache Hit Indicator&quot;</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat>                              
+               
+               <saw:formatSpec suppress="suppress" wrapText="true" interaction="none"/><saw:conditionalDisplayFormats>                  
+                  <saw:conditionalDisplayFormat>                     
+                     <saw:formatRule>                        
+                        <saw:condition>                           
+                           <sawx:expr xsi:type="sawx:comparison" op="equal">                              
+                              <sawx:expr xsi:type="sawx:columnRefExpr" columnID="cf79c5e9312b781bd"/>                              
+                              <sawx:expr xsi:type="xsd:string">N</sawx:expr></sawx:expr></saw:condition>                        
+                        <saw:formatSpec wrapText="true" backgroundColor="#FFFF99"/></saw:formatRule></saw:conditionalDisplayFormat></saw:conditionalDisplayFormats></saw:displayFormat>            
+            <saw:tableHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Topic</saw:text></saw:caption></saw:tableHeading>            
+            <saw:columnHeading>               
+               <saw:displayFormat>                  
+                  <saw:formatSpec interaction="none"/></saw:displayFormat>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Cache Use Flag</saw:text></saw:caption></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="c6deddba4b35bc9a3">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Topic&quot;.&quot;Id&quot;</sawx:expr></saw:columnFormula></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="c189d9b11ae2df536">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Measures&quot;.&quot;Query Count&quot;</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat>                              
+               
+               <saw:formatSpec suppress="repeat" wrapText="true">                  
+                  <saw:dataFormat xsi:type="saw:number" commas="true" negativeType="minus" minDigits="0" maxDigits="0"/></saw:formatSpec><saw:conditionalDisplayFormats>                  
+                  <saw:conditionalDisplayFormat>                     
+                     <saw:formatRule>                        
+                        <saw:condition>                           
+                           <sawx:expr xsi:type="sawx:comparison" op="equal">                              
+                              <sawx:expr xsi:type="sawx:columnRefExpr" columnID="cf79c5e9312b781bd"/>                              
+                              <sawx:expr xsi:type="xsd:string">N</sawx:expr></sawx:expr></saw:condition>                        
+                        <saw:formatSpec backgroundColor="#FFFF99" wrapText="true"/></saw:formatRule></saw:conditionalDisplayFormat></saw:conditionalDisplayFormats></saw:displayFormat>            
+            <saw:columnHeading>               
+               <saw:displayFormat>                  
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="c6ca492127436c8ea" forceGroupBy="true">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:binned">                  
+                  <sawx:baseFormula>                     
+                     <sawx:expr xsi:type="sawx:sqlExpression">&quot;Measures&quot;.&quot;Total Time in Secs&quot;</sawx:expr></sawx:baseFormula>                  
+                  <sawx:rules>                     
+                     <sawx:when>                        
+                        <sawx:condition>                           
+                           <sawx:expr xsi:type="sawx:comparison" op="less" protected="true">                              
+                              <sawx:expr xsi:type="sawx:sqlExpression">&quot;Measures&quot;.&quot;Total Time in Secs&quot;</sawx:expr>                              
+                              <sawx:expr xsi:type="xsd:decimal">61</sawx:expr></sawx:expr></sawx:condition>                        
+                        <sawx:value>                           
+                           <sawx:expr xsi:type="xsd:string">&#39;1 Min or Under&#39;</sawx:expr></sawx:value></sawx:when>                     
+                     <sawx:when>                        
+                        <sawx:condition>                           
+                           <sawx:expr xsi:type="sawx:comparison" op="between" protected="true">                              
+                              <sawx:expr xsi:type="sawx:sqlExpression">&quot;Measures&quot;.&quot;Total Time in Secs&quot;</sawx:expr>                              
+                              <sawx:expr xsi:type="xsd:decimal">61</sawx:expr>                              
+                              <sawx:expr xsi:type="xsd:decimal">120</sawx:expr></sawx:expr></sawx:condition>                        
+                        <sawx:value>                           
+                           <sawx:expr xsi:type="xsd:string">&#39;1 to 2 mins&#39;</sawx:expr></sawx:value></sawx:when>                     
+                     <sawx:when>                        
+                        <sawx:condition>                           
+                           <sawx:expr xsi:type="sawx:comparison" op="between">                              
+                              <sawx:expr xsi:type="sawx:sqlExpression">&quot;Measures&quot;.&quot;Total Time in Secs&quot;</sawx:expr>                              
+                              <sawx:expr xsi:type="xsd:decimal">121</sawx:expr>                              
+                              <sawx:expr xsi:type="xsd:decimal">300</sawx:expr></sawx:expr></sawx:condition>                        
+                        <sawx:value>                           
+                           <sawx:expr xsi:type="xsd:string">&#39;2 to 5 mins&#39;</sawx:expr></sawx:value></sawx:when>                     
+                     <sawx:when>                        
+                        <sawx:condition>                           
+                           <sawx:expr xsi:type="sawx:comparison" op="between">                              
+                              <sawx:expr xsi:type="sawx:sqlExpression">&quot;Measures&quot;.&quot;Total Time in Secs&quot;</sawx:expr>                              
+                              <sawx:expr xsi:type="xsd:decimal">301</sawx:expr>                              
+                              <sawx:expr xsi:type="xsd:decimal">600</sawx:expr></sawx:expr></sawx:condition>                        
+                        <sawx:value>                           
+                           <sawx:expr xsi:type="xsd:string">&#39;5 to 10 mins&#39;</sawx:expr></sawx:value></sawx:when>                     
+                     <sawx:otherwise>                        
+                        <sawx:value>                           
+                           <sawx:expr xsi:type="xsd:string">&#39;Over 10 mins&#39;</sawx:expr></sawx:value></sawx:otherwise></sawx:rules></sawx:expr></saw:columnFormula>            
+            <saw:displayFormat><saw:formatSpec suppress="repeat" wrapText="true"/></saw:displayFormat><saw:tableHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Measures</saw:text></saw:caption></saw:tableHeading>            
+            <saw:columnHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Total Time in Secs</saw:text></saw:caption><saw:displayFormat><saw:formatSpec interaction="action"><saw:actionLinks showPopupMenuForOneLink="true"><saw:actionLink actionLinkID="c6ca492127436c8ea_alea74020bb88365e7"><saw:action><saw:actionName>Query Detail - Less than 1 Min</saw:actionName><saw:parameters allowExtraParameters="true"><saw:parameter name="__navigateToBIContent__" type="string" mandatory="true" removable="true" order="999" multiValues="false"><saw:prompt>__navigateToBIContent__</saw:prompt><saw:description/></saw:parameter></saw:parameters><saw:assignments><saw:assign name="__navigateToBIContent__" fixed="true" hidden="true" parentFixed="false" parentHidden="false" xsi:type="saw:stringAssign"><saw:value>/shared/Usage Tracking (UT)/Usage Tracking Statistics and Details/Query Detail - Less than 1 Min</saw:value></saw:assign></saw:assignments><saw:implementation xsi:type="saw:ScriptActionType" executeOnClient="true"><saw:functionName>__navigateToBIContent__</saw:functionName><saw:scriptLanguage>JScript</saw:scriptLanguage><saw:scriptPath/></saw:implementation><saw:clientImplementation><saw:customisation invokeConfirmation="false"/></saw:clientImplementation></saw:action><saw:caption><saw:text>Query Detail -- Under 1 Minute</saw:text></saw:caption></saw:actionLink><saw:actionLink actionLinkID="c6ca492127436c8ea_al6bf6b55b6fd26342"><saw:action><saw:actionName>Query Detail - 1-2 Minutes</saw:actionName><saw:parameters allowExtraParameters="true"><saw:parameter name="__navigateToBIContent__" type="string" mandatory="true" removable="true" order="999" multiValues="false"><saw:prompt>__navigateToBIContent__</saw:prompt><saw:description/></saw:parameter></saw:parameters><saw:assignments><saw:assign name="__navigateToBIContent__" fixed="true" hidden="true" parentFixed="false" parentHidden="false" xsi:type="saw:stringAssign"><saw:value>/shared/Usage Tracking (UT)/Usage Tracking Statistics and Details/Query Detail - 1-2 Minutes</saw:value></saw:assign></saw:assignments><saw:implementation xsi:type="saw:ScriptActionType" executeOnClient="true"><saw:functionName>__navigateToBIContent__</saw:functionName><saw:scriptLanguage>JScript</saw:scriptLanguage><saw:scriptPath/></saw:implementation><saw:clientImplementation><saw:customisation invokeConfirmation="false"/></saw:clientImplementation></saw:action><saw:caption><saw:text>Query Detail -- 1-2 Minutes</saw:text></saw:caption></saw:actionLink><saw:actionLink actionLinkID="c6ca492127436c8ea_albe841d6152a9b818"><saw:action><saw:actionName>Query Detail - 2-5 Minutes</saw:actionName><saw:parameters allowExtraParameters="true"><saw:parameter name="__navigateToBIContent__" type="string" mandatory="true" removable="true" order="999" multiValues="false"><saw:prompt>__navigateToBIContent__</saw:prompt><saw:description/></saw:parameter></saw:parameters><saw:assignments><saw:assign name="__navigateToBIContent__" fixed="true" hidden="true" parentFixed="false" parentHidden="false" xsi:type="saw:stringAssign"><saw:value>/shared/Usage Tracking (UT)/Usage Tracking Statistics and Details/Query Detail - 2-5 Minutes</saw:value></saw:assign></saw:assignments><saw:implementation xsi:type="saw:ScriptActionType" executeOnClient="true"><saw:functionName>__navigateToBIContent__</saw:functionName><saw:scriptLanguage>JScript</saw:scriptLanguage><saw:scriptPath/></saw:implementation><saw:clientImplementation><saw:customisation invokeConfirmation="false"/></saw:clientImplementation></saw:action><saw:caption><saw:text>Query Detail - 2-5 Minutes</saw:text></saw:caption></saw:actionLink><saw:actionLink actionLinkID="c6ca492127436c8ea_alcb6e13d58be7956a"><saw:action><saw:actionName>Query Detail - 5-10 Minutes</saw:actionName><saw:parameters allowExtraParameters="true"><saw:parameter name="__navigateToBIContent__" type="string" mandatory="true" removable="true" order="999" multiValues="false"><saw:prompt>__navigateToBIContent__</saw:prompt><saw:description/></saw:parameter></saw:parameters><saw:assignments><saw:assign name="__navigateToBIContent__" fixed="true" hidden="true" parentFixed="false" parentHidden="false" xsi:type="saw:stringAssign"><saw:value>/shared/Usage Tracking (UT)/Usage Tracking Statistics and Details/Query Detail - 5-10 Minutes</saw:value></saw:assign></saw:assignments><saw:implementation xsi:type="saw:ScriptActionType" executeOnClient="true"><saw:functionName>__navigateToBIContent__</saw:functionName><saw:scriptLanguage>JScript</saw:scriptLanguage><saw:scriptPath/></saw:implementation><saw:clientImplementation><saw:customisation invokeConfirmation="false"/></saw:clientImplementation></saw:action><saw:caption><saw:text>Query Detail - 5-10 Minutes</saw:text></saw:caption></saw:actionLink><saw:actionLink actionLinkID="c6ca492127436c8ea_al114c0e9d600ad4c9"><saw:action><saw:actionName>Query Detail - 10+ Minutes</saw:actionName><saw:parameters allowExtraParameters="true"><saw:parameter name="__navigateToBIContent__" type="string" mandatory="true" removable="true" order="999" multiValues="false"><saw:prompt>__navigateToBIContent__</saw:prompt><saw:description/></saw:parameter></saw:parameters><saw:assignments><saw:assign name="__navigateToBIContent__" fixed="true" hidden="true" parentFixed="false" parentHidden="false" xsi:type="saw:stringAssign"><saw:value>/shared/Usage Tracking (UT)/Usage Tracking Statistics and Details/Query Detail - 10+ Minutes</saw:value></saw:assign></saw:assignments><saw:implementation xsi:type="saw:ScriptActionType" executeOnClient="true"><saw:functionName>__navigateToBIContent__</saw:functionName><saw:scriptLanguage>JScript</saw:scriptLanguage><saw:scriptPath/></saw:implementation><saw:clientImplementation><saw:customisation invokeConfirmation="false"/></saw:clientImplementation></saw:action><saw:caption><saw:text>Query Detal - 10+ Minutes</saw:text></saw:caption></saw:actionLink></saw:actionLinks></saw:formatSpec></saw:displayFormat></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="c2585005dad5c1794">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Measures&quot;.&quot;Query Count&quot;</sawx:expr></saw:columnFormula></saw:column></saw:columns>            
+      
+      <saw:filter><sawx:expr xsi:type="sawx:savedFilter" path="/shared/Usage Tracking (UT)/_filters/Usage Tracking/UTFilters" name="UTFilters"/></saw:filter><saw:columnOrder>         
+         <saw:columnOrderRef columnID="cc3e39c32fae5aec3" direction="ascending"/></saw:columnOrder><saw:prefix>SET VARIABLE DISABLE_CACHE_HIT=1;</saw:prefix></saw:criteria>   
+   <saw:views currentView="0">      
+      <saw:view xsi:type="saw:compoundView" name="compoundView!1">         
+         <saw:cvTable><saw:cvRow><saw:cvCell viewName="titleView!1"/></saw:cvRow><saw:cvRow><saw:cvCell viewName="viewSelector!1"><saw:displayFormat>                     
+                     <saw:formatSpec borderColor="#000080" borderPosition="all" height="10" vAlign="top" width="220" paddingLeft="0" paddingRight="0" paddingTop="0" paddingBottom="0"/></saw:displayFormat></saw:cvCell></saw:cvRow></saw:cvTable></saw:view>      
+      <saw:view xsi:type="saw:pivotTableView" name="pivotTableView!3" scrollingEnabled="true" height="110">         
+         <saw:viewCaption>            
+            <saw:caption>               
+               <saw:text>Pivot Table: Total Count Time Buckets %</saw:text></saw:caption></saw:viewCaption>
+         <saw:edges>
+            <saw:edge axis="page" showColumnHeader="true"/>
+            <saw:edge axis="section" insertPageBreak="false" showBlankRows="false" showColumnHeader="false">               
+               <saw:displayFormat>                                    
+                  <saw:formatSpec wrapText="true"/></saw:displayFormat></saw:edge>
+            <saw:edge axis="row" showColumnHeader="true">               
+               <saw:displayGrandTotals>                  
+                  <saw:displayGrandTotal id="gt_row" grandTotalPosition="none"/></saw:displayGrandTotals>               
+               <saw:columnOrder>                  
+                  <saw:columnOrderRef columnID="c96d00b450f2ece35" direction="descending">                     
+                     <saw:QDR>                        
+                        <saw:staticMemberGroup specialDimension="measure">                           
+                           <saw:members xsi:type="saw:specialValueMembers">                              
+                              <saw:value>c3c6e25b09c24c07c</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>                  
+                  <saw:columnOrderRef columnID="caa5c28cc6d957c74" direction="descending">                     
+                     <saw:QDR>                        
+                        <saw:staticMemberGroup specialDimension="measure">                           
+                           <saw:members xsi:type="saw:specialValueMembers">                              
+                              <saw:value>c3c6e25b09c24c07c</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>                  
+                  <saw:columnOrderRef columnID="c1365038bf21735e4" direction="descending">                     
+                     <saw:QDR>                        
+                        <saw:staticMemberGroup specialDimension="measure">                           
+                           <saw:members xsi:type="saw:specialValueMembers">                              
+                              <saw:value>c3c6e25b09c24c07c</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>                  
+                  <saw:columnOrderRef columnID="cd17c3b6d20f37644" direction="descending">                     
+                     <saw:QDR>                        
+                        <saw:staticMemberGroup specialDimension="measure">                           
+                           <saw:members xsi:type="saw:specialValueMembers">                              
+                              <saw:value>c3c6e25b09c24c07c</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>                  
+                  <saw:columnOrderRef columnID="cdb09eeddc1e54557" direction="descending">                     
+                     <saw:QDR>                        
+                        <saw:staticMemberGroup specialDimension="measure">                           
+                           <saw:members xsi:type="saw:specialValueMembers">                              
+                              <saw:value>c3c6e25b09c24c07c</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>                  
+                  <saw:columnOrderRef columnID="c07ce4d4d50a5912c" direction="descending">                     
+                     <saw:QDR>                        
+                        <saw:staticMemberGroup specialDimension="measure">                           
+                           <saw:members xsi:type="saw:specialValueMembers">                              
+                              <saw:value>c3c6e25b09c24c07c</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>                  
+                  <saw:columnOrderRef columnID="c26f9e24532758f3c" direction="descending">                     
+                     <saw:QDR>                        
+                        <saw:staticMemberGroup specialDimension="measure">                           
+                           <saw:members xsi:type="saw:specialValueMembers">                              
+                              <saw:value>c3c6e25b09c24c07c</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>                  
+                  <saw:columnOrderRef columnID="c1b8eb8070e0c3068" direction="descending">                     
+                     <saw:QDR>                        
+                        <saw:staticMemberGroup specialDimension="measure">                           
+                           <saw:members xsi:type="saw:specialValueMembers">                              
+                              <saw:value>c3c6e25b09c24c07c</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>                  
+                  <saw:columnOrderRef columnID="ceb03424cc3ff6a4d" direction="descending">                     
+                     <saw:QDR>                        
+                        <saw:staticMemberGroup specialDimension="measure">                           
+                           <saw:members xsi:type="saw:specialValueMembers">                              
+                              <saw:value>c3c6e25b09c24c07c</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>                  
+                  <saw:columnOrderRef columnID="c2a4199dcb2319ce9" direction="descending">                     
+                     <saw:QDR>                        
+                        <saw:staticMemberGroup specialDimension="measure">                           
+                           <saw:members xsi:type="saw:specialValueMembers">                              
+                              <saw:value>c3c6e25b09c24c07c</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>                  
+                  <saw:columnOrderRef columnID="c0f95702187191f7a" direction="descending">                     
+                     <saw:QDR>                        
+                        <saw:staticMemberGroup specialDimension="measure">                           
+                           <saw:members xsi:type="saw:specialValueMembers">                              
+                              <saw:value>c3c6e25b09c24c07c</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>                  
+                  <saw:columnOrderRef columnID="c6deddba4b35bc9a3" direction="descending">                     
+                     <saw:QDR>                        
+                        <saw:staticMemberGroup specialDimension="measure">                           
+                           <saw:members xsi:type="saw:specialValueMembers">                              
+                              <saw:value>c3c6e25b09c24c07c</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef></saw:columnOrder>               
+               <saw:edgeLayers>
+                  <saw:edgeLayer type="column" columnID="c6ca492127436c8ea">                     
+                     </saw:edgeLayer></saw:edgeLayers></saw:edge>
+            <saw:edge axis="column" showColumnHeader="rollover">               
+               <saw:displayGrandTotals>                  
+                  <saw:displayGrandTotal id="gt_column" grandTotalPosition="none"/></saw:displayGrandTotals>               
+               <saw:edgeLayers>
+                  <saw:edgeLayer type="measure">                     
+                     <saw:memberFormat>                                                
+                        <saw:displayFormat>                                                      
+                           <saw:formatSpec/></saw:displayFormat></saw:memberFormat></saw:edgeLayer></saw:edgeLayers></saw:edge></saw:edges>
+         <saw:measuresList>                        
+            <saw:measure columnID="c189d9b11ae2df536" aggRule="sum"><saw:dataBodyFormat/></saw:measure>
+            <saw:measure columnID="c2585005dad5c1794">                              
+               <saw:showAs type="percentOfAxis" axis="column">                  
+                  <saw:displayFormat>                     
+                     <saw:formatSpec>                        
+                        <saw:dataFormat xsi:type="saw:percent" minDigits="1" maxDigits="1" scale="2"/></saw:formatSpec></saw:displayFormat></saw:showAs>
+               <saw:dataBodyFormat/></saw:measure></saw:measuresList>                  
+         <saw:sectionContent>            
+            <saw:displayFormat>               
+               <saw:formatSpec height="10" wrapText="true"/></saw:displayFormat></saw:sectionContent></saw:view>      
+      <saw:view xsi:type="saw:titleView" name="titleView!1" includeName="false" startedDisplay="none"><saw:title><saw:caption fmt="text"><saw:text>Usage</saw:text></saw:caption></saw:title></saw:view>      
+      <saw:view xsi:type="saw:filtersView" name="filtersView!1"/>
+      <saw:view xsi:type="saw:filtersView" name="filtersView!2"/><saw:view xsi:type="saw:viewSelector" name="viewSelector!1"><saw:viewSelectorCaption position="left"/><saw:viewList><saw:viewItem type="view" name="pivotTableView!3"/><saw:viewItem type="view" name="filtersView!1"/></saw:viewList></saw:view></saw:views>   
+   <saw:prompts scope="report" subjectArea="&quot;Usage Tracking&quot;"/></saw:report>

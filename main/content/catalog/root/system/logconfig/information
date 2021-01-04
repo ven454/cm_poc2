@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2013, Oracle and/or its affiliates. All rights reserved.--><!-- Oracle Business Intelligence Presentation Log Configuration File 
+--><WebConfig xmlns="oracle.bi.presentation.services/config/v1.1">
+	<ServerInstance>
+
+		<Logging>
+
+			<Writers>
+				<Writer implementation="FileLogWriter" name="Global File Logger" writerClassId="1" dir="{%ORACLE_BIPS_INSTANCE_LOGDIR%}" filePrefix="sawlog" maxFileSizeKb="10000" filesN="10"/> 
+				<Writer implementation="CoutWriter" name="Console Logger" writerClassId="2"/>
+				<Writer implementation="EventLogWriter" name="System Event Logger" writerClassId="3"/>
+				<!--  The following writer is not centrally controlled --> 
+			</Writers>
+
+			<WriterClassGroups>
+				<WriterClassGroup name="All">1,2,3,5</WriterClassGroup>
+				<WriterClassGroup name="File">1</WriterClassGroup>
+				<WriterClassGroup name="Console">2</WriterClassGroup>
+				<WriterClassGroup name="EventLog">3</WriterClassGroup>
+				<WriterClassGroup name="UpgradeLogFile">5</WriterClassGroup>
+			</WriterClassGroups>
+
+			<Filters xmlns:obips-config="oracle.bi.presentation.services/config/v1.1">
+				<FilterRecord writerClassGroup="Console" path="saw" information="20" warning="16" error="16" trace="0" incident_error="32"/>
+				<FilterRecord writerClassGroup="Console" path="saw.rpc.client" information="20" warning="16" error="16" trace="0" incident_error="32"/>           
+				<!--  These FilterRecords are updated by centrally controlled configuration -->
+				<FilterRecord writerClassGroup="File" path="saw" information="100" warning="16" error="16" trace="0" incident_error="32"/>
+				<FilterRecord writerClassGroup="File" path="saw.mktgsqlsubsystem.joblog" information="100" warning="16" error="16" trace="0" incident_error="32"/>
+
+				<!--  The following FilterRecords are not centrally controlled -->
+				<FilterRecord writerClassGroup="UpgradeLogFile" disableCentralControl="true" path="saw.subsystem.catalog.initialize.upgrade" information="1" warning="32" error="32" trace="1" incident_error="32"/>
+				<FilterRecord writerClassGroup="UpgradeLogFile" disableCentralControl="true" path="saw.subsystem.catalog.upgrade" information="1" warning="32" error="32" trace="1" incident_error="32"/>            
+			</Filters>
+
+		</Logging>
+
+
+
+	</ServerInstance>
+</WebConfig>

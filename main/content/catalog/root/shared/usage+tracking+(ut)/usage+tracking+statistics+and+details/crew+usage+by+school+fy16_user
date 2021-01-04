@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<saw:report xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sawx="com.siebel.analytics.web/expression/v1.1" xmlVersion="201201160">
+   <saw:criteria xsi:type="saw:simpleCriteria" subjectArea="&quot;Usage Tracking&quot;" withinHierarchy="true">
+      <saw:columns>
+         <saw:column xsi:type="saw:regularColumn" columnID="ce64577d51c8c22db"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Crew Usage&quot;.&quot;CENTRAL_MAJOR_AFFIL_CD&quot;</sawx:expr></saw:columnFormula></saw:column><saw:column xsi:type="saw:regularColumn" columnID="c23176704f5f7fdc9"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Crew Usage&quot;.&quot;REQUESTED_BY_USER_NAME&quot;</sawx:expr></saw:columnFormula></saw:column><saw:column xsi:type="saw:regularColumn" columnID="c2dc8c86e38dab99a"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Crew Usage&quot;.&quot;DEPT_DESC&quot;</sawx:expr></saw:columnFormula></saw:column><saw:column xsi:type="saw:regularColumn" columnID="cb9b179089c9d025e">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">COUNT(DISTINCT &quot;Dim - Crew Usage&quot;.&quot;REQUESTED_BY_USER_NAME&quot;)</sawx:expr></saw:columnFormula></saw:column>
+         
+         
+         
+         
+         <saw:column xsi:type="saw:regularColumn" columnID="c9c761931d8f7a7f7"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">MAX(&quot;Dim - Crew Usage&quot;.&quot;REQUEST_CREATION_DT&quot;)</sawx:expr></saw:columnFormula></saw:column></saw:columns>
+      <saw:filter>
+         <sawx:expr xsi:type="sawx:logical" op="and"><sawx:expr xsi:type="sawx:list" op="in"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Crew Usage&quot;.&quot;REPORT_NAME&quot;</sawx:expr><sawx:expr xsi:type="xsd:string">GMACCTS086</sawx:expr><sawx:expr xsi:type="xsd:string">GMGLBGT214</sawx:expr><sawx:expr xsi:type="xsd:string">GMINPOL092</sawx:expr><sawx:expr xsi:type="xsd:string">GMINVAC093</sawx:expr><sawx:expr xsi:type="xsd:string">GMMSALC080</sawx:expr><sawx:expr xsi:type="xsd:string">GMPEREX081</sawx:expr><sawx:expr xsi:type="xsd:string">GMPRJCT084</sawx:expr><sawx:expr xsi:type="xsd:string">GMRCVBL094</sawx:expr><sawx:expr xsi:type="xsd:string">GMRPPTS099</sawx:expr><sawx:expr xsi:type="xsd:string">GMRQSTS083</sawx:expr><sawx:expr xsi:type="xsd:string">GMSBAGT087</sawx:expr><sawx:expr xsi:type="xsd:string">GMSREXP097</sawx:expr><sawx:expr xsi:type="xsd:string">GMUNREC090</sawx:expr><sawx:expr xsi:type="xsd:string">GMUSRIN235</sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:comparison" op="between"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Crew Usage&quot;.&quot;REQUEST_CREATION_DT&quot;</sawx:expr><sawx:expr xsi:type="xsd:dateTime">2015-07-01T01:42:13</sawx:expr><sawx:expr xsi:type="xsd:dateTime">2016-06-30T01:42:13</sawx:expr></sawx:expr></sawx:expr></saw:filter></saw:criteria>
+   <saw:views currentView="0">
+      <saw:view xsi:type="saw:compoundView" name="compoundView!1">
+         <saw:cvTable>
+            <saw:cvRow>
+               <saw:cvCell viewName="titleView!1">
+                  <saw:displayFormat>
+                     <saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow>
+            <saw:cvRow>
+               <saw:cvCell viewName="pivotTableView!1">
+                  <saw:displayFormat>
+                     <saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow></saw:cvTable></saw:view>
+      <saw:view xsi:type="saw:titleView" name="titleView!1" includeName="false" startedDisplay="none"><saw:title>
+            <saw:caption fmt="text">
+               <saw:text>User List CREW</saw:text></saw:caption></saw:title><saw:displayFormat><saw:formatSpec/></saw:displayFormat></saw:view>
+      <saw:view xsi:type="saw:tableView" name="tableView!1" deck="top" rowsPerPage="100">
+         <saw:edges>
+            <saw:edge axis="page" showColumnHeader="true"/>
+            <saw:edge axis="section"/>
+            <saw:edge axis="row" showColumnHeader="true">
+               <saw:edgeLayers>
+                  <saw:edgeLayer type="column" columnID="c1c190d07d33f5380"/>
+                  <saw:edgeLayer type="column" columnID="c40275f12df70c645"/>
+                  <saw:edgeLayer type="column" columnID="ca1858061a0701f41"/>
+                  <saw:edgeLayer type="column" columnID="cfe8ec83f8788e29a"/>
+                  <saw:edgeLayer type="column" columnID="c29dcdefa993ccb43"/>
+                  <saw:edgeLayer type="column" columnID="c94946e605acf9be6"/>
+                  <saw:edgeLayer type="column" columnID="c253781dc09070f79"/>
+                  <saw:edgeLayer type="column" columnID="caebdf944a05c90c9"/>
+                  <saw:edgeLayer type="column" columnID="ceaf3802e6d199f32"/>
+                  <saw:edgeLayer type="column" columnID="cc7d7f2e665357fb0"/>
+                  <saw:edgeLayer type="column" columnID="c46f20170c6b8d458"/>
+                  <saw:edgeLayer type="column" columnID="cb9b179089c9d025e"/>
+                  <saw:edgeLayer type="column" columnID="cc259121cff365f57"/>
+                  <saw:edgeLayer type="column" columnID="c65a31020d0a047f1"/>
+                  <saw:edgeLayer type="column" columnID="ca9ab61463bd427d0"/>
+                  <saw:edgeLayer type="column" columnID="cac3690d9af61d51f"/>
+                  <saw:edgeLayer type="column" columnID="caf74f5bc720599e5"/><saw:edgeLayer type="column" columnID="c8610b2616631dfcc"/><saw:edgeLayer type="column" columnID="cdc6361f1183ae027"/><saw:edgeLayer type="column" columnID="c9c761931d8f7a7f7"/><saw:edgeLayer type="column" columnID="c87437108c80add31"/></saw:edgeLayers></saw:edge>
+            <saw:edge axis="column" showColumnHeader="rollover"/></saw:edges>
+         <saw:sectionContent>
+            <saw:displayFormat>
+               <saw:formatSpec/></saw:displayFormat></saw:sectionContent></saw:view>
+      <saw:view xsi:type="saw:filtersView" name="filtersView!1"/>
+      <saw:view xsi:type="saw:pivotTableView" name="pivotTableView!1" scrollingEnabled="true" height="150"><saw:edges><saw:edge axis="page" showColumnHeader="true"><saw:edgeLayers><saw:edgeLayer type="column" columnID="ce64577d51c8c22db"/><saw:edgeLayer type="column" columnID="c2dc8c86e38dab99a"/></saw:edgeLayers></saw:edge><saw:edge axis="section"/><saw:edge axis="row" showColumnHeader="true">
+               <saw:edgeLayers><saw:edgeLayer type="column" columnID="cb9b179089c9d025e"/><saw:edgeLayer type="column" columnID="c23176704f5f7fdc9"/><saw:edgeLayer type="column" columnID="c9c761931d8f7a7f7"/></saw:edgeLayers></saw:edge><saw:edge axis="column" showColumnHeader="rollover">
+               </saw:edge></saw:edges>
+         
+         <saw:pageEdgeState><saw:QDR><saw:staticMemberGroup><saw:groupType><sawx:columnRefExpr columnID="ce64577d51c8c22db"/></saw:groupType><saw:members xsi:type="saw:stringMembers"><saw:value>DIV</saw:value></saw:members></saw:staticMemberGroup><saw:staticMemberGroup><saw:groupType><sawx:columnRefExpr columnID="c2dc8c86e38dab99a"/></saw:groupType><saw:members xsi:type="saw:stringMembers"><saw:value>DIV^Finance</saw:value></saw:members></saw:staticMemberGroup></saw:QDR><saw:selectionGroups><saw:selectionGroup columnID="ce64577d51c8c22db" groupID="0"/><saw:selectionGroup columnID="c2dc8c86e38dab99a" groupID="0"/></saw:selectionGroups></saw:pageEdgeState></saw:view>
+      <saw:view xsi:type="saw:pivotTableView" name="pivotTableView!2" scrollingEnabled="true">
+         <saw:edges>
+            <saw:edge axis="page" showColumnHeader="true"/>
+            <saw:edge axis="section"/>
+            <saw:edge axis="row" showColumnHeader="true">
+               <saw:edgeLayers>
+                  <saw:edgeLayer type="column" columnID="c46f20170c6b8d458"/>
+                  <saw:edgeLayer type="column" columnID="cb9b179089c9d025e"/>
+                  <saw:edgeLayer type="column" columnID="cc259121cff365f57"/>
+                  <saw:edgeLayer type="column" columnID="c65a31020d0a047f1"/>
+                  <saw:edgeLayer type="column" columnID="ca9ab61463bd427d0"/>
+                  <saw:edgeLayer type="column" columnID="cac3690d9af61d51f"/>
+                  <saw:edgeLayer type="column" columnID="caf74f5bc720599e5"/><saw:edgeLayer type="column" columnID="c8610b2616631dfcc"/><saw:edgeLayer type="column" columnID="cdc6361f1183ae027"/><saw:edgeLayer type="column" columnID="c9c761931d8f7a7f7"/><saw:edgeLayer type="column" columnID="c87437108c80add31"/></saw:edgeLayers></saw:edge>
+            <saw:edge axis="column" showColumnHeader="rollover">
+               <saw:edgeLayers>
+                  <saw:edgeLayer type="measure"/></saw:edgeLayers></saw:edge></saw:edges>
+         <saw:measuresList>
+            <saw:measure columnID="c253781dc09070f79"/>
+            <saw:measure columnID="caebdf944a05c90c9"/>
+            <saw:measure columnID="cc7d7f2e665357fb0"/></saw:measuresList></saw:view></saw:views></saw:report>

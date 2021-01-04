@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<saw:report xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlVersion="201201160" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sawx="com.siebel.analytics.web/expression/v1.1">
+   <saw:criteria xsi:type="saw:simpleCriteria" withinHierarchy="true" subjectArea="&quot;HU Custom AR&quot;">
+      <saw:columns>
+         <saw:column xsi:type="saw:regularColumn" columnID="c939f45e9cd93123e">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Tub Org&quot;.&quot;Tub Name&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c8d2ef2062fff74e6">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Tub Org&quot;.&quot;Org Name&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cf40f2131c3e6ecf5">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Aging Balances Inclusive&quot;.&quot;Tub Number&quot;</sawx:expr></saw:columnFormula>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Aging Balances Inclusive</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Tub</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c864203144dfc8ed7">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Aging Balances Inclusive&quot;.&quot;Org Number&quot;</sawx:expr></saw:columnFormula>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Aging Balances Inclusive</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Org</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cf5cc337ce00bce3d">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Aging Balances Inclusive&quot;.&quot;Customer Name&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cf038f3e0adae8834">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Aging Balances Inclusive&quot;.&quot;Customer Number&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c1dd41c4190c410b1">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Aging Balances Inclusive&quot;.&quot;Customer Location&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="ceb8d4d268ebeb786">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Aging Balances Inclusive&quot;.&quot;Collector Name&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c574133aeb1c1f505">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Aging Balances Inclusive&quot;.&quot;Balance Due&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec wrapText="true" suppress="repeat">
+                  <saw:dataFormat xsi:type="saw:number" negativeType="minus" commas="true" maxDigits="2" minDigits="2"/></saw:formatSpec></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Aging Balances Inclusive</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Balance Due</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c8638bb83577047bb" aggRule="sum">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Aging Balances Inclusive&quot;.&quot;Current&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec wrapText="true" suppress="repeat">
+                  <saw:dataFormat xsi:type="saw:number" negativeType="minus" commas="true" maxDigits="2" minDigits="2"/></saw:formatSpec></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="ced1718117d5f8988" aggRule="sum">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Aging Balances Inclusive&quot;.&quot;1 To 30 Days&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec wrapText="true" suppress="repeat">
+                  <saw:dataFormat xsi:type="saw:number" negativeType="minus" commas="true" maxDigits="2" minDigits="2"/></saw:formatSpec></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="ce9a5de7535824902" aggRule="sum">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Aging Balances Inclusive&quot;.&quot;31 To 60 Days&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec wrapText="true" suppress="repeat">
+                  <saw:dataFormat xsi:type="saw:number" negativeType="minus" commas="true" maxDigits="2" minDigits="2"/></saw:formatSpec></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c5d1470eead1c1dc3">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Aging Balances Inclusive&quot;.&quot;61 To 90 Days&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec wrapText="true" suppress="repeat">
+                  <saw:dataFormat xsi:type="saw:number" negativeType="minus" commas="true" maxDigits="2" minDigits="2"/></saw:formatSpec></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c960e0ee45e50ac6d">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Aging Balances Inclusive&quot;.&quot;91 To 180 Days&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec wrapText="true" suppress="repeat">
+                  <saw:dataFormat xsi:type="saw:number" negativeType="minus" commas="true" maxDigits="2" minDigits="2"/></saw:formatSpec></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c3437d701ed6ee4ab">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Aging Balances Inclusive&quot;.&quot;181 To 360 Days&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec wrapText="true" suppress="repeat">
+                  <saw:dataFormat xsi:type="saw:number" negativeType="minus" commas="true" maxDigits="2" minDigits="2"/></saw:formatSpec></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cf900906969b8b353">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Aging Balances Inclusive&quot;.&quot;361 Plus Days&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec wrapText="true" suppress="repeat">
+                  <saw:dataFormat xsi:type="saw:number" negativeType="minus" commas="true" maxDigits="2" minDigits="2"/></saw:formatSpec></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c296713f5444c375f">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Aging Balances Inclusive&quot;.&quot;Transaction Number&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec wrapText="true" suppress="suppress" visibility="hidden"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column></saw:columns>
+      <saw:filter>
+         <sawx:expr xsi:type="sawx:logical" op="and">
+            <sawx:expr xsi:type="sawx:comparison" op="notEqual">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Aging Balances Inclusive&quot;.&quot;Balance Due&quot;</sawx:expr>
+               <sawx:expr xsi:type="xsd:decimal">0</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Tub Org&quot;.&quot;Owning Tub&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varTub</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Aging Balances Inclusive&quot;.&quot;Org Number&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varOrg</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Aging Balances Inclusive&quot;.&quot;Transaction Type Name&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varTranType</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:columnExpression" formulaUse="code" displayUse="display">
+                  <saw:columnFormula formulaUse="display">
+                     <sawx:expr xsi:type="sawx:sqlExpression">&quot;Aging Balances Inclusive&quot;.&quot;Customer Num Name&quot;</sawx:expr></saw:columnFormula></sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varCustomer</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Aging Balances Inclusive&quot;.&quot;Collector Name&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varCollName</sawx:expr></sawx:expr></sawx:expr></saw:filter></saw:criteria>
+   <saw:views currentView="0">
+      <saw:view xsi:type="saw:compoundView" name="compoundView!1">
+         <saw:cvTable>
+            <saw:cvRow>
+               <saw:cvCell viewName="titleView!1"/></saw:cvRow>
+            <saw:cvRow>
+               <saw:cvCell viewName="tableView!1"/></saw:cvRow></saw:cvTable></saw:view>
+      <saw:view xsi:type="saw:titleView" name="titleView!1" startedDisplay="dateTime" includeName="true"/>
+      <saw:view xsi:type="saw:tableView" name="tableView!1" repeat="true" scrollingEnabled="false">
+         <saw:greenBarFormat enabled="true" greenBar="allLayers"/>
+         <saw:edges>
+            <saw:edge showColumnHeader="true" axis="page"/>
+            <saw:edge axis="section"/>
+            <saw:edge showColumnHeader="true" axis="row">
+               <saw:displayGrandTotals>
+                  <saw:displayGrandTotal id="gt_row" grandTotalPosition="after"/></saw:displayGrandTotals>
+               <saw:edgeLayers>
+                  <saw:edgeLayer type="column" columnID="cf40f2131c3e6ecf5"/>
+                  <saw:edgeLayer type="column" columnID="c939f45e9cd93123e"/>
+                  <saw:edgeLayer type="column" columnID="c864203144dfc8ed7"/>
+                  <saw:edgeLayer type="column" columnID="c8d2ef2062fff74e6"/>
+                  <saw:edgeLayer type="column" columnID="cf5cc337ce00bce3d"/>
+                  <saw:edgeLayer type="column" columnID="cf038f3e0adae8834"/>
+                  <saw:edgeLayer type="column" columnID="c1dd41c4190c410b1"/>
+                  <saw:edgeLayer type="column" columnID="ceb8d4d268ebeb786"/>
+                  <saw:edgeLayer type="column" columnID="c574133aeb1c1f505"/>
+                  <saw:edgeLayer type="column" columnID="c8638bb83577047bb" aggRule="sum"/>
+                  <saw:edgeLayer type="column" columnID="ced1718117d5f8988" aggRule="sum"/>
+                  <saw:edgeLayer type="column" columnID="ce9a5de7535824902" aggRule="sum"/>
+                  <saw:edgeLayer type="column" columnID="c5d1470eead1c1dc3" aggRule="sum"/>
+                  <saw:edgeLayer type="column" columnID="c960e0ee45e50ac6d" aggRule="sum"/>
+                  <saw:edgeLayer type="column" columnID="c3437d701ed6ee4ab" aggRule="sum"/>
+                  <saw:edgeLayer type="column" columnID="cf900906969b8b353" aggRule="sum"/></saw:edgeLayers></saw:edge>
+            <saw:edge showColumnHeader="rollover" axis="column"/></saw:edges></saw:view></saw:views></saw:report>

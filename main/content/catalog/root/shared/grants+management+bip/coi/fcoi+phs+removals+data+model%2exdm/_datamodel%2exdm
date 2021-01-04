@@ -1,0 +1,55 @@
+<?xml version = '1.0' encoding = 'utf-8'?>
+<dataModel xmlns="http://xmlns.oracle.com/oxp/xmlp" version="2.0" xmlns:xdm="http://xmlns.oracle.com/oxp/xmlp" xmlns:xsd="http://wwww.w3.org/2001/XMLSchema" defaultDataSourceRef="demo">
+   <dataProperties>
+      <property name="include_parameters" value="true"/>
+      <property name="include_null_Element" value="false"/>
+      <property name="include_rowsettag" value="false"/>
+      <property name="xml_tag_case" value="upper"/>
+   </dataProperties>
+   <dataSets>
+      <dataSet name="FCOI PHS Removals" type="complex">
+         <sql dataSourceRef="gmas">
+            <![CDATA[SELECT DISTINCT (p.HUID)
+  FROM Persons p,
+       faculty_Research_Persons frp,
+       faculty_Involvements fi,
+       segments s,
+       rf_segment_Statuses ss,
+       internal_organizations io,
+       rf_orgs o
+ WHERE p.HUID IS NOT NULL AND ss.segment_Status_Cd IN ('PEND', 'ACTIV')
+                    and (frp.end_Date is NULL or frp.end_Date > SYSDATE)
+                   and io.central_office_org NOT IN ('46502')
+                   and p.person_id = frp.person_id
+                   and frp.faculty_Involvement_id = fi.faculty_Involvement_id
+                   and fi.org = o.org
+                   and o.tub = io.tub
+                   and s.segment_id = fi.segment_id
+                   and ss.segment_status_id = s.segment_Status_id
+                   and frp.phs_investigator_flag = 1
+                    order by p.HUID]]>
+         </sql>
+      </dataSet>
+   </dataSets>
+   <output rootName="DATA_DS" uniqueRowName="false">
+      <nodeList name="data-structure">
+         <dataStructure tagName="DATA_DS">
+            <group name="G_1" label="G_1" source="FCOI PHS Removals">
+               <element name="HUID" value="HUID" label="HUID" dataType="xsd:string" breakOrder="" fieldOrder="1"/>
+            </group>
+         </dataStructure>
+      </nodeList>
+   </output>
+   <eventTriggers/>
+   <lexicals/>
+   <valueSets/>
+   <parameters/>
+   <bursting/>
+   <display>
+      <layouts>
+         <layout name="FCOI PHS Removals" left="285px" top="0px"/>
+         <layout name="DATA_DS" left="5px" top="28px"/>
+      </layouts>
+      <groupLinks/>
+   </display>
+</dataModel>

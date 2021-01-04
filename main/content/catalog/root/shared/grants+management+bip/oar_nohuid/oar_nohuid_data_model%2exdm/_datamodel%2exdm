@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'utf-8'?>
+<dataModel xmlns="http://xmlns.oracle.com/oxp/xmlp" version="2.0" xmlns:xdm="http://xmlns.oracle.com/oxp/xmlp" xmlns:xsd="http://wwww.w3.org/2001/XMLSchema" defaultDataSourceRef="demo">
+   <dataProperties>
+      <property name="include_parameters" value="true"/>
+      <property name="include_null_Element" value="false"/>
+      <property name="include_rowsettag" value="false"/>
+      <property name="xml_tag_case" value="upper"/>
+   </dataProperties>
+   <dataSets>
+      <dataSet name="OAR_No_HUID" type="complex">
+         <sql dataSourceRef="gmas">
+            <![CDATA[SELECT DISTINCT CONCAT (AL5."PROJECT_ID", CONCAT ( '-', AL5.SEGMENT_NUMBER )) As ProjectId,
+AL4."HUID",
+ AL4."FIRST_NAME", 
+ AL4."LAST_NAME", 
+ AL1."REQUEST_ID", 
+ AL1."CREATE_DATE"
+ FROM "GMASPROD"."APPROVAL_REQUIREMENTS" AL1, 
+ "GMASPROD"."FACULTY_RESEARCH_PERSONS" AL3, 
+ "GMASPROD"."PERSONS" AL4, 
+ "GMASPROD"."SEGMENTS" AL5, 
+ "GMASPROD"."FACULTY_INVOLVEMENTS" AL6 
+ WHERE (AL3."FACULTY_RESEARCH_PERSON_ID"=AL1."FACULTY_RESEARCH_PERSON_ID" 
+ AND AL3."PERSON_ID"=AL4."PERSON_ID" 
+ AND AL6."FACULTY_INVOLVEMENT_ID"=AL3."FACULTY_INVOLVEMENT_ID" 
+ AND AL5."SEGMENT_ID"=AL6."SEGMENT_ID")  
+ AND ((AL1."APPROVAL_TYPE_ID"=2022 
+ AND AL6."END_DATE" IS NULL 
+ AND AL4."HUID" IS NULL))]]>
+         </sql>
+      </dataSet>
+   </dataSets>
+   <output rootName="DATA_DS" uniqueRowName="false">
+      <nodeList name="data-structure">
+         <dataStructure tagName="DATA_DS">
+            <group name="G_1" label="G_1" source="OAR_No_HUID">
+               <element name="PROJECTID" value="PROJECTID" label="PROJECTID" dataType="xsd:string" breakOrder="" fieldOrder="1"/>
+               <element name="HUID" value="HUID" label="HUID" dataType="xsd:string" breakOrder="" fieldOrder="2"/>
+               <element name="FIRST_NAME" value="FIRST_NAME" label="FIRST_NAME" dataType="xsd:string" breakOrder="" fieldOrder="3"/>
+               <element name="LAST_NAME" value="LAST_NAME" label="LAST_NAME" dataType="xsd:string" breakOrder="" fieldOrder="4"/>
+               <element name="REQUEST_ID" value="REQUEST_ID" label="REQUEST_ID" dataType="xsd:integer" breakOrder="" fieldOrder="5"/>
+               <element name="CREATE_DATE" value="CREATE_DATE" label="CREATE_DATE" dataType="xsd:date" breakOrder="" fieldOrder="6"/>
+            </group>
+         </dataStructure>
+      </nodeList>
+   </output>
+   <eventTriggers/>
+   <lexicals/>
+   <valueSets/>
+   <parameters/>
+   <bursting/>
+   <display>
+      <layouts>
+         <layout name="OAR_No_HUID" left="285px" top="0px"/>
+         <layout name="DATA_DS" left="5px" top="28px"/>
+      </layouts>
+      <groupLinks/>
+   </display>
+</dataModel>

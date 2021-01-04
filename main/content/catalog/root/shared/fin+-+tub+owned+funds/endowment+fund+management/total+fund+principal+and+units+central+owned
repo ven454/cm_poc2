@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="utf-8"?>
+<saw:report xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sawx="com.siebel.analytics.web/expression/v1.1" xmlVersion="201201160">	
+   <saw:criteria xsi:type="saw:simpleCriteria" subjectArea="&quot;Financials&quot;" withinHierarchy="true">		
+      <saw:columns>			
+         <saw:column xsi:type="saw:regularColumn" columnID="cfcd3cc688d1e1d79">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">MAX(RCOUNT(1))</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true">						
+                  <saw:dataFormat xsi:type="saw:number" commas="true" negativeType="minus" minDigits="0" maxDigits="0"/></saw:formatSpec></saw:displayFormat>
+				
+            <saw:tableHeading>					
+               <saw:caption fmt="text">						
+                  <saw:text>Count</saw:text></saw:caption></saw:tableHeading>
+				
+            <saw:columnHeading>					
+               <saw:displayFormat>						
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="c4a2063364d04826f">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Periods&quot;.&quot;Fiscal year&quot;</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">						
+                  <saw:dataFormat xsi:type="saw:number" commas="false" negativeType="minus" minDigits="0" maxDigits="0"/></saw:formatSpec></saw:displayFormat>
+				
+            <saw:columnHeading>					
+               <saw:displayFormat>						
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="c4c188d8951b9e0af">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Periods&quot;.&quot;Period name&quot;</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				
+            <saw:columnHeading>					
+               <saw:displayFormat>						
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="c84f6aeb369cd98e4">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Tubs&quot;.&quot;Tub&quot;</sawx:expr></saw:columnFormula><saw:displayFormat><saw:formatSpec suppress="suppress" wrapText="true"/></saw:displayFormat><saw:columnHeading><saw:displayFormat><saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c15524c96908a59f3">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">CASE WHEN CAST (&quot;Dim - Funds (END Management)&quot;.&quot;Creation Date&quot; AS DATE) &gt;= &#39;01-JUL-99&#39; THEN &quot;Dim - Funds (END Management)&quot;.&quot;Creation Date&quot; ELSE CAST(&#39;01-JUL-99&#39; AS DATE) END</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">						
+                  <saw:dataFormat xsi:type="saw:custom" customFormat="MM/DD/YYYY"/></saw:formatSpec></saw:displayFormat>
+				
+            <saw:tableHeading>					
+               <saw:caption fmt="text">						
+                  <saw:text>Dim - Funds (END Management)</saw:text></saw:caption></saw:tableHeading>
+				
+            <saw:columnHeading>					
+               <saw:displayFormat>						
+                  <saw:formatSpec interaction="none"/></saw:displayFormat>
+					
+               <saw:caption fmt="text">						
+                  <saw:text>Fund Creation Date</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c8c7984b79dd9dfff">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Owning Tub&quot;</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				
+            <saw:columnHeading>					
+               <saw:displayFormat>						
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="ca2a3bb200c6649c8">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund&quot;</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="action">						
+                  <saw:actionLinks showPopupMenuForOneLink="true" appliesToTotal="true"><saw:actionLink actionLinkID="ca2a3bb200c6649c8_ala6c9f017b8123b50">								
+                        
+                        <saw:action><saw:actionName>Fund Summaries by Object Central Owned</saw:actionName><saw:parameters allowExtraParameters="true"><saw:parameter name="__navigateToBIContent__" type="string" mandatory="true" removable="true" order="0" multiValues="false"><saw:prompt>__navigateToBIContent__</saw:prompt><saw:description/></saw:parameter></saw:parameters><saw:assignments><saw:assign name="__navigateToBIContent__" fixed="true" hidden="true" parentFixed="false" parentHidden="false" xsi:type="saw:stringAssign"><saw:value>/shared/FIN - TUB Owned Funds/Endowment Fund Management/Fund Summaries by Object Central Owned</saw:value></saw:assign></saw:assignments><saw:implementation xsi:type="saw:ScriptActionType" executeOnClient="true"><saw:functionName>__navigateToBIContent__</saw:functionName><saw:scriptLanguage>JScript</saw:scriptLanguage><saw:scriptPath/></saw:implementation><saw:clientImplementation><saw:customisation invokeConfirmation="false" openNewWindow="true"/></saw:clientImplementation></saw:action><saw:caption>									
+                           <saw:text>Fund Summaries by Object Central Owned</saw:text></saw:caption></saw:actionLink></saw:actionLinks></saw:formatSpec></saw:displayFormat>
+				
+            <saw:columnHeading>					
+               <saw:displayFormat>						
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="c36a3be67809fff96">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Name&quot;</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				
+            <saw:columnHeading>					
+               <saw:displayFormat>						
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="ca47718f76922a825">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Enabled Flag&quot;</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec visibility="hidden" suppress="suppress" wrapText="true"/></saw:displayFormat>
+				
+            <saw:columnHeading>					
+               <saw:displayFormat>						
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="ca5c9ffea8941ec1f">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Category Code&quot;</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				
+            <saw:columnHeading>					
+               <saw:displayFormat>						
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="cf92624bf8868804f">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Category Description&quot;</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				
+            <saw:columnHeading>					
+               <saw:displayFormat>						
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="ca0d39c35741b7656">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Type Code&quot;</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				
+            <saw:columnHeading>					
+               <saw:displayFormat>						
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="c2125748fbc06d9cd">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Type Description&quot;</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				
+            <saw:columnHeading>					
+               <saw:displayFormat>						
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="c448e7619e161cf80">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Primary Managing Org&quot;</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				
+            <saw:columnHeading>					
+               <saw:displayFormat>						
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="ce47e1bfb349eeb92">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fasb Code&quot;</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				
+            <saw:columnHeading>					
+               <saw:displayFormat>						
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="c615ddef958fb12bb">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fasb Description&quot;</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				
+            <saw:columnHeading>					
+               <saw:displayFormat>						
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="c216513194155791a">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Purpose Code&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cc4e1a74fb8329aee">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Purpose Description&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c26e9e8d0ef2a86cc">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">FILTER(&quot;Fact - Period Actual and Budget Bals (END Management 2)&quot;.&quot;Statistical Net Fytd End&quot; USING &quot;Dim - Objects&quot;.&quot;Zeta Beginning Balance Units Object&quot; = &#39;Y&#39;)</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true" backgroundColor="#EEEEEE">						
+                  <saw:dataFormat xsi:type="saw:number" minDigits="4" maxDigits="4" commas="true" negativeType="paren"/></saw:formatSpec></saw:displayFormat>
+				
+            <saw:tableHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>Fact - Period Balances</saw:text></saw:caption></saw:tableHeading>
+				
+            <saw:columnHeading>					
+               <saw:displayFormat>						
+                  <saw:formatSpec/></saw:displayFormat>
+					
+               <saw:caption fmt="html">						
+                  <saw:text>&lt;div title = &quot;Sum of statistical units held in Object Code(s) 3880, 3950 &quot;&gt;Beginning Balance Units</saw:text></saw:caption></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="c79a8d3e392bf4c7e">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">FILTER(&quot;Fact - Period Actual and Budget Bals (END Management 2)&quot;.&quot;Actual Net Fytd End&quot; USING &quot;Dim - Objects&quot;.&quot;Zeta Beginning Balance HDV Object&quot;= &#39;Y&#39;)</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true" fontColor="#000000" backgroundColor="#EEEEEE">						
+                  <saw:dataFormat xsi:type="saw:number" minDigits="2" maxDigits="2" commas="true" negativeType="paren"/></saw:formatSpec></saw:displayFormat>
+				
+            <saw:tableHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>Fact - Period Balances</saw:text></saw:caption></saw:tableHeading>
+				
+            <saw:columnHeading>					
+               <saw:displayFormat>						
+                  <saw:formatSpec/></saw:displayFormat>
+					
+               <saw:caption fmt="html">						
+                  <saw:text>&lt;div title = &quot;Sum of Actuals in Object Code(s) 3881, 3950 &quot;&gt;Beginning Balance HDV</saw:text></saw:caption></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="c3a44c45b104af987">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">FILTER(&quot;Fact - Period Actual and Budget Bals (END Management 2)&quot;.&quot;Actual Net Fytd End&quot; USING &quot;Dim - Objects&quot;.&quot;Zeta Beginning Balance Non HDV Object&quot;= &#39;Y&#39;)</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true" backgroundColor="#EEEEEE">						
+                  <saw:dataFormat xsi:type="saw:number" minDigits="2" maxDigits="2" commas="true" negativeType="paren"/></saw:formatSpec></saw:displayFormat>
+				
+            <saw:tableHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>Fact - Period Balances</saw:text></saw:caption></saw:tableHeading>
+				
+            <saw:columnHeading>					
+               <saw:displayFormat>						
+                  <saw:formatSpec/></saw:displayFormat>
+					
+               <saw:caption fmt="html">						
+                  <saw:text>&lt;div title = &quot;Sum of Actuals in Object Code(s) 3882 &quot;&gt;Beginning Balance Non HDV</saw:text></saw:caption></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="cd5a50e2fbdaec5cf">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">FILTER(&quot;Fact - Period Actual and Budget Bals (END Management 2)&quot;.&quot;Actual Net Fytd End&quot; USING &quot;Dim - Objects&quot;.&quot;Zeta Total Beginning Balance Object&quot;= &#39;Y&#39;)</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true" backgroundColor="#EEEEEE">						
+                  <saw:dataFormat xsi:type="saw:number" minDigits="2" maxDigits="2" commas="true" negativeType="paren"/></saw:formatSpec></saw:displayFormat>
+				
+            <saw:tableHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>Fact - Period Balances</saw:text></saw:caption></saw:tableHeading>
+				
+            <saw:columnHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>&lt;div title = &quot;Sum of Actuals in Object Code(s) 3881, 3882, 3950 &quot;&gt;Total Beginning Balance</saw:text></saw:caption>
+					
+               <saw:displayFormat>						
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="c7dd09811fce3ef65">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">FILTER(&quot;Fact - Period Actual and Budget Bals (END Management 2)&quot;.&quot;Actual Net Fytd End&quot; USING&quot;Dim - Objects&quot;.&quot;Zeta CYG, Unitized Object&quot;= &#39;Y&#39;)</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true">						
+                  <saw:dataFormat xsi:type="saw:number" minDigits="2" maxDigits="2" commas="true" negativeType="paren"/></saw:formatSpec></saw:displayFormat>
+				
+            <saw:tableHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>Dim - Objects</saw:text></saw:caption></saw:tableHeading>
+				
+            <saw:columnHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>&lt;div title = &quot;Sum of Actuals in Object Code(s) 9510, 9513, 9514, 9810 &quot;&gt; Current Year Gifts and Adjustments, Unitized</saw:text></saw:caption>
+					
+               <saw:displayFormat>						
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="ce315cefa07b11f03">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">FILTER(&quot;Fact - Period Actual and Budget Bals (END Management 2)&quot;.&quot;Actual Net Fytd End&quot; USING &quot;Dim - Objects&quot;.&quot;Zeta CYG, To Be Unitized Object&quot; = &#39;Y&#39;)</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true">						
+                  <saw:dataFormat xsi:type="saw:number" minDigits="2" maxDigits="2" commas="true" negativeType="paren"/></saw:formatSpec></saw:displayFormat>
+				
+            <saw:tableHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>Dim - Objects</saw:text></saw:caption></saw:tableHeading>
+				
+            <saw:columnHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>&lt;div title = &quot;Sum of Actuals in Object Code(s) 9520, 9820 &quot;&gt; Current Year Gifts, To Be Unitized</saw:text></saw:caption>
+					
+               <saw:displayFormat>						
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="cdd9719797ca107c3">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">FILTER(&quot;Fact - Period Actual and Budget Bals (END Management 2)&quot;.&quot;Actual Net Fytd End&quot; USING &quot;Dim - Objects&quot;.&quot;Zeta CYG, Non Cash Object&quot; = &#39;Y&#39;)</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true">						
+                  <saw:dataFormat xsi:type="saw:number" minDigits="2" maxDigits="2" commas="true" negativeType="paren"/></saw:formatSpec></saw:displayFormat>
+				
+            <saw:tableHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>Dim - Objects</saw:text></saw:caption></saw:tableHeading>
+				
+            <saw:columnHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>&lt;div title = &quot;Sum of Actuals in Object Code(s) 9511, 9512, 9811, 9812, 9815, 9819 &quot;&gt;Current Year Non Cash Gifts and Other Adjustments</saw:text></saw:caption>
+					
+               <saw:displayFormat>						
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="c74bf7780f67d20b4">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">FILTER(&quot;Fact - Period Actual and Budget Bals (END Management 2)&quot;.&quot;Actual Net Fytd End&quot; USING &quot;Dim - Objects&quot;.&quot;Zeta Total CYG Object&quot;= &#39;Y&#39;)</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true">						
+                  <saw:dataFormat xsi:type="saw:number" minDigits="2" maxDigits="2" commas="true" negativeType="paren"/></saw:formatSpec></saw:displayFormat>
+				
+            <saw:tableHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>Dim - Objects</saw:text></saw:caption></saw:tableHeading>
+				
+            <saw:columnHeading>					
+               <saw:displayFormat>						
+                  <saw:formatSpec/></saw:displayFormat>
+               <saw:caption fmt="html">
+                  <saw:text>&lt;div title = &quot;Sum of Actuals in Object Code(s) 9510, 9511, 9512, 9513, 9514, 9520, 9810, 9811, 9812, 9815, 9819, 9820 &quot;&gt; Total Year Gifts</saw:text></saw:caption></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="c09cab9b349f82ff1">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">FILTER(&quot;Fact - Period Actual and Budget Bals (END Management 2)&quot;.&quot;Actual Net Fytd End&quot; USING &quot;Dim - Objects&quot;.&quot;Zeta OCtP, HDV Object&quot; = &#39;Y&#39;)</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true" backgroundColor="#EEEEEE">						
+                  <saw:dataFormat xsi:type="saw:number" minDigits="2" maxDigits="2" commas="true" negativeType="paren"/></saw:formatSpec></saw:displayFormat>
+				
+            <saw:tableHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>Dim - Objects</saw:text></saw:caption></saw:tableHeading>
+				
+            <saw:columnHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>&lt;div title = &quot;Sum of Actuals in Object Code(s) 9531, 9533, 9560, 9570, 9590, 9610, 9618, 9620, 9622, 9624, 9680, 9681, 9682, 9684, 9750, 9754, 9830, 9834, 9836, 9838, 9860, 9862, 9864, 9866, 9868, 9870, 9910, 9911, 9915, 9930, 9932, 9934, 9936, 9937, 9938, 9940, 9972 &quot;&gt;Other Changes to Principal, HDV</saw:text></saw:caption>
+					
+               <saw:displayFormat>						
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="cbc1aaae9329e44f8">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">FILTER(&quot;Fact - Period Actual and Budget Bals (END Management 2)&quot;.&quot;Actual Net Fytd End&quot; USING &quot;Dim - Objects&quot;.&quot;Zeta OCtP, Non HDV Object&quot;= &#39;Y&#39;)</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true" backgroundColor="#EEEEEE">						
+                  <saw:dataFormat xsi:type="saw:number" minDigits="2" maxDigits="2" commas="true" negativeType="paren"/></saw:formatSpec></saw:displayFormat>
+				
+            <saw:tableHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>Fact - Period Balances</saw:text></saw:caption></saw:tableHeading>
+				
+            <saw:columnHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>&lt;div title = &quot;Sum of Actuals in Object Code(s)  9530, 9532, 9537, 9538, 9539, 9540, 9541, 9542, 9543, 9544, 9562, 9564, 9572, 9574, 9595, 9611, 9612, 9613, 9619, 9621, 9623, 9625, 9626, 9627, 9628, 9630, 9650, 9651, 9653, 9655, 9755, 9756, 9757, 9758 &quot;&gt; Other Changes to Principal, Non HDV</saw:text></saw:caption>
+					
+               <saw:displayFormat>						
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="c0466e77d4d66ec2e">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">FILTER(&quot;Fact - Period Actual and Budget Bals (END Management 2)&quot;.&quot;Actual Net Fytd End&quot; USING &quot;Dim - Objects&quot;.&quot;Zeta Total OCtP Object&quot; = &#39;Y&#39;)</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true" backgroundColor="#EEEEEE">						
+                  <saw:dataFormat xsi:type="saw:number" minDigits="2" maxDigits="2" commas="true" negativeType="paren"/></saw:formatSpec></saw:displayFormat>
+				
+            <saw:tableHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>Dim - Objects</saw:text></saw:caption></saw:tableHeading>
+				
+            <saw:columnHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>&lt;div title = &quot;Sum of Actuals in Object Code(s) 9530, 9531, 9532, 9533, 9537, 9538, 9539, 9540, 9541, 9542, 9543, 9544, 9560, 9562, 9564, 9570, 9572, 9574, 9590, 9595, 9610, 9611, 9612, 9613, 9618, 9619, 9620, 9621, 9622, 9623, 9624, 9625, 9626, 9627, 9628, 9630, 9650, 9651, 9653, 9655, 9680, 9681, 9682, 9684, 9750, 9754, 9755, 9756, 9757, 9758, 9830, 9834, 9836, 9838, 9860, 9862, 9864, 9866, 9868, 9870, 9910, 9911, 9915, 9930, 9932, 9934, 9936, 9937, 9938, 9940, 9972 &quot;&gt; Total Other Changes to Principal</saw:text></saw:caption>
+					
+               <saw:displayFormat>						
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="c5eb061db4564b694">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">FILTER(&quot;Fact - Period Actual and Budget Bals (END Management 2)&quot;.&quot;Actual Net Fytd End&quot; USING &quot;Dim - Objects&quot;.&quot;Zeta BB, Gifts, OCtP, HDV Object&quot;= &#39;Y&#39;)</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true">						
+                  <saw:dataFormat xsi:type="saw:number" minDigits="2" maxDigits="2" commas="true" negativeType="paren"/></saw:formatSpec></saw:displayFormat>
+				
+            <saw:tableHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>Dim - Objects</saw:text></saw:caption></saw:tableHeading>
+				
+            <saw:columnHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>&lt;div title = &quot;Sum of Actuals in Object Code(s) 3881, 3950, 9510, 9511, 9512, 9513, 9514, 9520, 9531, 9533, 9560, 9570, 9590, 9610, 9618, 9620, 9622, 9624, 9680, 9681, 9682, 9684, 9750, 9754, 9810, 9811, 9812, 9815, 9818, 9819, 9820, 9830, 9834, 9836, 9838, 9860, 9862, 9864, 9866, 9868, 9870, 9910, 9911, 9915, 9930, 9932, 9934, 9936, 9937, 9938, 9940, 9972, 9819 &quot;&gt; HDV Beginning Balance, Total Gifts + Other Changes to Principal, HDV</saw:text></saw:caption>
+					
+               <saw:displayFormat>						
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="c201afd91fb890adc">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">FILTER(&quot;Fact - Period Actual and Budget Bals (END Management 2)&quot;.&quot;Actual Net Fytd End&quot; USING &quot;Dim - Objects&quot;.&quot;Zeta BB, Gifts, OCtP, Non HDV Object&quot; = &#39;Y&#39;)</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true">						
+                  <saw:dataFormat xsi:type="saw:number" minDigits="2" maxDigits="2" commas="true" negativeType="paren"/></saw:formatSpec></saw:displayFormat>
+				
+            <saw:tableHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>Dim - Objects</saw:text></saw:caption></saw:tableHeading>
+				
+            <saw:columnHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>&lt;div title = &quot;Sum of Actuals in Object Code(s) 3882, 9530, 9532, 9537, 9538, 9539, 9540, 9541, 9542, 9543, 9544, 9562, 9564, 9572, 9574, 9595, 9611, 9612, 9613, 9619, 9621, 9623, 9625, 9626, 9627, 9628, 9630, 9650, 9651, 9653, 9655, 9755, 9756, 9757, 9758 &quot;&gt; Total Beginning Balance + Changes to Principal, Non HDV</saw:text></saw:caption>
+					
+               <saw:displayFormat>						
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="c8743e2d3186b4a9c">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">FILTER(&quot;Fact - Period Actual and Budget Bals (END Management 2)&quot;.&quot;Actual Net Fytd End&quot; USING&quot;Dim - Objects&quot;.&quot;Zeta Total Principle Object&quot; = &#39;Y&#39;)</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true" backgroundColor="#EEEEEE">						
+                  <saw:dataFormat xsi:type="saw:number" minDigits="2" maxDigits="2" commas="true" negativeType="paren"/></saw:formatSpec></saw:displayFormat>
+				
+            <saw:tableHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>Dim - Objects</saw:text></saw:caption></saw:tableHeading>
+				
+            <saw:columnHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>&lt;div title = &quot;Sum of Actuals in Object Code(s) 3881, 3882, 3950, 9510, 9511, 9512, 9513, 9514, 9520, 9530, 9531, 9532, 9533, 9537, 9538, 9539, 9540, 9541, 9542, 9543, 9544, 9560, 9562, 9564, 9570, 9572, 9574, 9590, 9595, 9610, 9611, 9612, 9613, 9618, 9619, 9620, 9621, 9622, 9623, 9624, 9625, 9626, 9627, 9628, 9630, 9650, 9651, 9653, 9655, 9680, 9681, 9682, 9684, 9750, 9754, 9755, 9756, 9757, 9758, 9810, 9811, 9812, 9815, 9818, 9819, 9820, 9830, 9834, 9836, 9838, 9860, 9862, 9864, 9866, 9868, 9870, 9910, 9911, 9915, 9930, 9932, 9934, 9936, 9937, 9938, 9940, 9819, 9972 &quot;&gt; Total Principal</saw:text></saw:caption>
+					
+               <saw:displayFormat>						
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="c4f41d1b97a535663">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">FILTER(&quot;Fact - Period Actual and Budget Bals (END Management 2)&quot;.&quot;Statistical Net Fytd End&quot; USING&quot;Dim - Objects&quot;.&quot;Zeta Unit Changes within FY Object&quot;= &#39;Y&#39;)</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true">						
+                  <saw:dataFormat xsi:type="saw:number" minDigits="4" maxDigits="4" commas="true" negativeType="paren"/></saw:formatSpec></saw:displayFormat>
+				
+            <saw:tableHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>Dim - Objects</saw:text></saw:caption></saw:tableHeading>
+				
+            <saw:columnHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>&lt;div title = &quot;Sum of statistical units held in Object Code(s) 3950, 9510, 9511, 9512, 9513, 9514, 9520, 9530, 9531, 9532, 9533, 9537, 9538, 9539, 9540, 9541, 9542, 9543, 9544, 9560, 9562, 9564, 9570, 9572, 9574, 9590, 9595, 9610, 9611, 9612, 9613, 9618, 9619, 9620, 9621, 9622, 9623, 9624, 9625, 9626, 9627, 9628, 9630, 9650, 9651, 9653, 9655, 9680, 9681, 9682, 9684, 9750, 9754, 9755, 9756, 9757, 9758, 9810, 9811, 9812, 9815, 9818, 9819, 9820, 9830, 9834, 9836, 9838, 9860, 9862, 9864, 9866, 9868, 9870, 9910, 9911, 9915, 9930, 9932, 9934, 9936, 9937, 9938, 9940, 9972, 9819 &quot;&gt; Unit Changes within the Fiscal Year</saw:text></saw:caption>
+					
+               <saw:displayFormat>						
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+			
+         <saw:column xsi:type="saw:regularColumn" columnID="c417d4028e7674a5f">				
+            <saw:columnFormula>					
+               <sawx:expr xsi:type="sawx:sqlExpression">FILTER(&quot;Fact - Period Actual and Budget Bals (END Management 2)&quot;.&quot;Statistical Net Fytd End&quot; USING&quot;Dim - Objects&quot;.&quot;Zeta Total Units Object&quot; = &#39;Y&#39;)</sawx:expr></saw:columnFormula>
+				
+            <saw:displayFormat>					
+               <saw:formatSpec suppress="repeat" wrapText="true" backgroundColor="#EEEEEE">						
+                  <saw:dataFormat xsi:type="saw:number" minDigits="4" maxDigits="4" commas="true" negativeType="paren"/></saw:formatSpec></saw:displayFormat>
+				
+            <saw:tableHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>Dim - Objects</saw:text></saw:caption></saw:tableHeading>
+				
+            <saw:columnHeading>					
+               <saw:caption fmt="html">						
+                  <saw:text>&lt;div title = &quot;Sum of Actuals in Object Code(s) 3881, 3882, 3950, 9510, 9511, 9512, 9513, 9514, 9520, 9530, 9531, 9532, 9533, 9537, 9538, 9539, 9540, 9541, 9542, 9543, 9544, 9560, 9562, 9564, 9570, 9572, 9574, 9590, 9595, 9610, 9611, 9612, 9613, 9618, 9619, 9620, 9621, 9622, 9623, 9624, 9625, 9626, 9627, 9628, 9630, 9650, 9651, 9653, 9655, 9680, 9681, 9682, 9684, 9750, 9754, 9755, 9756, 9757, 9758, 9810, 9811, 9812, 9815, 9818, 9819, 9820, 9830, 9834, 9836, 9838, 9860, 9862, 9864, 9866, 9868, 9870, 9910, 9911, 9915, 9930, 9932, 9934, 9936, 9937, 9938, 9940, 9972, 9819 &quot;&gt; Total Units</saw:text></saw:caption>
+					
+               <saw:displayFormat>						
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column></saw:columns>
+		
+      <saw:filter>			
+         <sawx:expr xsi:type="sawx:logical" op="and">				
+            <sawx:expr xsi:type="sawx:list" op="in">					
+               <sawx:expr xsi:type="sawx:columnExpression" formulaUse="display" displayUse="display">						
+                  <saw:columnFormula formulaUse="display">							
+                     <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Periods&quot;.&quot;Period Name&quot;</sawx:expr></saw:columnFormula></sawx:expr>
+					
+               <sawx:expr xsi:type="sawx:eval" default="APR-16">varPeriod</sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:list" op="in">					
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;FUND_KEY&quot;</sawx:expr>
+					
+               
+               
+               <sawx:expr xsi:type="sawx:untypedLiteral">23044</sawx:expr><sawx:expr xsi:type="sawx:untypedLiteral">30210</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Tubs&quot;.&quot;Tub&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="XYZ">varTub</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in" protected="true">					
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Category Code&quot;</sawx:expr>
+					
+               <sawx:expr xsi:type="xsd:string">EN</sawx:expr>
+					
+               <sawx:expr xsi:type="xsd:string">LF</sawx:expr></sawx:expr>
+				
+				
+            <sawx:expr xsi:type="sawx:list" op="in" protected="true">					
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Objects&quot;.&quot;Tera Object&quot;</sawx:expr>
+					
+               <sawx:expr xsi:type="xsd:string">T370</sawx:expr>
+					
+               <sawx:expr xsi:type="xsd:string">T901</sawx:expr>
+					
+               <sawx:expr xsi:type="xsd:string">T951</sawx:expr>
+					
+               <sawx:expr xsi:type="xsd:string">T981</sawx:expr></sawx:expr>
+				
+            <sawx:expr xsi:type="sawx:comparison" op="equal" protected="true">					
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Enabled Flag&quot;</sawx:expr>
+					
+               <sawx:expr xsi:type="xsd:string">Y</sawx:expr></sawx:expr>
+				
+            <sawx:expr xsi:type="sawx:list" op="in">					
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fasb Code&quot;</sawx:expr>
+					
+               <sawx:expr xsi:type="sawx:eval" default="%">varFasbCode</sawx:expr></sawx:expr>
+            <sawx:expr op="in" xsi:type="sawx:list">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Primary Managing Org&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varFundPMO</sawx:expr></sawx:expr>
+            
+            </sawx:expr></saw:filter>
+		
+      <saw:columnOrder>			
+         <saw:columnOrderRef columnID="c9741cd33c6b02d78" direction="ascending"/></saw:columnOrder></saw:criteria>
+	
+   <saw:interactionOptions drill="true" movecolumns="true" sortcolumns="true" addremovevalues="true" groupoperations="true" calcitemoperations="true" showhidesubtotal="true" showhiderunningsum="true" inclexclcolumns="true" hidecolumns="false"/>
+	
+   <saw:views parentsBefore="true" includeNewColumns="true" nullSuppress="true" textDelivery="compoundView!1" currentView="0">		
+      <saw:view xsi:type="saw:compoundView" name="compoundView!1">			
+         <saw:cvTable>				
+            <saw:cvRow>					
+               <saw:cvCell viewName="titleView!1">						
+                  <saw:displayFormat>							
+                     <saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow>
+				
+            <saw:cvRow>					
+               <saw:cvCell viewName="tableView!1">						
+                  <saw:displayFormat>							
+                     <saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow>
+				
+            <saw:cvRow>					
+               <saw:cvCell viewName="narrativeView!1"/></saw:cvRow></saw:cvTable>
+			
+         <saw:pageProps orientation="landscape" printRows="all" disableMargins="false">				
+            <saw:pageHeader show="false"/>
+				
+            <saw:pageFooter show="false"/></saw:pageProps></saw:view>
+		
+      <saw:view xsi:type="saw:titleView" name="titleView!1" includeName="true" startedDisplay="dateTime"/>
+		
+      <saw:view xsi:type="saw:tableView" name="tableView!1" scrollingEnabled="false"><saw:edges><saw:edge axis="page" showColumnHeader="true"/><saw:edge axis="section"/><saw:edge axis="row" showColumnHeader="true">					
+               <saw:displayGrandTotals>						
+                  <saw:displayGrandTotal id="gt_row" grandTotalPosition="after"/></saw:displayGrandTotals>
+					
+               <saw:edgeLayers><saw:edgeLayer type="column" columnID="cfcd3cc688d1e1d79" visibility="hidden"/><saw:edgeLayer type="column" columnID="c4a2063364d04826f"/><saw:edgeLayer type="column" columnID="c4c188d8951b9e0af"/><saw:edgeLayer type="column" columnID="c8c7984b79dd9dfff"/><saw:edgeLayer type="column" columnID="ca2a3bb200c6649c8"/><saw:edgeLayer type="column" columnID="c36a3be67809fff96"/><saw:edgeLayer type="column" columnID="c15524c96908a59f3"/><saw:edgeLayer type="column" columnID="ca47718f76922a825"/><saw:edgeLayer type="column" columnID="ca5c9ffea8941ec1f"/><saw:edgeLayer type="column" columnID="cf92624bf8868804f"/><saw:edgeLayer type="column" columnID="ca0d39c35741b7656"/><saw:edgeLayer type="column" columnID="c2125748fbc06d9cd"/><saw:edgeLayer type="column" columnID="c448e7619e161cf80"/><saw:edgeLayer type="column" columnID="ce47e1bfb349eeb92"/><saw:edgeLayer type="column" columnID="c615ddef958fb12bb"/><saw:edgeLayer type="column" columnID="c26e9e8d0ef2a86cc"/><saw:edgeLayer type="column" columnID="c79a8d3e392bf4c7e"/><saw:edgeLayer type="column" columnID="c3a44c45b104af987"/><saw:edgeLayer type="column" columnID="cd5a50e2fbdaec5cf"/><saw:edgeLayer type="column" columnID="c7dd09811fce3ef65"/><saw:edgeLayer type="column" columnID="ce315cefa07b11f03"/><saw:edgeLayer type="column" columnID="cdd9719797ca107c3"/><saw:edgeLayer type="column" columnID="c74bf7780f67d20b4"/><saw:edgeLayer type="column" columnID="c09cab9b349f82ff1"/><saw:edgeLayer type="column" columnID="cbc1aaae9329e44f8"/><saw:edgeLayer type="column" columnID="c0466e77d4d66ec2e"/><saw:edgeLayer type="column" columnID="c5eb061db4564b694"/><saw:edgeLayer type="column" columnID="c201afd91fb890adc"/><saw:edgeLayer type="column" columnID="c8743e2d3186b4a9c"/><saw:edgeLayer type="column" columnID="c4f41d1b97a535663"/><saw:edgeLayer type="column" columnID="c417d4028e7674a5f"/></saw:edgeLayers></saw:edge><saw:edge axis="column" showColumnHeader="rollover"/></saw:edges>
+         			
+         <saw:sectionContent>				
+            <saw:displayFormat>					
+               <saw:formatSpec/></saw:displayFormat></saw:sectionContent></saw:view>
+		
+      <saw:view xsi:type="saw:noresultsview" name="noresultsview!1">			
+         <saw:headline>				
+            <saw:caption>					
+               <saw:text>No Results</saw:text></saw:caption></saw:headline>
+			
+         <saw:detail>				
+            <saw:caption>					
+               <saw:text>Please choose Prompt Values and then click the APPLY button.</saw:text></saw:caption></saw:detail></saw:view>
+		
+      <saw:view xsi:type="saw:narrativeView" name="narrativeView!1">			
+         <saw:narrative rowCount="1">				
+            <saw:caption fmt="html">					
+               <saw:text>@{cfcd3cc688d1e1d79} Rows of Data Returned [br/]</saw:text></saw:caption></saw:narrative></saw:view></saw:views>
+   <saw:prompts scope="report" subjectArea="&quot;Financials&quot;"/></saw:report>

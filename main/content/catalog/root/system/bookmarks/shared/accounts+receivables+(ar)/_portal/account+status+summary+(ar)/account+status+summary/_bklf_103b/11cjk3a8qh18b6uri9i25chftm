@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sawsel:dashboardSelections xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:sawsel="com.siebel.analytics.web/dashselections/v1" xmlns:sawst="com.siebel.analytics.web/state/v1" xmlns:sawx="com.siebel.analytics.web/expression/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="0.7"><sawst:envState xmlVersion="200811100"><sawst:container cid="d:dashboard" xsi:type="sawst:topLevelStateContainer"><sawst:container cid="f:dpstate" xsi:type="sawst:dashpromptstate" statepoolId="4dk15hbjbu41re0luu21ae3miq"/><sawst:container cid="p:f1fl4l7mo18n5c2l" xsi:type="sawst:page" links="d" customizationName="/users/71313778/_selections/f1fl4l7mo18n5c2l/My defaults"><sawst:container cid="s:kngpq7k0nllq61ls" xsi:type="sawst:section"><sawst:container cid="g:dtj07pt8nm1udjjn" xsi:type="sawst:dashprompt" links="-" promptAutoCompleteState="off"/></sawst:container><sawst:container cid="r:5cmkfo0f295hor1b" xsi:type="sawst:report" defaultView="compoundView!1" searchId="70vgip2o49051eibge2vqdtiv6" folder="/shared/Accounts Receivables (AR)/Account Status Summary" itemName="Account Status Summary (AR)" reportUpdate="updateReport" preDrillState="2sggda89e7e6rgngm5do6kks16" previousState="2sggda89e7e6rgngm5do6kks16"/><sawst:container cid="s:ejgdgtcjbuj7h9jg" xsi:type="sawst:section"/></sawst:container></sawst:container></sawst:envState><sawsel:xmlStatesReferredTo><sawsel:ref refId="4dk15hbjbu41re0luu21ae3miq"><sawsel:appliedStates><sawsel:filter><sawx:expr xsi:type="sawx:logical" op="and"><sawx:expr xsi:type="sawx:list" op="in" promptPrimarySubjectArea="&quot;[Noetix-EBS Views] NoetixViews for Oracle Financials&quot;" setVariable="dashboard.variables[&#39;varTub&#39;]"><sawx:expr xsi:type="sawx:columnExpression" formulaUse="code"><saw:columnFormula formulaUse="display"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Tubs&quot;.&quot;Tub Num Name&quot;</sawx:expr></saw:columnFormula><saw:columnFormula formulaUse="code"><sawx:expr xsi:type="sawx:sqlExpression">DESCRIPTOR_IDOF(&quot;[Noetix-EBS Views] NoetixViews for Oracle Financials&quot;.&quot;Dim - Tubs&quot;.&quot;Tub Num Name&quot;)</sawx:expr></saw:columnFormula></sawx:expr><sawx:expr xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">100</sawx:expr><sawx:expr xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">105</sawx:expr><sawx:expr xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">110</sawx:expr><sawx:expr xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">115</sawx:expr><sawx:expr xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">120</sawx:expr><sawx:expr xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">125</sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:special" op="prompted" promptPrimarySubjectArea="&quot;[Noetix-EBS Views] NoetixViews for Oracle Financials&quot;" setVariable="dashboard.variables[&#39;varTranNum&#39;]"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Customer Transactions&quot;.&quot;Trx Number&quot;</sawx:expr><sawx:expr xsi:type="sawx:untypedLiteral">*)nqgtac(*</sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:special" op="prompted" promptPrimarySubjectArea="&quot;[Noetix-EBS Views] NoetixViews for Oracle Financials&quot;" setVariable="dashboard.variables[&#39;varColName&#39;]"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Receivables Balances&quot;.&quot;Collector Name&quot;</sawx:expr><sawx:expr xsi:type="sawx:untypedLiteral">*)nqgtac(*</sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:special" op="prompted" promptPrimarySubjectArea="&quot;[Noetix-EBS Views] NoetixViews for Oracle Financials&quot;" setVariable="dashboard.variables[&#39;varOrg&#39;]"><sawx:expr xsi:type="sawx:columnExpression" formulaUse="code"><saw:columnFormula formulaUse="display"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Orgs&quot;.&quot;Org Num Name&quot;</sawx:expr></saw:columnFormula><saw:columnFormula formulaUse="code"><sawx:expr xsi:type="sawx:sqlExpression">DESCRIPTOR_IDOF(&quot;[Noetix-EBS Views] NoetixViews for Oracle Financials&quot;.&quot;Dim - Orgs&quot;.&quot;Org Num Name&quot;)</sawx:expr></saw:columnFormula></sawx:expr><sawx:expr xsi:type="sawx:untypedLiteral">*)nqgtac(*</sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:special" op="prompted" promptPrimarySubjectArea="&quot;[Noetix-EBS Views] NoetixViews for Oracle Financials&quot;" setVariable="dashboard.variables[&#39;varTranType&#39;]"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Customer Trans Type&quot;.&quot;Name&quot;</sawx:expr><sawx:expr xsi:type="sawx:untypedLiteral">*)nqgtac(*</sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:special" op="prompted" promptPrimarySubjectArea="&quot;[Noetix-EBS Views] NoetixViews for Oracle Financials&quot;" setVariable="dashboard.variables[&#39;varPONum&#39;]"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Customer Transactions&quot;.&quot;Purchase Order&quot;</sawx:expr><sawx:expr xsi:type="sawx:untypedLiteral">*)nqgtac(*</sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:comparison" op="between" promptPrimarySubjectArea="&quot;[Noetix-EBS Views] NoetixViews for Oracle Financials&quot;" setVariable="dashboard.variables[&#39;varTransactionDate&#39;]"><sawx:expr xsi:type="sawx:sqlExpression">CAST (&quot;Fact - Receivables Balances&quot;.&quot;Transaction Date&quot; AS DATE)</sawx:expr><sawx:expr xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:date">2018-02-19</sawx:expr><sawx:expr xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:date">2019-02-19</sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:special" op="prompted" promptPrimarySubjectArea="&quot;[Noetix-EBS Views] NoetixViews for Oracle Financials&quot;" setVariable="dashboard.variables[&#39;varCustomerNumber&#39;]"><sawx:expr xsi:type="sawx:columnExpression" formulaUse="code"><saw:columnFormula formulaUse="display"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Customer&quot;.&quot;Customer Num Name&quot;</sawx:expr></saw:columnFormula><saw:columnFormula formulaUse="code"><sawx:expr xsi:type="sawx:sqlExpression">DESCRIPTOR_IDOF(&quot;[Noetix-EBS Views] NoetixViews for Oracle Financials&quot;.&quot;Dim - Customer&quot;.&quot;Customer Num Name&quot;)</sawx:expr></saw:columnFormula></sawx:expr><sawx:expr xsi:type="sawx:untypedLiteral">*)nqgtac(*</sawx:expr></sawx:expr></sawx:expr></sawsel:filter><sawsel:variables><sawx:expr xsi:type="sawx:special" op="prompted" promptPrimarySubjectArea="&quot;[Noetix-EBS Views] NoetixViews for Oracle Financials&quot;" setVariable="dashboard.variables[&#39;varColName&#39;]"><sawx:expr xsi:type="sawx:columnExpression" formulaUse="display" displayUse="display"><saw:columnFormula formulaUse="display"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Receivables Balances&quot;.&quot;Collector Name&quot;</sawx:expr></saw:columnFormula></sawx:expr><sawx:expr xsi:type="sawx:untypedLiteral">*)nqgtac(*</sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:special" op="prompted" promptPrimarySubjectArea="&quot;[Noetix-EBS Views] NoetixViews for Oracle Financials&quot;" setVariable="dashboard.variables[&#39;varCustomerNumber&#39;]"><sawx:expr xsi:type="sawx:columnExpression" formulaUse="code"><saw:columnFormula formulaUse="display"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Customer&quot;.&quot;Customer Num Name&quot;</sawx:expr></saw:columnFormula><saw:columnFormula formulaUse="code"><sawx:expr xsi:type="sawx:sqlExpression">DESCRIPTOR_IDOF(&quot;[Noetix-EBS Views] NoetixViews for Oracle Financials&quot;.&quot;Dim - Customer&quot;.&quot;Customer Num Name&quot;)</sawx:expr></saw:columnFormula></sawx:expr><sawx:expr xsi:type="sawx:untypedLiteral">*)nqgtac(*</sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:special" op="prompted" promptPrimarySubjectArea="&quot;[Noetix-EBS Views] NoetixViews for Oracle Financials&quot;" setVariable="dashboard.variables[&#39;varOrg&#39;]"><sawx:expr xsi:type="sawx:columnExpression" formulaUse="code"><saw:columnFormula formulaUse="display"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Orgs&quot;.&quot;Org Num Name&quot;</sawx:expr></saw:columnFormula><saw:columnFormula formulaUse="code"><sawx:expr xsi:type="sawx:sqlExpression">DESCRIPTOR_IDOF(&quot;[Noetix-EBS Views] NoetixViews for Oracle Financials&quot;.&quot;Dim - Orgs&quot;.&quot;Org Num Name&quot;)</sawx:expr></saw:columnFormula></sawx:expr><sawx:expr xsi:type="sawx:untypedLiteral">*)nqgtac(*</sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:special" op="prompted" promptPrimarySubjectArea="&quot;[Noetix-EBS Views] NoetixViews for Oracle Financials&quot;" setVariable="dashboard.variables[&#39;varPONum&#39;]"><sawx:expr xsi:type="sawx:columnExpression" formulaUse="display" displayUse="display"><saw:columnFormula formulaUse="display"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Customer Transactions&quot;.&quot;Purchase Order&quot;</sawx:expr></saw:columnFormula></sawx:expr><sawx:expr xsi:type="sawx:untypedLiteral">*)nqgtac(*</sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:special" op="prompted" promptPrimarySubjectArea="&quot;[Noetix-EBS Views] NoetixViews for Oracle Financials&quot;" setVariable="dashboard.variables[&#39;varTranNum&#39;]"><sawx:expr xsi:type="sawx:columnExpression" formulaUse="display" displayUse="display"><saw:columnFormula formulaUse="display"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Customer Transactions&quot;.&quot;Trx Number&quot;</sawx:expr></saw:columnFormula></sawx:expr><sawx:expr xsi:type="sawx:untypedLiteral">*)nqgtac(*</sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:special" op="prompted" promptPrimarySubjectArea="&quot;[Noetix-EBS Views] NoetixViews for Oracle Financials&quot;" setVariable="dashboard.variables[&#39;varTranType&#39;]"><sawx:expr xsi:type="sawx:columnExpression" formulaUse="display" displayUse="display"><saw:columnFormula formulaUse="display"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Customer Trans Type&quot;.&quot;Name&quot;</sawx:expr></saw:columnFormula></sawx:expr><sawx:expr xsi:type="sawx:untypedLiteral">*)nqgtac(*</sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:comparison" op="between" promptPrimarySubjectArea="&quot;[Noetix-EBS Views] NoetixViews for Oracle Financials&quot;" setVariable="dashboard.variables[&#39;varTransactionDate&#39;]"><sawx:expr xsi:type="sawx:columnExpression" formulaUse="display" displayUse="display"><saw:columnFormula formulaUse="display"><sawx:expr xsi:type="sawx:sqlExpression">CAST (&quot;Fact - Receivables Balances&quot;.&quot;Transaction Date&quot; AS DATE)</sawx:expr></saw:columnFormula></sawx:expr><sawx:expr xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:date">2018-02-19</sawx:expr><sawx:expr xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:date">2019-02-19</sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:list" op="in" promptPrimarySubjectArea="&quot;[Noetix-EBS Views] NoetixViews for Oracle Financials&quot;" setVariable="dashboard.variables[&#39;varTub&#39;]"><sawx:expr xsi:type="sawx:columnExpression" formulaUse="code"><saw:columnFormula formulaUse="display"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Tubs&quot;.&quot;Tub Num Name&quot;</sawx:expr></saw:columnFormula><saw:columnFormula formulaUse="code"><sawx:expr xsi:type="sawx:sqlExpression">DESCRIPTOR_IDOF(&quot;[Noetix-EBS Views] NoetixViews for Oracle Financials&quot;.&quot;Dim - Tubs&quot;.&quot;Tub Num Name&quot;)</sawx:expr></saw:columnFormula></sawx:expr><sawx:expr xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">100</sawx:expr><sawx:expr xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">105</sawx:expr><sawx:expr xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">110</sawx:expr><sawx:expr xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">115</sawx:expr><sawx:expr xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">120</sawx:expr><sawx:expr xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">125</sawx:expr></sawx:expr></sawsel:variables></sawsel:appliedStates></sawsel:ref><sawsel:ref refId="2sggda89e7e6rgngm5do6kks16"><sawst:envState xmlVersion="200811100"><sawst:container cid="d:dashboard" xsi:type="sawst:topLevelStateContainer" persistPageState="true" links="d"><sawst:container cid="p:f1fl4l7mo18n5c2l" xsi:type="sawst:page" firstVisit="true" links="d"><sawst:container cid="r:5cmkfo0f295hor1b" xsi:type="sawst:report" links="d" defaultView="compoundView!1" folder="/shared/Accounts Receivables (AR)/Account Status Summary" itemName="Account Status Summary (AR)"/></sawst:container><sawst:container cid="f:dpstate" xsi:type="sawst:dashpromptstate" statepoolId="4dk15hbjbu41re0luu21ae3miq"/></sawst:container></sawst:envState></sawsel:ref></sawsel:xmlStatesReferredTo><sawsel:reportsReferredTo><sawsel:ref refId="70vgip2o49051eibge2vqdtiv6"><saw:report xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlVersion="201201160">
+   <saw:criteria xsi:type="saw:simpleCriteria" subjectArea="&quot;[Noetix-EBS Views] NoetixViews for Oracle Financials&quot;" withinHierarchy="true">
+      <saw:columns>
+         <saw:column xsi:type="saw:regularColumn" columnID="ca42b18934565613c">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Receivables Balances&quot;.&quot;Tub Number&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Fact - Receivables Balances</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat>
+               <saw:caption fmt="text">
+                  <saw:text>Tub</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cf50f78d5d220cd81"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Tubs&quot;.&quot;Tub Name&quot;</sawx:expr></saw:columnFormula><saw:displayFormat><saw:formatSpec suppress="repeat" wrapText="true"/></saw:displayFormat><saw:tableHeading><saw:caption fmt="text"><saw:text>Dim - Tubs</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:displayFormat><saw:formatSpec/></saw:displayFormat><saw:caption fmt="text"><saw:text>Tub Name</saw:text></saw:caption></saw:columnHeading></saw:column><saw:column xsi:type="saw:regularColumn" columnID="c52b871dd30e14c20">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Orgs&quot;.&quot;Org&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Dim - Org</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat>
+               <saw:caption fmt="text">
+                  <saw:text>Org</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c1278bcc55d571515"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Orgs&quot;.&quot;Org Name&quot;</sawx:expr></saw:columnFormula><saw:displayFormat><saw:formatSpec suppress="repeat" wrapText="true"/></saw:displayFormat><saw:tableHeading><saw:caption fmt="text"><saw:text>Dim - Orgs</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:displayFormat><saw:formatSpec/></saw:displayFormat><saw:caption fmt="text"><saw:text>Org Name</saw:text></saw:caption></saw:columnHeading></saw:column><saw:column xsi:type="saw:regularColumn" columnID="ce765a53071ddabbd">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Receivables Balances&quot;.&quot;Collector Name&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cbfea8a64b89e8815" aggRule="sum"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">sum(&quot;Fact - Receivables Balances&quot;.&quot;Transaction Amount&quot;)</sawx:expr></saw:columnFormula><saw:displayFormat><saw:formatSpec suppress="repeat" wrapText="true"><saw:dataFormat xsi:type="saw:currency" minDigits="2" maxDigits="2" commas="true" negativeType="minus" currencyTag="none"/></saw:formatSpec></saw:displayFormat><saw:tableHeading><saw:caption fmt="text"><saw:text>Fact - Receivables Balances</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:displayFormat><saw:formatSpec/></saw:displayFormat><saw:caption fmt="text"><saw:text>Orig Invoice Amount</saw:text></saw:caption></saw:columnHeading></saw:column><saw:column xsi:type="saw:regularColumn" columnID="c884244fe654076d8">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Receivables Balances&quot;.&quot;Customer Number&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c51b1d56ebfd5fbfe">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Receivables Balances&quot;.&quot;Customer&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" width="150" fontSize="9" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c38130acb04caa021">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Receivables Balances&quot;.&quot;Customer Location&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" width="150" fontSize="9" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Fact - Receivables Balances</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat>
+               <saw:caption fmt="text">
+                  <saw:text>Customer Location</saw:text></saw:caption></saw:columnHeading></saw:column>
+         
+         <saw:column xsi:type="saw:regularColumn" columnID="ce595fa93d1f42dc7">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Receivables Balances&quot;.&quot;Days Old&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c22b4e165996bd77c">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">CAST (&quot;Fact - Receivables Balances&quot;.&quot;Due Date&quot; AS DATE)</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Fact - Receivables Balances</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat>
+               <saw:caption fmt="text">
+                  <saw:text>Due Date</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c2436665c9b3cd170">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Receivables Balances&quot;.&quot;Purchase Order&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c7c5e0af6052b2ce0">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">CAST (&quot;Fact - Receivables Balances&quot;.&quot;Transaction Date&quot; AS DATE)</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c4dc230c5a5423038">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Receivables Balances&quot;.&quot;Transaction Number&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cef3a6abf867ebfeb">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Receivables Balances&quot;.&quot;Transaction Type&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column columnID="c3b5e44ec75fed909" xsi:type="saw:regularColumn">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Receivables Balances&quot;.&quot;Purchase Order&quot;</sawx:expr></saw:columnFormula><saw:displayFormat><saw:formatSpec suppress="repeat" wrapText="true"/></saw:displayFormat><saw:columnHeading><saw:displayFormat><saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column columnID="cebf5665aa389709d" xsi:type="saw:regularColumn">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Receivables Balances&quot;.&quot;Tub Number&quot;</sawx:expr></saw:columnFormula><saw:displayFormat><saw:formatSpec suppress="repeat" wrapText="true"/></saw:displayFormat><saw:columnHeading><saw:displayFormat><saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c60ff2bd2e95908c0" aggRule="sum"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">sum(&quot;Fact - Receivables Balances&quot;.&quot;Transaction Balance Due&quot;)</sawx:expr></saw:columnFormula><saw:displayFormat><saw:formatSpec suppress="repeat" wrapText="true"><saw:dataFormat xsi:type="saw:currency" minDigits="2" maxDigits="2" commas="true" negativeType="minus" currencyTag="none"/></saw:formatSpec></saw:displayFormat><saw:tableHeading><saw:caption fmt="text"><saw:text>Fact - Receivables Balances</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:displayFormat><saw:formatSpec/></saw:displayFormat><saw:caption fmt="text"><saw:text>Current Balance Due</saw:text></saw:caption></saw:columnHeading></saw:column></saw:columns>
+      <saw:filter>
+         <sawx:expr xsi:type="sawx:logical" op="and">
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Receivables Balances&quot;.&quot;Tub Number&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="ZZZ">varTub</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Receivables Balances&quot;.&quot;Purchase Order&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varPONum</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:special" op="prompted" promptPrimarySubjectArea="&quot;[Noetix-EBS Views] NoetixViews for Oracle Financials&quot;" setVariable="dashboard.variables[&#39;varColName&#39;]"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Receivables Balances&quot;.&quot;Collector Name&quot;</sawx:expr><sawx:expr xsi:type="sawx:untypedLiteral">*)nqgtac(*</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:comparison" op="notEqual">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Receivables Balances&quot;.&quot;Transaction Balance Due&quot;</sawx:expr>
+               <sawx:expr xsi:type="xsd:decimal">0</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Receivables Balances&quot;.&quot;Customer Number&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varCustomerNumber</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Receivables Balances&quot;.&quot;Transaction Type&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varTranType</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Receivables Balances&quot;.&quot;Org Number&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varOrg</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Receivables Balances&quot;.&quot;Transaction Number&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varTranNum</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:comparison" op="between" promptPrimarySubjectArea="&quot;[Noetix-EBS Views] NoetixViews for Oracle Financials&quot;" setVariable="dashboard.variables[&#39;varTransactionDate&#39;]"><sawx:expr xsi:type="sawx:sqlExpression">CAST (&quot;Fact - Receivables Balances&quot;.&quot;Transaction Date&quot; AS DATE)</sawx:expr><sawx:expr xsi:type="xsd:date">2018-02-19</sawx:expr><sawx:expr xsi:type="xsd:date">2019-02-19</sawx:expr></sawx:expr></sawx:expr></saw:filter></saw:criteria>
+   <saw:interactionOptions drill="false" movecolumns="true" sortcolumns="true" addremovevalues="false" groupoperations="false" calcitemoperations="false" showhidesubtotal="false" showhiderunningsum="false" inclexclcolumns="true" hidecolumns="false"/>
+   <saw:views textDelivery="compoundView!1" includeNewColumns="true" parentsBefore="true" nullSuppress="true" currentView="0">
+      <saw:view xsi:type="saw:compoundView" name="compoundView!1">
+         <saw:cvTable>
+            <saw:cvRow>
+               <saw:cvCell viewName="titleView!1">
+                  <saw:displayFormat>
+                     <saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow>
+            <saw:cvRow>
+               <saw:cvCell viewName="tableView!1">
+                  <saw:displayFormat>
+                     <saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow></saw:cvTable>
+         <saw:pageProps orientation="portrait" printRows="all" disableMargins="false">
+            <saw:pageHeader show="false"/>
+            <saw:pageFooter showOnDashboard="true" show="false">
+               <saw:zone position="top">
+                  <saw:displayFormat>
+                     <saw:formatSpec hAlign="center"/></saw:displayFormat></saw:zone>
+               <saw:zone position="left">
+                  <saw:displayFormat>
+                     <saw:formatSpec hAlign="left" width="33%"/></saw:displayFormat>
+                  <saw:caption fmt="text">
+                     <saw:text>@{authorName}</saw:text></saw:caption></saw:zone>
+               <saw:zone position="center">
+                  <saw:displayFormat>
+                     <saw:formatSpec hAlign="center" width="34%"/></saw:displayFormat></saw:zone>
+               <saw:zone position="right">
+                  <saw:displayFormat>
+                     <saw:formatSpec hAlign="right" width="33%"/></saw:displayFormat>
+                  <saw:caption fmt="text">
+                     <saw:text>@{savedName} @{pageNumber}</saw:text></saw:caption></saw:zone>
+               <saw:zone position="bottom">
+                  <saw:displayFormat>
+                     <saw:formatSpec hAlign="center"/></saw:displayFormat></saw:zone></saw:pageFooter></saw:pageProps></saw:view>
+      <saw:view xsi:type="saw:titleView" name="titleView!1" includeName="true" startedDisplay="dateTime"/>
+      <saw:view xsi:type="saw:tableView" name="tableView!1" repeat="true"><saw:edges><saw:edge axis="page" showColumnHeader="true"/><saw:edge axis="section">
+               <saw:displayGrandTotals>
+                  <saw:displayGrandTotal id="gt_section" grandTotalPosition="none"/></saw:displayGrandTotals></saw:edge><saw:edge axis="row" showColumnHeader="true">
+               <saw:displayGrandTotals>
+                  <saw:displayGrandTotal id="gt_row" grandTotalPosition="after"/></saw:displayGrandTotals>
+               <saw:edgeLayers><saw:edgeLayer type="column" columnID="ca42b18934565613c"/><saw:edgeLayer type="column" columnID="cf50f78d5d220cd81"/><saw:edgeLayer type="column" columnID="c52b871dd30e14c20"/><saw:edgeLayer type="column" columnID="c1278bcc55d571515"/><saw:edgeLayer type="column" columnID="c884244fe654076d8">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec wrapText="true" fontEffects="none"/></saw:displayFormat>
+                        <saw:caption>
+                           <saw:text>Cust No</saw:text></saw:caption></saw:headerFormat>
+                     <saw:memberFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontEffects="none" wrapText="true"/></saw:displayFormat></saw:memberFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="c38130acb04caa021">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec wrapText="true" fontEffects="none"/></saw:displayFormat>
+                        <saw:caption>
+                           <saw:text>Customer Site</saw:text></saw:caption></saw:headerFormat>
+                     <saw:memberFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontEffects="none" wrapText="true"/></saw:displayFormat></saw:memberFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="ce765a53071ddabbd">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec wrapText="true"/></saw:displayFormat>
+                        <saw:caption>
+                           <saw:text>Collector</saw:text></saw:caption></saw:headerFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="c4dc230c5a5423038">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec wrapText="true"/></saw:displayFormat>
+                        <saw:caption>
+                           <saw:text>Invoice Number</saw:text></saw:caption></saw:headerFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="cef3a6abf867ebfeb">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec wrapText="true"/></saw:displayFormat>
+                        <saw:caption>
+                           <saw:text>Transaction Type</saw:text></saw:caption></saw:headerFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="c2436665c9b3cd170">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec wrapText="true"/></saw:displayFormat></saw:headerFormat>
+                     <saw:memberFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec/></saw:displayFormat></saw:memberFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="c7c5e0af6052b2ce0">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec wrapText="true"/></saw:displayFormat>
+                        <saw:caption>
+                           <saw:text>Invoice Date</saw:text></saw:caption></saw:headerFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="c22b4e165996bd77c"/><saw:edgeLayer type="column" columnID="ce595fa93d1f42dc7"/><saw:edgeLayer type="column" columnID="cbfea8a64b89e8815"><saw:levels><saw:level><saw:displaySubTotal id="st_cbfea8a64b89e8815" subTotalPosition="none"/></saw:level></saw:levels></saw:edgeLayer><saw:edgeLayer type="column" columnID="c60ff2bd2e95908c0"><saw:memberFormat><saw:displayFormat><saw:formatSpec/></saw:displayFormat></saw:memberFormat><saw:levels><saw:level><saw:displaySubTotal id="st_c60ff2bd2e95908c0" subTotalPosition="none"><saw:dataBodyFormat><saw:displayFormat><saw:formatSpec/></saw:displayFormat></saw:dataBodyFormat></saw:displaySubTotal></saw:level></saw:levels></saw:edgeLayer></saw:edgeLayers></saw:edge><saw:edge axis="column"/></saw:edges>
+         
+         <saw:greenBarFormat greenBar="allLayers" enabled="true"/></saw:view>
+      <saw:view xsi:type="saw:noresultsview" name="noresultsview!1">
+         <saw:headline>
+            <saw:caption>
+               <saw:text>No Results</saw:text></saw:caption></saw:headline>
+         <saw:detail>
+            <saw:caption>
+               <saw:text>Please choose Prompt Values then click the APPLY button</saw:text></saw:caption></saw:detail></saw:view></saw:views>
+   <saw:prompts scope="report" subjectArea="&quot;[Noetix-EBS Views] NoetixViews for Oracle Financials&quot;"/></saw:report></sawsel:ref></sawsel:reportsReferredTo></sawsel:dashboardSelections>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<saw:report xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlVersion="201201160" xmlns:sawx="com.siebel.analytics.web/expression/v1.1">
+	<saw:criteria xsi:type="saw:simpleCriteria" subjectArea="&quot;Financials&quot;" withinHierarchy="true">
+		<saw:columns>
+			<saw:column xsi:type="saw:regularColumn" columnID="cfb3b7b4fc8eaea73">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds&quot;.&quot;Fund&quot;</sawx:expr></saw:columnFormula>
+				<saw:displayFormat>
+					<saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				<saw:columnHeading>
+					<saw:displayFormat>
+						<saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			<saw:column xsi:type="saw:regularColumn" columnID="cb6c6c815ccaf339c">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds&quot;.&quot;Primary Managing Org&quot;</sawx:expr></saw:columnFormula>
+				<saw:displayFormat>
+					<saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				<saw:columnHeading>
+					<saw:displayFormat>
+						<saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column></saw:columns>
+		<saw:filter>
+			<sawx:expr op="in" xsi:type="sawx:list">
+				<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds&quot;.&quot;Primary Managing Org&quot;</sawx:expr>
+				<sawx:expr xsi:type="sawx:eval" default="xxx">varOrg</sawx:expr></sawx:expr></saw:filter></saw:criteria>
+	<saw:interactionOptions drill="true" movecolumns="true" sortcolumns="true" addremovevalues="false" groupoperations="false" calcitemoperations="false" showhidesubtotal="false" showhiderunningsum="false" inclexclcolumns="true" hidecolumns="false"/>
+	<saw:views textDelivery="compoundView!1" parentsBefore="true" includeNewColumns="true" nullSuppress="true" currentView="0">
+		<saw:view xsi:type="saw:compoundView" name="compoundView!1">
+			<saw:cvTable>
+				<saw:cvRow>
+					<saw:cvCell viewName="titleView!1">
+						<saw:displayFormat>
+							<saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow>
+				<saw:cvRow>
+					<saw:cvCell viewName="tableView!1">
+						<saw:displayFormat>
+							<saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow></saw:cvTable></saw:view>
+		<saw:view xsi:type="saw:titleView" name="titleView!1" includeName="false" startedDisplay="none"><saw:title>
+				<saw:caption fmt="text">
+					<saw:text>Fund Primary Managing Org</saw:text></saw:caption></saw:title></saw:view>
+		<saw:view xsi:type="saw:tableView" name="tableView!1" scrollingEnabled="false" headingDisplay="columns">
+			<saw:edges><saw:edge axis="page" showColumnHeader="true"/>
+				<saw:edge axis="section"/>
+				<saw:edge axis="row" showColumnHeader="true">
+					<saw:edgeLayers><saw:edgeLayer type="column" columnID="cfb3b7b4fc8eaea73"/>
+						<saw:edgeLayer type="column" columnID="cb6c6c815ccaf339c"/></saw:edgeLayers></saw:edge>
+				<saw:edge axis="column"/></saw:edges>
+			<saw:greenBarFormat greenBar="allLayers" enabled="true"/></saw:view>
+		<saw:view xsi:type="saw:noresultsview" name="noresultsview!1">
+			<saw:headline>
+				<saw:caption>
+					<saw:text> No Results</saw:text></saw:caption></saw:headline>
+			<saw:detail>
+				<saw:caption>
+					<saw:text>The requested value has no Fund PMO attribute.</saw:text></saw:caption></saw:detail></saw:view></saw:views>
+	<saw:prompts scope="report" subjectArea="&quot;General Ledger&quot;"/></saw:report>

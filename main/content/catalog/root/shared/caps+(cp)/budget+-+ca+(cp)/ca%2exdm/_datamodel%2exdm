@@ -1,0 +1,118 @@
+<?xml version = '1.0' encoding = 'utf-8'?>
+<dataModel xmlns="http://xmlns.oracle.com/oxp/xmlp" version="2.0" xmlns:xdm="http://xmlns.oracle.com/oxp/xmlp" xmlns:xsd="http://wwww.w3.org/2001/XMLSchema" defaultDataSourceRef="demo">
+   <dataProperties>
+      <property name="include_parameters" value="true"/>
+      <property name="include_null_Element" value="false"/>
+      <property name="include_rowsettag" value="false"/>
+      <property name="xml_tag_case" value="upper"/>
+      <property name="generate_output_format" value="xml"/>
+      <property name="optimize_query_executions" value="false"/>
+      <property name="enable_xml_chunks" value=""/>
+      <property name="sql_monitor_report_generated" value="false"/>
+   </dataProperties>
+   <dataSets>
+      <dataSet name="CAPS Budget - CA" type="complex">
+         <sql dataSourceRef="dwcen">
+            <![CDATA[select	 "HUCP_CONST_AUTHORIZATION"."PROJECT_ID" as "PROJECT_ID",
+	 "HUCP_CONST_AUTHORIZATION"."REVISION_NUMBER" as "REVISION_NUMBER",
+	 "HUCP_CONST_AUTHORIZATION"."BLDG_CONST_AMT" as "BLDG_CONST_AMT",
+	 "HUCP_CONST_AUTHORIZATION"."SITE_WORK_AMT" as "SITE_WORK_AMT",
+	 "HUCP_CONST_AUTHORIZATION"."MFE_AMT" as "MFE_AMT",
+	 "HUCP_CONST_AUTHORIZATION"."ENV_REMEDIATION_AMT" as "ENV_REMEDIATION_AMT",
+	 "HUCP_CONST_AUTHORIZATION"."ARCHITECT_ENG_FEES_AMT" as "ARCHITECT_ENG_FEES_AMT",
+	 "HUCP_CONST_AUTHORIZATION"."INTERNAL_CHARGES_AMT" as "INTERNAL_CHARGES_AMT",
+	 "HUCP_CONST_AUTHORIZATION"."OTHER_SOFT_COSTS_AMT" as "OTHER_SOFT_COSTS_AMT",
+	 "HUCP_CONST_AUTHORIZATION"."CONTINGENCY_AMT" as "CONTINGENCY_AMT",
+	 "HUCP_CONST_AUTHORIZATION"."CAPS_BASE_FEE_AMT" as "CAPS_BASE_FEE_AMT",
+	 "HUCP_CONST_AUTHORIZATION"."CAPS_MITIGATION_FEE_AMT" as "CAPS_MITIGATION_FEE_AMT",
+	 "HUCP_CONST_AUTHORIZATION"."INTEREST_DURING_CONST_AMT" as "INTEREST_DURING_CONST_AMT",
+	 "HUCP_CONST_AUTHORIZATION"."LAST_UPDATE_DATE" as "LAST_UPDATE_DATE",
+	 "DCP_PIT_PROJECTS_D"."PROJECT_NAME" as "PROJECT_NAME",
+	 "DCP_PIT_PROJECTS_D"."CAPS_NO" as "CAPS_NO",
+	 "DCP_PIT_PROJECTS_D"."SPONSOR_TUB" as "SPONSOR_TUB",
+	 "DCP_PIT_PROJECTS_D"."SPONSOR_ORG" as "SPONSOR_ORG",
+	 "DCP_PIT_PROJECTS_D"."STAGE_CD" as "STAGE_CD",
+	 "DCP_PIT_PROJECTS_D"."CIP_ACTIVITY" as "CIP_ACTIVITY" from	"STGCP"."HUCP_CONST_AUTHORIZATION" "HUCP_CONST_AUTHORIZATION",
+	"DWCP"."DCP_PIT_PROJECTS_D" "DCP_PIT_PROJECTS_D" 
+ where   "HUCP_CONST_AUTHORIZATION"."PROJECT_ID"="DCP_PIT_PROJECTS_D"."PROJECT_ID"
+     and	 "DCP_PIT_PROJECTS_D"."STAGE_CD" ='CA'
+ group by "HUCP_CONST_AUTHORIZATION"."PROJECT_ID",
+	 "HUCP_CONST_AUTHORIZATION"."REVISION_NUMBER",
+	 "HUCP_CONST_AUTHORIZATION"."BLDG_CONST_AMT",
+	 "HUCP_CONST_AUTHORIZATION"."SITE_WORK_AMT",
+	 "HUCP_CONST_AUTHORIZATION"."MFE_AMT",
+	 "HUCP_CONST_AUTHORIZATION"."ENV_REMEDIATION_AMT",
+	 "HUCP_CONST_AUTHORIZATION"."ARCHITECT_ENG_FEES_AMT",
+	 "HUCP_CONST_AUTHORIZATION"."INTERNAL_CHARGES_AMT",
+	 "HUCP_CONST_AUTHORIZATION"."OTHER_SOFT_COSTS_AMT",
+	 "HUCP_CONST_AUTHORIZATION"."CONTINGENCY_AMT",
+	 "HUCP_CONST_AUTHORIZATION"."CAPS_BASE_FEE_AMT",	 "HUCP_CONST_AUTHORIZATION"."CAPS_MITIGATION_FEE_AMT",	 "HUCP_CONST_AUTHORIZATION"."INTEREST_DURING_CONST_AMT",
+	 "HUCP_CONST_AUTHORIZATION"."LAST_UPDATE_DATE",
+	 "DCP_PIT_PROJECTS_D"."PROJECT_NAME",
+	 "DCP_PIT_PROJECTS_D"."CAPS_NO",
+	 "DCP_PIT_PROJECTS_D"."SPONSOR_TUB",
+	 "DCP_PIT_PROJECTS_D"."SPONSOR_ORG",
+	 "DCP_PIT_PROJECTS_D"."STAGE_CD",
+	 "DCP_PIT_PROJECTS_D"."CIP_ACTIVITY"]]>
+         </sql>
+      </dataSet>
+   </dataSets>
+   <output rootName="DATA_DS" uniqueRowName="false">
+      <nodeList name="data-structure">
+         <dataStructure tagName="DATA_DS">
+            <group name="G_1" label="G_1" source="CAPS Budget - CA">
+               <element name="PROJECT_ID" value="PROJECT_ID" label="PROJECT_ID" dataType="xsd:double" breakOrder="None" fieldOrder="1"/>
+               <element name="REVISION_NUMBER" value="REVISION_NUMBER" label="REVISION_NUMBER" dataType="xsd:double" breakOrder="None" fieldOrder="2"/>
+               <element name="BLDG_CONST_AMT" value="BLDG_CONST_AMT" label="BLDG_CONST_AMT" dataType="xsd:double" breakOrder="None" fieldOrder="3"/>
+               <element name="SITE_WORK_AMT" value="SITE_WORK_AMT" label="SITE_WORK_AMT" dataType="xsd:double" breakOrder="None" fieldOrder="4"/>
+               <element name="MFE_AMT" value="MFE_AMT" label="MFE_AMT" dataType="xsd:double" breakOrder="None" fieldOrder="5"/>
+               <element name="ENV_REMEDIATION_AMT" value="ENV_REMEDIATION_AMT" label="ENV_REMEDIATION_AMT" dataType="xsd:double" breakOrder="None" fieldOrder="6"/>
+               <element name="ARCHITECT_ENG_FEES_AMT" value="ARCHITECT_ENG_FEES_AMT" label="ARCHITECT_ENG_FEES_AMT" dataType="xsd:double" breakOrder="None" fieldOrder="7"/>
+               <element name="INTERNAL_CHARGES_AMT" value="INTERNAL_CHARGES_AMT" label="INTERNAL_CHARGES_AMT" dataType="xsd:double" breakOrder="None" fieldOrder="8"/>
+               <element name="OTHER_SOFT_COSTS_AMT" value="OTHER_SOFT_COSTS_AMT" label="OTHER_SOFT_COSTS_AMT" dataType="xsd:double" breakOrder="None" fieldOrder="9"/>
+               <element name="CONTINGENCY_AMT" value="CONTINGENCY_AMT" label="CONTINGENCY_AMT" dataType="xsd:double" breakOrder="None" fieldOrder="10"/>
+               <element name="CAPS_BASE_FEE_AMT" value="CAPS_BASE_FEE_AMT" label="CAPS_BASE_FEE_AMT" dataType="xsd:double" breakOrder="None" fieldOrder="11"/>
+               <element name="CAPS_MITIGATION_FEE_AMT" value="CAPS_MITIGATION_FEE_AMT" label="CAPS_MITIGATION_FEE_AMT" dataType="xsd:double" breakOrder="None" fieldOrder="12"/>
+               <element name="INTEREST_DURING_CONST_AMT" value="INTEREST_DURING_CONST_AMT" label="INTEREST_DURING_CONST_AMT" dataType="xsd:double" breakOrder="None" fieldOrder="13"/>
+               <element name="LAST_UPDATE_DATE_1" value="LAST_UPDATE_DATE" label="LAST_UPDATE_DATE" dataType="xsd:date" breakOrder="None" fieldOrder="14" formatMask=""/>
+               <element name="PROJECT_NAME_1" value="PROJECT_NAME" label="PROJECT_NAME" dataType="xsd:string" breakOrder="None" fieldOrder="15"/>
+               <element name="CAPS_NO_1" value="CAPS_NO" label="CAPS_NO" dataType="xsd:string" breakOrder="None" fieldOrder="16"/>
+               <element name="SPONSOR_TUB_1" value="SPONSOR_TUB" label="SPONSOR_TUB" dataType="xsd:string" breakOrder="None" fieldOrder="17"/>
+               <element name="SPONSOR_ORG" value="SPONSOR_ORG" label="SPONSOR_ORG" dataType="xsd:string" breakOrder="None" fieldOrder="18"/>
+               <element name="STAGE_CD_1" value="STAGE_CD" label="STAGE_CD" dataType="xsd:string" breakOrder="None" fieldOrder="19"/>
+               <element name="CIP_ACTIVITY_1" value="CIP_ACTIVITY" label="CIP_ACTIVITY" dataType="xsd:string" breakOrder="None" fieldOrder="20"/>
+               <element name="Total_Budget_Amt" value="${SUM(G_1.BLDG_CONST_AMT,  G_1.SITE_WORK_AMT,  G_1.MFE_AMT,  G_1.ENV_REMEDIATION_AMT,  G_1.ARCHITECT_ENG_FEES_AMT,  G_1.INTERNAL_CHARGES_AMT,  G_1.OTHER_SOFT_COSTS_AMT,  G_1.CONTINGENCY_AMT,  G_1.CAPS_BASE_FEE_AMT,  G_1.CAPS_MITIGATION_FEE_AMT,  G_1.INTEREST_DURING_CONST_AMT   )}" label="Total_Budget_Amt" dataType="xsd:double" breakOrder="None" fieldOrder="0"/>
+            </group>
+         </dataStructure>
+      </nodeList>
+   </output>
+   <eventTriggers/>
+   <lexicals/>
+   <parameters/>
+   <valueSets>
+      <valueSet id="Year" inuse="false">
+         <sql dataSourceRef="DWCENPRD">
+            <![CDATA[SELECT extract(Year from dw_last_update_dt)
+from HUDW.DCP_PIT_PROJECTS_D_V]]>
+         </sql>
+      </valueSet>
+      <valueSet id="Tub" inuse="false">
+         <sql dataSourceRef="DWCENPRD">
+            <![CDATA[select	 distinct "DCP_PIT_PROJECTS_D_V"."SPONSOR_TUB" as "SPONSOR_TUB" 
+ from	"HUDW"."DCP_PIT_PROJECTS_D_V"  "DCP_PIT_PROJECTS_D_V" , "STGCP"."HUCP_CONST_AUTHORIZATION"  "HUCP_CONST_AUTHORIZATION" 
+ where   "HUCP_CONST_AUTHORIZATION" ."PROJECT_ID"="DCP_PIT_PROJECTS_D_V"."PROJECT_ID"]]>
+         </sql>
+      </valueSet>
+   </valueSets>
+   <bursting/>
+   <validations>
+      <validation>N</validation>
+   </validations>
+   <display>
+      <layouts>
+         <layout name="CAPS Budget - CA" left="295px" top="34px"/>
+         <layout name="DATA_DS" left="0px" top="34px"/>
+      </layouts>
+      <groupLinks/>
+   </display>
+</dataModel>

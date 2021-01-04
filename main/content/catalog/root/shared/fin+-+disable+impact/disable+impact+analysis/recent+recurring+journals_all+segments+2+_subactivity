@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<saw:report xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlVersion="201201160" xmlns:sawx="com.siebel.analytics.web/expression/v1.1">   
+   <saw:criteria xsi:type="saw:simpleCriteria" subjectArea="&quot;Journal Listing&quot;" withinHierarchy="true">      
+      <saw:columns>         
+         <saw:column xsi:type="saw:regularColumn" columnID="c604b6ee6f8c2463b">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Code Combinations&quot;.&quot;Full Chart Value&quot;</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat>               
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>            
+            <saw:columnHeading>               
+               <saw:displayFormat>                  
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column><saw:column xsi:type="saw:regularColumn" columnID="cb19e1e550bb8154b">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - GL Recurring Headers&quot;.&quot;RH Name&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat><saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat><saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Dim - GL Recurring Headers</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Journal Header</saw:text></saw:caption><saw:displayFormat><saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="c655262a5c4aa5796">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - GL Recurring Headers&quot;.&quot;Recurring Line Num&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat><saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat><saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Dim - GL Recurring Headers</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Recurring Line No</saw:text></saw:caption><saw:displayFormat><saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="c653fa92fd9a805dd"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - GL Recurring Headers&quot;.&quot;JC User Je Category Name&quot;</sawx:expr></saw:columnFormula><saw:displayFormat><saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat><saw:tableHeading><saw:caption fmt="text"><saw:text>Dim - GL Recurring Headers</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption fmt="text"><saw:text>Journal Category</saw:text></saw:caption><saw:displayFormat><saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>         
+                  
+         </saw:columns>      
+      <saw:filter>         
+         <sawx:expr xsi:type="sawx:logical" op="and"><sawx:expr op="in" xsi:type="sawx:list">               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Code Combinations&quot;.&quot;Subactivity&quot;</sawx:expr>               
+               <sawx:expr xsi:type="sawx:eval" default="zzz">varSubactivity</sawx:expr></sawx:expr><sawx:expr op="in" xsi:type="sawx:list">               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Code Combinations&quot;.&quot;Activity&quot;</sawx:expr>               
+               <sawx:expr xsi:type="sawx:eval" default="%">varPactivity</sawx:expr></sawx:expr></sawx:expr></saw:filter></saw:criteria>   
+   <saw:interactionOptions drill="true" movecolumns="true" sortcolumns="true" addremovevalues="false" groupoperations="false" calcitemoperations="false" showhidesubtotal="false" showhiderunningsum="false" inclexclcolumns="true" hidecolumns="false"/>   
+   <saw:views currentView="0" textDelivery="compoundView!1" parentsBefore="true" includeNewColumns="true" nullSuppress="true">      
+      <saw:view xsi:type="saw:compoundView" name="compoundView!1">         
+         <saw:cvTable>            
+            <saw:cvRow>               
+               <saw:cvCell viewName="titleView!1">                  
+                  <saw:displayFormat>                     
+                     <saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow>            
+            <saw:cvRow>               
+               <saw:cvCell viewName="tableView!1">                  
+                  <saw:displayFormat>                     
+                     <saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow></saw:cvTable></saw:view>      
+      <saw:view xsi:type="saw:titleView" name="titleView!1" includeName="false" startedDisplay="none"><saw:title>            
+            <saw:caption fmt="text">               
+               <saw:text>Recurring Journals</saw:text></saw:caption></saw:title></saw:view>      
+      <saw:view xsi:type="saw:tableView" name="tableView!1" repeat="true">         
+         <saw:edges>            
+            <saw:edge axis="page" showColumnHeader="true"/>            
+            <saw:edge axis="section"/>            
+            <saw:edge axis="row" showColumnHeader="true">               
+               <saw:edgeLayers>                  
+                                    
+                                    
+                                    
+                  <saw:edgeLayer type="column" columnID="c653fa92fd9a805dd"/><saw:edgeLayer type="column" columnID="cb19e1e550bb8154b"/><saw:edgeLayer type="column" columnID="c655262a5c4aa5796"/><saw:edgeLayer type="column" columnID="c604b6ee6f8c2463b" uiTableName="Dim - Code Combinations"/>
+                  
+                  
+                  </saw:edgeLayers></saw:edge>            
+            <saw:edge axis="column"/></saw:edges>         
+         <saw:greenBarFormat greenBar="allLayers" enabled="true"/></saw:view>      
+      <saw:view xsi:type="saw:noresultsview" name="noresultsview!1">         
+         <saw:headline>            
+            <saw:caption>               
+               <saw:text>No results</saw:text></saw:caption></saw:headline>         
+         <saw:detail>            
+            <saw:caption>               
+               <saw:text>The value you requested is not being used in a recurring journal.</saw:text></saw:caption></saw:detail></saw:view></saw:views>   
+   <saw:prompts scope="report" subjectArea="&quot;General Ledger&quot;"/></saw:report>

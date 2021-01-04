@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'utf-8'?>
+<dataModel xmlns="http://xmlns.oracle.com/oxp/xmlp" version="2.0" xmlns:xdm="http://xmlns.oracle.com/oxp/xmlp" xmlns:xsd="http://wwww.w3.org/2001/XMLSchema" defaultDataSourceRef="DWCENPRD">
+   <description>
+      <![CDATA[undefined]]>
+   </description>
+   <dataProperties>
+      <property name="include_parameters" value="true"/>
+      <property name="include_null_Element" value="false"/>
+      <property name="include_rowsettag" value="false"/>
+      <property name="xml_tag_case" value="upper"/>
+   </dataProperties>
+   <dataSets>
+      <dataSet name="CAPS Budget  Model- PP" type="complex">
+         <sql dataSourceRef="dwcen">
+            <![CDATA[select	 "DCP_PIT_PROJECTS_D_1"."PROJECT_NAME" as "PROJECT_NAME",
+	 "DCP_PIT_PROJECTS_D_1"."CAPS_NO" as "CAPS_NO",
+	 "DCP_PIT_PROJECTS_D_1"."CIP_ACTIVITY" as "CIP_ACTIVITY",
+	 "DCP_PIT_PROJECTS_D_1"."STAGE_CD" as "STAGE_CD",
+	 "DCP_PIT_PROJECTS_D_1"."REVISION_NO" as "REVISION_NO",
+	 "HUCP_PROJECT_PROPOSAL_1"."EST_LOW_CAPITAL_BGT_AMT" as "EST_LOW_CAPITAL_BGT_AMT",
+	 "HUCP_PROJECT_PROPOSAL_1"."EST_HIGH_CAPITAL_BGT_AMT" as "EST_HIGH_CAPITAL_BGT_AMT",
+	 "HUCP_PROJECT_PROPOSAL_1"."LAST_UPDATE_DATE" as "LAST_UPDATE_DATE",
+	 "DCP_PIT_PROJECTS_D_1"."SPONSOR_TUB" as "SPONSOR_TUB",
+	 "DCP_PIT_PROJECTS_D_1"."SPONSOR_ORG" as "SPONSOR_ORG",
+	 "DCP_PIT_PROJECTS_D_1"."PROJECT_ID" as "PROJECT_ID" 
+ from	"STGCP"."HUCP_PROJECT_PROPOSAL" "HUCP_PROJECT_PROPOSAL_1",
+	"DWCP"."DCP_PIT_PROJECTS_D" "DCP_PIT_PROJECTS_D_1" 
+ where   "HUCP_PROJECT_PROPOSAL_1"."PROJECT_ID"="DCP_PIT_PROJECTS_D_1"."PROJECT_ID"
+  and 	 "DCP_PIT_PROJECTS_D_1"."STAGE_CD" ='PP']]>
+         </sql>
+      </dataSet>
+   </dataSets>
+   <output rootName="DATA_DS" uniqueRowName="false">
+      <nodeList name="data-structure">
+         <dataStructure tagName="DATA_DS">
+            <group name="G_2" label="G_2" source="CAPS Budget  Model- PP">
+               <element name="LAST_UPDATE_DATE_1" value="LAST_UPDATE_DATE" label="LAST_UPDATE_DATE" dataType="xsd:date" breakOrder="None" fieldOrder="8"/>
+               <element name="STAGE_CD_1" value="STAGE_CD" label="STAGE_CD" dataType="xsd:string" breakOrder="None" fieldOrder="4"/>
+               <element name="EST_LOW_CAPITAL_BGT_AMT_1" value="EST_LOW_CAPITAL_BGT_AMT" label="EST_LOW_CAPITAL_BGT_AMT" dataType="xsd:double" breakOrder="None" fieldOrder="6"/>
+               <element name="EST_HIGH_CAPITAL_BGT_AMT_1" value="EST_HIGH_CAPITAL_BGT_AMT" label="EST_HIGH_CAPITAL_BGT_AMT" dataType="xsd:double" breakOrder="None" fieldOrder="7"/>
+               <element name="PROJECT_NAME_1" value="PROJECT_NAME" label="PROJECT_NAME" dataType="xsd:string" breakOrder="None" fieldOrder="1"/>
+               <element name="CAPS_NO_1" value="CAPS_NO" label="CAPS_NO" dataType="xsd:string" breakOrder="None" fieldOrder="2"/>
+               <element name="CIP_ACTIVITY_1" value="CIP_ACTIVITY" label="CIP_ACTIVITY" dataType="xsd:string" breakOrder="None" fieldOrder="3"/>
+               <element name="SPONSOR_TUB" value="SPONSOR_TUB" label="SPONSOR_TUB" dataType="xsd:string" breakOrder="None" fieldOrder="9"/>
+               <element name="SPONSOR_ORG" value="SPONSOR_ORG" label="SPONSOR_ORG" dataType="xsd:string" breakOrder="None" fieldOrder="10"/>
+               <element name="PROJECT_ID" value="PROJECT_ID" label="PROJECT_ID" dataType="xsd:double" breakOrder="None" fieldOrder="11"/>
+               <element name="REVISION_NO" value="REVISION_NO" label="REVISION_NO" dataType="xsd:double" breakOrder="None" fieldOrder="5"/>
+            </group>
+         </dataStructure>
+      </nodeList>
+   </output>
+   <eventTriggers/>
+   <lexicals/>
+   <valueSets>
+      <valueSet id="Tub">
+         <sql dataSourceRef="DWCENPRD">
+            <![CDATA[select	 distinct "DCP_PIT_PROJECTS_D_V"."SPONSOR_TUB" as "SPONSOR_TUB" 
+ from	"HUDW"."DCP_PIT_PROJECTS_D_V"  "DCP_PIT_PROJECTS_D_V" , "STGCP"."HUCP_CONST_AUTHORIZATION"  "HUCP_CONST_AUTHORIZATION" 
+ where   "HUCP_CONST_AUTHORIZATION" ."PROJECT_ID"="DCP_PIT_PROJECTS_D_V"."PROJECT_ID"
+order by "SPONSOR_TUB"]]>
+         </sql>
+      </valueSet>
+   </valueSets>
+   <parameters/>
+   <bursting/>
+   <display>
+      <layouts>
+         <layout name="CAPS Budget  Model- PP" left="288px" top="28px"/>
+         <layout name="DATA_DS" left="5px" top="28px"/>
+      </layouts>
+      <groupLinks/>
+   </display>
+</dataModel>

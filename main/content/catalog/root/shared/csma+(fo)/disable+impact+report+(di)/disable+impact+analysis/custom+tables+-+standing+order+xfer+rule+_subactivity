@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<saw:report xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlVersion="201201160" xmlns:sawx="com.siebel.analytics.web/expression/v1.1">
+   <saw:criteria xsi:type="saw:simpleCriteria" subjectArea="&quot;Journal Listing&quot;" withinHierarchy="true">
+      <saw:columns>
+         <saw:column xsi:type="saw:regularColumn" columnID="c03305e6638c3dc99">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Standing Order XFER Rule&quot;.&quot;From Fund&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c029d6eb5d7a842e1">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Standing Order XFER Rule&quot;.&quot;To Tub&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c221fda2320188426">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Standing Order XFER Rule&quot;.&quot;To Org&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c5db83619a8cf19de">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Standing Order XFER Rule&quot;.&quot;To Fund&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c2300a6b0a08cb920">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Standing Order XFER Rule&quot;.&quot;To Activity&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c813fc07b0ac2250f">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Standing Order XFER Rule&quot;.&quot;To Subactivity&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c9662899dd181c53d">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Standing Order XFER Rule&quot;.&quot;To Root&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="ca9ea9cea24c175ff">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Standing Order XFER Rule&quot;.&quot;Pct To Transfer&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true">
+                  <saw:dataFormat xsi:type="saw:number" minDigits="3" maxDigits="3" commas="true" negativeType="minus"/></saw:formatSpec></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cba8775c60eafebf6">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Standing Order XFER Rule&quot;.&quot;Amt To Transfer&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true">
+                  <saw:dataFormat xsi:type="saw:number" minDigits="2" maxDigits="2" commas="true" negativeType="minus"/></saw:formatSpec></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c26d6c821924925ce">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Standing Order XFER Rule&quot;.&quot;Transfer End Date&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c317fa23853fa95fd">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">IFNULL(&quot;Dim - Standing Order XFER Rule&quot;.&quot;Enabled Flag&quot;, &#39;N&#39;)</sawx:expr></saw:columnFormula>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Dim - Standing Order XFER Rule</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Enabled Flag</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column columnID="cdba5d27030fa7ec5" xsi:type="saw:regularColumn">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">IFNULL(&quot;Dim - Standing Order XFER Rule&quot;.&quot;Enabled Flag&quot;, &#39;N&#39;)</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column columnID="c05e8f6e59314cd00" xsi:type="saw:regularColumn">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Standing Order XFER Rule&quot;.&quot;From Fund&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column columnID="caee7c8cd9de0587e" xsi:type="saw:regularColumn">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Standing Order XFER Rule&quot;.&quot;From Fund&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column columnID="cd2d2a04193f5b726" xsi:type="saw:regularColumn">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Standing Order XFER Rule&quot;.&quot;From Fund&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column columnID="c8822fa64fc3a1cf6" xsi:type="saw:regularColumn">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Standing Order XFER Rule&quot;.&quot;To Subactivity&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column columnID="c577e91834612793e" xsi:type="saw:regularColumn">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Standing Order XFER Rule&quot;.&quot;To Fund&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column columnID="cacd288dbc71aff3f" xsi:type="saw:regularColumn">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Standing Order XFER Rule&quot;.&quot;To Activity&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column columnID="c8f751cea523b564e" xsi:type="saw:regularColumn">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Standing Order XFER Rule&quot;.&quot;To Activity&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column columnID="c50e0be6d84114992" xsi:type="saw:regularColumn">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Standing Order XFER Rule&quot;.&quot;To Org&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column columnID="cf49d6dd7f45f5efd" xsi:type="saw:regularColumn">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Standing Order XFER Rule&quot;.&quot;To Fund&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column columnID="ce28d5464a1f0212e" xsi:type="saw:regularColumn">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Standing Order XFER Rule&quot;.&quot;To Activity&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column columnID="c7dfd2a1eaef8e2ab" xsi:type="saw:regularColumn">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Standing Order XFER Rule&quot;.&quot;To Subactivity&quot;</sawx:expr></saw:columnFormula></saw:column></saw:columns>
+      <saw:filter>
+         <sawx:expr xsi:type="sawx:logical" op="and">
+            
+            
+            
+            
+            
+            
+            <sawx:expr xsi:type="sawx:comparison" op="equal">
+                  <sawx:expr xsi:type="sawx:sqlExpression">IFNULL(&quot;Dim - Standing Order XFER Rule&quot;.&quot;Enabled Flag&quot;, &#39;N&#39;)</sawx:expr>
+                  <sawx:expr xsi:type="xsd:string">Y</sawx:expr></sawx:expr><sawx:expr op="in" xsi:type="sawx:list">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Standing Order XFER Rule&quot;.&quot;To Subactivity&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="xxx">varSubactivity</sawx:expr></sawx:expr><sawx:expr op="in" xsi:type="sawx:list">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Standing Order XFER Rule&quot;.&quot;To Activity&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="xxx">varPactivity</sawx:expr></sawx:expr></sawx:expr></saw:filter></saw:criteria>
+   <saw:interactionOptions drill="true" movecolumns="true" sortcolumns="true" addremovevalues="false" groupoperations="false" calcitemoperations="false" showhidesubtotal="false" showhiderunningsum="false" inclexclcolumns="true" hidecolumns="false"/>
+   <saw:views currentView="0" textDelivery="compoundView!1" parentsBefore="true" includeNewColumns="true" nullSuppress="true">
+      <saw:view xsi:type="saw:compoundView" name="compoundView!1">
+         <saw:cvTable>
+            <saw:cvRow>
+               <saw:cvCell viewName="titleView!1">
+                  <saw:displayFormat>
+                     <saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow>
+            <saw:cvRow>
+               <saw:cvCell viewName="tableView!1">
+                  <saw:displayFormat>
+                     <saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow></saw:cvTable></saw:view>
+      <saw:view xsi:type="saw:titleView" name="titleView!1" includeName="false" startedDisplay="none"><saw:title>
+            <saw:caption fmt="text">
+               <saw:text>Records in custom table HUGL_STANDING_ORDE_XFER_RULE</saw:text></saw:caption></saw:title></saw:view>
+      <saw:view xsi:type="saw:tableView" name="tableView!1" repeat="true">
+         <saw:edges>
+            <saw:edge axis="page" showColumnHeader="true"/>
+            <saw:edge axis="section"/>
+            <saw:edge axis="row" showColumnHeader="true">
+               <saw:edgeLayers>
+                  <saw:edgeLayer type="column" columnID="c03305e6638c3dc99"/>
+                  <saw:edgeLayer type="column" columnID="c029d6eb5d7a842e1"/>
+                  <saw:edgeLayer type="column" columnID="c221fda2320188426"/>
+                  <saw:edgeLayer type="column" columnID="c5db83619a8cf19de"/>
+                  <saw:edgeLayer type="column" columnID="c2300a6b0a08cb920"/>
+                  <saw:edgeLayer type="column" columnID="c813fc07b0ac2250f"/>
+                  <saw:edgeLayer type="column" columnID="c9662899dd181c53d"/>
+                  <saw:edgeLayer type="column" columnID="ca9ea9cea24c175ff"/>
+                  <saw:edgeLayer type="column" columnID="cba8775c60eafebf6"/>
+                  <saw:edgeLayer type="column" columnID="c26d6c821924925ce"/>
+                  <saw:edgeLayer type="column" columnID="c317fa23853fa95fd"/></saw:edgeLayers></saw:edge>
+            <saw:edge axis="column"/></saw:edges>
+         <saw:greenBarFormat greenBar="allLayers" enabled="true"/></saw:view>
+      <saw:view xsi:type="saw:noresultsview" name="noresultsview!1">
+         <saw:headline>
+            <saw:caption>
+               <saw:text>No Results</saw:text></saw:caption></saw:headline>
+         <saw:detail>
+            <saw:caption>
+               <saw:text>The value you requested is not included in the HUGL_STANDING_ORDE_XFER_RULE table.</saw:text></saw:caption></saw:detail></saw:view></saw:views>
+   <saw:prompts scope="report" subjectArea="&quot;General Ledger&quot;"/></saw:report>

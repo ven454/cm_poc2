@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<saw:report xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlVersion="201201160" xmlns:sawx="com.siebel.analytics.web/expression/v1.1">
+   <saw:criteria xsi:type="saw:simpleCriteria" subjectArea="&quot;Journal Listing&quot;" withinHierarchy="true">
+      <saw:columns>
+         <saw:column xsi:type="saw:regularColumn" columnID="c4a44b846a3002c3a"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - GL Journal Headers&quot;.&quot;JH Name&quot;</sawx:expr></saw:columnFormula><saw:tableHeading><saw:caption fmt="text"><saw:text>Dim - GL Journal Headers</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption fmt="text"><saw:text>Header Name</saw:text></saw:caption></saw:columnHeading></saw:column><saw:column xsi:type="saw:regularColumn" columnID="c804afb333e30cb65"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - GL Journal Headers&quot;.&quot;JH Description&quot;</sawx:expr></saw:columnFormula><saw:tableHeading><saw:caption fmt="text"><saw:text>Dim - GL Journal Headers</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption fmt="text"><saw:text>Header Description</saw:text></saw:caption></saw:columnHeading></saw:column>
+         
+         <saw:column xsi:type="saw:regularColumn" columnID="c4befce8832b65140">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - GL Journal Headers&quot;.&quot;JS User Je Source Name&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Dim - GL Journal Headers</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat>
+               <saw:caption fmt="text">
+                  <saw:text>Source Name</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c3f2eb98fc7bcefdf"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - GL Journal Headers&quot;.&quot;JL Description&quot;</sawx:expr></saw:columnFormula><saw:tableHeading><saw:caption fmt="text"><saw:text>Dim - GL Journal Headers</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption fmt="text"><saw:text>Line Description</saw:text></saw:caption></saw:columnHeading></saw:column><saw:column xsi:type="saw:regularColumn" columnID="cf523594b7d593806"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - GL Journal Headers&quot;.&quot;JL Reference 1&quot;</sawx:expr></saw:columnFormula><saw:tableHeading><saw:caption fmt="text"><saw:text>Dim - GL Journal Headers</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption fmt="text"><saw:text>Reference 1</saw:text></saw:caption></saw:columnHeading></saw:column><saw:column xsi:type="saw:regularColumn" columnID="cce15416f5b014765"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - GL Journal Headers&quot;.&quot;JL Reference 2&quot;</sawx:expr></saw:columnFormula><saw:tableHeading><saw:caption fmt="text"><saw:text>Dim - GL Journal Headers</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption fmt="text"><saw:text>Reference 2</saw:text></saw:caption></saw:columnHeading></saw:column><saw:column xsi:type="saw:regularColumn" columnID="c83b2762b9bd9b7a8"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - GL Journal Headers&quot;.&quot;JL Reference 3&quot;</sawx:expr></saw:columnFormula><saw:tableHeading><saw:caption fmt="text"><saw:text>Dim - GL Journal Headers</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption fmt="text"><saw:text>Reference 3</saw:text></saw:caption></saw:columnHeading></saw:column><saw:column xsi:type="saw:regularColumn" columnID="c1632cbee9e21b573"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - GL Journal Headers&quot;.&quot;JL Period Name&quot;</sawx:expr></saw:columnFormula><saw:tableHeading><saw:caption fmt="text"><saw:text>Dim - GL Journal Headers</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption fmt="text"><saw:text>Period Name</saw:text></saw:caption></saw:columnHeading></saw:column>
+         
+         
+         
+         
+         
+         <saw:column xsi:type="saw:regularColumn" columnID="c820a84569093aeff">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Code Combinations&quot;.&quot;Full Chart Value&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         
+         
+         </saw:columns>
+      <saw:filter>
+         <sawx:expr xsi:type="sawx:logical" op="and">
+            <sawx:expr xsi:type="sawx:list" op="in"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - GL Journal Headers&quot;.&quot;JL Period Name&quot;</sawx:expr><sawx:expr xsi:type="sawx:eval" default="xxx">varGLPeriod</sawx:expr></sawx:expr><sawx:expr op="in" xsi:type="sawx:list">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Code Combinations&quot;.&quot;Org&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varOrg</sawx:expr></sawx:expr><sawx:expr op="in" xsi:type="sawx:list">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Code Combinations&quot;.&quot;Fund&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varFund</sawx:expr></sawx:expr><sawx:expr op="in" xsi:type="sawx:list">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Code Combinations&quot;.&quot;Activity&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varActivity</sawx:expr></sawx:expr><sawx:expr op="in" xsi:type="sawx:list">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Code Combinations&quot;.&quot;Root&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varRoot</sawx:expr></sawx:expr>
+            
+            
+            
+            
+            </sawx:expr></saw:filter></saw:criteria>
+   <saw:interactionOptions drill="true" movecolumns="true" sortcolumns="true" addremovevalues="false" groupoperations="false" calcitemoperations="false" showhidesubtotal="false" showhiderunningsum="false" inclexclcolumns="true" hidecolumns="false"/>
+   <saw:views textDelivery="compoundView!1" parentsBefore="true" includeNewColumns="true" nullSuppress="true" currentView="0">
+      <saw:view xsi:type="saw:compoundView" name="compoundView!1">
+         <saw:cvTable>
+            <saw:cvRow>
+               <saw:cvCell viewName="titleView!1">
+                  <saw:displayFormat>
+                     <saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow>
+            <saw:cvRow>
+               <saw:cvCell viewName="tableView!1">
+                  <saw:displayFormat>
+                     <saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow><saw:cvRow><saw:cvCell viewName="narrativeView!1"/></saw:cvRow></saw:cvTable></saw:view>
+      <saw:view xsi:type="saw:titleView" name="titleView!1" includeName="false" startedDisplay="none"><saw:title>
+            <saw:caption fmt="text">
+               <saw:text>Journal Sources for Reporting Period</saw:text></saw:caption></saw:title></saw:view>
+      <saw:view xsi:type="saw:tableView" name="tableView!1" scrollingEnabled="false" rowsPerPage="5000" repeat="true"><saw:edges><saw:edge axis="page" showColumnHeader="true"/><saw:edge axis="section"/><saw:edge axis="row" showColumnHeader="true">
+               <saw:edgeLayers><saw:edgeLayer type="column" columnID="c4befce8832b65140"/><saw:edgeLayer type="column" columnID="c4a44b846a3002c3a"/><saw:edgeLayer type="column" columnID="c804afb333e30cb65"/><saw:edgeLayer type="column" columnID="c3f2eb98fc7bcefdf"/><saw:edgeLayer type="column" columnID="cf523594b7d593806"/><saw:edgeLayer type="column" columnID="cce15416f5b014765"/><saw:edgeLayer type="column" columnID="c83b2762b9bd9b7a8"/><saw:edgeLayer type="column" columnID="c820a84569093aeff"/><saw:edgeLayer type="column" columnID="c1632cbee9e21b573"/></saw:edgeLayers></saw:edge><saw:edge axis="column"/></saw:edges>
+         
+         <saw:greenBarFormat greenBar="allLayers" enabled="true"/></saw:view>
+      <saw:view xsi:type="saw:noresultsview" name="noresultsview!1">
+         <saw:headline>
+            <saw:caption>
+               <saw:text>No results</saw:text></saw:caption></saw:headline>
+         <saw:detail>
+            <saw:caption>
+               <saw:text>The value you requested is not listed as a Journal Source for the current reporting period.</saw:text></saw:caption></saw:detail></saw:view></saw:views>
+   <saw:prompts scope="report" subjectArea="&quot;General Ledger&quot;"/></saw:report>

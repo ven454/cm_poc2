@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<saw:report xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlVersion="201201160" xmlns:sawx="com.siebel.analytics.web/expression/v1.1">
+	<saw:criteria xsi:type="saw:simpleCriteria" subjectArea="&quot;Financials&quot;" withinHierarchy="true">
+		<saw:columns>
+			<saw:column xsi:type="saw:regularColumn" columnID="c2c6911077cfa15e1">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">MAX(RCOUNT(1))</sawx:expr></saw:columnFormula>
+				<saw:displayFormat>
+					<saw:formatSpec suppress="repeat" wrapText="true">
+						<saw:dataFormat xsi:type="saw:number" commas="true" negativeType="minus" minDigits="0" maxDigits="0"/></saw:formatSpec></saw:displayFormat>
+				<saw:tableHeading>
+					<saw:caption fmt="text">
+						<saw:text>Count</saw:text></saw:caption></saw:tableHeading>
+				<saw:columnHeading>
+					<saw:displayFormat>
+						<saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+			<saw:column xsi:type="saw:regularColumn" columnID="cac083cb6d556465e">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds with No PBs&quot;.&quot;FUND_KEY&quot;</sawx:expr></saw:columnFormula>
+				<saw:displayFormat>
+					<saw:formatSpec visibility="hidden" suppress="suppress" wrapText="true"/></saw:displayFormat>
+				<saw:columnHeading>
+					<saw:displayFormat>
+						<saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+			<saw:column xsi:type="saw:regularColumn" columnID="c8a3eeaf6a88bd6ad">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Owning Tub&quot;</sawx:expr></saw:columnFormula>
+				<saw:displayFormat>
+					<saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				<saw:columnHeading>
+					<saw:displayFormat>
+						<saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			<saw:column xsi:type="saw:regularColumn" columnID="c91e0e48532b0698f">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund&quot;</sawx:expr></saw:columnFormula>
+				<saw:displayFormat>
+					<saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				<saw:columnHeading>
+					<saw:displayFormat>
+						<saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			<saw:column xsi:type="saw:regularColumn" columnID="cda04b488ec5d603d">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Enabled Flag&quot;</sawx:expr></saw:columnFormula>
+				<saw:displayFormat>
+					<saw:formatSpec visibility="hidden" suppress="suppress" wrapText="true" interaction="none"/></saw:displayFormat>
+				<saw:columnHeading>
+					<saw:displayFormat>
+						<saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			<saw:column xsi:type="saw:regularColumn" columnID="ca157570049ddba91">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Standing Ord Enabled Flag&quot;</sawx:expr></saw:columnFormula><saw:displayFormat><saw:formatSpec suppress="suppress" wrapText="true" interaction="none"/></saw:displayFormat><saw:columnHeading><saw:displayFormat><saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			<saw:column xsi:type="saw:regularColumn" columnID="c680717cafde7accf">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Name&quot;</sawx:expr></saw:columnFormula>
+				<saw:displayFormat>
+					<saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				<saw:columnHeading>
+					<saw:displayFormat>
+						<saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			<saw:column xsi:type="saw:regularColumn" columnID="ce15ad1d7c87169d5">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">CASE WHEN CAST (&quot;Dim - Funds (END Management)&quot;.&quot;Creation Date&quot; AS DATE) &gt;= &#39;01-JUL-99&#39; THEN &quot;Dim - Funds (END Management)&quot;.&quot;Creation Date&quot; ELSE CAST(&#39;01-JUL-99&#39; AS DATE) END</sawx:expr></saw:columnFormula>
+				<saw:displayFormat>
+					<saw:formatSpec suppress="repeat" wrapText="true" interaction="none">
+						<saw:dataFormat xsi:type="saw:custom" customFormat="MM/DD/YYYY"/></saw:formatSpec></saw:displayFormat>
+				<saw:tableHeading>
+					<saw:caption fmt="text">
+						<saw:text>Dim - Funds</saw:text></saw:caption></saw:tableHeading>
+				<saw:columnHeading>
+					<saw:displayFormat>
+						<saw:formatSpec interaction="none"/></saw:displayFormat>
+					<saw:caption fmt="text">
+						<saw:text>Fund Creation Date</saw:text></saw:caption></saw:columnHeading></saw:column>
+			<saw:column xsi:type="saw:regularColumn" columnID="cafed5fc4ad462e55">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Purpose Code&quot;</sawx:expr></saw:columnFormula>
+				<saw:displayFormat>
+					<saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				<saw:columnHeading>
+					<saw:displayFormat>
+						<saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			<saw:column xsi:type="saw:regularColumn" columnID="c8143ca13751c40c9">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Purpose Description&quot;</sawx:expr></saw:columnFormula>
+				<saw:displayFormat>
+					<saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				<saw:columnHeading>
+					<saw:displayFormat>
+						<saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			<saw:column xsi:type="saw:regularColumn" columnID="c351ae1586b4d1693">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Category Code&quot;</sawx:expr></saw:columnFormula>
+				<saw:displayFormat>
+					<saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				<saw:columnHeading>
+					<saw:displayFormat>
+						<saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			<saw:column xsi:type="saw:regularColumn" columnID="c3004dd66c481de42">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Category Description&quot;</sawx:expr></saw:columnFormula>
+				<saw:displayFormat>
+					<saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				<saw:columnHeading>
+					<saw:displayFormat>
+						<saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			<saw:column xsi:type="saw:regularColumn" columnID="c90e4a5bf9971783a">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Type Code&quot;</sawx:expr></saw:columnFormula>
+				<saw:displayFormat>
+					<saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				<saw:columnHeading>
+					<saw:displayFormat>
+						<saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			<saw:column xsi:type="saw:regularColumn" columnID="c046bc70b2ae50ada">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Type Code Desc&quot;</sawx:expr></saw:columnFormula>
+				<saw:displayFormat>
+					<saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				<saw:columnHeading>
+					<saw:displayFormat>
+						<saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			<saw:column xsi:type="saw:regularColumn" columnID="cf85768d6da414f2c">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fasb Code&quot;</sawx:expr></saw:columnFormula>
+				<saw:displayFormat>
+					<saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				<saw:columnHeading>
+					<saw:displayFormat>
+						<saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			<saw:column xsi:type="saw:regularColumn" columnID="c672d6e4504da293e">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fasb Description&quot;</sawx:expr></saw:columnFormula>
+				<saw:displayFormat>
+					<saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				<saw:columnHeading>
+					<saw:displayFormat>
+						<saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			<saw:column xsi:type="saw:regularColumn" columnID="c70a1fc6c7b9d9afc">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Standing Order Instr&quot;</sawx:expr></saw:columnFormula>
+				<saw:displayFormat>
+					<saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				<saw:columnHeading>
+					<saw:displayFormat>
+						<saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			<saw:column xsi:type="saw:regularColumn" columnID="c9f08f2885757d64e">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Standing Order Status Code&quot;</sawx:expr></saw:columnFormula>
+				<saw:displayFormat>
+					<saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				<saw:tableHeading><saw:caption fmt="text"><saw:text>Dim - Funds (END Management)</saw:text></saw:caption></saw:tableHeading><saw:columnHeading>
+					<saw:displayFormat>
+						<saw:formatSpec interaction="none"/></saw:displayFormat><saw:caption fmt="text"><saw:text>Standing Order Code</saw:text></saw:caption></saw:columnHeading></saw:column>
+			<saw:column xsi:type="saw:regularColumn" columnID="cf023ac7f696bbe72">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Standing Order Status Desc&quot;</sawx:expr></saw:columnFormula>
+				<saw:displayFormat>
+					<saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				<saw:tableHeading><saw:caption fmt="text"><saw:text>Dim - Funds (END Management)</saw:text></saw:caption></saw:tableHeading><saw:columnHeading>
+					<saw:displayFormat>
+						<saw:formatSpec interaction="none"/></saw:displayFormat><saw:caption fmt="text"><saw:text>Standing Order Description</saw:text></saw:caption></saw:columnHeading></saw:column>
+			<saw:column xsi:type="saw:regularColumn" columnID="cc9feb0308ce22f0c">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Pct Income To Capitalize&quot;</sawx:expr></saw:columnFormula>
+				<saw:displayFormat>
+					<saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				<saw:columnHeading>
+					<saw:displayFormat>
+						<saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			<saw:column xsi:type="saw:regularColumn" columnID="cfd297c7333e0ac4a">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Amt Income To Capitalize&quot;</sawx:expr></saw:columnFormula>
+				<saw:displayFormat>
+					<saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				<saw:columnHeading>
+					<saw:displayFormat>
+						<saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			<saw:column xsi:type="saw:regularColumn" columnID="cf89bf946c1ce9176"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Primary Managing Org&quot;</sawx:expr></saw:columnFormula><saw:displayFormat><saw:formatSpec suppress="suppress" wrapText="true" interaction="none"/></saw:displayFormat><saw:columnHeading><saw:displayFormat><saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column><saw:column xsi:type="saw:regularColumn" columnID="c258dc18881a65e72">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Capitalization Ceiling Amt&quot;</sawx:expr></saw:columnFormula>
+				<saw:displayFormat>
+					<saw:formatSpec suppress="repeat" wrapText="true" interaction="none">
+						<saw:dataFormat xsi:type="saw:number" minDigits="2" maxDigits="2" commas="true" negativeType="paren"/></saw:formatSpec></saw:displayFormat>
+				<saw:tableHeading>
+					<saw:caption fmt="text">
+						<saw:text>Dim - Funds</saw:text></saw:caption></saw:tableHeading>
+				<saw:columnHeading>
+					<saw:displayFormat>
+						<saw:formatSpec interaction="none"/></saw:displayFormat>
+					<saw:caption fmt="text">
+						<saw:text>Capitalization Ceiling Amt</saw:text></saw:caption></saw:columnHeading></saw:column>
+			<saw:column xsi:type="saw:regularColumn" columnID="c15df2d40af3beebd">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">CASE WHEN CAST( &quot;Dim - Funds (END Management)&quot;.&quot;Capitalization End Date&quot; AS DATE) =&#39;31-DEC-9999&#39; 
+THEN CAST(&#39;31-DEC-2999&#39;  AS DATE) ELSE &quot;Dim - Funds (END Management)&quot;.&quot;Capitalization End Date&quot;
+END 
+
+
+
+
+
+
+
+</sawx:expr></saw:columnFormula>
+				<saw:displayFormat>
+					<saw:formatSpec suppress="repeat" wrapText="true" interaction="none">
+						<saw:dataFormat xsi:type="saw:custom" customFormat="MM/DD/YYYY"/></saw:formatSpec></saw:displayFormat>
+				<saw:tableHeading><saw:caption fmt="text"><saw:text>Dim - Funds (END Management)</saw:text></saw:caption></saw:tableHeading><saw:columnHeading>
+					<saw:displayFormat>
+						<saw:formatSpec interaction="none"/></saw:displayFormat><saw:caption fmt="text"><saw:text>Capitalization End Date</saw:text></saw:caption></saw:columnHeading></saw:column>
+			<saw:column xsi:type="saw:regularColumn" columnID="ce859389c0b8ffd5f">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Percent Unexp Inc To Cap&quot;</sawx:expr></saw:columnFormula>
+				<saw:displayFormat>
+					<saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+				<saw:columnHeading>
+					<saw:displayFormat>
+						<saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+			<saw:column xsi:type="saw:regularColumn" columnID="cd2420486569b841f">
+				<saw:columnFormula>
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Unexp Inc Cap Date&quot;</sawx:expr></saw:columnFormula>
+				<saw:displayFormat>
+					<saw:formatSpec suppress="repeat" wrapText="true" interaction="none">
+						<saw:dataFormat xsi:type="saw:custom" customFormat="MM/DD/YYYY"/></saw:formatSpec></saw:displayFormat>
+				<saw:tableHeading><saw:caption fmt="text"><saw:text>Dim - Funds (END Management)</saw:text></saw:caption></saw:tableHeading><saw:columnHeading>
+					<saw:displayFormat>
+						<saw:formatSpec interaction="none"/></saw:displayFormat><saw:caption fmt="text"><saw:text>Fund Unexp Inc Cap End Date</saw:text></saw:caption></saw:columnHeading></saw:column></saw:columns>
+		<saw:filter>
+			<sawx:expr xsi:type="sawx:logical" op="and">
+				<sawx:expr xsi:type="sawx:list" op="in">
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Owning Tub&quot;</sawx:expr>
+					<sawx:expr xsi:type="sawx:eval" default="ZZZ">varTub</sawx:expr></sawx:expr>
+				<sawx:expr xsi:type="sawx:list" op="in">
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund&quot;</sawx:expr>
+					<sawx:expr xsi:type="sawx:eval" default="%">varFund</sawx:expr></sawx:expr>
+				<sawx:expr xsi:type="sawx:list" op="in">
+					<sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Standing Order Instr&quot;</sawx:expr>
+					<sawx:expr xsi:type="sawx:eval" default="%">varStandingOrder</sawx:expr></sawx:expr><sawx:expr op="in" xsi:type="sawx:list"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds (END Management)&quot;.&quot;Fund Primary Managing Org&quot;</sawx:expr><sawx:expr xsi:type="sawx:eval" default="%">varFundPMO</sawx:expr></sawx:expr></sawx:expr></saw:filter></saw:criteria>
+	<saw:interactionOptions drill="true" movecolumns="true" sortcolumns="true" addremovevalues="true" groupoperations="true" calcitemoperations="true" showhidesubtotal="true" showhiderunningsum="true" inclexclcolumns="true" hidecolumns="false"/>
+	<saw:views textDelivery="compoundView!1" parentsBefore="true" includeNewColumns="true" nullSuppress="true" currentView="2">
+		<saw:view xsi:type="saw:compoundView" name="compoundView!1">
+			<saw:cvTable>
+				<saw:cvRow>
+					<saw:cvCell viewName="titleView!1">
+						<saw:displayFormat>
+							<saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow>
+				<saw:cvRow>
+					<saw:cvCell viewName="tableView!1">
+						<saw:displayFormat>
+							<saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow>
+				<saw:cvRow>
+					<saw:cvCell viewName="narrativeView!1"/></saw:cvRow></saw:cvTable></saw:view>
+		<saw:view xsi:type="saw:titleView" name="titleView!1" includeName="true" startedDisplay="dateTime"/>
+		<saw:view xsi:type="saw:tableView" name="tableView!1" scrollingEnabled="false">
+			<saw:edges><saw:edge axis="page" showColumnHeader="true"/><saw:edge axis="section"/><saw:edge axis="row" showColumnHeader="true">
+					<saw:edgeLayers><saw:edgeLayer type="column" columnID="c2c6911077cfa15e1" visibility="hidden" uiTableName="Count"/><saw:edgeLayer type="column" columnID="c8a3eeaf6a88bd6ad" uiTableName="Dim - Funds (END Management)"/><saw:edgeLayer type="column" columnID="c91e0e48532b0698f" uiTableName="Dim - Funds (END Management)"/><saw:edgeLayer type="column" columnID="c680717cafde7accf" uiTableName="Dim - Funds (END Management)"/><saw:edgeLayer type="column" columnID="ce15ad1d7c87169d5" uiTableName="Dim - Funds"/><saw:edgeLayer type="column" columnID="cafed5fc4ad462e55" uiTableName="Dim - Funds (END Management)"/><saw:edgeLayer type="column" columnID="c8143ca13751c40c9" uiTableName="Dim - Funds (END Management)"/><saw:edgeLayer type="column" columnID="c351ae1586b4d1693" uiTableName="Dim - Funds (END Management)"/><saw:edgeLayer type="column" columnID="c046bc70b2ae50ada" uiTableName="Dim - Funds (END Management)"/><saw:edgeLayer type="column" columnID="cf85768d6da414f2c" uiTableName="Dim - Funds (END Management)"><saw:headerFormat><saw:displayFormat><saw:formatSpec/></saw:displayFormat></saw:headerFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="cf89bf946c1ce9176" uiTableName="Dim - Funds (END Management)"><saw:headerFormat><saw:displayFormat><saw:formatSpec wrapText="true"/></saw:displayFormat></saw:headerFormat></saw:edgeLayer><saw:edgeLayer type="column" columnID="c3004dd66c481de42" uiTableName="Dim - Funds (END Management)"/><saw:edgeLayer type="column" columnID="c90e4a5bf9971783a" uiTableName="Dim - Funds (END Management)"/><saw:edgeLayer type="column" columnID="c672d6e4504da293e" uiTableName="Dim - Funds (END Management)"/><saw:edgeLayer type="column" columnID="c70a1fc6c7b9d9afc" uiTableName="Dim - Funds (END Management)"/><saw:edgeLayer type="column" columnID="c9f08f2885757d64e" uiTableName="Dim - Funds (END Management)"/><saw:edgeLayer type="column" columnID="cf023ac7f696bbe72" uiTableName="Dim - Funds (END Management)"/><saw:edgeLayer type="column" columnID="cc9feb0308ce22f0c" uiTableName="Dim - Funds (END Management)"/><saw:edgeLayer type="column" columnID="cfd297c7333e0ac4a" uiTableName="Dim - Funds (END Management)"/><saw:edgeLayer type="column" columnID="c258dc18881a65e72" uiTableName="Dim - Funds"/><saw:edgeLayer type="column" columnID="c15df2d40af3beebd" uiTableName="Dim - Funds (END Management)"/><saw:edgeLayer type="column" columnID="cda04b488ec5d603d" uiTableName="Dim - Funds (END Management)"/><saw:edgeLayer type="column" columnID="cac083cb6d556465e" uiTableName="Dim - Funds with No PBs"/><saw:edgeLayer type="column" columnID="ce859389c0b8ffd5f" uiTableName="Dim - Funds (END Management)"/><saw:edgeLayer type="column" columnID="cd2420486569b841f" uiTableName="Dim - Funds (END Management)"/></saw:edgeLayers></saw:edge><saw:edge axis="column" showColumnHeader="rollover"/></saw:edges></saw:view>
+		<saw:view xsi:type="saw:noresultsview" name="noresultsview!1">
+			<saw:headline>
+				<saw:caption>
+					<saw:text>No Results</saw:text></saw:caption></saw:headline>
+			<saw:detail>
+				<saw:caption>
+					<saw:text>Please choose Prompt Values and then click the APPLY button.</saw:text></saw:caption></saw:detail></saw:view>
+		<saw:view xsi:type="saw:narrativeView" name="narrativeView!1">
+			<saw:narrative rowCount="1">
+				<saw:caption fmt="text">
+					<saw:text>@{c2c6911077cfa15e1}  Rows of Data Returned [br/]</saw:text></saw:caption></saw:narrative></saw:view></saw:views></saw:report>

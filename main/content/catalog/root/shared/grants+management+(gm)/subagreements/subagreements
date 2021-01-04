@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<saw:report xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlVersion="201201160" xmlns:sawx="com.siebel.analytics.web/expression/v1.1">
+   <saw:criteria xsi:type="saw:simpleCriteria" subjectArea="&quot;Grants Management&quot;" withinHierarchy="true">
+      <saw:columns>
+         <saw:column xsi:type="saw:regularColumn" columnID="cc99fdbd138b7bf3a">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">MAX(RCOUNT(1))</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec visibility="hidden" suppress="repeat" wrapText="true"/></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Count</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c97061cd8ada07bc5">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Segments&quot;.&quot;Resp Tub Cd&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Dim - Segments</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat>
+               <saw:caption fmt="text">
+                  <saw:text>Resp Tub</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c99c3db67f7313b49">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Segments&quot;.&quot;Resp Tub Desc&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c76ee75275aa446cd">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Segments&quot;.&quot;Resp Org Cd&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Dim - Segments</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Resp Org</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c60ae523ee9a0b444">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Segments&quot;.&quot;Resp Org Desc&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cb6bde4a76ce5f420">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Segments&quot;.&quot;Project ID-Seg No&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c36c4c12ef9ba68f4">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Segments&quot;.&quot;Pi Last Name&quot; || &#39;, &#39; || &quot;Dim - Segments&quot;.&quot;Pi First Name&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Dim - Segments</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat>
+               <saw:caption fmt="text">
+                  <saw:text>Principal Investigator</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c457b1018bea1e97e">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Segments&quot;.&quot;Sponsor&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c09c2759d0f395a74">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Segments&quot;.&quot;Anticip Start Date&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Dim - Segments</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Proj Anticip Start Date</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cec6b35b1931a0119">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Segments&quot;.&quot;Anticip End Date&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Dim - Segments</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Proj Anticip End Date</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c3ae7e50fc7464bc9">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Segments&quot;.&quot;Sponsored Fund Cd&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Dim - Segments</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Fund</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="ca5d97748f7c8cc84">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Subagreements&quot;.&quot;Subagreement Id&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="action">
+                  <saw:actionLinks showPopupMenuForOneLink="true" appliesToTotal="false">
+                     
+                     
+                     
+                     <saw:actionLink actionLinkID="ca5d97748f7c8cc84_al3e7e40a99313b19f">
+                        <saw:action>
+                           <saw:actionName>Committed Funds for Subagreement Accounts</saw:actionName>
+                           <saw:parameters allowExtraParameters="true">
+                              <saw:parameter name="__navigateToBIContent__" type="string" mandatory="true" removable="true" order="0" multiValues="false">
+                                 <saw:prompt>__navigateToBIContent__</saw:prompt>
+                                 <saw:description/></saw:parameter></saw:parameters>
+                           <saw:assignments>
+                              <saw:assign name="__navigateToBIContent__" fixed="true" hidden="true" parentFixed="false" parentHidden="false" xsi:type="saw:stringAssign">
+                                 <saw:value>/shared/Grants Management (GM)/Subagreements/Committed Funds for Subagreement Accounts</saw:value></saw:assign></saw:assignments>
+                           <saw:implementation xsi:type="saw:ScriptActionType" executeOnClient="true">
+                              <saw:functionName>__navigateToBIContent__</saw:functionName>
+                              <saw:scriptLanguage>JScript</saw:scriptLanguage>
+                              <saw:scriptPath/></saw:implementation>
+                           <saw:clientImplementation>
+                              <saw:customisation invokeConfirmation="false" openNewWindow="true"/></saw:clientImplementation></saw:action>
+                        <saw:caption>
+                           <saw:text>Committed Funds for Subagreement Accounts</saw:text></saw:caption></saw:actionLink><saw:actionLink actionLinkID="ca5d97748f7c8cc84_al8b2fb09eb94fe74d">
+                        <saw:action>
+                           <saw:actionName>Subagreement Accounts Details</saw:actionName>
+                           <saw:parameters allowExtraParameters="true">
+                              <saw:parameter name="__navigateToBIContent__" type="string" mandatory="true" removable="true" order="0" multiValues="false">
+                                 <saw:prompt>__navigateToBIContent__</saw:prompt>
+                                 <saw:description/></saw:parameter></saw:parameters>
+                           <saw:assignments>
+                              <saw:assign name="__navigateToBIContent__" fixed="true" hidden="true" parentFixed="false" parentHidden="false" xsi:type="saw:stringAssign">
+                                 <saw:value>/shared/Grants Management (GM)/Subagreements/Subagreement Accounts Details</saw:value></saw:assign></saw:assignments>
+                           <saw:implementation xsi:type="saw:ScriptActionType" executeOnClient="true">
+                              <saw:functionName>__navigateToBIContent__</saw:functionName>
+                              <saw:scriptLanguage>JScript</saw:scriptLanguage>
+                              <saw:scriptPath/></saw:implementation>
+                           <saw:clientImplementation>
+                              <saw:customisation invokeConfirmation="false" openNewWindow="true"/></saw:clientImplementation></saw:action>
+                        <saw:caption>
+                           <saw:text>Subagreement Account Details</saw:text></saw:caption></saw:actionLink><saw:actionLink actionLinkID="ca5d97748f7c8cc84_al9ab53d328cb2720e">
+                        
+                        <saw:action><saw:actionName>Vendor Invoice Detail for Subagreement Accounts</saw:actionName><saw:parameters allowExtraParameters="true"><saw:parameter name="__navigateToBIContent__" type="string" mandatory="true" removable="true" order="0" multiValues="false"><saw:prompt>__navigateToBIContent__</saw:prompt><saw:description/></saw:parameter></saw:parameters><saw:assignments><saw:assign name="__navigateToBIContent__" fixed="true" hidden="true" parentFixed="false" parentHidden="false" xsi:type="saw:stringAssign"><saw:value>/shared/Grants Management (GM)/Subagreements/Vendor Invoice Detail for Subagreement Accounts</saw:value></saw:assign></saw:assignments><saw:implementation xsi:type="saw:ScriptActionType" executeOnClient="true">
+                              <saw:functionName>__navigateToBIContent__</saw:functionName>
+                              <saw:scriptLanguage>JScript</saw:scriptLanguage>
+                              <saw:scriptPath/></saw:implementation><saw:clientImplementation>
+                              <saw:customisation invokeConfirmation="false" openNewWindow="true"/></saw:clientImplementation></saw:action><saw:caption>
+                           <saw:text>Vendor Invoice Detail for Subagreement Accounts</saw:text></saw:caption></saw:actionLink><saw:actionLink actionLinkID="ca5d97748f7c8cc84_al458b9f5f4c639440">
+                        <saw:action>
+                           <saw:actionName>AP Invoice Holds for Subagreement Accounts</saw:actionName>
+                           <saw:parameters allowExtraParameters="true">
+                              <saw:parameter name="__navigateToBIContent__" type="string" mandatory="true" removable="true" order="0" multiValues="false">
+                                 <saw:prompt>__navigateToBIContent__</saw:prompt>
+                                 <saw:description/></saw:parameter></saw:parameters>
+                           <saw:assignments>
+                              <saw:assign name="__navigateToBIContent__" fixed="true" hidden="true" parentFixed="false" parentHidden="false" xsi:type="saw:stringAssign">
+                                 <saw:value>/shared/Grants Management (GM)/Subagreements/AP Invoice Holds for Subagreement Accounts</saw:value></saw:assign></saw:assignments>
+                           <saw:implementation xsi:type="saw:ScriptActionType" executeOnClient="true">
+                              <saw:functionName>__navigateToBIContent__</saw:functionName>
+                              <saw:scriptLanguage>JScript</saw:scriptLanguage>
+                              <saw:scriptPath/></saw:implementation>
+                           <saw:clientImplementation>
+                              <saw:customisation invokeConfirmation="false" openNewWindow="true"/></saw:clientImplementation></saw:action>
+                        <saw:caption>
+                           <saw:text>AP Invoice Holds for Subagreement Accounts</saw:text></saw:caption></saw:actionLink></saw:actionLinks></saw:formatSpec></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Dim - Subagreements</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec/></saw:displayFormat>
+               <saw:caption fmt="text">
+                  <saw:text>Subagreement Id</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="ccf913579576ec968">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Subagreements&quot;.&quot;Subagreement Status Desc&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Dim - Subagreements</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Subagreement Status</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c39f1f1e9ef328ff8">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Subagreements&quot;.&quot;Amendment No&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c945d153d77a3e763">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Subagreements&quot;.&quot;Amendment Status Desc&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Dim - Subagreements</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Amendment Status</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cdaedac3c6a3a802f">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Subagreements&quot;.&quot;No Days Out&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Dim - Subagreements</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text># Days Out</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c7b3e9d722a746064">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Subagreements&quot;.&quot;Subrecipient Name&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Dim - Subagreements</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Subrecipient</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="ca46cadd2158a0b10">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Subagreements&quot;.&quot;Subagt Issued Start Date&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c25d9ea6812633a29">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Subagreements&quot;.&quot;Subagt Issued End Date&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c9520ac7bcfe4b455">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Subagreements&quot;.&quot;Subagt Issued Amt&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">
+                  <saw:dataFormat xsi:type="saw:currency" minDigits="2" maxDigits="2" commas="true" negativeType="paren" currencyTag="none"/></saw:formatSpec></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cfd34a32172bbe3a4">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Subagreements&quot;.&quot;Subagt Sub Expenses&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">
+                  <saw:dataFormat xsi:type="saw:currency" minDigits="2" maxDigits="2" commas="true" negativeType="paren" currencyTag="none"/></saw:formatSpec></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Fact - Subagreements</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Subagt Expenses (8190-8192)</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c2290fec7c6ebffc0">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Subagreements&quot;.&quot;Issued Less Subagt Sub Exp&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">
+                  <saw:dataFormat xsi:type="saw:currency" minDigits="2" maxDigits="2" commas="true" negativeType="paren" currencyTag="none"/></saw:formatSpec></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Fact - Subagreements</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Issued Less Subagt Exp (8190-8192)</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c4dc2b5c56e609112">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Subagreements&quot;.&quot;Percent Unspent&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true">
+                  <saw:dataFormat xsi:type="saw:number" minDigits="1" maxDigits="1" commas="true" negativeType="paren"/></saw:formatSpec></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Fact - Subagreements</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>% Unspent</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c8b285ef028bcbe44">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Subagreements&quot;.&quot;Total F And A&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">
+                  <saw:dataFormat xsi:type="saw:currency" minDigits="2" maxDigits="2" commas="true" negativeType="paren" currencyTag="none"/></saw:formatSpec></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Fact - Subagreements</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Tot F&amp;A Expenses (8400-8409)</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c3abd2e22a02d82b2">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Subagreements&quot;.&quot;Subagt Tot  Expenses&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true">
+                  <saw:dataFormat xsi:type="saw:currency" minDigits="2" maxDigits="2" commas="true" negativeType="paren" currencyTag="none"/></saw:formatSpec></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Fact - Subagreements</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Subagt Tot Expenses (6000-8999)</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="caccc06c6671d81eb">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Subagreements&quot;.&quot;Miscoded Expenses&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">
+                  <saw:dataFormat xsi:type="saw:currency" minDigits="2" maxDigits="2" commas="true" negativeType="paren" currencyTag="none"/></saw:formatSpec></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c4e00c8b315b8815d">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Subagreements&quot;.&quot;Subagt Issued Ant End Date&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Dim - Subagreements</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Subagt Anticip End Date</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cb2b9f8acb126e694"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Subagreements&quot;.&quot;Subrecipient PI&quot;</sawx:expr></saw:columnFormula><saw:displayFormat><saw:formatSpec suppress="repeat" wrapText="true"/></saw:displayFormat><saw:columnHeading><saw:displayFormat><saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column><saw:column xsi:type="saw:regularColumn" columnID="c440bb57a1a552d7a">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Subagreements&quot;.&quot;Subagt Anticipated Amt&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">
+                  <saw:dataFormat xsi:type="saw:currency" minDigits="2" maxDigits="2" commas="true" negativeType="paren" currencyTag="none"/></saw:formatSpec></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Fact - Subagreements</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Subagt Anticip Amount</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="ca2adc2350c1dc75c">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Segments&quot;.&quot;Central Admin&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Dim - Segments</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>GMAS CA</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column><saw:column xsi:type="saw:regularColumn" columnID="cd615c5eb574f5e4d"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Requests&quot;.&quot;Request Type Desc&quot;</sawx:expr></saw:columnFormula><saw:displayFormat><saw:formatSpec suppress="repeat" wrapText="true"/></saw:displayFormat><saw:columnHeading><saw:displayFormat><saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column><saw:column xsi:type="saw:regularColumn" columnID="cb22234eefdce5c85"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Segments&quot;.&quot;Segment Title&quot;</sawx:expr></saw:columnFormula><saw:displayFormat><saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat><saw:columnHeading><saw:displayFormat><saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column></saw:columns>
+      <saw:filter>
+         <sawx:expr xsi:type="sawx:logical" op="and">
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Segments&quot;.&quot;Sponsored Fund Cd&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varSponFund</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Segments&quot;.&quot;Resp Tub Cd&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varRespTub</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Segments&quot;.&quot;Resp Org Cd&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="ZZZZZ">varRespOrg</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Segments&quot;.&quot;Project ID-Seg No&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varProjIdSegNo</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Subagreements&quot;.&quot;Subagreement Id&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varSubagreementID</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Subagreements&quot;.&quot;Subagreement Status Cd&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varSubagtStatus</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Subagreements&quot;.&quot;Amendment Status Cd&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varAmendStatus</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Segments&quot;.&quot;Sponsor&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varSponsor</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Subagreements&quot;.&quot;Subrecipient Name&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varSubrecipient</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:comparison" op="greater">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Subagreements&quot;.&quot;No Days Out&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varDaysOut</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:special" op="prompted">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Subagreements&quot;.&quot;Percent Unspent&quot;</sawx:expr></sawx:expr>
+            
+            
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:columnExpression" formulaUse="code" displayUse="display">
+                  <saw:columnFormula formulaUse="display">
+                     <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Segments&quot;.&quot;Principal Investigator&quot;</sawx:expr></saw:columnFormula></sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varPI</sawx:expr></sawx:expr></sawx:expr></saw:filter></saw:criteria>
+   <saw:interactionOptions drill="true" movecolumns="true" sortcolumns="true" addremovevalues="false" groupoperations="false" calcitemoperations="false" showhidesubtotal="false" showhiderunningsum="false" inclexclcolumns="true" hidecolumns="false"/>
+   <saw:views textDelivery="compoundView!1" parentsBefore="true" includeNewColumns="true" nullSuppress="true" currentView="0">
+      <saw:view xsi:type="saw:compoundView" name="compoundView!1">
+         <saw:cvTable>
+            <saw:cvRow>
+               <saw:cvCell viewName="titleView!1">
+                  <saw:displayFormat>
+                     <saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow>
+            <saw:cvRow>
+               <saw:cvCell viewName="tableView!1">
+                  <saw:displayFormat>
+                     <saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow>
+            <saw:cvRow>
+               <saw:cvCell viewName="narrativeView!1"/></saw:cvRow></saw:cvTable></saw:view>
+      <saw:view xsi:type="saw:titleView" name="titleView!1" includeName="true" startedDisplay="dateTime"/>
+      <saw:view xsi:type="saw:tableView" name="tableView!1" scrollingEnabled="false" rowsPerPage="5000" autoPreview="false">
+         <saw:edges><saw:edge axis="page" showColumnHeader="true"/><saw:edge axis="section"/><saw:edge axis="row" showColumnHeader="true">
+               <saw:displayGrandTotals>
+                  <saw:displayGrandTotal id="gt_row" grandTotalPosition="after"/></saw:displayGrandTotals>
+               <saw:edgeLayers><saw:edgeLayer type="column" columnID="cc99fdbd138b7bf3a"/><saw:edgeLayer type="column" columnID="c97061cd8ada07bc5"/><saw:edgeLayer type="column" columnID="c76ee75275aa446cd"/><saw:edgeLayer type="column" columnID="cb6bde4a76ce5f420"/><saw:edgeLayer type="column" columnID="c36c4c12ef9ba68f4"/><saw:edgeLayer type="column" columnID="c457b1018bea1e97e"/><saw:edgeLayer type="column" columnID="c09c2759d0f395a74"/><saw:edgeLayer type="column" columnID="cec6b35b1931a0119"/><saw:edgeLayer type="column" columnID="c3ae7e50fc7464bc9"/><saw:edgeLayer type="column" columnID="ca5d97748f7c8cc84"/><saw:edgeLayer type="column" columnID="ccf913579576ec968"/><saw:edgeLayer type="column" columnID="c39f1f1e9ef328ff8"/><saw:edgeLayer type="column" columnID="c945d153d77a3e763"/><saw:edgeLayer type="column" columnID="c7b3e9d722a746064"/><saw:edgeLayer type="column" columnID="ca46cadd2158a0b10"/><saw:edgeLayer type="column" columnID="c25d9ea6812633a29"/><saw:edgeLayer type="column" columnID="c9520ac7bcfe4b455"/><saw:edgeLayer type="column" columnID="cfd34a32172bbe3a4"/><saw:edgeLayer type="column" columnID="c2290fec7c6ebffc0"/><saw:edgeLayer type="column" columnID="c4dc2b5c56e609112"/><saw:edgeLayer type="column" columnID="c8b285ef028bcbe44"/><saw:edgeLayer type="column" columnID="c3abd2e22a02d82b2"/><saw:edgeLayer type="column" columnID="caccc06c6671d81eb"/><saw:edgeLayer type="column" columnID="c4e00c8b315b8815d"/><saw:edgeLayer type="column" columnID="c440bb57a1a552d7a"/><saw:edgeLayer type="column" columnID="ca2adc2350c1dc75c"/></saw:edgeLayers></saw:edge><saw:edge axis="column" showColumnHeader="rollover"/></saw:edges></saw:view>
+      <saw:view xsi:type="saw:noresultsview" name="noresultsview!1">
+         <saw:headline>
+            <saw:caption>
+               <saw:text>No Results</saw:text></saw:caption></saw:headline>
+         <saw:detail>
+            <saw:caption>
+               <saw:text>Please choose Prompt Values then click the APPLY button.</saw:text></saw:caption></saw:detail></saw:view>
+      <saw:view xsi:type="saw:narrativeView" name="narrativeView!1">
+         <saw:narrative rowCount="1">
+            <saw:caption fmt="html">
+               <saw:text>@{cc99fdbd138b7bf3a}  Rows of Data Returned [br/]</saw:text></saw:caption></saw:narrative></saw:view></saw:views></saw:report>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<saw:report xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sawx="com.siebel.analytics.web/expression/v1.1" xmlVersion="201201160">               
+   <saw:criteria xsi:type="saw:simpleCriteria" subjectArea="&quot;Harvard Library&quot;">                              
+      <saw:columns>                                                                                          
+         <saw:column xsi:type="saw:regularColumn" columnID="c2180d5cded6e5453">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Alma Items&quot;.&quot;Library Code&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cc1a04a01b6b39d54">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Alma Items&quot;.&quot;Location Code&quot;</sawx:expr></saw:columnFormula></saw:column>                                             
+         <saw:column xsi:type="saw:regularColumn" columnID="c76f7fda2d7f6dac2">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Alma Items&quot;.&quot;Alma Barcode&quot;</sawx:expr></saw:columnFormula></saw:column>                                             
+         <saw:column xsi:type="saw:regularColumn" columnID="c0576ceb91dac3344">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Alma Items&quot;.&quot;Temp Loc&quot;</sawx:expr></saw:columnFormula></saw:column>                                             
+         <saw:column xsi:type="saw:regularColumn" columnID="c420ed3197df22ea6">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Alma Items&quot;.&quot;Current Location&quot;</sawx:expr></saw:columnFormula></saw:column>                                             
+         <saw:column xsi:type="saw:regularColumn" columnID="cfd8bcd9e46ae06bf">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Owner Code&quot;</sawx:expr></saw:columnFormula></saw:column>                                             
+         <saw:column xsi:type="saw:regularColumn" columnID="ca22a6c80bd020736">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Accession Date&quot;</sawx:expr></saw:columnFormula></saw:column>                                             
+         <saw:column xsi:type="saw:regularColumn" columnID="cc8ec6ed4c26ed199">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Alma Items&quot;.&quot;Description&quot;</sawx:expr></saw:columnFormula></saw:column></saw:columns>                              
+      <saw:filter>                                             
+         <sawx:expr xsi:type="sawx:logical" op="and">                                                                                                                                                                                    
+            <sawx:expr xsi:type="sawx:comparison" op="equal">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Active Flag&quot;</sawx:expr>
+               <sawx:expr xsi:type="xsd:string">Y</sawx:expr></sawx:expr>
+            
+            <sawx:expr xsi:type="sawx:special" op="prompted">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Accession Date&quot;</sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:list" op="notContains"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Alma Items&quot;.&quot;Description&quot;</sawx:expr><sawx:expr xsi:type="xsd:string">HD</sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:list" op="in"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Alma Items&quot;.&quot;Alma Barcode&quot;</sawx:expr><sawx:expr xsi:type="sawx:eval" default="%">varBarcode</sawx:expr></sawx:expr></sawx:expr></saw:filter></saw:criteria>               
+   <saw:views currentView="0">                              
+      <saw:view xsi:type="saw:compoundView" name="compoundView!1">                                             
+         <saw:cvTable>                                                            
+            <saw:cvRow>                                                                           
+               <saw:cvCell viewName="titleView!1"/></saw:cvRow>                                                            
+            <saw:cvRow>                                                                           
+               <saw:cvCell viewName="tableView!1"/></saw:cvRow></saw:cvTable></saw:view>                              
+      <saw:view xsi:type="saw:titleView" name="titleView!1"/>                              
+      <saw:view xsi:type="saw:tableView" name="tableView!1" scrollingEnabled="false" repeat="false">                                             
+         <saw:edges>                                                            
+            <saw:edge axis="page" showColumnHeader="true"/>                                                            
+            <saw:edge axis="section"/>                                                            
+            <saw:edge axis="row" showColumnHeader="true">                                                                           
+               <saw:edgeLayers>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                  <saw:edgeLayer type="column" columnID="c2180d5cded6e5453"/>
+                  <saw:edgeLayer type="column" columnID="cc1a04a01b6b39d54"/>
+                  <saw:edgeLayer type="column" columnID="c76f7fda2d7f6dac2"/>
+                  <saw:edgeLayer type="column" columnID="c0576ceb91dac3344"/>
+                  <saw:edgeLayer type="column" columnID="c420ed3197df22ea6"/>
+                  <saw:edgeLayer type="column" columnID="cfd8bcd9e46ae06bf"/>
+                  <saw:edgeLayer type="column" columnID="ca22a6c80bd020736"/>
+                  <saw:edgeLayer type="column" columnID="cc8ec6ed4c26ed199"/></saw:edgeLayers></saw:edge>                                                            
+            <saw:edge axis="column" showColumnHeader="rollover"/></saw:edges>                                             
+         <saw:greenBarFormat greenBar="allLayers" enabled="false"/></saw:view></saw:views><saw:prompts scope="report" subjectArea="&quot;Harvard Library&quot;"/></saw:report>

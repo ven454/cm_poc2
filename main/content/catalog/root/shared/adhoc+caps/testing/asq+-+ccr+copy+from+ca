@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<saw:report xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlVersion="201201160" xmlns:sawx="com.siebel.analytics.web/expression/v1.1">
+   <saw:criteria xsi:type="saw:simpleCriteria" subjectArea="&quot;AdHoc CAPS&quot;">
+      <saw:columns>
+         <saw:column xsi:type="saw:regularColumn" columnID="ccdc1e4c675d3b7d5">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;SPONSOR_TUB&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c70835afd9bb0723b">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;CIP_ACTIVITY&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cfcd5616e14e2c953">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;PROJECT_NAME&quot;</sawx:expr></saw:columnFormula></saw:column>
+         
+         <saw:column xsi:type="saw:regularColumn" columnID="c20f62c522f59612b"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;CAPS_NUMBER&quot;</sawx:expr></saw:columnFormula></saw:column>
+         
+         <saw:column xsi:type="saw:regularColumn" columnID="cf31952e42c43bbac">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;CCR Inclusive&quot;.&quot;LAST_UPDATE_DATE&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="ce1a6839650b361dd">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">null</sawx:expr></saw:columnFormula></saw:column>
+         
+         <saw:column xsi:type="saw:regularColumn" columnID="c9edd3962e2028de8">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;CCR Inclusive&quot;.&quot;REQUEST_TYPE_CODE&quot;</sawx:expr></saw:columnFormula></saw:column>
+         
+         
+         
+         <saw:column xsi:type="saw:regularColumn" columnID="c4f406472f9851bd3"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Requests&quot;.&quot;CREATION_DATE&quot;</sawx:expr></saw:columnFormula></saw:column><saw:column xsi:type="saw:regularColumn" columnID="c2014fbed477b54d3"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Requests&quot;.&quot;PERFORMER_RESP_ID&quot;</sawx:expr></saw:columnFormula></saw:column><saw:column xsi:type="saw:regularColumn" columnID="c66dc0b5d2d06d226"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Requests&quot;.&quot;PERFORMER_USER_ID&quot;</sawx:expr></saw:columnFormula></saw:column><saw:column xsi:type="saw:regularColumn" columnID="c82602fca1b61489e"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Requests&quot;.&quot;STATUS_DESC&quot;</sawx:expr></saw:columnFormula></saw:column></saw:columns>
+      <saw:filter>
+         <sawx:expr xsi:type="sawx:logical" op="and"><sawx:expr xsi:type="sawx:comparison" op="equal">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;SPONSOR_TUB&quot;</sawx:expr>
+               <sawx:expr xsi:type="xsd:string">275</sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:comparison" op="equal"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;PROJECT_STATUS_CATEGORY&quot;</sawx:expr><sawx:expr xsi:type="xsd:string">O</sawx:expr></sawx:expr></sawx:expr></saw:filter>
+      <saw:columnOrder>
+         <saw:columnOrderRef columnID="ccdc1e4c675d3b7d5" direction="ascending"/>
+         <saw:columnOrderRef columnID="c70835afd9bb0723b" direction="ascending"/>
+         
+         <saw:columnOrderRef columnID="cf31952e42c43bbac" direction="descending"/></saw:columnOrder></saw:criteria>
+   <saw:views currentView="0">
+      <saw:view xsi:type="saw:compoundView" name="compoundView!1">
+         <saw:cvTable>
+            <saw:cvRow>
+               <saw:cvCell viewName="titleView!1"/></saw:cvRow>
+            <saw:cvRow>
+               <saw:cvCell viewName="tableView!1"/></saw:cvRow></saw:cvTable></saw:view>
+      <saw:view xsi:type="saw:titleView" name="titleView!1"/>
+      <saw:view xsi:type="saw:tableView" name="tableView!1" scrollingEnabled="false" repeat="false">
+         <saw:edges><saw:edge axis="page" showColumnHeader="true"/><saw:edge axis="section"/><saw:edge axis="row" showColumnHeader="true">
+               <saw:displayGrandTotals><saw:displayGrandTotal id="gt_row" grandTotalPosition="after"/></saw:displayGrandTotals><saw:edgeLayers><saw:edgeLayer type="column" columnID="c70835afd9bb0723b"/><saw:edgeLayer type="column" columnID="c20f62c522f59612b"/><saw:edgeLayer type="column" columnID="c82602fca1b61489e"/><saw:edgeLayer type="column" columnID="c4f406472f9851bd3"/><saw:edgeLayer type="column" columnID="c9edd3962e2028de8"/><saw:edgeLayer type="column" columnID="ce1a6839650b361dd"/><saw:edgeLayer type="column" columnID="cf31952e42c43bbac"/><saw:edgeLayer type="column" columnID="c2014fbed477b54d3"/><saw:edgeLayer type="column" columnID="c66dc0b5d2d06d226"/><saw:edgeLayer type="column" columnID="ccdc1e4c675d3b7d5" visibility="hidden"/><saw:edgeLayer type="column" columnID="cfcd5616e14e2c953"/></saw:edgeLayers></saw:edge><saw:edge axis="column" showColumnHeader="rollover"/></saw:edges></saw:view></saw:views></saw:report>

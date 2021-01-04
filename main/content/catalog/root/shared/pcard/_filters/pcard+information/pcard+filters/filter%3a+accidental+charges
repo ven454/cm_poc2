@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sawsf:savedFilterObject xmlns:sawsf="com.siebel.analytics.web/savedfilter/v1.1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sawx="com.siebel.analytics.web/expression/v1.1" subjectArea="&quot;PCARD Information&quot;"><saw:filter xmlns:saw="com.siebel.analytics.web/report/v1.1"><sawx:expr xsi:type="sawx:comparison" op="equal"><sawx:expr xsi:type="sawx:sqlExpression">CASE WHEN POSITION(&#39;ACCDIENT&#39;  IN UPPER(&quot;Transactions Inclusive&quot;.&quot;Pcard Trans Business Purpose&quot;) ) &gt; 0 THEN &#39;Yes&#39;
+WHEN POSITION(&#39;PERSONAL&#39;  IN UPPER(&quot;Transactions Inclusive&quot;.&quot;Pcard Trans Business Purpose&quot;) ) &gt; 0 THEN &#39;Yes&#39;
+WHEN POSITION(&#39;ERROR&#39; IN UPPER(&quot;Transactions Inclusive&quot;.&quot;Pcard Trans Business Purpose&quot;) ) &gt; 0 THEN &#39;Yes&#39;
+WHEN POSITION(&#39;MISTAKE&#39; IN UPPER(&quot;Transactions Inclusive&quot;.&quot;Pcard Trans Business Purpose&quot;) ) &gt; 0 THEN &#39;Yes&#39;
+WHEN POSITION(&#39;WRONG&#39;  IN UPPER(&quot;Transactions Inclusive&quot;.&quot;Pcard Trans Business Purpose&quot;) ) &gt; 0 THEN &#39;Yes&#39;
+ELSE &#39;No&#39; END 
+</sawx:expr><sawx:expr xsi:type="xsd:string">Yes</sawx:expr></sawx:expr></saw:filter></sawsf:savedFilterObject>

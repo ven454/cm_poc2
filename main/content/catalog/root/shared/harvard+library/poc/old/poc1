@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<saw:report xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sawx="com.siebel.analytics.web/expression/v1.1" xmlVersion="201201160">   
+   <saw:criteria xsi:type="saw:simpleCriteria" subjectArea="&quot;Harvard Library&quot;">      
+      <saw:columns>         
+                  
+         <saw:column xsi:type="saw:regularColumn" columnID="c6904dbad2ac26efd"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Alma Items&quot;.&quot;Library Code&quot;</sawx:expr></saw:columnFormula></saw:column><saw:column xsi:type="saw:regularColumn" columnID="c44c101a3ad71a4c3"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Alma Items&quot;.&quot;Location Code&quot;</sawx:expr></saw:columnFormula></saw:column>         
+                  
+         <saw:column xsi:type="saw:regularColumn" columnID="cc7a77a940a0d1c51"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Number of Active Items&quot;</sawx:expr></saw:columnFormula></saw:column><saw:column xsi:type="saw:regularColumn" columnID="c8deceb1c36717da0"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Alma Items&quot;.&quot;Temp Loc&quot;</sawx:expr></saw:columnFormula></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="c2aee54fa5901f6d5"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Alma Items&quot;.&quot;Current Library&quot;</sawx:expr></saw:columnFormula></saw:column>         
+                  
+                  
+         <saw:column xsi:type="saw:regularColumn" columnID="c654ee46d2aebd7dd"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Alma Items&quot;.&quot;In HD Flag&quot;</sawx:expr></saw:columnFormula></saw:column></saw:columns>      
+      <saw:filter>         
+         <sawx:expr xsi:type="sawx:logical" op="and">            
+                        
+            <sawx:expr xsi:type="sawx:list" op="notLike">               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Alma Items&quot;.&quot;Location Code&quot;</sawx:expr>               
+               <sawx:expr xsi:type="xsd:string">%HD%</sawx:expr></sawx:expr>            <sawx:expr xsi:type="sawx:comparison" op="equal"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Alma Items&quot;.&quot;In HD Flag&quot;</sawx:expr><sawx:expr xsi:type="xsd:string">Y</sawx:expr></sawx:expr></sawx:expr></saw:filter></saw:criteria>   
+   <saw:views currentView="0">      
+      <saw:view xsi:type="saw:compoundView" name="compoundView!1">         
+         <saw:cvTable>            
+            <saw:cvRow>               
+               <saw:cvCell viewName="titleView!1"/></saw:cvRow>            
+            <saw:cvRow>               
+               <saw:cvCell viewName="tableView!1"/></saw:cvRow></saw:cvTable></saw:view>      
+      <saw:view xsi:type="saw:titleView" name="titleView!1"/>      
+      <saw:view xsi:type="saw:tableView" name="tableView!1" scrollingEnabled="false" repeat="false"><saw:edges><saw:edge axis="page" showColumnHeader="true"/><saw:edge axis="section"/><saw:edge axis="row" showColumnHeader="true">               
+               <saw:edgeLayers><saw:edgeLayer type="column" columnID="c6904dbad2ac26efd"/><saw:edgeLayer type="column" columnID="c44c101a3ad71a4c3"/><saw:edgeLayer type="column" columnID="c8deceb1c36717da0"/><saw:edgeLayer type="column" columnID="c2aee54fa5901f6d5"/><saw:edgeLayer type="column" columnID="c654ee46d2aebd7dd"/><saw:edgeLayer type="column" columnID="cc7a77a940a0d1c51"/></saw:edgeLayers></saw:edge><saw:edge axis="column" showColumnHeader="rollover"/></saw:edges>         
+                  
+         <saw:greenBarFormat greenBar="allLayers" enabled="false"/></saw:view></saw:views>
+   <saw:prompts scope="report" subjectArea="&quot;AdHoc Library&quot;">
+      <saw:promptStep>
+         <saw:individualPrompts>
+            <saw:prompt xsi:type="saw:columnFilterPrompt" columnID="c13" subjectArea="&quot;AdHoc Library&quot;" required="false">
+               <saw:formula>
+                  <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - HD Item&quot;.&quot;ACCESSION_DATE&quot;</sawx:expr></saw:formula>
+               <saw:promptOperator op="greaterOrEqual"/>
+               <saw:promptUIControl xsi:type="saw:calendar">
+                  <saw:customWidth width="120" using="custompixels"/></saw:promptUIControl>
+               <saw:promptDefaultValues type="serverVariable" usingCodeValue="false">
+                  <saw:promptDefaultValue>min182_cal_date</saw:promptDefaultValue></saw:promptDefaultValues>
+               <saw:constrainPrompt type="none" autoSelectValue="default"/>
+               <saw:setPromptVariables>
+                  <saw:setPromptVariable location="value" type="none" variableFormula=""/></saw:setPromptVariables>
+               <saw:promptSource xsi:type="saw:allChoices"/></saw:prompt></saw:individualPrompts>
+         <saw:customWidth width="120" using="custompixels"/></saw:promptStep></saw:prompts></saw:report>

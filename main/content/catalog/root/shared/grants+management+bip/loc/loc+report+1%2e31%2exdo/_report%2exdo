@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'utf-8'?>
+<report xmlns="http://xmlns.oracle.com/oxp/xmlp" xmlns:xsd="http://wwww.w3.org/2001/XMLSchema" version="2.0" dataModel="true" useBipParameters="true" producerName="fin-financialCommon" parameterVOName="" parameterTaskFlow="" customDataControl="" cachePerUser="true" cacheSmartRefresh="false" cacheUserRefresh="false">
+   <dataModel url="/Grants Management BIP/LOC/LOC Report Data Model 1.31.xdm"/>
+   <description/>
+   <property name="showControls" value="true"/>
+   <property name="online" value="true"/>
+   <property name="openLinkInNewWindow" value="true"/>
+   <property name="autoRun" value="false"/>
+   <property name="cacheDocument" value="true"/>
+   <property name="showReportLinks" value="true"/>
+   <property name="asynchronousRun" value="false"/>
+   <property name="useExcelProcessor" value="false"/>
+   <property name="cacheDuration" value="30"/>
+   <property name="controledByExtApp" value="false"/>
+   <parameters paramPerLine="3" style="parameterLocation:in-horizontal;promptLocation:side;"/>
+   <templates default="Draw report">
+      <template label="Recon report v2" url="LOC_DRAW_TEMPLATE_1.3.20151014.xls" type="excel" outputFormat="excel" defaultFormat="excel" locale="en" disableMasterTemplate="true" active="false" viewOnline="true"/>
+      <template label="Draw report" url="LOC_DRAW_TEMPLATE_1.31.xls" type="excel" outputFormat="excel" defaultFormat="excel" locale="en_US" disableMasterTemplate="true" active="true" viewOnline="true"/>
+      <template label="Recon report" url="LOC_RECON_TEMPLATE_GM.xls" type="excel" outputFormat="excel" defaultFormat="excel" locale="en" disableMasterTemplate="true" active="true" viewOnline="true"/>
+   </templates>
+   <bursting active="Bursting 1"/>
+</report>

@@ -1,0 +1,37 @@
+<?xml version = '1.0' encoding = 'utf-8'?>
+<report xmlns="http://xmlns.oracle.com/oxp/xmlp" xmlns:xsd="http://wwww.w3.org/2001/XMLSchema" version="2.0" dataModel="true" useBipParameters="true" producerName="fin-financialCommon" parameterVOName="" parameterTaskFlow="" customDataControl="" cachePerUser="true" cacheSmartRefresh="false" cacheUserRefresh="false">
+   <dataModel url="/Grants Management (GM)/Grants Financial Printable PDF/DataModel - Historical PER.xdm"/>
+   <description/>
+   <property name="showControls" value="true"/>
+   <property name="online" value="true"/>
+   <property name="openLinkInNewWindow" value="true"/>
+   <property name="autoRun" value="true"/>
+   <property name="cacheDocument" value="false"/>
+   <property name="showReportLinks" value="true"/>
+   <property name="asynchronousRun" value="false"/>
+   <property name="priority" value="normal"/>
+   <property name="cacheDuration" value="5"/>
+   <property name="controledByExtApp" value="false"/>
+   <property name="ignoreDMValidationError" value="false"/>
+   <parameters paramPerLine="3" style="parameterLocation:in-horizontal;promptLocation:side;">
+      <parameter id="PeriodFromKey" label="PeriodFrom" defaultValue="1" visible="true" rowPlacement="1">
+         <select/>
+      </parameter>
+      <parameter id="PeriodToKey" label="PeriodTo" defaultValue="1" visible="true" rowPlacement="1">
+         <select/>
+      </parameter>
+      <parameter id="AcctSponFund" label="Acct Spon Fund" defaultValue="" visible="true" rowPlacement="1">
+         <select/>
+      </parameter>
+      <parameter id="AcctStatusDesc" label="AcctStatusDesc" defaultValue="" visible="true" rowPlacement="2">
+         <select/>
+      </parameter>
+      <parameter id="SegStatusDesc" label="SegStatusDesc" defaultValue="" visible="true" rowPlacement="2">
+         <select/>
+      </parameter>
+   </parameters>
+   <templates default="Object Code - Detail">
+      <template label="Object Code - Detail" url="Object Code - Detail.rtf" type="rtf" outputFormat="html,pdf,rtf,xlsx,pptx" defaultFormat="html" locale="en_US" disableMasterTemplate="true" active="true" viewOnline="true"/>
+      <template label="Object Code - Rollup" url="Object Code - Rollup.rtf" type="rtf" outputFormat="html,pdf,rtf,xlsx,pptx" defaultFormat="html" locale="en_US" disableMasterTemplate="true" active="true" viewOnline="true"/>
+   </templates>
+</report>

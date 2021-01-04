@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<saw:report xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlVersion="201201160" xmlns:sawx="com.siebel.analytics.web/expression/v1.1">
+   <saw:criteria xsi:type="saw:derivedCriteria">
+      <saw:columns>
+         <saw:column xsi:type="saw:derivedColumn" columnID="ccdc1e4c675d3b7d5">
+            <saw:tableHeading><saw:caption><saw:text>Dim - Projects</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption><saw:text>SPONSOR_TUB</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:derivedColumn" columnID="c70835afd9bb0723b">
+            <saw:tableHeading><saw:caption><saw:text>Dim - Projects</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption><saw:text>CIP_ACTIVITY</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:derivedColumn" columnID="cfcd5616e14e2c953">
+            <saw:tableHeading><saw:caption><saw:text>Dim - Projects</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption><saw:text>PROJECT_NAME</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:derivedColumn" columnID="c31cba8d556901ad7">
+            <saw:tableHeading><saw:caption><saw:text>Dim - Projects</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption><saw:text>PROJECT_STAGE_CODE</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:derivedColumn" columnID="c45cb871f274de42c">
+            <saw:tableHeading><saw:caption><saw:text>CA Inclusive</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption><saw:text>PROJECT_ID</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:derivedColumn" columnID="c7555d6e3476e82f0">
+            
+            <saw:displayFormat>
+               <saw:formatSpec visibility="hidden" suppress="repeat" wrapText="true"/></saw:displayFormat>
+            <saw:tableHeading><saw:caption><saw:text>CA Inclusive</saw:text></saw:caption></saw:tableHeading><saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec/></saw:displayFormat><saw:caption><saw:text> RANK( CAST (LAST_UPDATE_DATE AS...</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:derivedColumn" columnID="cf31952e42c43bbac">
+            <saw:tableHeading><saw:caption><saw:text>CA Inclusive</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption><saw:text>LAST_UPDATE_DATE</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:derivedColumn" columnID="ce1a6839650b361dd">
+            <saw:tableHeading><saw:caption><saw:text>CA Inclusive</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption><saw:text>REVISION_NUMBER</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:derivedColumn" columnID="c78e48183634d66a5">
+            <saw:tableHeading><saw:caption><saw:text>CA Inclusive</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption><saw:text>REQUEST_TYPE_CATEGORY</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:derivedColumn" columnID="c9edd3962e2028de8">
+            <saw:tableHeading><saw:caption><saw:text>CA Inclusive</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption><saw:text>REQUEST_TYPE_CODE</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:derivedColumn" columnID="c71c4f24be220b65b">
+            <saw:tableHeading><saw:caption><saw:text>CA Inclusive</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption><saw:text>PROJECT_SUSTAINABILITY</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:derivedColumn" columnID="cd582103844411096">
+            <saw:tableHeading><saw:caption><saw:text>CA Inclusive</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption><saw:text>SUSTAINABILITY_COMP_FLAG</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:derivedColumn" columnID="c90677a1563845625">
+            <saw:tableHeading><saw:caption><saw:text>CA Inclusive</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption><saw:text>GREEN_LOAN_FUND_AMT</saw:text></saw:caption></saw:columnHeading></saw:column>
+         </saw:columns>
+      <saw:from><saw:criteria xsi:type="saw:setCriteria" op="union"><saw:criteria xsi:type="saw:simpleCriteria" subjectArea="&quot;AdHoc CAPS&quot;">
+      <saw:columns>
+         <saw:column xsi:type="saw:regularColumn" columnID="cae8d249778e40796">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;SPONSOR_TUB&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c8155a7cc0f081aab">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;CIP_ACTIVITY&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cf00df7eb54a86002">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;PROJECT_NAME&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c61e263f2e39af5c5">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;PROJECT_STAGE_CODE&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="ca7bfe3f9446e1938">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;CA Inclusive&quot;.&quot;PROJECT_ID&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c0b10d90d2f7b3c18">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">Rank(CAST(&quot;CA Inclusive&quot;.&quot;LAST_UPDATE_DATE&quot; AS DATE) by &quot;CA Inclusive&quot;.&quot;PROJECT_ID&quot;)</sawx:expr></saw:columnFormula>
+            
+            </saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c08afa6de0ce40f3a">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;CA Inclusive&quot;.&quot;LAST_UPDATE_DATE&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c0114eb047ecf3145">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;CA Inclusive&quot;.&quot;REVISION_NUMBER&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cabe7727bdc8aa63b">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;CA Inclusive&quot;.&quot;REQUEST_TYPE_CATEGORY&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="ca97584579758ab00">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;CA Inclusive&quot;.&quot;REQUEST_TYPE_CODE&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c58f9930c853a3e47">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;CA Inclusive&quot;.&quot;PROJECT_SUSTAINABILITY&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c1ac096155c0369cf">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;CA Inclusive&quot;.&quot;SUSTAINABILITY_COMP_FLAG&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c36523a45f5853bc3">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;CA Inclusive&quot;.&quot;GREEN_LOAN_FUND_AMT&quot;</sawx:expr></saw:columnFormula></saw:column>
+         </saw:columns>
+      <saw:filter>
+         <sawx:expr xsi:type="sawx:logical" op="and">
+            <sawx:expr xsi:type="sawx:comparison" op="equal">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;SPONSOR_TUB&quot;</sawx:expr>
+               <sawx:expr xsi:type="xsd:string">275</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:comparison" op="equal">
+               <sawx:expr xsi:type="sawx:sqlExpression">Rank(CAST(&quot;CA Inclusive&quot;.&quot;LAST_UPDATE_DATE&quot; AS DATE) by &quot;CA Inclusive&quot;.&quot;PROJECT_ID&quot;)</sawx:expr>
+               <sawx:expr xsi:type="xsd:decimal">1</sawx:expr></sawx:expr></sawx:expr></saw:filter>
+      </saw:criteria><saw:criteria xsi:type="saw:simpleCriteria" subjectArea="&quot;AdHoc CAPS&quot;"><saw:columns><saw:column xsi:type="saw:regularColumn" columnID="c673703dc60b3c0c2"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;SPONSOR_TUB&quot;</sawx:expr></saw:columnFormula></saw:column><saw:column xsi:type="saw:regularColumn" columnID="c854b1d70ebc6d804"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;CIP_ACTIVITY&quot;</sawx:expr></saw:columnFormula></saw:column><saw:column xsi:type="saw:regularColumn" columnID="ca77cb2e8059a2cdb"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;PROJECT_NAME&quot;</sawx:expr></saw:columnFormula></saw:column><saw:column xsi:type="saw:regularColumn" columnID="c56846b759ae957ab"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;PROJECT_STAGE_CODE&quot;</sawx:expr></saw:columnFormula></saw:column><saw:column xsi:type="saw:regularColumn" columnID="c37db92eec3af9fcc"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;CCR Inclusive&quot;.&quot;PROJECT_ID&quot;</sawx:expr></saw:columnFormula></saw:column><saw:column xsi:type="saw:regularColumn" columnID="c669b0e5e7e658a78"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">Rank(CAST(&quot;CCR Inclusive&quot;.&quot;LAST_UPDATE_DATE&quot; AS DATE) by &quot;CCR Inclusive&quot;.&quot;PROJECT_ID&quot;)</sawx:expr></saw:columnFormula></saw:column><saw:column xsi:type="saw:regularColumn" columnID="cb50bb171bdc1bcc7"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;CCR Inclusive&quot;.&quot;LAST_UPDATE_DATE&quot;</sawx:expr></saw:columnFormula></saw:column><saw:column xsi:type="saw:regularColumn" columnID="ccf7c51561e269bca"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&#39;&#39;</sawx:expr></saw:columnFormula><saw:tableHeading><saw:caption fmt="text"><saw:text>CCR Inclusive</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption fmt="text"><saw:text>RevNumStub</saw:text></saw:caption></saw:columnHeading></saw:column><saw:column xsi:type="saw:regularColumn" columnID="c84f79e07d6f0268d"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;CCR Inclusive&quot;.&quot;REQUEST_TYPE_CATEGORY&quot;</sawx:expr></saw:columnFormula></saw:column><saw:column xsi:type="saw:regularColumn" columnID="c5f14ecc032ae3c97"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;CCR Inclusive&quot;.&quot;REQUEST_TYPE_CODE&quot;</sawx:expr></saw:columnFormula></saw:column><saw:column xsi:type="saw:regularColumn" columnID="ca5d343852b17d114"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;CCR Inclusive&quot;.&quot;SUSTAINABILITY_DOCUMENTATION&quot;</sawx:expr></saw:columnFormula></saw:column><saw:column xsi:type="saw:regularColumn" columnID="cfdba0b863317996e"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;CCR Inclusive&quot;.&quot;LEED_CERTIFICATION_FLAG&quot;</sawx:expr></saw:columnFormula></saw:column><saw:column xsi:type="saw:regularColumn" columnID="c5e99019ebbd1dc27"><saw:columnFormula><sawx:expr xsi:type="sawx:sqlExpression">&quot;CCR Inclusive&quot;.&quot;GREEN_LOAN_FUND_AMT&quot;</sawx:expr></saw:columnFormula></saw:column></saw:columns><saw:filter><sawx:expr xsi:type="sawx:logical" op="and"><sawx:expr xsi:type="sawx:comparison" op="equal"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Projects&quot;.&quot;SPONSOR_TUB&quot;</sawx:expr><sawx:expr xsi:type="xsd:string">275</sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:comparison" op="equal"><sawx:expr xsi:type="sawx:sqlExpression">Rank(CAST(&quot;CCR Inclusive&quot;.&quot;LAST_UPDATE_DATE&quot; AS DATE) by &quot;CCR Inclusive&quot;.&quot;PROJECT_ID&quot;)</sawx:expr><sawx:expr xsi:type="xsd:decimal">1</sawx:expr></sawx:expr></sawx:expr></saw:filter></saw:criteria></saw:criteria></saw:from>
+      </saw:criteria>
+   <saw:views currentView="0">
+      <saw:view xsi:type="saw:compoundView" name="compoundView!1">
+         <saw:cvTable>
+            <saw:cvRow>
+               <saw:cvCell viewName="titleView!1"/></saw:cvRow>
+            <saw:cvRow>
+               <saw:cvCell viewName="tableView!1"/></saw:cvRow></saw:cvTable></saw:view>
+      <saw:view xsi:type="saw:titleView" name="titleView!1"/>
+      <saw:view xsi:type="saw:tableView" name="tableView!1" scrollingEnabled="false" repeat="false">
+         <saw:edges><saw:edge axis="page" showColumnHeader="true"/><saw:edge axis="section"/><saw:edge axis="row" showColumnHeader="true">
+               <saw:displayGrandTotals><saw:displayGrandTotal id="gt_row" grandTotalPosition="after"/></saw:displayGrandTotals><saw:edgeLayers><saw:edgeLayer type="column" columnID="ccdc1e4c675d3b7d5"/><saw:edgeLayer type="column" columnID="c70835afd9bb0723b"/><saw:edgeLayer type="column" columnID="c31cba8d556901ad7"/><saw:edgeLayer type="column" columnID="c45cb871f274de42c"/><saw:edgeLayer type="column" columnID="cf31952e42c43bbac"/><saw:edgeLayer type="column" columnID="cfcd5616e14e2c953"/><saw:edgeLayer type="column" columnID="c7555d6e3476e82f0"/><saw:edgeLayer type="column" columnID="ce1a6839650b361dd"/><saw:edgeLayer type="column" columnID="c78e48183634d66a5"/><saw:edgeLayer type="column" columnID="c9edd3962e2028de8"/><saw:edgeLayer type="column" columnID="c71c4f24be220b65b"/><saw:edgeLayer type="column" columnID="cd582103844411096"/><saw:edgeLayer type="column" columnID="c90677a1563845625"/></saw:edgeLayers></saw:edge><saw:edge axis="column" showColumnHeader="rollover"/></saw:edges></saw:view></saw:views></saw:report>

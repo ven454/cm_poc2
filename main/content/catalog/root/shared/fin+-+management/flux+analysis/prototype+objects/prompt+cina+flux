@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<saw:view xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="saw:globalFilterPrompt" name=""><saw:prompts scope="dashboard" subjectArea="&quot;Financials&quot;"/></saw:view>

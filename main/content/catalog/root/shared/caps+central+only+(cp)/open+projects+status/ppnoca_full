@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<saw:report xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sawx="com.siebel.analytics.web/expression/v1.1" xmlVersion="201201160">      
+   <saw:criteria xsi:type="saw:simpleCriteria" subjectArea="&quot;AdHoc CAPS&quot;" withinHierarchy="true">            
+      <saw:columns>                  
+         <saw:column xsi:type="saw:regularColumn" columnID="ccdc1e4c675d3b7d5">                        
+            <saw:columnFormula>                              
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;PP Requests Inclusive&quot;.&quot;SPONSOR_TUB&quot;</sawx:expr></saw:columnFormula><saw:tableHeading><saw:caption fmt="text"><saw:text>PP Requests Inclusive</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption fmt="text"><saw:text>Sponsor Tub</saw:text></saw:caption></saw:columnHeading></saw:column>                  
+         <saw:column xsi:type="saw:regularColumn" columnID="c70835afd9bb0723b">                        
+            <saw:columnFormula>                              
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;PP Requests Inclusive&quot;.&quot;CIP_ACTIVITY&quot;</sawx:expr></saw:columnFormula><saw:tableHeading><saw:caption fmt="text"><saw:text>PP Requests Inclusive</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption fmt="text"><saw:text>CIP Activity</saw:text></saw:caption></saw:columnHeading></saw:column>                  
+         <saw:column xsi:type="saw:regularColumn" columnID="cfcd5616e14e2c953">                        
+            <saw:columnFormula>                              
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;PP Requests Inclusive&quot;.&quot;PROJECT_NAME&quot;</sawx:expr></saw:columnFormula><saw:tableHeading><saw:caption fmt="text"><saw:text>PP Requests Inclusive</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption fmt="text"><saw:text>Project Name</saw:text></saw:caption></saw:columnHeading></saw:column>                           
+         <saw:column xsi:type="saw:regularColumn" columnID="c20f62c522f59612b">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;PP Requests Inclusive&quot;.&quot;CAPS_NUMBER&quot;</sawx:expr></saw:columnFormula><saw:tableHeading><saw:caption fmt="text"><saw:text>PP Requests Inclusive</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption fmt="text"><saw:text>CAPS Number</saw:text></saw:caption></saw:columnHeading></saw:column>                           
+         <saw:column xsi:type="saw:regularColumn" columnID="cf31952e42c43bbac">                        
+            <saw:columnFormula>                              
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;PP Requests Inclusive&quot;.&quot;LAST_UPDATE_DATE&quot;</sawx:expr></saw:columnFormula><saw:tableHeading><saw:caption fmt="text"><saw:text>PP Requests Inclusive</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption fmt="text"><saw:text>Last Update Date</saw:text></saw:caption></saw:columnHeading></saw:column>                  
+         <saw:column xsi:type="saw:regularColumn" columnID="ce1a6839650b361dd">                        
+            <saw:columnFormula>                              
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;PP Requests Inclusive&quot;.&quot;REVISION_NUMBER&quot;</sawx:expr></saw:columnFormula><saw:tableHeading><saw:caption fmt="text"><saw:text>PP Requests Inclusive</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption fmt="text"><saw:text>Revision No</saw:text></saw:caption></saw:columnHeading></saw:column>                           
+         <saw:column xsi:type="saw:regularColumn" columnID="c9edd3962e2028de8">                        
+            <saw:columnFormula>                              
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;PP Requests Inclusive&quot;.&quot;REQUEST_TYPE_CODE&quot;</sawx:expr></saw:columnFormula><saw:tableHeading><saw:caption fmt="text"><saw:text>PP Requests Inclusive</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption fmt="text"><saw:text>Request Type Cd</saw:text></saw:caption></saw:columnHeading></saw:column>                                             
+         <saw:column xsi:type="saw:regularColumn" columnID="c4f406472f9851bd3">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Request Status&quot;.&quot;CREATION_DATE&quot;</sawx:expr></saw:columnFormula><saw:tableHeading><saw:caption fmt="text"><saw:text>Dim - Request Status</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption fmt="text"><saw:text>Creation Date</saw:text></saw:caption></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="c30107a26824d542a">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Request Status&quot;.&quot;DESCRIPTION&quot;</sawx:expr></saw:columnFormula><saw:tableHeading><saw:caption fmt="text"><saw:text>Dim - Request Status</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption fmt="text"><saw:text>Description</saw:text></saw:caption></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="cc8d05bbc0788b537">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Request Status&quot;.&quot;RESPONSIBILITY_NAME&quot;</sawx:expr></saw:columnFormula><saw:tableHeading><saw:caption fmt="text"><saw:text>Dim - Request Status</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption fmt="text"><saw:text>Responsibility Name</saw:text></saw:caption></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="c82602fca1b61489e">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Request Status&quot;.&quot;STATUS_DESC&quot;</sawx:expr></saw:columnFormula><saw:tableHeading><saw:caption fmt="text"><saw:text>Dim - Request Status</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:caption fmt="text"><saw:text>Status Desc</saw:text></saw:caption></saw:columnHeading></saw:column></saw:columns>            
+      <saw:filter>                  
+         <sawx:expr xsi:type="sawx:subQuery" op="equal">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;PP Requests Inclusive&quot;.&quot;CAPS_NUMBER&quot;</sawx:expr>
+               <saw:catalogColumnRef path="/shared/CAPS Central Only (CP)/Open Projects Status/PPnoCA" columnID="c20f62c522f59612b"/></sawx:expr></saw:filter>      <saw:columnOrder><saw:columnOrderRef columnID="c70835afd9bb0723b" direction="ascending"/><saw:columnOrderRef columnID="c4f406472f9851bd3" direction="ascending"/></saw:columnOrder></saw:criteria>      
+   <saw:interactionOptions drill="true" movecolumns="true" sortcolumns="true" addremovevalues="false" groupoperations="false" calcitemoperations="false" showhidesubtotal="false" showhiderunningsum="false" inclexclcolumns="true"/><saw:views textDelivery="compoundView!1" valueHierarchyIndent="false" parentsBefore="true" includeNewColumns="true" nullSuppress="true" currentView="0">            
+      <saw:view xsi:type="saw:compoundView" name="compoundView!1">                  
+         <saw:viewCaption>
+            <saw:caption>
+               <saw:text>PP </saw:text></saw:caption></saw:viewCaption>
+         <saw:cvTable>                        
+            <saw:cvRow>                              
+               <saw:cvCell viewName="titleView!1">
+                  <saw:displayFormat>
+                     <saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow>                        
+            <saw:cvRow>                              
+               <saw:cvCell viewName="tableView!1"/></saw:cvRow></saw:cvTable></saw:view>            
+      <saw:view xsi:type="saw:titleView" name="titleView!1" includeName="false" startedDisplay="dateTime"><saw:title>
+            <saw:caption fmt="text">
+               <saw:text>Project Proposal (PP)</saw:text></saw:caption></saw:title></saw:view>            
+      <saw:view xsi:type="saw:tableView" name="tableView!1" scrollingEnabled="false" repeat="false" rowsPerPage="5000">                  
+         <saw:greenBarFormat greenBar="allLayers" enabled="true"><saw:formatSpec/></saw:greenBarFormat><saw:edges><saw:edge axis="page" showColumnHeader="true"/><saw:edge axis="section"/><saw:edge axis="row" showColumnHeader="true">                              
+               <saw:displayGrandTotals>                  
+                  <saw:displayGrandTotal id="gt_row" grandTotalPosition="after"/></saw:displayGrandTotals>               
+               <saw:edgeLayers><saw:edgeLayer type="column" columnID="c70835afd9bb0723b"/><saw:edgeLayer type="column" columnID="c82602fca1b61489e"/><saw:edgeLayer type="column" columnID="c4f406472f9851bd3"/><saw:edgeLayer type="column" columnID="c9edd3962e2028de8"/><saw:edgeLayer type="column" columnID="ce1a6839650b361dd"/><saw:edgeLayer type="column" columnID="cc8d05bbc0788b537"/><saw:edgeLayer type="column" columnID="c30107a26824d542a"/><saw:edgeLayer type="column" columnID="cfcd5616e14e2c953"/></saw:edgeLayers></saw:edge><saw:edge axis="column" showColumnHeader="rollover"/></saw:edges></saw:view><saw:view xsi:type="saw:noresultsview" name="noresultsview!1"><saw:headline><saw:caption fmt="html"><saw:text>No Results</saw:text></saw:caption></saw:headline><saw:detail><saw:caption fmt="html"><saw:text>Please select appropriate prompt values and then click the APPLY button.</saw:text></saw:caption></saw:detail></saw:view><saw:view xsi:type="saw:narrativeView" name="narrativeView!1"><saw:narrative rowCount="1"><saw:caption fmt="html"><saw:text>@{c5f115c1aed0003b8}  Rows of Data Returned [br/]</saw:text></saw:caption></saw:narrative></saw:view></saw:views><saw:prompts scope="report" subjectArea="&quot;AdHoc CAPS&quot;"/></saw:report>

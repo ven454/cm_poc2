@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<saw:report xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sawx="com.siebel.analytics.web/expression/v1.1" xmlVersion="201201160">   
+   <saw:criteria xsi:type="saw:simpleCriteria" subjectArea="&quot;CSMA&quot;" withinHierarchy="true">      
+      <saw:columns>         
+         <saw:column xsi:type="saw:regularColumn" columnID="c50825c62a9fac301">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">MAX(RCOUNT(1))</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat>               
+               <saw:formatSpec visibility="hidden" suppress="repeat" wrapText="true"/></saw:displayFormat>            
+            <saw:tableHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Count</saw:text></saw:caption></saw:tableHeading>            
+            <saw:columnHeading>               
+               <saw:displayFormat>                  
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="cbfa1e2115e11e359">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - CSMA COA Request&quot;.&quot;Owning Tub&quot;</sawx:expr></saw:columnFormula><saw:displayFormat><saw:formatSpec suppress="suppress" wrapText="false" hAlign="right" interaction="none"/></saw:displayFormat><saw:columnHeading><saw:displayFormat><saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="c83f82ae10cf4f12b">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - CSMA COA Request&quot;.&quot;Segment Type&quot;</sawx:expr></saw:columnFormula><saw:displayFormat><saw:formatSpec suppress="suppress" wrapText="false" interaction="none"/></saw:displayFormat><saw:columnHeading><saw:displayFormat><saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="c60bcba6ca0840dc8">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">CASE WHEN &quot;Dim - CSMA COA Request&quot;.&quot;Segment Type&quot; = &#39;SUBACTIVITY&#39; THEN &quot;Dim - CSMA COA Request&quot;.&quot;Parent Value&quot; END</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat><saw:formatSpec suppress="suppress" wrapText="false" hAlign="right" interaction="none"/></saw:displayFormat><saw:tableHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Dim - CSMA COA Request</saw:text></saw:caption></saw:tableHeading>            
+            <saw:columnHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Parent Activity Value</saw:text></saw:caption><saw:displayFormat><saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="c5f8e260cdf2a7054">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - CSMA COA Request&quot;.&quot;Flex Value&quot;</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat><saw:formatSpec suppress="suppress" wrapText="false" hAlign="right" interaction="none"/></saw:displayFormat><saw:tableHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Dim - CSMA COA Request</saw:text></saw:caption></saw:tableHeading>            
+            <saw:columnHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Value</saw:text></saw:caption><saw:displayFormat><saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="c1698eb767408f498">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Fnd Flex Values TL&quot;.&quot;Description&quot;</sawx:expr></saw:columnFormula><saw:displayFormat><saw:formatSpec suppress="suppress" wrapText="false" interaction="none"/></saw:displayFormat><saw:columnHeading><saw:displayFormat><saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="cd9c81042b6cc6c4e">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - CSMA COA Request&quot;.&quot;Request Submit Date&quot;</sawx:expr></saw:columnFormula><saw:displayFormat><saw:formatSpec suppress="suppress" wrapText="false" hAlign="right" interaction="none"><saw:dataFormat xsi:type="saw:custom" customFormat="d-MMM-yy"/></saw:formatSpec></saw:displayFormat><saw:tableHeading><saw:caption fmt="text"><saw:text>Dim - CSMA COA Request</saw:text></saw:caption></saw:tableHeading><saw:columnHeading><saw:displayFormat><saw:formatSpec interaction="none"/></saw:displayFormat><saw:caption fmt="text"><saw:text>Disable Request Date</saw:text></saw:caption></saw:columnHeading></saw:column></saw:columns>      
+      <saw:filter>         
+         <sawx:expr xsi:type="sawx:logical" op="and">            
+            <sawx:expr xsi:type="sawx:comparison" op="equal">               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - CSMA COA Request&quot;.&quot;Request Type&quot;</sawx:expr>               
+               <sawx:expr xsi:type="xsd:string">D</sawx:expr></sawx:expr>            
+            <sawx:expr xsi:type="sawx:comparison" op="equal">               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - CSMA COA Request&quot;.&quot;Status Code&quot;</sawx:expr>               
+               <sawx:expr xsi:type="xsd:string">UP</sawx:expr></sawx:expr>            
+            <sawx:expr xsi:type="sawx:comparison" op="notEqual">               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - CSMA COA Request&quot;.&quot;Segment Type&quot;</sawx:expr>               
+               <sawx:expr xsi:type="xsd:string">OBJECT</sawx:expr></sawx:expr>            
+            <sawx:expr xsi:type="sawx:sql">CASE WHEN  UPPER(&quot;Dim - CSMA COA Request&quot;.&quot;Segment Type&quot;) = &#39;SUBACTIVITY&#39; THEN &quot;Dim - CSMA COA Request&quot;.&quot;Parent Value&quot;  ELSE &#39;1&#39; END = CASE WHEN  UPPER(&quot;Dim - CSMA COA Request&quot;.&quot;Segment Type&quot;) = &#39;SUBACTIVITY&#39; THEN &quot;Dim - Fnd Flex Values&quot;.&quot;Parent Flex Value Low&quot;  ELSE &#39;1&#39; END</sawx:expr>            
+                        
+            <sawx:expr xsi:type="sawx:sql">&quot;Dim - Fnd Flex Values&quot;.&quot;Flex Value Set Id&quot; =
+(Case WHEN &quot;Dim - CSMA COA Request&quot;.&quot;Segment Type&quot; = &#39;ORG&#39; THEN 1002701
+         WHEN &quot;Dim - CSMA COA Request&quot;.&quot;Segment Type&quot; = &#39;FUND&#39; THEN 1002703
+         WHEN &quot;Dim - CSMA COA Request&quot;.&quot;Segment Type&quot; = &#39;ACTIVITY&#39; THEN 1002704
+         WHEN &quot;Dim - CSMA COA Request&quot;.&quot;Segment Type&quot; = &#39;SUBACTIVITY&#39; THEN 1002705
+         WHEN &quot;Dim - CSMA COA Request&quot;.&quot;Segment Type&quot; = &#39;ROOT&#39; THEN 1002706
+END  )</sawx:expr>            
+            <sawx:expr xsi:type="sawx:special" op="prompted">               
+               <sawx:expr xsi:type="sawx:columnExpression" formulaUse="code" displayUse="display">                  
+                  <saw:columnFormula formulaUse="display">                     
+                     <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - COA Request Owning Tub&quot;.&quot;Owning Tub Name / Description&quot;</sawx:expr></saw:columnFormula></sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:comparison" op="lessOrEqual"><sawx:expr xsi:type="sawx:sqlExpression">CAST(&quot;Dim - CSMA COA Request&quot;.&quot;Last Update Date&quot; AS DATE)</sawx:expr><sawx:expr xsi:type="sawx:eval" default="09/09/9999">varLastCloseCSMA</sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:comparison" op="greater"><sawx:expr xsi:type="sawx:sqlExpression">CAST(&quot;Dim - CSMA COA Request&quot;.&quot;Last Update Date&quot; AS DATE)</sawx:expr><sawx:expr xsi:type="sawx:eval" default="09/09/9999">varPrevLastCloseCSMA</sawx:expr></sawx:expr></sawx:expr></saw:filter>      
+      <saw:columnOrder>         
+         <saw:columnOrderRef columnID="cbfa1e2115e11e359" direction="ascending"/>         
+         <saw:columnOrderRef columnID="c83f82ae10cf4f12b" direction="ascending"/>         
+         <saw:columnOrderRef columnID="c60bcba6ca0840dc8" direction="ascending"/>         
+         <saw:columnOrderRef columnID="c5f8e260cdf2a7054" direction="ascending"/></saw:columnOrder></saw:criteria>   
+   <saw:interactionOptions drill="false" movecolumns="true" sortcolumns="true" addremovevalues="false" groupoperations="false" calcitemoperations="false" showhidesubtotal="false" showhiderunningsum="false" inclexclcolumns="true" hidecolumns="false"/>   
+   <saw:views textDelivery="compoundView!1" parentsBefore="true" includeNewColumns="true" nullSuppress="true" currentView="0">      
+      <saw:view xsi:type="saw:compoundView" name="compoundView!1">         
+         <saw:cvTable>            
+            <saw:cvRow>               
+               <saw:cvCell viewName="titleView!1">                  
+                  <saw:displayFormat>                     
+                     <saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow>            
+            <saw:cvRow>               
+               <saw:cvCell viewName="tableView!1">                  
+                  <saw:displayFormat>                     
+                     <saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow>            
+            <saw:cvRow>               
+               <saw:cvCell viewName="narrativeView!1"/></saw:cvRow></saw:cvTable><saw:pageProps orientation="landscape" printRows="all" disableMargins="false"><saw:pageHeader show="true" showOnDashboard="false"><saw:zone position="top"><saw:displayFormat><saw:formatSpec hAlign="center"/></saw:displayFormat><saw:caption fmt="text"><saw:text>@{savedName}</saw:text></saw:caption></saw:zone><saw:zone position="left"><saw:displayFormat><saw:formatSpec hAlign="left" width="33%"/></saw:displayFormat></saw:zone><saw:zone position="center"><saw:displayFormat><saw:formatSpec hAlign="center" width="34%"/></saw:displayFormat></saw:zone><saw:zone position="right"><saw:displayFormat><saw:formatSpec hAlign="right" width="33%"/></saw:displayFormat></saw:zone><saw:zone position="bottom"><saw:displayFormat><saw:formatSpec hAlign="center"/></saw:displayFormat></saw:zone></saw:pageHeader><saw:pageFooter show="true" showOnDashboard="true"><saw:zone position="top"><saw:displayFormat><saw:formatSpec hAlign="center"/></saw:displayFormat></saw:zone><saw:zone position="left"><saw:displayFormat><saw:formatSpec hAlign="left" width="33%"/></saw:displayFormat><saw:caption fmt="text"><saw:text>@{authorName}</saw:text></saw:caption></saw:zone><saw:zone position="center"><saw:displayFormat><saw:formatSpec hAlign="center" width="34%"/></saw:displayFormat></saw:zone><saw:zone position="right"><saw:displayFormat><saw:formatSpec hAlign="right" width="33%"/></saw:displayFormat><saw:caption fmt="text"><saw:text>@{pageNumber}</saw:text></saw:caption></saw:zone><saw:zone position="bottom"><saw:displayFormat><saw:formatSpec hAlign="center"/></saw:displayFormat></saw:zone></saw:pageFooter></saw:pageProps></saw:view>      
+      <saw:view xsi:type="saw:titleView" name="titleView!1" includeName="true" startedDisplay="dateTime"/>      
+      <saw:view xsi:type="saw:tableView" name="tableView!1">         
+         <saw:edges><saw:edge axis="page" showColumnHeader="true"/><saw:edge axis="section"/><saw:edge axis="row" showColumnHeader="true">               
+               <saw:edgeLayers><saw:edgeLayer type="column" columnID="c50825c62a9fac301"/><saw:edgeLayer type="column" columnID="cbfa1e2115e11e359"/><saw:edgeLayer type="column" columnID="c83f82ae10cf4f12b"/><saw:edgeLayer type="column" columnID="c60bcba6ca0840dc8"/><saw:edgeLayer type="column" columnID="c5f8e260cdf2a7054"/><saw:edgeLayer type="column" columnID="c1698eb767408f498"/><saw:edgeLayer type="column" columnID="cd9c81042b6cc6c4e"/></saw:edgeLayers></saw:edge><saw:edge axis="column" showColumnHeader="rollover"/></saw:edges></saw:view>      
+      <saw:view xsi:type="saw:narrativeView" name="narrativeView!1">         
+         <saw:narrative rowCount="1">            
+            <saw:caption fmt="text">               
+               <saw:text>Rows of Data Returned: @{c50825c62a9fac301}</saw:text></saw:caption></saw:narrative></saw:view>      
+      <saw:view xsi:type="saw:noresultsview" name="noresultsview!1">         
+         <saw:headline>            
+            <saw:caption>               
+               <saw:text>No Results</saw:text></saw:caption></saw:headline>         
+         <saw:detail>            
+            <saw:caption>               
+               <saw:text>  Please choose Prompt Values then click the APPLY button.</saw:text></saw:caption></saw:detail></saw:view></saw:views></saw:report>

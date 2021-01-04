@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<saw:report xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sawx="com.siebel.analytics.web/expression/v1.1" xmlVersion="201201160">
+   <saw:criteria xsi:type="saw:simpleCriteria" subjectArea="&quot;Harvard Library&quot;">
+      <saw:columns>
+         <saw:column xsi:type="saw:regularColumn" columnID="c74a9de4c57f4f69a">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Tray ID&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c3c0f8f7c89d349b4">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Location Aisle&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cbd1cdff897dccd1f">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Location Bsf&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c054ea9839a94d6dd">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Location Class&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c2c47f29c69f4c4a8">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Location Depth&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c1bb1c81834fd74ed">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Location Face&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cc1849ff430683092">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Location Ladder&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c33d4a73a9cb68ad0">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Location Loc Container&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c3bf67f9725fc5ad8">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Location Loc Type&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c294ca983107f584a">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Location Open Date&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c3721e7145622c074">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Location Owner&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c5505ede772422c87">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Location Partial&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c00d0350b4ca641bf">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Location Shelf&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c1d73aaebda5f1e47">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Tray Item Count&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c126131240408c0bf">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Tray Delete Count&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c9829ae0ec1fed5f7">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Location Tray Count&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cf56444c932bf8398">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Tray Location ID&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cf7c1e3e4e597471f">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Height&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c159cddcb2555db24">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Location Width&quot;</sawx:expr></saw:columnFormula></saw:column></saw:columns>
+      <saw:filter>
+         <sawx:expr xsi:type="sawx:list" op="in">
+            <sawx:expr xsi:type="sawx:sqlExpression">&quot;HD Items&quot;.&quot;Tray ID&quot;</sawx:expr>
+            <sawx:expr xsi:type="xsd:string">T0000108</sawx:expr>
+            <sawx:expr xsi:type="xsd:string">T0001171</sawx:expr>
+            <sawx:expr xsi:type="xsd:string">T0001647</sawx:expr>
+            <sawx:expr xsi:type="xsd:string">T0000188</sawx:expr>
+            <sawx:expr xsi:type="xsd:string">TC071267</sawx:expr></sawx:expr></saw:filter></saw:criteria>
+   <saw:views currentView="0">
+      <saw:view xsi:type="saw:compoundView" name="compoundView!1">
+         <saw:cvTable>
+            <saw:cvRow>
+               <saw:cvCell viewName="titleView!1"/></saw:cvRow>
+            <saw:cvRow>
+               <saw:cvCell viewName="tableView!1"/></saw:cvRow></saw:cvTable></saw:view>
+      <saw:view xsi:type="saw:titleView" name="titleView!1"/>
+      <saw:view xsi:type="saw:tableView" name="tableView!1" scrollingEnabled="false" repeat="false">
+         <saw:edges>
+            <saw:edge axis="page" showColumnHeader="true"/>
+            <saw:edge axis="section"/>
+            <saw:edge axis="row" showColumnHeader="true">
+               <saw:edgeLayers>
+                  <saw:edgeLayer type="column" columnID="c74a9de4c57f4f69a"/>
+                  <saw:edgeLayer type="column" columnID="c1d73aaebda5f1e47"/>
+                  <saw:edgeLayer type="column" columnID="c126131240408c0bf"/>
+                  <saw:edgeLayer type="column" columnID="c3721e7145622c074"/>
+                  <saw:edgeLayer type="column" columnID="cf56444c932bf8398"/>
+                  <saw:edgeLayer type="column" columnID="c9829ae0ec1fed5f7"/>
+                  <saw:edgeLayer type="column" columnID="cbd1cdff897dccd1f"/>
+                  <saw:edgeLayer type="column" columnID="c3c0f8f7c89d349b4"/>
+                  <saw:edgeLayer type="column" columnID="c1bb1c81834fd74ed"/>
+                  <saw:edgeLayer type="column" columnID="cc1849ff430683092"/>
+                  <saw:edgeLayer type="column" columnID="c00d0350b4ca641bf"/>
+                  <saw:edgeLayer type="column" columnID="cf7c1e3e4e597471f"/>
+                  <saw:edgeLayer type="column" columnID="c159cddcb2555db24"/>
+                  <saw:edgeLayer type="column" columnID="c2c47f29c69f4c4a8"/>
+                  <saw:edgeLayer type="column" columnID="c33d4a73a9cb68ad0"/>
+                  <saw:edgeLayer type="column" columnID="c054ea9839a94d6dd"/>
+                  <saw:edgeLayer type="column" columnID="c3bf67f9725fc5ad8"/>
+                  <saw:edgeLayer type="column" columnID="c5505ede772422c87"/>
+                  <saw:edgeLayer type="column" columnID="c294ca983107f584a"/></saw:edgeLayers></saw:edge>
+            <saw:edge axis="column" showColumnHeader="rollover"/></saw:edges></saw:view></saw:views></saw:report>

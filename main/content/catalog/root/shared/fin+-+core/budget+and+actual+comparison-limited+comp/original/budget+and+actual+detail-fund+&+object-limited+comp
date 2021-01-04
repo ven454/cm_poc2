@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="utf-8"?>
+<saw:report xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlVersion="201201160" xmlns:sawx="com.siebel.analytics.web/expression/v1.1">   
+   <saw:criteria xsi:type="saw:simpleCriteria" subjectArea="&quot;Financials&quot;" withinHierarchy="true">      
+      <saw:columns>         
+         <saw:column xsi:type="saw:regularColumn" columnID="cc2dba29f962e1af3" aggRule="max">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">MAX(RCOUNT(1))</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat>               
+               <saw:formatSpec visibility="hidden" suppress="repeat" wrapText="true"/></saw:displayFormat>            
+            <saw:tableHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Count</saw:text></saw:caption></saw:tableHeading>            
+            <saw:columnHeading>               
+               <saw:displayFormat>                  
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>                           
+         <saw:column xsi:type="saw:regularColumn" columnID="c93bca6213694f3d3">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Tubs&quot;.&quot;Tub&quot;</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat>               
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>            
+            <saw:columnHeading>               
+               <saw:displayFormat>                  
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="cfd4142fcaf0fb071">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Tubs&quot;.&quot;Tub Name&quot;</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat>               
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>            
+            <saw:columnHeading>               
+               <saw:displayFormat>                  
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>                                                      
+         <saw:column xsi:type="saw:regularColumn" columnID="c79fadad30c2b99c0">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds&quot;.&quot;Fund Type Description&quot;</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat>               
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>            
+            <saw:tableHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Dim - Funds</saw:text></saw:caption></saw:tableHeading>            
+            <saw:columnHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Fund Type Desc</saw:text></saw:caption>               
+               <saw:displayFormat>                  
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cd6c4eb17f711dc2e">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds&quot;.&quot;Fas 117 Code&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Dim - Funds</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>FAS 117 Code</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="ccef3826b63970238">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds&quot;.&quot;Fas 117 Description&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Dim - Funds</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat>
+               <saw:caption fmt="text">
+                  <saw:text>FAS 117 Description</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c24841611a4baf196">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Objects&quot;.&quot;Tera Num Name&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Dim - Objects</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat>
+               <saw:caption fmt="text">
+                  <saw:text>Tera Object Desc</saw:text></saw:caption></saw:columnHeading></saw:column>                                    
+         <saw:column xsi:type="saw:regularColumn" columnID="ce8e7ebd8140bcf1f">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Objects&quot;.&quot;Giga Num Name&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Dim - Objects</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Giga Object Desc</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cf0a534849bc33d00">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Objects&quot;.&quot;Mega Num Name&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Dim - Objects</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Mega Object Desc</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c37b9ae6c372c31cd">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Objects&quot;.&quot;Super Num Name&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Dim - Objects</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Super Object Desc</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cbf1a8e34c24805b1">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Objects&quot;.&quot;Object Code&quot;</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat>               
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>            
+            <saw:tableHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Dim - Objects</saw:text></saw:caption></saw:tableHeading>            
+            <saw:columnHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Object</saw:text></saw:caption>               
+               <saw:displayFormat>                  
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="ce15c5efd6a423f70">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Objects&quot;.&quot;Object Name&quot;</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat>               
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>            
+            <saw:columnHeading>               
+               <saw:displayFormat>                  
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>                  
+         <saw:column xsi:type="saw:regularColumn" columnID="cd52537903b17d867">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Objects&quot;.&quot;Object Type Description&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Dim - Objects</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Object Type Desc</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cf31437d93370aaa7">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds&quot;.&quot;Fund&quot;</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat>               
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>            
+            <saw:columnHeading>               
+               <saw:displayFormat>                  
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="cec513bb4f1146738">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds&quot;.&quot;Fund Name&quot;</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat>               
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>            
+            <saw:columnHeading>               
+               <saw:displayFormat>                  
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>                                                               
+         <saw:column xsi:type="saw:regularColumn" columnID="c35b3cc10af9290b4">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds&quot;.&quot;Fund Group 2&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c8d03640e4329785c">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds&quot;.&quot;Fund Group 3&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c1e79ad2bdbf8dad5">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Operating Bud Net CFY Annual&quot;</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat>               
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">                  
+                  <saw:dataFormat minDigits="0" maxDigits="0" commas="true" negativeType="paren" xsi:type="saw:currency" currencyTag="none"/></saw:formatSpec></saw:displayFormat>            
+            <saw:tableHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Fact - Period Actual and Budget Bals</saw:text></saw:caption></saw:tableHeading>            
+            <saw:columnHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>FY Operating ($)</saw:text></saw:caption>               
+               <saw:displayFormat>                  
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="cf41ee2fbd27fc9cc">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Operating Bud Net PFY Annual&quot;</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat>               
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">                  
+                  <saw:dataFormat minDigits="0" maxDigits="0" commas="true" negativeType="paren" xsi:type="saw:currency" currencyTag="none"/></saw:formatSpec></saw:displayFormat>            
+            <saw:tableHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Fact - Period Actual and Budget Bals</saw:text></saw:caption></saw:tableHeading>            
+            <saw:columnHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Prior FY Operating ($)</saw:text></saw:caption>               
+               <saw:displayFormat>                  
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="c263aad951460383e">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Forecast Bud Net Fytd End&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">
+                  <saw:dataFormat xsi:type="saw:currency" minDigits="0" maxDigits="0" commas="true" negativeType="paren" currencyTag="none"/></saw:formatSpec></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Fact - Period Actual and Budget Bals</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>FY Forecast ($)</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c7b866fcb7e49c3da">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Actual Net PFY Annual&quot;</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat>               
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">                  
+                  <saw:dataFormat xsi:type="saw:currency" minDigits="0" maxDigits="0" commas="true" negativeType="paren" currencyTag="none"/></saw:formatSpec></saw:displayFormat>            
+            <saw:tableHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Fact - Period Actual and Budget Bals</saw:text></saw:caption></saw:tableHeading>            
+            <saw:columnHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Prior FY Actual ($)</saw:text></saw:caption>               
+               <saw:displayFormat>                  
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>                  
+         <saw:column xsi:type="saw:regularColumn" columnID="cba7a061b1442f0f1">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Actual Net PPFY Annual&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">
+                  <saw:dataFormat xsi:type="saw:currency" minDigits="0" maxDigits="0" commas="true" negativeType="paren" currencyTag="none"/></saw:formatSpec></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Fact - Period Actual and Budget Bals</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>FY-2 Actual ($)</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cc7aac04ca2f0843d">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Actual Net Fytd End -YearVar&quot;</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat>               
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">                  
+                  <saw:dataFormat xsi:type="saw:currency" minDigits="0" maxDigits="0" commas="true" negativeType="paren" currencyTag="none"/></saw:formatSpec></saw:displayFormat>            
+            <saw:tableHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Fact - Period Actual and Budget Bals</saw:text></saw:caption></saw:tableHeading>            
+            <saw:columnHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Prior YTD Actual ($)</saw:text></saw:caption>               
+               <saw:displayFormat>                  
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>                  
+         <saw:column xsi:type="saw:regularColumn" columnID="c1fa0718e6f2008cb">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Operating Bud Net Fytd End&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">
+                  <saw:dataFormat xsi:type="saw:currency" minDigits="0" maxDigits="0" commas="true" negativeType="paren" currencyTag="none"/></saw:formatSpec></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Fact - Period Actual and Budget Bals</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>YTD Operating ($)</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c3e871ff3742aeb2f">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Actual net fytd end&quot;</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat>               
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">                  
+                  <saw:dataFormat minDigits="0" maxDigits="0" commas="true" negativeType="paren" xsi:type="saw:currency" currencyTag="none"/></saw:formatSpec></saw:displayFormat>            
+            <saw:tableHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Fact - Period Actual and Budget Bals</saw:text></saw:caption></saw:tableHeading>            
+            <saw:columnHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>YTD Actual ($)</saw:text></saw:caption>               
+               <saw:displayFormat>                  
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>         
+         
+         <saw:column xsi:type="saw:regularColumn" columnID="c2ce0c31d84cb41be">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Variance Actual Fytd vs Operating CFY Annual&quot;</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat>               
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">                  
+                  <saw:dataFormat xsi:type="saw:currency" minDigits="2" maxDigits="2" commas="true" negativeType="redParen" currencyTag="none"/></saw:formatSpec></saw:displayFormat>            
+            <saw:tableHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Fact - Period Actual and Budget Bals</saw:text></saw:caption></saw:tableHeading>            
+            <saw:columnHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>$ Variance YTD Actual vs FY Operating</saw:text></saw:caption>               
+               <saw:displayFormat>                  
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="ca670aa837b814f41">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Variance % Actual vs Operating CFY Annual&quot;</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat>               
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">                  
+                  <saw:dataFormat xsi:type="saw:number" commas="true" negativeType="redParen" minDigits="1" maxDigits="1"/></saw:formatSpec></saw:displayFormat>            
+            <saw:tableHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Fact - Period Actual and Budget Bals</saw:text></saw:caption></saw:tableHeading>            
+            <saw:columnHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>% Variance YTD Actual vs FY Operating</saw:text></saw:caption>               
+               <saw:displayFormat>                  
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cc2ca729237b767f0">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Variance Actual Fytd vs Operating Fytd&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">
+                  <saw:dataFormat xsi:type="saw:currency" minDigits="2" maxDigits="2" commas="true" negativeType="redParen" currencyTag="none"/></saw:formatSpec></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Fact - Period Actual and Budget Bals</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>$ Variance YTD Actual vs YTD Operating</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cac7a1b0754558e5b">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Variance % Actual vs Operating Fytd&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">
+                  <saw:dataFormat xsi:type="saw:number" minDigits="1" maxDigits="1" commas="true" negativeType="redParen"/></saw:formatSpec></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Fact - Period Actual and Budget Bals</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>% Variance YTD Actual vs YTD Operating</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>                           
+         <saw:column xsi:type="saw:regularColumn" columnID="cfbc9c10f8d08958f">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Variance Actual Fytd vs Actual -YearVar&quot;</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat>               
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">                  
+                  <saw:dataFormat xsi:type="saw:currency" minDigits="2" maxDigits="2" commas="true" negativeType="redParen" currencyTag="none"/></saw:formatSpec></saw:displayFormat>            
+            <saw:tableHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Fact - Period Actual and Budget Bals</saw:text></saw:caption></saw:tableHeading>            
+            <saw:columnHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>$ Variance YTD Actual vs Prior YTD Actual</saw:text></saw:caption>               
+               <saw:displayFormat>                  
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="c76123a7a72e1b520">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Variance % Actual vs Actual -YearVar&quot;</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat>               
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">                  
+                  <saw:dataFormat xsi:type="saw:number" minDigits="1" maxDigits="1" commas="true" negativeType="redParen"/></saw:formatSpec></saw:displayFormat>            
+            <saw:tableHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Fact - Period Actual and Budget Bals</saw:text></saw:caption></saw:tableHeading>            
+            <saw:columnHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>% Variance YTD Actual vs Prior YTD Actual</saw:text></saw:caption>               
+               <saw:displayFormat>                  
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="c697155456a75b5fa">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Variance Actual Fytd vs Forecast CFY Annual&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">
+                  <saw:dataFormat xsi:type="saw:currency" minDigits="2" maxDigits="2" commas="true" negativeType="redParen" currencyTag="none"/></saw:formatSpec></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Fact - Period Actual and Budget Bals</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>$ Variance FY Forecast vs YTD Actual</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c659bc83e233c75e3">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Variance % Actual vs Forecast CFY Annual&quot;</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">
+                  <saw:dataFormat xsi:type="saw:number" minDigits="1" maxDigits="1" commas="true" negativeType="redParen"/></saw:formatSpec></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Fact - Period Actual and Budget Bals</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>% Variance FY Forecast vs YTD Actual</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c0cc6b564609fb88f">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Operating Bud Net For Period&quot;</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat>               
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">                  
+                  <saw:dataFormat xsi:type="saw:currency" minDigits="0" maxDigits="0" commas="true" negativeType="paren" currencyTag="none"/></saw:formatSpec></saw:displayFormat>            
+            <saw:tableHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Fact - Period Actual and Budget Bals</saw:text></saw:caption></saw:tableHeading>            
+            <saw:columnHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Month Operating ($)</saw:text></saw:caption>               
+               <saw:displayFormat>                  
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="c57e70b90e0642bfb">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Actual Net For Period&quot;</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat>               
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">                  
+                  <saw:dataFormat xsi:type="saw:currency" minDigits="0" maxDigits="0" commas="true" negativeType="paren" currencyTag="none"/></saw:formatSpec></saw:displayFormat>            
+            <saw:tableHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Fact - Period Actual and Budget Bals</saw:text></saw:caption></saw:tableHeading>            
+            <saw:columnHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Month Actual ($)</saw:text></saw:caption>               
+               <saw:displayFormat>                  
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="cd055df7454d493a1">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Variance Actual vs Operating Net For Period&quot;</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">
+                  <saw:dataFormat xsi:type="saw:currency" minDigits="2" maxDigits="2" commas="true" negativeType="redParen" currencyTag="none"/></saw:formatSpec></saw:displayFormat>
+            <saw:tableHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Fact - Period Actual and Budget Bals</saw:text></saw:caption></saw:tableHeading>            
+            <saw:columnHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>$ Variance Month Operating vs Month Actual</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="c212e24be00cef617">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Variance % Actual vs Operating Net For Period&quot;</sawx:expr></saw:columnFormula>            
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">
+                  <saw:dataFormat xsi:type="saw:number" minDigits="1" maxDigits="1" commas="true" negativeType="redParen"/></saw:formatSpec></saw:displayFormat>
+            <saw:tableHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Fact - Period Actual and Budget Bals</saw:text></saw:caption></saw:tableHeading>            
+            <saw:columnHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>% Variance Month Operating vs Month Actual</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column>         
+         <saw:column xsi:type="saw:regularColumn" columnID="c125d456cdad64061">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Actual net fytd end&quot; / &quot;Fact - Period Actual and Budget Bals&quot;.&quot;Operating Bud Net CFY Annual&quot; * 100</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" interaction="none">
+                  <saw:dataFormat xsi:type="saw:number" minDigits="1" maxDigits="1" commas="true" negativeType="redParen"/></saw:formatSpec></saw:displayFormat>
+            <saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Fact - Period Actual and Budget Bals</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>% Earned YTD/ Budget</saw:text></saw:caption>
+               <saw:displayFormat>
+                  <saw:formatSpec interaction="none"/></saw:displayFormat></saw:columnHeading></saw:column></saw:columns>      
+      <saw:filter>         
+         <sawx:expr xsi:type="sawx:logical" op="and">            
+            <sawx:expr xsi:type="sawx:list" op="in">               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Orgs&quot;.&quot;Org&quot;</sawx:expr>               
+               <sawx:expr xsi:type="sawx:eval" default="%">varOrg</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in" protected="true">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Objects&quot;.&quot;Tera Object&quot;</sawx:expr>
+               <sawx:expr xsi:type="xsd:string">T400</sawx:expr>
+               <sawx:expr xsi:type="xsd:string">T600</sawx:expr>
+               <sawx:expr xsi:type="xsd:string">T901</sawx:expr></sawx:expr>
+            <sawx:expr op="in" xsi:type="sawx:list">               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Objects&quot;.&quot;Tera Object&quot;</sawx:expr>                              
+               <sawx:expr xsi:type="sawx:eval" default="%">varTeraObj</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:comparison" op="equal">               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Periods&quot;.&quot;Period key&quot;</sawx:expr>               
+               <sawx:expr xsi:type="sawx:variable" op="server">NQ_SESSION.userPeriodKey</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Tubs&quot;.&quot;Tub&quot;</sawx:expr>               
+               <sawx:expr xsi:type="sawx:eval" default="ZZZ">varTub</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds&quot;.&quot;Fund Group 3&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varFG3</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds&quot;.&quot;Fund Group 2&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varFG2</sawx:expr></sawx:expr>            
+            <sawx:expr xsi:type="sawx:list" op="in">               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds&quot;.&quot;Fund Type Code&quot;</sawx:expr>               
+               <sawx:expr xsi:type="sawx:eval" default="%">varFundType</sawx:expr></sawx:expr>                                    
+            <sawx:expr xsi:type="sawx:list" op="in">               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Funds&quot;.&quot;Fund&quot;</sawx:expr>               
+               <sawx:expr xsi:type="sawx:eval" default="%">varFund</sawx:expr></sawx:expr>            
+            <sawx:expr xsi:type="sawx:list" op="in">               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Activities&quot;.&quot;Activity&quot;</sawx:expr>               
+               <sawx:expr xsi:type="sawx:eval" default="%">varAct</sawx:expr></sawx:expr>            
+            <sawx:expr xsi:type="sawx:list" op="in">               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Subactivities&quot;.&quot;Subactivity&quot;</sawx:expr>               
+               <sawx:expr xsi:type="sawx:eval" default="%">varSubAct</sawx:expr></sawx:expr>            
+            <sawx:expr xsi:type="sawx:list" op="in">               
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Roots&quot;.&quot;Root&quot;</sawx:expr>               
+               <sawx:expr xsi:type="sawx:eval" default="%">varRoot</sawx:expr></sawx:expr>                                                            
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Orgs&quot;.&quot;Giga org&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varGigaOrg</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Orgs&quot;.&quot;Mega org&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varMegaOrg</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Orgs&quot;.&quot;Super org&quot;</sawx:expr>
+               <sawx:expr xsi:type="sawx:eval" default="%">varSuperOrg</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:logical" op="or">
+               <sawx:expr xsi:type="sawx:comparison" op="notEqual">
+                  <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Operating Bud Net CFY Annual&quot;</sawx:expr>
+                  <sawx:expr xsi:type="xsd:decimal">0</sawx:expr></sawx:expr>
+               <sawx:expr xsi:type="sawx:comparison" op="notEqual">
+                  <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Operating Bud Net PFY Annual&quot;</sawx:expr>
+                  <sawx:expr xsi:type="xsd:decimal">0</sawx:expr></sawx:expr>
+               <sawx:expr xsi:type="sawx:comparison" op="notEqual">
+                  <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Forecast Bud Net Fytd End&quot;</sawx:expr>
+                  <sawx:expr xsi:type="xsd:decimal">0</sawx:expr></sawx:expr>
+               <sawx:expr xsi:type="sawx:comparison" op="notEqual">
+                  <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Actual Net PFY Annual&quot;</sawx:expr>
+                  <sawx:expr xsi:type="xsd:decimal">0</sawx:expr></sawx:expr>
+               <sawx:expr xsi:type="sawx:comparison" op="notEqual">
+                  <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Actual Net PPFY Annual&quot;</sawx:expr>
+                  <sawx:expr xsi:type="xsd:decimal">0</sawx:expr></sawx:expr>
+               <sawx:expr xsi:type="sawx:comparison" op="notEqual">
+                  <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Actual Net Fytd End -YearVar&quot;</sawx:expr>
+                  <sawx:expr xsi:type="xsd:decimal">0</sawx:expr></sawx:expr>
+               <sawx:expr xsi:type="sawx:comparison" op="notEqual">
+                  <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Operating Bud Net Fytd End&quot;</sawx:expr>
+                  <sawx:expr xsi:type="xsd:decimal">0</sawx:expr></sawx:expr>
+               <sawx:expr xsi:type="sawx:comparison" op="notEqual">
+                  <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Actual net fytd end&quot;</sawx:expr>
+                  <sawx:expr xsi:type="xsd:decimal">0</sawx:expr></sawx:expr>
+               <sawx:expr xsi:type="sawx:comparison" op="notEqual">
+                  <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Operating Bud Net For Period&quot;</sawx:expr>
+                  <sawx:expr xsi:type="xsd:decimal">0</sawx:expr></sawx:expr>
+               <sawx:expr xsi:type="sawx:comparison" op="notEqual">
+                  <sawx:expr xsi:type="sawx:sqlExpression">&quot;Fact - Period Actual and Budget Bals&quot;.&quot;Actual Net For Period&quot;</sawx:expr>
+                  <sawx:expr xsi:type="xsd:decimal">0</sawx:expr></sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:list" op="notIn" protected="true"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Objects&quot;.&quot;Mega Object&quot;</sawx:expr><sawx:expr xsi:type="xsd:string">M601</sawx:expr><sawx:expr xsi:type="xsd:string">M602</sawx:expr><sawx:expr xsi:type="xsd:string">M605</sawx:expr><sawx:expr xsi:type="xsd:string">M606</sawx:expr><sawx:expr xsi:type="xsd:string">M618</sawx:expr><sawx:expr xsi:type="xsd:string">M623</sawx:expr><sawx:expr xsi:type="xsd:string">M624</sawx:expr><sawx:expr xsi:type="xsd:string">M634</sawx:expr><sawx:expr xsi:type="xsd:string">M637</sawx:expr></sawx:expr><sawx:expr xsi:type="sawx:list" op="notIn" protected="true"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Objects&quot;.&quot;Object Code&quot;</sawx:expr><sawx:expr xsi:type="xsd:string">6178</sawx:expr><sawx:expr xsi:type="xsd:string">6179</sawx:expr><sawx:expr xsi:type="xsd:string">6241</sawx:expr><sawx:expr xsi:type="xsd:string">6250</sawx:expr><sawx:expr xsi:type="xsd:string">6270</sawx:expr><sawx:expr xsi:type="xsd:string">6271</sawx:expr><sawx:expr xsi:type="xsd:string">6274</sawx:expr><sawx:expr xsi:type="xsd:string">6275</sawx:expr><sawx:expr xsi:type="xsd:string">6280</sawx:expr><sawx:expr xsi:type="xsd:string">6281</sawx:expr><sawx:expr xsi:type="xsd:string">6284</sawx:expr><sawx:expr xsi:type="xsd:string">6285</sawx:expr><sawx:expr xsi:type="xsd:string">6290</sawx:expr><sawx:expr xsi:type="xsd:string">6310</sawx:expr><sawx:expr xsi:type="xsd:string">6320</sawx:expr><sawx:expr xsi:type="xsd:string">6321</sawx:expr><sawx:expr xsi:type="xsd:string">6322</sawx:expr><sawx:expr xsi:type="xsd:string">6323</sawx:expr></sawx:expr></sawx:expr></saw:filter>      
+      <saw:columnOrder/></saw:criteria>   
+   <saw:interactionOptions drill="true" movecolumns="true" sortcolumns="true" addremovevalues="false" groupoperations="false" calcitemoperations="false" showhidesubtotal="true" showhiderunningsum="false" inclexclcolumns="true" hidecolumns="false"/>   
+   <saw:views textDelivery="compoundView!1" parentsBefore="true" includeNewColumns="false" nullSuppress="true" currentView="0">      
+      <saw:view xsi:type="saw:compoundView" name="compoundView!1">         
+         <saw:cvTable>            
+            <saw:cvRow>               
+               <saw:cvCell viewName="titleView!1">                  
+                  <saw:displayFormat>                     
+                     <saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow>            
+            <saw:cvRow>               
+               <saw:cvCell viewName="tableView!3"/></saw:cvRow>            
+            <saw:cvRow>               
+               <saw:cvCell viewName="narrativeView!1"/></saw:cvRow></saw:cvTable>         
+         <saw:pageProps orientation="landscape" printRows="all" disableMargins="false">            
+            <saw:pageHeader show="true" showOnDashboard="false">               
+               <saw:zone position="top">                  
+                  <saw:displayFormat>                     
+                     <saw:formatSpec hAlign="center"/></saw:displayFormat>                  
+                  <saw:caption fmt="text">                     
+                     <saw:text>@{savedName}</saw:text></saw:caption></saw:zone>               
+               <saw:zone position="left">                  
+                  <saw:displayFormat>                     
+                     <saw:formatSpec hAlign="left" width="33%"/></saw:displayFormat></saw:zone>               
+               <saw:zone position="center">                  
+                  <saw:displayFormat>                     
+                     <saw:formatSpec hAlign="center" width="34%"/></saw:displayFormat></saw:zone>               
+               <saw:zone position="right">                  
+                  <saw:displayFormat>                     
+                     <saw:formatSpec hAlign="right" width="33%"/></saw:displayFormat></saw:zone>               
+               <saw:zone position="bottom">                  
+                  <saw:displayFormat>                     
+                     <saw:formatSpec hAlign="center"/></saw:displayFormat></saw:zone></saw:pageHeader>            
+            <saw:pageFooter show="true" showOnDashboard="true">               
+               <saw:zone position="top">                  
+                  <saw:displayFormat>                     
+                     <saw:formatSpec hAlign="center"/></saw:displayFormat></saw:zone>               
+               <saw:zone position="left">                  
+                  <saw:displayFormat>                     
+                     <saw:formatSpec hAlign="left" width="33%"/></saw:displayFormat>                  
+                  <saw:caption fmt="text">                     
+                     <saw:text>@{authorName}</saw:text></saw:caption></saw:zone>               
+               <saw:zone position="center">                  
+                  <saw:displayFormat>                     
+                     <saw:formatSpec hAlign="center" width="34%"/></saw:displayFormat></saw:zone>               
+               <saw:zone position="right">                  
+                  <saw:displayFormat>                     
+                     <saw:formatSpec hAlign="right" width="33%"/></saw:displayFormat>                  
+                  <saw:caption fmt="text">                     
+                     <saw:text>@{pageNumber}</saw:text></saw:caption></saw:zone>               
+               <saw:zone position="bottom">                  
+                  <saw:displayFormat>                     
+                     <saw:formatSpec hAlign="center"/></saw:displayFormat></saw:zone></saw:pageFooter></saw:pageProps></saw:view>      
+      <saw:view xsi:type="saw:titleView" name="titleView!1" includeName="true" startedDisplay="dateTime"/>      
+      <saw:view xsi:type="saw:narrativeView" name="narrativeView!1">         
+         <saw:narrative rowCount="1">            
+            <saw:caption fmt="text">               
+               <saw:text>Total Rows Returned: @{cc2dba29f962e1af3}</saw:text></saw:caption></saw:narrative></saw:view>      
+      <saw:view xsi:type="saw:tableView" name="tableView!3" scrollingEnabled="false" autoPreview="false" rowsPerPage="5000">         
+         <saw:viewCaption>            
+            <saw:caption>               
+               <saw:text>Export</saw:text></saw:caption></saw:viewCaption><saw:edges><saw:edge axis="page" showColumnHeader="true"/><saw:edge axis="section">               </saw:edge><saw:edge axis="row" showColumnHeader="true">               
+               <saw:displayGrandTotals>                  
+                  <saw:displayGrandTotal id="gt_row" grandTotalPosition="after"/></saw:displayGrandTotals>               
+               <saw:edgeLayers><saw:edgeLayer type="column" columnID="c93bca6213694f3d3"/><saw:edgeLayer type="column" columnID="c79fadad30c2b99c0"/><saw:edgeLayer type="column" columnID="cf31437d93370aaa7"/><saw:edgeLayer type="column" columnID="c24841611a4baf196"/><saw:edgeLayer type="column" columnID="cbf1a8e34c24805b1"/><saw:edgeLayer type="column" columnID="c7b866fcb7e49c3da"/><saw:edgeLayer type="column" columnID="c1e79ad2bdbf8dad5"/><saw:edgeLayer type="column" columnID="c3e871ff3742aeb2f"/><saw:edgeLayer type="column" columnID="c2ce0c31d84cb41be"/><saw:edgeLayer type="column" columnID="ca670aa837b814f41"/><saw:edgeLayer type="column" columnID="cc2dba29f962e1af3"/></saw:edgeLayers></saw:edge><saw:edge axis="column" showColumnHeader="rollover"/></saw:edges>
+                           
+         <saw:greenBarFormat greenBar="allLayers" enabled="false">            
+            <saw:formatSpec backgroundColor="#EEEEEE" wrapText="true"/></saw:greenBarFormat></saw:view>      
+      <saw:view xsi:type="saw:noresultsview" name="noresultsview!1">         
+         <saw:headline>            
+            <saw:caption>               
+               <saw:text>No Results</saw:text></saw:caption></saw:headline>         
+         <saw:detail>            
+            <saw:caption>               
+               <saw:text>Please select the appropriate prompt values and then click on Apply button.</saw:text></saw:caption></saw:detail></saw:view></saw:views>   
+   <saw:prompts scope="report" subjectArea="&quot;Financials&quot;"/></saw:report>

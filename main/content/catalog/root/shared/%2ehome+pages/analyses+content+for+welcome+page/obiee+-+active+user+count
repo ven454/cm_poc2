@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<saw:report xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlVersion="201201160" xmlns:sawx="com.siebel.analytics.web/expression/v1.1">   
+   <saw:criteria xsi:type="saw:simpleCriteria" subjectArea="&quot;Usage Tracking&quot;">      
+      <saw:columns>                                    
+         <saw:column xsi:type="saw:regularColumn" columnID="ceed4c1273ecb8d71">            
+            <saw:columnFormula>               
+               <sawx:expr xsi:type="sawx:sqlExpression">COUNT(distinct &quot;Dim - Users&quot;.&quot;Login ID&quot;)</sawx:expr></saw:columnFormula>            
+            <saw:tableHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Dim - Users</saw:text></saw:caption></saw:tableHeading>            
+            <saw:columnHeading>               
+               <saw:caption fmt="text">                  
+                  <saw:text>Count</saw:text></saw:caption></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c527b5d2b3d37c547">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Users&quot;.&quot;Login ID&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c8d31255c8fc4083d">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Users&quot;.&quot;User First Name&quot;</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c3bdfdfc279aca4b8">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Users&quot;.&quot;User Last Name&quot;</sawx:expr></saw:columnFormula></saw:column></saw:columns>      
+      <saw:filter>         
+         <sawx:expr xsi:type="sawx:comparison" op="equal">            
+            <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Users&quot;.&quot;Active User Flag&quot;</sawx:expr>            
+            <sawx:expr xsi:type="xsd:string">Y</sawx:expr></sawx:expr></saw:filter></saw:criteria>   
+   <saw:views currentView="0">      
+      <saw:view xsi:type="saw:compoundView" name="compoundView!1">         
+         <saw:cvTable>            
+            <saw:cvRow>               
+               <saw:cvCell viewName="titleView!1">                  
+                  <saw:displayFormat>                     
+                     <saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow>            
+            <saw:cvRow>               
+               <saw:cvCell viewName="tableView!1">                  
+                  <saw:displayFormat>                     
+                     <saw:formatSpec/></saw:displayFormat></saw:cvCell></saw:cvRow></saw:cvTable></saw:view>      
+      <saw:view xsi:type="saw:titleView" name="titleView!1"/>      
+      <saw:view xsi:type="saw:tableView" name="tableView!1" scrollingEnabled="true">         
+         <saw:edges>            
+            <saw:edge axis="page" showColumnHeader="true"/>            
+            <saw:edge axis="section"/>            
+            <saw:edge axis="row" showColumnHeader="true">               
+               <saw:edgeLayers>                                                                                                            
+                  <saw:edgeLayer type="column" columnID="ceed4c1273ecb8d71"/>
+                  <saw:edgeLayer type="column" columnID="c527b5d2b3d37c547"/>
+                  <saw:edgeLayer type="column" columnID="c8d31255c8fc4083d"/>
+                  <saw:edgeLayer type="column" columnID="c3bdfdfc279aca4b8"/></saw:edgeLayers></saw:edge>            
+            <saw:edge axis="column" showColumnHeader="rollover"/></saw:edges></saw:view></saw:views></saw:report>

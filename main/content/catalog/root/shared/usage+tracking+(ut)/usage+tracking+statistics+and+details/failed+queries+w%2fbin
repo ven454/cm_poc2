@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<saw:report xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sawx="com.siebel.analytics.web/expression/v1.1" xmlVersion="201201160" cacheControl="bypassCache">      
+   <saw:criteria xsi:type="saw:simpleCriteria" subjectArea="&quot;Usage Tracking&quot;" withinHierarchy="true">            
+      <saw:columns>                                                      
+         <saw:column xsi:type="saw:regularColumn" columnID="c6deddba4b35bc9a3">                        
+            <saw:columnFormula>                              
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Topic&quot;.&quot;Id&quot;</sawx:expr></saw:columnFormula></saw:column>                                                      
+         <saw:column xsi:type="saw:regularColumn" columnID="c394a540c2d13e31a">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:binned">
+                  <sawx:baseFormula>
+                     <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Logical SQL&quot;.&quot;Success Flag&quot;</sawx:expr></sawx:baseFormula>
+                  <sawx:rules>
+                     <sawx:when>
+                        <sawx:condition>
+                           <sawx:expr xsi:type="sawx:comparison" op="equal">
+                              <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Logical SQL&quot;.&quot;Success Flag&quot;</sawx:expr>
+                              <sawx:expr xsi:type="xsd:string">N</sawx:expr></sawx:expr></sawx:condition>
+                        <sawx:value>
+                           <sawx:expr xsi:type="xsd:string">No</sawx:expr></sawx:value></sawx:when>
+                     <sawx:when>
+                        <sawx:condition>
+                           <sawx:expr xsi:type="sawx:comparison" op="equal">
+                              <sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Logical SQL&quot;.&quot;Success Flag&quot;</sawx:expr>
+                              <sawx:expr xsi:type="xsd:string">Y</sawx:expr></sawx:expr></sawx:condition>
+                        <sawx:value>
+                           <sawx:expr xsi:type="xsd:string">Yes</sawx:expr></sawx:value></sawx:when></sawx:rules></sawx:expr></saw:columnFormula>
+            <saw:displayFormat><saw:formatSpec suppress="suppress" wrapText="true"/></saw:displayFormat><saw:tableHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Dim - Logical SQL</saw:text></saw:caption></saw:tableHeading>
+            <saw:columnHeading>
+               <saw:caption fmt="text">
+                  <saw:text>Success Flag</saw:text></saw:caption><saw:displayFormat><saw:formatSpec interaction="action"><saw:actionLinks showPopupMenuForOneLink="true"><saw:actionLink actionLinkID="c394a540c2d13e31a_ale86b4976f865cbb1"><saw:action><saw:actionName>Query Detail Success Flag Column Prompt</saw:actionName><saw:parameters allowExtraParameters="true"><saw:parameter name="__navigateToBIContent__" type="string" mandatory="true" removable="true" order="999" multiValues="false"><saw:prompt>__navigateToBIContent__</saw:prompt><saw:description/></saw:parameter></saw:parameters><saw:assignments><saw:assign name="__navigateToBIContent__" fixed="true" hidden="true" parentFixed="false" parentHidden="false" xsi:type="saw:stringAssign"><saw:value>/shared/Usage Tracking (UT)/Usage Tracking Statistics and Details/Query Detail Success Flag Column Prompt</saw:value></saw:assign></saw:assignments><saw:implementation xsi:type="saw:ScriptActionType" executeOnClient="true"><saw:functionName>__navigateToBIContent__</saw:functionName><saw:scriptLanguage>JScript</saw:scriptLanguage><saw:scriptPath/></saw:implementation><saw:clientImplementation><saw:customisation invokeConfirmation="false"/></saw:clientImplementation></saw:action><saw:caption><saw:text>Query Detail w/Success Flag Prompt</saw:text></saw:caption></saw:actionLink></saw:actionLinks></saw:formatSpec></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c2585005dad5c1794">                        
+            <saw:columnFormula>                              
+               <sawx:expr xsi:type="sawx:sqlExpression">&quot;Measures&quot;.&quot;Query Count&quot;</sawx:expr></saw:columnFormula><saw:displayFormat><saw:formatSpec suppress="repeat" wrapText="true"/></saw:displayFormat><saw:columnHeading><saw:displayFormat><saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column></saw:columns>                        
+      <saw:filter>
+         <sawx:expr xsi:type="sawx:logical" op="and"><sawx:expr xsi:type="sawx:savedFilter" path="/shared/Usage Tracking (UT)/_filters/Usage Tracking/UTFilters" name="UTFilters"/><sawx:expr xsi:type="sawx:comparison" op="greater"><sawx:expr xsi:type="sawx:sqlExpression">&quot;Dim - Date and Time&quot;.&quot;Date&quot;</sawx:expr><sawx:expr xsi:type="xsd:date">2015-10-01</sawx:expr></sawx:expr></sawx:expr></saw:filter>
+      <saw:columnOrder>                  
+         <saw:columnOrderRef columnID="cc3e39c32fae5aec3" direction="ascending"/></saw:columnOrder>
+      <saw:prefix>SET VARIABLE DISABLE_CACHE_HIT=1;</saw:prefix></saw:criteria>      
+   <saw:views currentView="0">            
+      <saw:view xsi:type="saw:compoundView" name="compoundView!1">                  
+         <saw:cvTable><saw:cvRow><saw:cvCell viewName="titleView!1"/></saw:cvRow><saw:cvRow><saw:cvCell viewName="viewSelector!1"/></saw:cvRow></saw:cvTable></saw:view>            
+      <saw:view xsi:type="saw:pivotTableView" name="pivotTableView!3" scrollingEnabled="true" height="110">                  
+         <saw:viewCaption>                        
+            <saw:caption>                              
+               <saw:text>Success Flag</saw:text></saw:caption></saw:viewCaption>
+         <saw:edges>
+            <saw:edge axis="page" showColumnHeader="true"/>
+            <saw:edge axis="section" insertPageBreak="false" showBlankRows="false" showColumnHeader="false">                              
+               <saw:displayFormat>                                    
+                  <saw:formatSpec wrapText="true"/></saw:displayFormat></saw:edge>
+            <saw:edge axis="row" showColumnHeader="true">                              
+               <saw:displayGrandTotals>                                    
+                  <saw:displayGrandTotal id="gt_row" grandTotalPosition="none"/></saw:displayGrandTotals>                              
+               <saw:columnOrder>                                    
+                  <saw:columnOrderRef columnID="c96d00b450f2ece35" direction="descending">                                          
+                     <saw:QDR>                                                
+                        <saw:staticMemberGroup specialDimension="measure">                                                      
+                           <saw:members xsi:type="saw:specialValueMembers">                                                            
+                              <saw:value>c3c6e25b09c24c07c</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>                                    
+                  <saw:columnOrderRef columnID="caa5c28cc6d957c74" direction="descending">                                          
+                     <saw:QDR>                                                
+                        <saw:staticMemberGroup specialDimension="measure">                                                      
+                           <saw:members xsi:type="saw:specialValueMembers">                                                            
+                              <saw:value>c3c6e25b09c24c07c</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>                                    
+                  <saw:columnOrderRef columnID="c1365038bf21735e4" direction="descending">                                          
+                     <saw:QDR>                                                
+                        <saw:staticMemberGroup specialDimension="measure">                                                      
+                           <saw:members xsi:type="saw:specialValueMembers">                                                            
+                              <saw:value>c3c6e25b09c24c07c</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>                                    
+                  <saw:columnOrderRef columnID="cd17c3b6d20f37644" direction="descending">                                          
+                     <saw:QDR>                                                
+                        <saw:staticMemberGroup specialDimension="measure">                                                      
+                           <saw:members xsi:type="saw:specialValueMembers">                                                            
+                              <saw:value>c3c6e25b09c24c07c</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>                                    
+                  <saw:columnOrderRef columnID="cdb09eeddc1e54557" direction="descending">                                          
+                     <saw:QDR>                                                
+                        <saw:staticMemberGroup specialDimension="measure">                                                      
+                           <saw:members xsi:type="saw:specialValueMembers">                                                            
+                              <saw:value>c3c6e25b09c24c07c</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>                                    
+                  <saw:columnOrderRef columnID="c07ce4d4d50a5912c" direction="descending">                                          
+                     <saw:QDR>                                                
+                        <saw:staticMemberGroup specialDimension="measure">                                                      
+                           <saw:members xsi:type="saw:specialValueMembers">                                                            
+                              <saw:value>c3c6e25b09c24c07c</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>                                    
+                  <saw:columnOrderRef columnID="c26f9e24532758f3c" direction="descending">                                          
+                     <saw:QDR>                                                
+                        <saw:staticMemberGroup specialDimension="measure">                                                      
+                           <saw:members xsi:type="saw:specialValueMembers">                                                            
+                              <saw:value>c3c6e25b09c24c07c</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>                                    
+                  <saw:columnOrderRef columnID="c1b8eb8070e0c3068" direction="descending">                                          
+                     <saw:QDR>                                                
+                        <saw:staticMemberGroup specialDimension="measure">                                                      
+                           <saw:members xsi:type="saw:specialValueMembers">                                                            
+                              <saw:value>c3c6e25b09c24c07c</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>                                    
+                  <saw:columnOrderRef columnID="ceb03424cc3ff6a4d" direction="descending">                                          
+                     <saw:QDR>                                                
+                        <saw:staticMemberGroup specialDimension="measure">                                                      
+                           <saw:members xsi:type="saw:specialValueMembers">                                                            
+                              <saw:value>c3c6e25b09c24c07c</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>                                    
+                  <saw:columnOrderRef columnID="c2a4199dcb2319ce9" direction="descending">                                          
+                     <saw:QDR>                                                
+                        <saw:staticMemberGroup specialDimension="measure">                                                      
+                           <saw:members xsi:type="saw:specialValueMembers">                                                            
+                              <saw:value>c3c6e25b09c24c07c</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>                                    
+                  <saw:columnOrderRef columnID="c0f95702187191f7a" direction="descending">                                          
+                     <saw:QDR>                                                
+                        <saw:staticMemberGroup specialDimension="measure">                                                      
+                           <saw:members xsi:type="saw:specialValueMembers">                                                            
+                              <saw:value>c3c6e25b09c24c07c</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>                                    
+                  <saw:columnOrderRef columnID="c6deddba4b35bc9a3" direction="descending">                                          
+                     <saw:QDR>                                                
+                        <saw:staticMemberGroup specialDimension="measure">                                                      
+                           <saw:members xsi:type="saw:specialValueMembers">                                                            
+                              <saw:value>c3c6e25b09c24c07c</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef>
+                  <saw:columnOrderRef columnID="c394a540c2d13e31a" direction="descending">                                          
+                     <saw:QDR>                                                
+                        <saw:staticMemberGroup specialDimension="measure">                                                      
+                           <saw:members xsi:type="saw:specialValueMembers">                                                            
+                              <saw:value>c3c6e25b09c24c07c</saw:value></saw:members></saw:staticMemberGroup></saw:QDR></saw:columnOrderRef></saw:columnOrder>                              
+               <saw:edgeLayers>
+                  <saw:edgeLayer type="column" columnID="c394a540c2d13e31a"/></saw:edgeLayers></saw:edge>
+            <saw:edge axis="column" showColumnHeader="rollover">                              
+               <saw:displayGrandTotals>                                    
+                  <saw:displayGrandTotal id="gt_column" grandTotalPosition="none"/></saw:displayGrandTotals>                              
+               <saw:edgeLayers>
+                  <saw:edgeLayer type="measure">                                          
+                     <saw:memberFormat>                                                
+                        <saw:displayFormat>                                                      
+                           <saw:formatSpec/></saw:displayFormat></saw:memberFormat></saw:edgeLayer></saw:edgeLayers></saw:edge></saw:edges>
+         <saw:measuresList>                                                
+            <saw:measure columnID="c2585005dad5c1794">                                                            
+               <saw:showAs type="percentOfAxis" axis="column">                                    
+                  <saw:displayFormat>                                          
+                     <saw:formatSpec>                                                
+                        <saw:dataFormat xsi:type="saw:percent" minDigits="1" maxDigits="1" scale="2"/></saw:formatSpec></saw:displayFormat></saw:showAs>
+               <saw:dataBodyFormat/></saw:measure>
+            <saw:measure columnID="c2585005dad5c1794" duplicateID="d1">                                                            
+               <saw:dataBodyFormat/></saw:measure></saw:measuresList>                                             
+         <saw:sectionContent>            
+            <saw:displayFormat>               
+               <saw:formatSpec height="10" wrapText="true"/></saw:displayFormat></saw:sectionContent></saw:view>            
+      <saw:view xsi:type="saw:titleView" name="titleView!1" includeName="false" startedDisplay="none"><saw:title>
+            <saw:caption fmt="text">
+               <saw:text>Failed Queries</saw:text></saw:caption></saw:title></saw:view>            
+      <saw:view xsi:type="saw:filtersView" name="filtersView!1"/>      
+      <saw:view xsi:type="saw:filtersView" name="filtersView!2"/><saw:view xsi:type="saw:viewSelector" name="viewSelector!1"><saw:viewSelectorCaption position="left"/><saw:viewList><saw:viewItem type="view" name="pivotTableView!3"/><saw:viewItem type="view" name="filtersView!1"/></saw:viewList></saw:view></saw:views>      
+   <saw:prompts scope="report" subjectArea="&quot;Usage Tracking&quot;"/></saw:report>
